@@ -3,27 +3,24 @@
 
 import { barList, el, section, statTiles } from './charts.js';
 import {
-  ADMISSIONS, CLIENTELE_FLOW, EQUIPMENT, ICU_BEDS, MANAGEMENT, SHIFTS, SPECIALTIES,
-  facilityAddress, facilityName, formatCnes, formatCount, formatNumber, typeInfo,
+  ADMISSIONS, EQUIPMENT, ICU_BEDS, SPECIALTIES,
+  facilityAddress, facilityName, flowLabel, formatCnes, formatCount, formatNumber,
+  legalSphereLabel, managementLabel, shiftLabel, typeInfo,
 } from './fields.js';
+import { pick, t } from './i18n.js';
 
 /** Non-zero entries of `labels` found in `row`, largest first. */
 function rankedItems(row, labels) {
   return Object.entries(labels)
-    .map(([column, label]) => ({ label, value: Number(row[column]) || 0 }))
+    .map(([column, label]) => ({ label: pick(label), value: Number(row[column]) || 0 }))
     .filter((item) => item.value > 0)
     .sort((a, b) => b.value - a.value);
 }
 
-function limited(items, limit) {
-  if (!limit || items.length <= limit) return { shown: items, hidden: 0 };
-  return { shown: items.slice(0, limit), hidden: items.length - limit };
-}
-
 function rankedSection(title, items, { limit, hint, emptyText } = {}) {
   if (!items.length) return section(title, null, { emptyText });
-  const { shown, hidden } = limited(items, limit);
-  const more = hidden ? `Top ${shown.length} of ${items.length} shown.` : null;
+  const shown = limit && items.length > limit ? items.slice(0, limit) : items;
+  const more = shown.length < items.length ? t('topShown', { shown: shown.length, total: items.length }) : null;
   return section(title, barList(shown), { hint: [hint, more].filter(Boolean).join(' ') });
 }
 
@@ -43,12 +40,14 @@ export function facilityHeader(row, headingTag = 'h2') {
 
 function profile(row) {
   const entries = [
-    ['CNES code', formatCnes(row.CO_CNES)],
-    ['Legal name', row.NO_RAZAO_SOCIAL],
-    ['Category', typeInfo(row.tipo_equipamento).groupLabel],
-    ['Management', MANAGEMENT[row.TP_GESTAO] || row.TP_GESTAO],
-    ['Patient flow', CLIENTELE_FLOW[row.Fluxo_Clientela] || 'Not reported'],
-    ['Opening hours', SHIFTS[row.CO_TURNO_ATENDIMENTO] || 'Not reported'],
+    [t('profile.cnes'), formatCnes(row.CO_CNES)],
+    [t('profile.legalName'), row.NO_RAZAO_SOCIAL],
+    [t('profile.type'), typeInfo(row.tipo_equipamento).label],
+    [t('profile.sector'), legalSphereLabel(row.esfera_juridica)],
+    [t('profile.sus'), row.atende_sus ? t('yes') : t('no')],
+    [t('profile.management'), managementLabel(row.TP_GESTAO)],
+    [t('profile.flow'), flowLabel(row.Fluxo_Clientela)],
+    [t('profile.hours'), shiftLabel(row.CO_TURNO_ATENDIMENTO)],
   ];
   return el('dl', { class: 'profile' }, entries.flatMap(([term, value]) => [
     el('dt', { text: term }),
@@ -58,35 +57,29 @@ function profile(row) {
 
 function keyFigures(row) {
   const admissions = Number(row.internacoes_total) || 0;
+  const sus = (column) => t('tile.susNote', { count: formatCount(row[column]) });
   return statTiles([
-    { label: 'Beds', value: formatCount(row.LEITOS_EXISTENTES), note: `${formatCount(row.LEITOS_SUS)} SUS` },
-    { label: 'ICU beds', value: formatCount(row.UTI_TOTAL_EXIST), note: `${formatCount(row.UTI_TOTAL_SUS)} SUS` },
-    { label: 'Physicians', value: formatCount(row.total_medicos), note: 'in care teams' },
-    { label: 'Nurses', value: formatCount(row.total_enfermeiros), note: 'in care teams' },
-    { label: 'Admissions', value: formatCount(admissions) },
+    { label: t('tile.beds'), value: formatCount(row.LEITOS_EXISTENTES), note: sus('LEITOS_SUS') },
+    { label: t('tile.icu'), value: formatCount(row.UTI_TOTAL_EXIST), note: sus('UTI_TOTAL_SUS') },
+    { label: t('tile.physicians'), value: formatCount(row.total_medicos) },
+    { label: t('tile.nurses'), value: formatCount(row.total_enfermeiros) },
+    { label: t('tile.admissions'), value: formatCount(admissions) },
     {
-      label: 'Mean stay',
-      value: admissions ? `${formatNumber(row.media_dias_permanencia, 1)} d` : '–',
+      label: t('tile.stay'),
+      value: admissions ? t('tile.days', { value: formatNumber(row.media_dias_permanencia, 1) }) : '–',
     },
   ]);
 }
 
 function icuSection(row) {
   const items = ICU_BEDS
-    .map(([all, sus, label]) => ({ label, value: Number(row[all]) || 0, note: `${formatCount(row[sus])} SUS` }))
+    .map(([all, sus, label]) => ({
+      label: pick(label),
+      value: Number(row[all]) || 0,
+      note: t('tile.susNote', { count: formatCount(row[sus]) }),
+    }))
     .filter((item) => item.value > 0);
-  return section('ICU beds by type', items.length ? barList(items) : null, {
-    emptyText: 'No ICU beds registered.',
-  });
-}
-
-function workforceSection(row, limit) {
-  const items = rankedItems(row, SPECIALTIES);
-  return rankedSection('Workforce by specialty', items, {
-    limit,
-    hint: 'Only professionals registered in care teams (CNES) are counted, so hospital staff are largely absent.',
-    emptyText: 'No care-team professionals registered for this facility.',
-  });
+  return section(t('icu.title'), items.length ? barList(items) : null, { emptyText: t('icu.empty') });
 }
 
 /**
@@ -98,17 +91,15 @@ export function renderFacility(row, { compact = false } = {}) {
   return el('div', { class: `facility${compact ? ' is-compact' : ''}` },
     keyFigures(row),
     el('div', { class: 'facility-sections' },
-      section('Profile', profile(row)),
+      section(t('profile.title'), profile(row)),
       icuSection(row),
-      workforceSection(row, limit),
-      rankedSection('Equipment by category', rankedItems(row, EQUIPMENT), {
-        limit,
-        hint: 'Units registered in CNES.',
-        emptyText: 'No equipment registered.',
+      rankedSection(t('workforce.title'), rankedItems(row, SPECIALTIES), {
+        limit, hint: t('workforce.hint'), emptyText: t('workforce.empty'),
       }),
-      rankedSection('Admissions by cause', rankedItems(row, ADMISSIONS), {
-        limit,
-        hint: 'SUS hospital admissions by ICD-10 chapter (SIH).',
-        emptyText: 'No SUS hospital admissions recorded: this is not an inpatient unit, or it does not bill SUS.',
+      rankedSection(t('equipment.title'), rankedItems(row, EQUIPMENT), {
+        limit, hint: t('equipment.hint'), emptyText: t('equipment.empty'),
+      }),
+      rankedSection(t('admissions.title'), rankedItems(row, ADMISSIONS), {
+        limit, hint: t('admissions.hint'), emptyText: t('admissions.empty'),
       })));
 }

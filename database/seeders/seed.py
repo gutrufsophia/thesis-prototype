@@ -21,6 +21,11 @@ HEALTH_CSV = ROOT / "culturaeduca_infraestrutura_saude_rmsp.csv"
 CENSUS_CSV = ROOT / "dados_censo_culturaeduca.csv"
 HEALTH_TABLE = "infraestrutura_saude"
 CENSUS_TABLE = "dados_censo_grande_sp"
+MUNICIPAL_CSV = ROOT / "indicadores_municipais_rmsp.csv"
+MUNICIPAL_TABLE = "indicadores_municipio"
+ACCESS_TABLE = "setor_acesso"
+ACCESS_CSV = ROOT / "database" / "geocoding" / "setor_acesso.csv"
+PRIMARY_CARE_TYPES = ("Centro de Saúde/UBS", "Posto de Saúde")
 GEOCODED_CSV = ROOT / "database" / "geocoding" / "geocoded_facilities.csv"
 VALIDATION_CSV = ROOT / "database" / "geocoding" / "validation_detail.csv"
 EVIDENCE_CSV = ROOT / "database" / "geocoding" / "establishment_evidence.csv"
@@ -69,9 +74,9 @@ def cast_to_table(df, types):
     """Coerce CSV text columns to the types of the destination table."""
     out = pd.DataFrame(index=df.index)
     for column in df.columns:
-        if types[column] == "bigint":
+        if types[column] in ("bigint", "integer"):
             out[column] = pd.to_numeric(df[column], errors="coerce").round().astype("Int64")
-        elif types[column] == "double precision":
+        elif types[column] in ("double precision", "numeric"):
             out[column] = pd.to_numeric(df[column], errors="coerce")
         else:
             out[column] = df[column]
@@ -177,6 +182,16 @@ def apply_corrections(cur):
         )
 
 
+def load_access(cur):
+    """Load the per-tract access summary produced by database/geocoding/compute_access.py."""
+    cur.execute(f"truncate public.{ACCESS_TABLE}")
+    if not ACCESS_CSV.exists():
+        print("no setor_acesso.csv; primary care access will be empty")
+        return
+    access = pd.read_csv(ACCESS_CSV, dtype=str)
+    copy_frame(cur, ACCESS_TABLE, cast_to_table(access, table_types(cur, ACCESS_TABLE)))
+
+
 def copy_frame(cur, table, df):
     buffer = io.StringIO()
     df.to_csv(buffer, index=False, header=False)
@@ -196,7 +211,7 @@ def main():
 
     conn = psycopg2.connect(database_url, options="-c search_path=public,extensions")
     with conn, conn.cursor() as cur:
-        for table in (HEALTH_TABLE, CENSUS_TABLE):
+        for table in (HEALTH_TABLE, CENSUS_TABLE, MUNICIPAL_TABLE):
             cur.execute(f"select count(*) from public.{table}")
             rows = cur.fetchone()[0]
             if rows and not args.replace:
@@ -212,6 +227,9 @@ def main():
         census_raw = pd.read_csv(CENSUS_CSV, dtype=str)
         copy_frame(cur, CENSUS_TABLE, cast_to_table(census_raw, table_types(cur, CENSUS_TABLE)))
 
+        municipal_raw = pd.read_csv(MUNICIPAL_CSV, dtype=str)
+        copy_frame(cur, MUNICIPAL_TABLE, cast_to_table(municipal_raw, table_types(cur, MUNICIPAL_TABLE)))
+
         # A point that falls in no RMSP census tract cannot be related to the territory
         cur.execute(
             f"""
@@ -226,8 +244,10 @@ def main():
         cur.execute(f"update public.{HEALTH_TABLE} set coord_source = 'cnes' where coord is not null")
         apply_geocoding(cur)
         apply_corrections(cur)
+        load_access(cur)
         cur.execute(f"analyze public.{HEALTH_TABLE}")
         cur.execute(f"analyze public.{CENSUS_TABLE}")
+        cur.execute(f"analyze public.{ACCESS_TABLE}")
 
         cur.execute(f"select count(*) from public.{CENSUS_TABLE}")
         print(f"{CENSUS_TABLE}: {cur.fetchone()[0]} rows")

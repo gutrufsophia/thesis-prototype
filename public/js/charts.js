@@ -1,6 +1,7 @@
 // Small dependency-free DOM and chart helpers shared by both pages.
 
 import { formatNumber } from './fields.js';
+import { t } from './i18n.js';
 
 /** Create an element. `props` may hold class, text, dataset, style or any attribute. */
 export function el(tag, props = {}, ...children) {
@@ -24,15 +25,17 @@ export function el(tag, props = {}, ...children) {
 
 /**
  * Horizontal bar list, one row per item, value printed at the bar's tip.
- * @param {{label: string, value: number, note?: string, muted?: boolean, color?: string}[]} items
+ * `reference` draws a tick on the same scale, for a comparison value.
+ * @param {{label: string, value: number, note?: string, muted?: boolean, color?: string, reference?: number}[]} items
  * @param {{digits?: number, suffix?: string, max?: number}} options
  */
 export function barList(items, { digits = 0, suffix = '', max } = {}) {
-  const scaleMax = max ?? Math.max(...items.map((item) => item.value || 0), 0);
-  return el('div', { class: 'bars', role: 'list' }, items.map((item) => {
+  const scaleMax = max ?? Math.max(...items.flatMap((item) => [item.value || 0, item.reference || 0]), 0);
+  const hasReference = items.some((item) => item.reference !== undefined && item.reference !== null);
+  return el('div', { class: `bars${hasReference ? ' has-reference' : ''}`, role: 'list' }, items.map((item) => {
     const hasValue = item.value !== null && item.value !== undefined;
     const share = hasValue && scaleMax > 0 ? item.value / scaleMax : 0;
-    const valueText = hasValue ? `${formatNumber(item.value, digits)}${suffix}` : 'no data';
+    const valueText = hasValue ? `${formatNumber(item.value, digits)}${suffix}` : t('noData');
     return el('div', {
       class: 'bar-row',
       role: 'listitem',
@@ -44,6 +47,9 @@ export function barList(items, { digits = 0, suffix = '', max } = {}) {
           class: `bar-fill${item.muted ? ' is-muted' : ''}`,
           style: item.color ? { background: item.color } : {},
         }),
+        item.reference !== undefined && item.reference !== null && scaleMax > 0
+          ? el('span', { class: 'bar-reference', style: { '--ref': (item.reference / scaleMax).toFixed(4) } })
+          : null,
         el('span', { class: 'bar-value' }, valueText,
           item.note ? el('span', { class: 'bar-note', text: ` · ${item.note}` }) : null)));
   }));
@@ -63,5 +69,5 @@ export function section(title, body, { hint, emptyText } = {}) {
   return el('section', { class: 'block' },
     el('h3', { text: title }),
     hint ? el('p', { class: 'hint', text: hint }) : null,
-    body || el('p', { class: 'empty', text: emptyText || 'None recorded.' }));
+    body || el('p', { class: 'empty', text: emptyText || t('noneRecorded') }));
 }
