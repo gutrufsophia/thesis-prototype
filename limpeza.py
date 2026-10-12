@@ -69,14 +69,28 @@ df_rmsp['TP_GESTAO'] = df_rmsp['TP_GESTAO'].map({
 }).fillna('Não Informado')
 
 df_rmsp['Fluxo_Clientela'] = df_rmsp['CO_CLIENTELA'].map({
-    '1': 'Atendimento de Demanda Espontânea',
-    '2': 'Atendimento de Demanda Referenciada',
-    '3': 'Atendimento de Demanda Espontânea e Referenciada'
+    '01': 'Atendimento de Demanda Espontânea',
+    '02': 'Atendimento de Demanda Referenciada',
+    '03': 'Atendimento de Demanda Espontânea e Referenciada'
 }).fillna('Não Informado')
 
 df_rmsp['Dependencia'] = df_rmsp['NU_CNPJ_MANTENEDORA'].apply(
     lambda x: 'Individual' if pd.isna(x) or str(x).strip() == '' else 'Mantida'
 )
+
+# 1.1b ESFERA JURÍDICA (primeiro dígito da natureza jurídica) e VÍNCULO COM O SUS
+df_rmsp['esfera_juridica'] = df_rmsp['CO_NATUREZA_JUR'].astype(str).str[0].map({
+    '1': 'Administração Pública',
+    '2': 'Entidade Empresarial',
+    '3': 'Entidade sem Fins Lucrativos',
+    '4': 'Pessoa Física',
+}).fillna('Não Informado')
+
+# Convênio '01' = SUS na tabela de atendimentos prestados por convênio
+df_conv = pd.read_csv('/home/sophia/Downloads/BASE_DE_DADOS_CNES_202608/rlEstabAtendPrestConv202608.csv',
+                      sep=';', encoding='latin-1', usecols=['CO_UNIDADE', 'CO_CONVENIO'], dtype=str)
+cnes_sus = set(df_conv.loc[df_conv['CO_CONVENIO'] == '01', 'CO_UNIDADE'].str[-7:])
+df_rmsp['atende_sus'] = df_rmsp['CO_CNES'].isin(cnes_sus)
 
 # 1.2 A GRANDE LIMPEZA (Early Filtering)
 # A) Joga fora equipamentos que não mapeamos
@@ -138,31 +152,37 @@ equip_pivot.reset_index(inplace=True)
 # 4. VOCAÇÃO DE CUIDADO: Força de Trabalho
 # =====================================================================
 print("Processando Profissionais...")
-colunas_prof = ['CO_UNIDADE', 'CO_CBO']
-df_prof = pd.read_csv('/home/sophia/Downloads/BASE_DE_DADOS_CNES_202608/rlEstabEquipeProf202608.csv', sep=';', encoding='latin-1', usecols=colunas_prof, dtype=str)
+# rlEstabEquipeProf só lista quem integra equipes (ESF etc.). O vínculo de TODOS os
+# profissionais com cada estabelecimento está em tbCargaHorariaSus.
+colunas_prof = ['CO_UNIDADE', 'CO_PROFISSIONAL_SUS', 'CO_CBO']
+df_prof = pd.read_csv('/home/sophia/Downloads/BASE_DE_DADOS_CNES_202608/tbCargaHorariaSus202608.csv', sep=';', encoding='latin-1', usecols=colunas_prof, dtype=str)
 
 df_prof['CO_CNES'] = df_prof['CO_UNIDADE'].astype(str).str[-7:]
 df_prof = df_prof[df_prof['CO_CNES'].isin(cnes_validos_rmsp)].copy()
 df_prof.drop(columns=['CO_UNIDADE'], inplace=True)
 
-df_prof['total_medicos'] = df_prof['CO_CBO'].str.startswith(('225', '2231')).astype(int)
-df_prof['total_enfermeiros'] = df_prof['CO_CBO'].str.startswith('2235').astype(int)
-df_prof['total_saude_mental'] = (df_prof['CO_CBO'].str.startswith('2515') | (df_prof['CO_CBO'] == '225133') | (df_prof['CO_CBO'] == '223905')).astype(int)
-
-df_prof['esp_psicologo'] = df_prof['CO_CBO'].str.startswith('2515').astype(int)
-df_prof['esp_psiquiatra'] = (df_prof['CO_CBO'] == '225133').astype(int)
-df_prof['esp_terapeuta_ocupacional'] = (df_prof['CO_CBO'] == '223905').astype(int)
-df_prof['esp_pediatra'] = (df_prof['CO_CBO'] == '225124').astype(int)
-df_prof['esp_ginecologista_obstetra'] = (df_prof['CO_CBO'] == '225250').astype(int)
-df_prof['esp_clinico_geral'] = (df_prof['CO_CBO'] == '225125').astype(int)
-df_prof['esp_medico_familia'] = (df_prof['CO_CBO'] == '225130').astype(int)
-df_prof['esp_cardiologista'] = (df_prof['CO_CBO'] == '225120').astype(int)
-df_prof['esp_endocrinologista'] = (df_prof['CO_CBO'] == '225155').astype(int)
-df_prof['esp_infecto_pneumo'] = df_prof['CO_CBO'].isin(['225103', '225127']).astype(int)
-df_prof['esp_oncologista'] = df_prof['CO_CBO'].isin(['225121', '225290', '225122']).astype(int)
-
-colunas_contar = ['total_medicos', 'total_enfermeiros', 'total_saude_mental', 'esp_psicologo', 'esp_psiquiatra', 'esp_terapeuta_ocupacional', 'esp_pediatra', 'esp_ginecologista_obstetra', 'esp_clinico_geral', 'esp_medico_familia', 'esp_cardiologista', 'esp_endocrinologista', 'esp_infecto_pneumo', 'esp_oncologista']
-prof_agrupado = df_prof.groupby('CO_CNES')[colunas_contar].sum().reset_index()
+cbo = df_prof['CO_CBO']
+categorias_prof = {
+    'total_medicos': cbo.str.startswith(('225', '2231')),
+    'total_enfermeiros': cbo.str.startswith('2235'),
+    'total_saude_mental': cbo.str.startswith('2515') | (cbo == '225133') | (cbo == '223905'),
+    'esp_psicologo': cbo.str.startswith('2515'),
+    'esp_psiquiatra': cbo == '225133',
+    'esp_terapeuta_ocupacional': cbo == '223905',
+    'esp_pediatra': cbo == '225124',
+    'esp_ginecologista_obstetra': cbo == '225250',
+    'esp_clinico_geral': cbo == '225125',
+    'esp_medico_familia': cbo == '225130',
+    'esp_cardiologista': cbo == '225120',
+    'esp_endocrinologista': cbo == '225155',
+    'esp_infecto_pneumo': cbo.isin(['225103', '225127']),
+    'esp_oncologista': cbo.isin(['225121', '225290', '225122']),
+}
+# Um profissional pode ter vários vínculos no mesmo estabelecimento: contar pessoas, não vínculos
+prof_agrupado = pd.DataFrame({
+    nome: df_prof[filtro].groupby('CO_CNES')['CO_PROFISSIONAL_SUS'].nunique()
+    for nome, filtro in categorias_prof.items()
+}).fillna(0).reset_index()
 
 # =====================================================================
 # 5. DEMANDA E MORBIDADE: TabNet SIH
@@ -227,7 +247,8 @@ colunas_cadastrais = [
     'TP_UNIDADE', 'TP_GESTAO', 'NO_LOGRADOURO', 'NU_ENDERECO', 
     'NO_BAIRRO', 'CO_CEP', 'NU_LATITUDE', 'NU_LONGITUDE', 
     'CO_CLIENTELA', 'CO_TURNO_ATENDIMENTO', 'tipo_equipamento',
-    'CO_NATUREZA_JUR', 'NU_CNPJ_MANTENEDORA', 'Fluxo_Clientela', 'Dependencia'
+    'CO_NATUREZA_JUR', 'NU_CNPJ_MANTENEDORA', 'Fluxo_Clientela', 'Dependencia',
+    'esfera_juridica', 'atende_sus'
 ]
 
 colunas_metricas = df_final.columns.difference(colunas_cadastrais)

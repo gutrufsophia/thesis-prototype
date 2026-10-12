@@ -36,8 +36,10 @@ function rpc(name, args = {}, signal) {
 export async function getFacilityPoints() {
   const data = await rpc('facility_points');
   return {
-    located: data.points.map(([cnes, name, type, lat, lon, coordSource]) => ({ cnes, name, type, lat, lon, coordSource })),
-    unlocated: data.unlocated.map(([cnes, name, type, coordStatus]) => ({ cnes, name, type, coordStatus })),
+    located: data.points.map(([cnes, name, type, lat, lon, coordSource, susNetwork]) =>
+      ({ cnes, name, type, lat, lon, coordSource, susNetwork })),
+    unlocated: data.unlocated.map(([cnes, name, type, coordStatus, susNetwork]) =>
+      ({ cnes, name, type, coordStatus, susNetwork })),
   };
 }
 
@@ -45,6 +47,11 @@ export async function getFacilityPoints() {
 export async function getFacility(cnes) {
   const rows = await request(`infraestrutura_saude?CO_CNES=eq.${encodeURIComponent(cnes)}&select=*`);
   return rows[0] || null;
+}
+
+/** Municipal health outcomes (SINAN, SINASC, SIM) for the 39 municipalities. */
+export function getMunicipalIndicators() {
+  return rpc('municipal_indicators');
 }
 
 /** Census and facility aggregates within radiusM metres of a facility. */

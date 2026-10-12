@@ -41,6 +41,9 @@ Requires a Supabase project with PostGIS and the census tract polygons already l
 psql "$DATABASE_URL" -f database/migrations/001_frontend_read_api.sql
 psql "$DATABASE_URL" -f database/migrations/002_geocoded_coordinates.sql
 psql "$DATABASE_URL" -f database/migrations/003_corrected_coordinates.sql
+psql "$DATABASE_URL" -f database/migrations/005_sector_and_sus.sql
+psql "$DATABASE_URL" -f database/migrations/006_public_network_filter.sql
+psql "$DATABASE_URL" -f database/migrations/007_territory_indicators.sql
 psql "$DATABASE_URL" -f database/migrations/004_reapply_read_only_grants.sql
 python3 database/seeders/seed.py          # add --replace to reload
 ```
@@ -52,6 +55,7 @@ The seeder also applies `database/geocoding/geocoded_facilities.csv`, which give
 ```bash
 python3 database/geocoding/geocode_cnefe.py --cnefe-dir ~/Downloads/cnefe_rmsp
 python3 database/geocoding/arbitrate_sample.py   # optional: three-way check against OpenStreetMap
+python3 database/geocoding/compute_access.py --cnefe-dir ~/Downloads/cnefe_rmsp   # distance from homes to primary care
 python3 database/seeders/seed.py --replace
 ```
 
@@ -62,6 +66,6 @@ python3 database/seeders/seed.py --replace
 | `public/` | Frontend: map page (`index.html`) and facility page (`facility.html`) |
 | `database/migrations/` | SQL for access policies and the read API functions |
 | `database/seeders/` | Loader for the cleaned CSVs |
-| `limpeza.py`, `limpeza_ibge.py` | ETL from the raw CNES, SIH and IBGE files to the cleaned CSVs |
+| `limpeza.py`, `limpeza_ibge.py`, `limpeza_datasus.py` | ETL from the raw CNES, SIH, IBGE and DATASUS TabNet files to the cleaned CSVs |
 | `database/geocoding/` | Address geocoding of facilities with CNEFE 2022, and its validation |
 | `deploy/` | Files used by the Docker image |

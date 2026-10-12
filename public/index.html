@@ -1,37 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>CulturaEduca Health Layer · São Paulo Metropolitan Region</title>
+  <title>Camada de Saúde CulturaEduca · Região Metropolitana de São Paulo</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="map-page">
-  <aside class="panel" aria-label="Facility search and details">
+  <aside class="panel" data-i18n-aria="search.label">
     <div class="panel-top">
-      <p class="brand">CulturaEduca · Health layer</p>
-      <label class="visually-hidden" for="search">Search facilities</label>
-      <input id="search" type="search" placeholder="Search by facility name or CNES code" autocomplete="off">
+      <div class="panel-brand">
+        <p class="brand" data-i18n="brand">CulturaEduca · Camada de saúde</p>
+        <div class="lang-switch" role="group" data-i18n-aria="lang.label">
+          <button type="button" data-lang="pt">PT</button>
+          <button type="button" data-lang="en">EN</button>
+        </div>
+      </div>
+      <label class="visually-hidden" for="search" data-i18n="search.label">Buscar unidades</label>
+      <input id="search" type="search" data-i18n-placeholder="search.placeholder" placeholder="Buscar por nome da unidade ou código CNES" autocomplete="off">
       <ul id="search-results" class="search-results" hidden></ul>
     </div>
     <div id="panel-body" class="panel-body">
       <div id="intro" class="intro">
-        <h1>Health facilities of the São Paulo Metropolitan Region</h1>
-        <p>Each point is a health facility from the national registry (CNES). Select one to see its beds, workforce, equipment and admissions.</p>
-        <p id="status" class="hint">Loading facilities…</p>
+        <h1 data-i18n="map.heading">Unidades de saúde da Região Metropolitana de São Paulo</h1>
+        <p data-i18n="map.intro">Cada ponto é uma unidade de saúde do cadastro nacional (CNES). Selecione uma para ver leitos, profissionais, equipamentos e internações.</p>
+        <p id="status" class="hint" data-i18n="map.loading">Carregando unidades…</p>
       </div>
       <div id="detail" hidden></div>
     </div>
   </aside>
 
   <main class="map-wrap">
-    <div id="map" aria-label="Map of health facilities"></div>
-    <form id="legend" class="legend" aria-label="Facility categories">
-      <p class="legend-title">Facility category</p>
+    <div id="map"></div>
+    <details id="legend" class="legend" open>
+      <summary data-i18n="filters.title">Filtros</summary>
+      <p class="legend-title" data-i18n="filters.types">Tipo de unidade (CNES)</p>
       <div id="legend-items"></div>
-      <p class="legend-note"><span class="dot is-hollow"></span>Hollow point: approximate position</p>
-    </form>
+      <label class="legend-item legend-option">
+        <input id="public-only" type="checkbox">
+        <span class="legend-label" data-i18n="filters.publicOnly">Mostrar apenas unidades públicas ou com vínculo com o SUS</span>
+      </label>
+      <p class="legend-note"><span class="dot is-hollow"></span><span data-i18n="filters.hollow">Ponto vazado: posição aproximada</span></p>
+    </details>
   </main>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
