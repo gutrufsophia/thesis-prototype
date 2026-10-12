@@ -35,7 +35,7 @@ docker run --rm -p 10000:10000 -e SUPABASE_URL=... -e SUPABASE_ANON_KEY=... thes
 
 ## Setting up the database
 
-Requires a Supabase project with PostGIS and the census tract polygons already loaded into `setores_censitarios_grande_sp`. Put `DATABASE_URL=postgresql://...` in `.env`, then:
+Requires a Supabase project with PostGIS and the census tract polygons already loaded into `setores_censitarios_grande_sp`. To reload the tract outlines from the original IBGE mesh with a light, gap-free simplification, run `python3 database/seeders/load_geometry.py ~/Downloads/SP_setores_CD2022.json --tolerance 10`. Put `DATABASE_URL=postgresql://...` in `.env`, then:
 
 ```bash
 psql "$DATABASE_URL" -f database/migrations/001_frontend_read_api.sql
@@ -44,6 +44,7 @@ psql "$DATABASE_URL" -f database/migrations/003_corrected_coordinates.sql
 psql "$DATABASE_URL" -f database/migrations/005_sector_and_sus.sql
 psql "$DATABASE_URL" -f database/migrations/006_public_network_filter.sql
 psql "$DATABASE_URL" -f database/migrations/007_territory_indicators.sql
+psql "$DATABASE_URL" -f database/migrations/008_census_denominators.sql
 psql "$DATABASE_URL" -f database/migrations/004_reapply_read_only_grants.sql
 python3 database/seeders/seed.py          # add --replace to reload
 ```

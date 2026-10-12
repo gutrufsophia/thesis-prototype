@@ -10,7 +10,11 @@ municipios_rmsp = [
 
 # CORREÇÃO 1: Colunas exatas conforme o seu teste (v minúsculo no básico, setor no domicílio)
 colunas_basico = ['CD_SETOR', 'v0001', 'v0005', 'v0007'] 
-colunas_domicilio = ['setor', 'V00309', 'V00397', 'V00398'] 
+# Destino do esgoto (V00309 a V00316) e do lixo (V00397 a V00402): todas as categorias,
+# para que a soma delas sirva de denominador
+colunas_esgoto = ['V00309', 'V00310', 'V00311', 'V00312', 'V00313', 'V00314', 'V00315', 'V00316']
+colunas_lixo = ['V00397', 'V00398', 'V00399', 'V00400', 'V00401', 'V00402']
+colunas_domicilio = ['setor'] + colunas_esgoto + colunas_lixo
 
 print("Lendo arquivo do Básico...")
 df_basico = pd.read_csv(
@@ -46,17 +50,38 @@ df_basico_rmsp = df_basico[df_basico['CD_MUN'].isin(municipios_rmsp)]
 print("Unificando os dados (Join)...")
 df_final = pd.merge(df_basico_rmsp, df_domicilio, on='CD_SETOR', how='left')
 
-# 5. Tratamento de dados mascarados e soma matemática para o lixo coletado
-# Transforma 'X' e valores não numéricos em '0' nas colunas originais, depois converte para número
-df_final['V00397'] = pd.to_numeric(df_final['V00397'].replace('X', 0, regex=False), errors='coerce').fillna(0)
-df_final['V00398'] = pd.to_numeric(df_final['V00398'].replace('X', 0, regex=False), errors='coerce').fillna(0)
+# 5. Tratamento de dados mascarados
+# O IBGE omite com 'X' as contagens de 1 ou 2 domicílios (o menor valor publicado é 3).
+# 'X' não é zero: vale 1,5 em média. Quando TODAS as categorias de um setor estão omitidas,
+# não há informação nenhuma e o resultado fica vazio (sem dados), não zero.
+VALOR_OMITIDO = 1.5
 
-# Agora sim, fazemos a soma matemática
-df_final['total_lixo_coletado'] = df_final['V00397'] + df_final['V00398']
+def somar_categorias(df, colunas):
+    """Soma das colunas, com 'X' valendo VALOR_OMITIDO; vazio se o setor não tem nenhum valor publicado."""
+    omitido = df[colunas].eq('X')
+    valores = df[colunas].apply(pd.to_numeric, errors='coerce')
+    sem_informacao = valores.isna().all(axis=1)
+    soma = valores.fillna(0).sum(axis=1) + omitido.sum(axis=1) * VALOR_OMITIDO
+    return soma.where(~sem_informacao).round()
 
-# Aproveite e garanta que as colunas numéricas de esgoto e domicílios não tenham 'X' escondidos
+# Ligados à rede: rede geral ou pluvial (V00309) + fossa séptica ou filtro ligada à rede (V00310)
+df_final['esgoto_rede_geral'] = somar_categorias(df_final, ['V00309', 'V00310'])
+df_final['domicilios_esgoto_informado'] = somar_categorias(df_final, colunas_esgoto)
+# Esgotamento precário: fossa rudimentar ou buraco (V00312), vala (V00313), rio, lago, córrego
+# ou mar (V00314), outra forma (V00315) e sem banheiro nem sanitário (V00316).
+# A fossa séptica não ligada à rede (V00311) fica de fora: é solução individual aceita.
+df_final['esgoto_precario'] = somar_categorias(df_final, ['V00312', 'V00313', 'V00314', 'V00315', 'V00316'])
+# Coletado no domicílio (V00397) + em caçamba de serviço de limpeza (V00398)
+df_final['total_lixo_coletado'] = somar_categorias(df_final, ['V00397', 'V00398'])
+df_final['domicilios_lixo_informado'] = somar_categorias(df_final, colunas_lixo)
+
+# Sem nenhum dado de esgoto/lixo no setor, as contagens também ficam vazias
+for contagem, denominador in (('esgoto_rede_geral', 'domicilios_esgoto_informado'),
+                              ('esgoto_precario', 'domicilios_esgoto_informado'),
+                              ('total_lixo_coletado', 'domicilios_lixo_informado')):
+    df_final.loc[df_final[denominador].isna(), contagem] = float('nan')
+
 df_final['v0007'] = pd.to_numeric(df_final['v0007'].replace('X', 0, regex=False), errors='coerce').fillna(0)
-df_final['V00309'] = pd.to_numeric(df_final['V00309'].replace('X', 0, regex=False), errors='coerce').fillna(0)
 
 # 6. Renomear as colunas para ficar elegante no banco de dados do Supabase
 df_final = df_final.rename(columns={
@@ -64,14 +89,14 @@ df_final = df_final.rename(columns={
     'CD_MUN': 'cd_municipio',
     'v0001': 'populacao_total',
     'v0005': 'media_moradores_domicilio',
-    'v0007': 'total_domicilios_ocupados',
-    'V00309': 'esgoto_rede_geral'
+    'v0007': 'total_domicilios_ocupados'
 })
 
 # Vamos manter apenas as colunas amigáveis
 colunas_finais = [
     'cd_setor', 'cd_municipio', 'populacao_total', 'media_moradores_domicilio',
-    'total_domicilios_ocupados', 'esgoto_rede_geral', 'total_lixo_coletado'
+    'total_domicilios_ocupados', 'esgoto_rede_geral', 'esgoto_precario', 'domicilios_esgoto_informado',
+    'total_lixo_coletado', 'domicilios_lixo_informado'
 ]
 df_final = df_final[colunas_finais]
 

@@ -42,7 +42,7 @@ function referenceLegend() {
 }
 
 /** Radius, municipality and region side by side for one census indicator. */
-function contextChart(title, surroundings, value, options) {
+function contextChart(title, surroundings, value, options, hint) {
   const { census, location: place } = surroundings;
   const scopes = [
     { label: t('sur.within', { radius: formatDistance(surroundings.radius_m) }), data: census.radius },
@@ -50,7 +50,7 @@ function contextChart(title, surroundings, value, options) {
     { label: t('sur.region'), data: census.region, muted: true },
   ].filter((scope) => scope.data);
   return section(title, barList(
-    scopes.map((scope) => ({ label: scope.label, value: value(scope.data), muted: scope.muted })), options));
+    scopes.map((scope) => ({ label: scope.label, value: value(scope.data), muted: scope.muted })), options), { hint });
 }
 
 /** Municipality against the metropolitan region for one municipal indicator. */
@@ -80,8 +80,10 @@ function environmentCard(surroundings, home, region) {
   const years = SINAN_YEARS.length;
   return [
     el('h3', { class: 'card-title', text: t('ter.env.title') }),
-    scopeChip(t('ter.scope.radius', { radius: formatDistance(surroundings.radius_m) }), 'radius'),
+    scopeChip(t('ter.scope.radius', { radius: formatDistance(surroundings.radius_m), census: t('period.census') }), 'radius'),
     contextChart(t('ind.noSewage'), surroundings, (d) => lacking(d.sewage_pct), { digits: 1, suffix: '%' }),
+    contextChart(t('ind.precarious'), surroundings, (d) => d.precarious_pct, { digits: 1, suffix: '%' },
+      t('ter.precariousHint')),
     contextChart(t('ind.noGarbage'), surroundings, (d) => lacking(d.garbage_pct), { digits: 1, suffix: '%' }),
     ...municipalScope(surroundings, home),
     section(t('ter.env.dengue'), dengue, { hint: t('ter.env.dengueHint') }),
@@ -96,7 +98,7 @@ function respiratoryCard(surroundings, home, region) {
   const years = SINAN_YEARS.length;
   return [
     el('h3', { class: 'card-title', text: t('ter.resp.title') }),
-    scopeChip(t('ter.scope.radius', { radius: formatDistance(surroundings.radius_m) }), 'radius'),
+    scopeChip(t('ter.scope.radius', { radius: formatDistance(surroundings.radius_m), census: t('period.census') }), 'radius'),
     contextChart(t('ind.crowding'), surroundings, (d) => d.residents_per_household, { digits: 2 }),
     contextChart(t('ter.resp.crowded', { threshold: formatNumber(surroundings.crowding_threshold, 1) }),
       surroundings, (d) => d.crowded_pct, { digits: 1, suffix: '%' }),
@@ -110,13 +112,13 @@ function accessCard(surroundings) {
   const bands = surroundings.access_bands;
   return [
     el('h3', { class: 'card-title', text: t('ter.access.title') }),
-    scopeChip(t('ter.scope.radius', { radius: formatDistance(surroundings.radius_m) }), 'radius'),
+    scopeChip(t('ter.scope.radius', { radius: formatDistance(surroundings.radius_m), census: t('period.census') }), 'radius'),
     section(t('ter.access.bands'), barList([
       { label: t('ter.access.upto500'), value: bands.upto_500 },
       { label: t('ter.access.upto1000'), value: bands.upto_1000 },
       { label: t('ter.access.upto2000'), value: bands.upto_2000 },
       { label: t('ter.access.over2000'), value: bands.over_2000 },
-    ]), { hint: t('ter.access.bandsHint') }),
+    ]), { hint: t('ter.access.bandsHint', { cnes: t('period.cnes') }) }),
     contextChart(t('ter.access.far'), surroundings, (d) => d.far_primary_pct, { digits: 1, suffix: '%' }),
   ];
 }

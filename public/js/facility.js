@@ -28,6 +28,13 @@ const INDICATORS = [
     format: formatPercent,
   },
   {
+    id: 'precarious',
+    label: t('ind.precarious'),
+    value: (p) => p.precarious_pct,
+    breaks: [2, 5, 15, 30],
+    format: formatPercent,
+  },
+  {
     id: 'no_garbage',
     label: t('ind.noGarbage'),
     value: (p) => (p.garbage_pct === null ? null : 100 - p.garbage_pct),
@@ -181,12 +188,13 @@ function renderTiles() {
   const physicians = facilities.reduce((sum, other) => sum + (other.physicians || 0), 0) + (facility.physicians || 0);
   const per10k = (count) => t('sur.per10k', {
     value: radius.population ? formatNumber((count / radius.population) * 10000, 1) : '–',
+    period: t('period.cnesShort'),
   });
   dom.tiles.replaceChildren(statTiles([
     { label: t('sur.residents'), value: formatCount(radius.population), note: t('sur.tracts', { count: formatCount(radius.tracts) }) },
-    { label: t('sur.households'), value: formatCount(radius.households) },
-    { label: t('sur.density'), value: formatCount(Math.round((radius.population || 0) / area)) },
-    { label: t('sur.others'), value: formatCount(facilities.length), note: t('sur.withinRadius') },
+    { label: t('sur.households'), value: formatCount(radius.households), note: t('sur.censusNote') },
+    { label: t('sur.density'), value: formatCount(Math.round((radius.population || 0) / area)), note: t('sur.censusNote') },
+    { label: t('sur.others'), value: formatCount(facilities.length), note: t('sur.withinRadius', { period: t('period.cnesShort') }) },
     { label: t('tile.beds'), value: formatCount(beds), note: per10k(beds) },
     { label: t('tile.physicians'), value: formatCount(physicians), note: per10k(physicians) },
   ]));
@@ -204,7 +212,7 @@ function renderNearby() {
     .sort((a, b) => b.value - a.value);
 
   dom.nearbyTypes.replaceChildren(section(t('sur.byType'), byType.length ? barList(byType) : null, {
-    hint: byType.length ? t('sur.byTypeHint') : null,
+    hint: byType.length ? t('sur.byTypeHint', { cnes: t('period.cnes') }) : null,
     emptyText: [t('sur.noOthers'), hiddenNote].filter(Boolean).join(' '),
   }));
   if (byType.length) {
@@ -228,8 +236,8 @@ function renderNearby() {
       el('td', { class: 'num', text: formatCount(other.beds) }))))) : null;
   dom.nearbyList.replaceChildren(section(t('sur.nearest'), table, {
     hint: facilities.length > NEAREST_SHOWN
-      ? t('sur.nearestOf', { shown: NEAREST_SHOWN, total: formatCount(facilities.length) })
-      : t('sur.nearestHint'),
+      ? t('sur.nearestOf', { shown: NEAREST_SHOWN, total: formatCount(facilities.length), cnes: t('period.cnes') })
+      : t('sur.nearestHint', { cnes: t('period.cnes') }),
     emptyText: t('sur.noOthers'),
   }));
 }
@@ -329,6 +337,7 @@ async function init() {
   dom.indicator.replaceChildren(...INDICATORS.map((indicator) =>
     el('option', { value: indicator.id, text: indicator.label })));
   dom.publicOnly.checked = !showPrivate;
+  document.getElementById('map-hint').textContent = t('sur.mapHint', { census: t('period.census'), cnes: t('period.cnes') });
   dom.surroundings.hidden = false;
   dom.radius.addEventListener('input', onRadiusInput);
   dom.indicator.addEventListener('change', () => surroundings && drawTracts());
