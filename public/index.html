@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CulturaEduca Health Layer · São Paulo Metropolitan Region</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="map-page">
+  <aside class="panel" aria-label="Facility search and details">
+    <div class="panel-top">
+      <p class="brand">CulturaEduca · Health layer</p>
+      <label class="visually-hidden" for="search">Search facilities</label>
+      <input id="search" type="search" placeholder="Search by facility name or CNES code" autocomplete="off">
+      <ul id="search-results" class="search-results" hidden></ul>
+    </div>
+    <div id="panel-body" class="panel-body">
+      <div id="intro" class="intro">
+        <h1>Health facilities of the São Paulo Metropolitan Region</h1>
+        <p>Each point is a health facility from the national registry (CNES). Select one to see its beds, workforce, equipment and admissions.</p>
+        <p id="status" class="hint">Loading facilities…</p>
+      </div>
+      <div id="detail" hidden></div>
+    </div>
+  </aside>
+
+  <main class="map-wrap">
+    <div id="map" aria-label="Map of health facilities"></div>
+    <form id="legend" class="legend" aria-label="Facility categories">
+      <p class="legend-title">Facility category</p>
+      <div id="legend-items"></div>
+      <p class="legend-note"><span class="dot is-hollow"></span>Hollow point: approximate position</p>
+    </form>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+  <script type="module" src="js/map.js"></script>
+</body>
+</html>

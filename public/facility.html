@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Facility · CulturaEduca Health Layer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="facility-page">
+  <nav class="topbar">
+    <a id="back" href="index.html">← Back to map</a>
+    <span class="brand">CulturaEduca · Health layer</span>
+  </nav>
+
+  <main class="page">
+    <div id="facility-root"><p class="hint">Loading facility…</p></div>
+
+    <section id="surroundings" class="surroundings" hidden>
+      <h2>Surroundings</h2>
+      <p id="location-line" class="hint"></p>
+
+      <div class="controls">
+        <label for="radius">Radius around the facility</label>
+        <input id="radius" type="range" min="250" max="5000" step="250" value="1000">
+        <output id="radius-value" for="radius">1.0 km</output>
+      </div>
+
+      <div id="surroundings-body" class="surroundings-body">
+        <div id="tiles"></div>
+
+        <div class="split">
+          <div class="card">
+            <div class="card-head">
+              <h3>Census tracts within the radius</h3>
+              <label class="visually-hidden" for="indicator">Indicator shown on the map</label>
+              <select id="indicator"></select>
+            </div>
+            <div id="mini-map" class="mini-map"></div>
+            <div id="map-legend" class="ramp-legend"></div>
+          </div>
+
+          <div class="card" id="comparisons"></div>
+        </div>
+
+        <div class="split">
+          <div class="card" id="nearby-types"></div>
+          <div class="card" id="nearby-list"></div>
+        </div>
+
+        <div class="card notes">
+          <h3>How to read these numbers</h3>
+          <ul>
+            <li>Residents and households are <strong>estimates</strong>. A census tract only partly inside the circle contributes in proportion to the share of its area inside it, which assumes people are spread evenly across the tract.</li>
+            <li>IBGE withholds small counts for confidentiality, and this dataset stores them as zero. Sanitation gaps in sparsely populated tracts may therefore be overstated.</li>
+            <li>Physician and nurse counts cover only professionals registered in care teams (mostly primary care). Hospital clinical staff are largely missing, so these are not total workforce figures.</li>
+            <li>Census figures are from the 2022 Demographic Census. Facility figures are from CNES, reference month August 2026.</li>
+            <li>District-level disease, birth and mortality indicators (SINAN, SINASC, SIM) are not loaded yet, so they are not shown.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+  <script type="module" src="js/facility.js"></script>
+</body>
+</html>
