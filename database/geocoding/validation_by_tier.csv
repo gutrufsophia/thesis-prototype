@@ -1,0 +1,5 @@
+tier,n_validated,median_m,p75_m,p90_m,p95_m,share_within_100m,share_within_250m
+exact_cep,3120,70,278,1158,3714,0.562,0.721
+exact_street,765,94,516,2777,8209,0.508,0.641
+street_cep,914,132,420,1924,5882,0.425,0.642
+cep,568,291,1032,4500,11153,0.283,0.461

@@ -67,3 +67,16 @@ vcpkg_installed/
 # test output & cache
 Testing/
 .cache/
+
+.env
+
+
+# Frontend local configuration
+public/js/config.js
+
+# Python
+__pycache__/
+*.pyc
+
+# Editor settings with machine-specific paths
+.vscode/
