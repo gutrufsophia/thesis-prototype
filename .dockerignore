@@ -1,0 +1,5 @@
+# Only the frontend and the deploy scripts go into the image
+*
+!public
+!deploy
+public/js/config.js

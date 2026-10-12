@@ -1,0 +1,15 @@
+# Rendered by the nginx image at start-up: ${PORT} is replaced with the environment value.
+server {
+    listen ${PORT};
+    root /usr/share/nginx/html;
+    index index.html;
+
+    gzip on;
+    gzip_types text/css application/javascript application/json;
+
+    # config.js is generated per deployment and pages change often: never serve stale copies
+    location / {
+        try_files $uri $uri/ =404;
+        add_header Cache-Control "no-cache";
+    }
+}
