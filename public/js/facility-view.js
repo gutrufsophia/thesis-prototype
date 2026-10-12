@@ -9,6 +9,9 @@ import {
 } from './fields.js';
 import { pick, t } from './i18n.js';
 
+/** Reference periods of the sources, for the `{cnes}` and `{sih}` placeholders. */
+const sources = () => ({ cnes: t('period.cnes'), sih: t('period.sih') });
+
 /** Non-zero entries of `labels` found in `row`, largest first. */
 function rankedItems(row, labels) {
   return Object.entries(labels)
@@ -63,10 +66,11 @@ function keyFigures(row) {
     { label: t('tile.icu'), value: formatCount(row.UTI_TOTAL_EXIST), note: sus('UTI_TOTAL_SUS') },
     { label: t('tile.physicians'), value: formatCount(row.total_medicos) },
     { label: t('tile.nurses'), value: formatCount(row.total_enfermeiros) },
-    { label: t('tile.admissions'), value: formatCount(admissions) },
+    { label: t('tile.admissions'), value: formatCount(admissions), note: t('period.sihShort') },
     {
       label: t('tile.stay'),
       value: admissions ? t('tile.days', { value: formatNumber(row.media_dias_permanencia, 1) }) : '–',
+      note: t('period.sihShort'),
     },
   ]);
 }
@@ -79,7 +83,9 @@ function icuSection(row) {
       note: t('tile.susNote', { count: formatCount(row[sus]) }),
     }))
     .filter((item) => item.value > 0);
-  return section(t('icu.title'), items.length ? barList(items) : null, { emptyText: t('icu.empty') });
+  return section(t('icu.title'), items.length ? barList(items) : null, {
+    hint: items.length ? t('icu.hint', sources()) : null, emptyText: t('icu.empty'),
+  });
 }
 
 /**
@@ -90,16 +96,17 @@ export function renderFacility(row, { compact = false } = {}) {
   const limit = compact ? 5 : 0;
   return el('div', { class: `facility${compact ? ' is-compact' : ''}` },
     keyFigures(row),
+    el('p', { class: 'hint', text: t('figures.sources', sources()) }),
     el('div', { class: 'facility-sections' },
       section(t('profile.title'), profile(row)),
       icuSection(row),
       rankedSection(t('workforce.title'), rankedItems(row, SPECIALTIES), {
-        limit, hint: t('workforce.hint'), emptyText: t('workforce.empty'),
+        limit, hint: t('workforce.hint', sources()), emptyText: t('workforce.empty'),
       }),
       rankedSection(t('equipment.title'), rankedItems(row, EQUIPMENT), {
-        limit, hint: t('equipment.hint'), emptyText: t('equipment.empty'),
+        limit, hint: t('equipment.hint', sources()), emptyText: t('equipment.empty'),
       }),
       rankedSection(t('admissions.title'), rankedItems(row, ADMISSIONS), {
-        limit, hint: t('admissions.hint'), emptyText: t('admissions.empty'),
+        limit, hint: t('admissions.hint', sources()), emptyText: t('admissions.empty'),
       })));
 }

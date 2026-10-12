@@ -396,7 +396,9 @@ a { color: var(--accent-ink); }
 .card { display: grid; gap: 14px; align-content: start; min-width: 0; }
 .card-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; }
 .card-title { font-size: 14px; }
+.card-head > * { min-width: 0; }
 .card select {
+  width: 100%;
   max-width: 100%;
   padding: 5px 8px;
   border: 1px solid var(--axis);
@@ -425,7 +427,6 @@ a { color: var(--accent-ink); }
 .table td { padding: 6px 8px 6px 0; border-bottom: 1px solid var(--hairline); vertical-align: top; }
 .table .num { padding-right: 0; padding-left: 12px; text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
 
-.notes ul { display: grid; gap: 6px; margin: 0; padding-left: 18px; color: var(--ink-secondary); font-size: 13px; }
 
 /* ---------- Narrow screens ---------- */
 
