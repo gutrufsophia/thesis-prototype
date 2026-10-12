@@ -41,6 +41,22 @@ a { color: var(--accent-ink); }
   white-space: nowrap;
 }
 
+.panel-brand, .topbar-right { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+
+.lang-switch { display: inline-flex; border: 1px solid var(--axis); border-radius: 6px; overflow: hidden; }
+.lang-switch button {
+  padding: 3px 9px;
+  border: 0;
+  background: var(--surface);
+  color: var(--ink-secondary);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.lang-switch button + button { border-left: 1px solid var(--axis); }
+.lang-switch button[aria-pressed="true"] { background: var(--accent-ink); color: #fff; cursor: default; }
+
 .brand {
   font-size: 12px;
   font-weight: 600;
@@ -201,8 +217,15 @@ a { color: var(--accent-ink); }
   box-shadow: 0 2px 8px rgba(11, 11, 11, 0.08);
   font-size: 13px;
 }
-.legend-title { margin-bottom: 6px; font-size: 12px; font-weight: 600; color: var(--ink-secondary); }
+.legend { max-width: min(340px, calc(100% - 24px)); max-height: calc(100% - 48px); overflow-y: auto; }
+.legend summary { font-weight: 600; cursor: pointer; }
+.legend[open] summary { margin-bottom: 8px; }
+.legend-title { margin-bottom: 4px; font-size: 12px; font-weight: 600; color: var(--ink-secondary); }
 .legend-item { display: flex; align-items: center; gap: 8px; padding: 2px 0; cursor: pointer; }
+.legend-item.is-group { margin-top: 6px; font-weight: 600; }
+.legend-item.is-type { padding-left: 21px; color: var(--ink-secondary); }
+.legend-option { margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--hairline); align-items: flex-start; }
+.legend-option input { margin-top: 3px; }
 .legend-item input { margin: 0; }
 .legend-label { flex: 1; }
 .legend-count { color: var(--ink-muted); font-variant-numeric: tabular-nums; }
@@ -279,6 +302,31 @@ a { color: var(--accent-ink); }
   background: var(--accent);
 }
 .bar-fill.is-muted { background: var(--bar-muted); }
+.bar-track { position: relative; }
+/* with reference ticks, values sit in a fixed column at the right so a tick never crosses them */
+.bars.has-reference .bar-track { padding-right: 150px; }
+.bars.has-reference .bar-fill { width: calc(100% * var(--share, 0)); max-width: 100%; }
+.bars.has-reference .bar-value { position: absolute; right: 0; width: 142px; overflow: hidden; text-overflow: ellipsis; }
+.bars.has-reference .bar-reference { left: calc((100% - 150px) * var(--ref, 0)); }
+.bar-reference {
+  position: absolute;
+  left: calc((100% - 104px) * var(--ref, 0));
+  top: -2px;
+  bottom: -2px;
+  width: 2px;
+  background: var(--ink);
+}
+.reference-key { display: inline-block; width: 2px; height: 12px; margin-right: 6px; background: var(--ink); vertical-align: -2px; }
+
+.scope {
+  justify-self: start;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.scope-radius { background: #e3eefb; color: var(--accent-ink); }
+.scope-municipality { margin-top: 6px; background: #ecebe6; color: var(--ink-secondary); }
 .bar-value { font-size: 12px; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .bar-note { color: var(--ink-muted); }
 
@@ -332,6 +380,7 @@ a { color: var(--accent-ink); }
   background: var(--surface);
 }
 .controls label { font-weight: 600; }
+.controls .control-option { display: flex; align-items: center; gap: 6px; flex-basis: 100%; font-weight: 400; color: var(--ink-secondary); }
 .controls input[type="range"] { flex: 1; min-width: 180px; accent-color: var(--accent); }
 .controls output { min-width: 56px; font-size: 16px; font-weight: 600; font-variant-numeric: tabular-nums; text-align: right; }
 

@@ -1,17 +1,22 @@
-// Map page: every locatable facility as a point, with search, category filters
-// and a side panel for the selected facility.
+// Map page: every locatable facility as a point, with search, filters by CNES
+// facility type and a side panel for the selected facility.
 
 import { getFacility, getFacilityPoints } from './api.js';
 import { el } from './charts.js';
 import { facilityHeader, renderFacility } from './facility-view.js';
 import {
-  APPROXIMATE_SOURCES, COORD_STATUS, TYPE_GROUPS, formatCnes, formatCount, positionNote, typeInfo,
+  APPROXIMATE_SOURCES, FACILITY_TYPES, TYPE_GROUPS, coordStatusNote, formatCnes, formatCount, positionNote, typeInfo,
 } from './fields.js';
+import { applyStaticTranslations, getPref, pick, setPref, t } from './i18n.js';
 
 const RMSP_CENTER = [-23.55, -46.63];
 const MAX_SEARCH_RESULTS = 12;
+const PUBLIC_ONLY_PREF = 'publicOnly';
 // Groups with fewer, larger facilities are drawn last so they stay on top
 const DRAW_ORDER = ['diagnostic', 'specialised', 'primary', 'emergency', 'hospital'];
+
+applyStaticTranslations();
+document.title = t('map.title');
 
 const map = L.map('map', { preferCanvas: true, zoomControl: false }).setView(RMSP_CENTER, 10);
 L.control.zoom({ position: 'topright' }).addTo(map);
@@ -21,7 +26,6 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 const renderer = L.canvas({ padding: 0.5, tolerance: 5 });
-const groupLayers = Object.fromEntries(TYPE_GROUPS.map((group) => [group.id, L.layerGroup()]));
 const selectionRing = L.circleMarker(RMSP_CENTER, {
   renderer, radius: 10, color: '#0b0b0b', weight: 2, fill: false, interactive: false,
 });
@@ -33,63 +37,154 @@ const dom = {
   intro: document.getElementById('intro'),
   detail: document.getElementById('detail'),
   status: document.getElementById('status'),
+  legend: document.getElementById('legend'),
   legendItems: document.getElementById('legend-items'),
+  publicOnly: document.getElementById('public-only'),
 };
 
+// One layer per (facility type, public network or not), so both filters are cheap
+const layers = new Map();
+const checkedTypes = new Set(Object.keys(FACILITY_TYPES));
+// Private facilities without a SUS link are shown unless the user asks for the public network only
+let showPrivate = !getPref(PUBLIC_ONLY_PREF);
 let facilities = [];   // located and unlocated, each with a precomputed search key
+let located = [];
 let byCnes = new Map();
 let selectionToken = 0;
+const typeControls = new Map();   // type -> { checkbox, count }
+const groupControls = new Map();  // group id -> { checkbox, count, types }
+
+const layerKey = (type, susNetwork) => `${type}|${susNetwork ? 1 : 0}`;
 
 function searchKey(text) {
   return text.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
 }
 
-function drawPoints(located) {
+function isVisible(facility) {
+  return checkedTypes.has(facility.type) && (facility.susNetwork || showPrivate);
+}
+
+function drawPoints() {
   for (const facility of located) {
     const info = typeInfo(facility.type);
     // approximate positions are drawn hollow so they are never read as exact
     const style = APPROXIMATE_SOURCES.has(facility.coordSource)
       ? { color: info.color, weight: 2, fillColor: '#fcfcfb', fillOpacity: 0.85 }
       : { color: '#fcfcfb', weight: 1, fillColor: info.color, fillOpacity: 0.9 };
+    const key = layerKey(facility.type, facility.susNetwork);
+    if (!layers.has(key)) layers.set(key, L.layerGroup());
     L.circleMarker([facility.lat, facility.lon], { renderer, radius: 5, ...style })
       .on('click', () => select(facility.cnes))
-      .addTo(groupLayers[info.group]);
+      .addTo(layers.get(key));
   }
-  for (const id of DRAW_ORDER) groupLayers[id].addTo(map);
 }
 
-function buildLegend(located) {
-  const counts = {};
-  for (const facility of located) {
-    const { group } = typeInfo(facility.type);
-    counts[group] = (counts[group] || 0) + 1;
-  }
-  for (const group of TYPE_GROUPS) {
-    const checkbox = el('input', { type: 'checkbox', checked: '' });
-    checkbox.addEventListener('change', () => {
-      if (checkbox.checked) groupLayers[group.id].addTo(map);
-      else groupLayers[group.id].remove();
-      // keep the stacking order stable after a layer is re-added
-      for (const id of DRAW_ORDER) {
-        if (map.hasLayer(groupLayers[id])) groupLayers[id].eachLayer((layer) => layer.bringToFront());
+/** Show or hide each layer according to the filters, keeping the stacking order. */
+function syncLayers() {
+  for (const groupId of DRAW_ORDER) {
+    for (const type of groupControls.get(groupId).types) {
+      for (const susNetwork of [false, true]) {
+        const layer = layers.get(layerKey(type, susNetwork));
+        if (!layer) continue;
+        const wanted = checkedTypes.has(type) && (susNetwork || showPrivate);
+        if (wanted) {
+          layer.addTo(map);
+          layer.eachLayer((marker) => marker.bringToFront());
+        } else {
+          layer.remove();
+        }
       }
-      if (map.hasLayer(selectionRing)) selectionRing.bringToFront();
-    });
-    dom.legendItems.append(el('label', { class: 'legend-item' },
-      checkbox,
-      el('span', { class: 'dot', style: { background: group.color } }),
-      el('span', { class: 'legend-label', text: group.label }),
-      el('span', { class: 'legend-count', text: formatCount(counts[group.id] || 0) })));
+    }
   }
+  if (map.hasLayer(selectionRing)) selectionRing.bringToFront();
+}
+
+function updateCounts() {
+  const perType = new Map();
+  for (const facility of located) {
+    if (facility.susNetwork || showPrivate) perType.set(facility.type, (perType.get(facility.type) || 0) + 1);
+  }
+  for (const [type, control] of typeControls) control.count.textContent = formatCount(perType.get(type) || 0);
+  for (const control of groupControls.values()) {
+    const checked = control.types.filter((type) => checkedTypes.has(type)).length;
+    control.checkbox.checked = checked === control.types.length;
+    control.checkbox.indeterminate = checked > 0 && checked < control.types.length;
+    control.count.textContent = formatCount(control.types.reduce((sum, type) => sum + (perType.get(type) || 0), 0));
+  }
+}
+
+function updateStatus() {
+  const shown = located.filter(isVisible);
+  const hiddenPrivate = located.filter((facility) => !facility.susNetwork).length;
+  const parts = [t('map.status.shown', { shown: formatCount(shown.length) })];
+  if (!showPrivate && hiddenPrivate) parts.push(t('map.status.private', { count: formatCount(hiddenPrivate) }));
+  const corrected = shown.filter((facility) => facility.coordSource === 'cnefe_corrected').length;
+  parts.push(t('map.status.geocoded', {
+    geocoded: formatCount(shown.filter((facility) => facility.coordSource !== 'cnes').length - corrected),
+    approximate: formatCount(shown.filter((facility) => APPROXIMATE_SOURCES.has(facility.coordSource)).length),
+    corrected: formatCount(corrected),
+  }));
+  const unlocated = facilities.filter((facility) => facility.lat === undefined && (facility.susNetwork || showPrivate)).length;
+  if (unlocated) parts.push(t('map.status.unlocated', { count: formatCount(unlocated) }));
+  dom.status.textContent = parts.join(' ');
+}
+
+function refresh() {
+  syncLayers();
+  updateCounts();
+  updateStatus();
+}
+
+function buildLegend() {
+  for (const group of TYPE_GROUPS) {
+    const types = Object.keys(FACILITY_TYPES).filter((type) => FACILITY_TYPES[type].group === group.id);
+    const groupCheckbox = el('input', { type: 'checkbox', checked: '' });
+    const groupCount = el('span', { class: 'legend-count' });
+    groupControls.set(group.id, { checkbox: groupCheckbox, count: groupCount, types });
+    groupCheckbox.addEventListener('change', () => {
+      for (const type of types) {
+        if (groupCheckbox.checked) checkedTypes.add(type);
+        else checkedTypes.delete(type);
+        typeControls.get(type).checkbox.checked = groupCheckbox.checked;
+      }
+      refresh();
+    });
+    dom.legendItems.append(el('label', { class: 'legend-item is-group' },
+      groupCheckbox,
+      el('span', { class: 'dot', style: { background: group.color } }),
+      el('span', { class: 'legend-label', text: pick(group.label) }),
+      groupCount));
+
+    for (const type of types) {
+      const checkbox = el('input', { type: 'checkbox', checked: '' });
+      const count = el('span', { class: 'legend-count' });
+      typeControls.set(type, { checkbox, count });
+      checkbox.addEventListener('change', () => {
+        if (checkbox.checked) checkedTypes.add(type);
+        else checkedTypes.delete(type);
+        refresh();
+      });
+      dom.legendItems.append(el('label', { class: 'legend-item is-type' },
+        checkbox, el('span', { class: 'legend-label', text: typeInfo(type).label }), count));
+    }
+  }
+
+  dom.publicOnly.checked = !showPrivate;
+  dom.publicOnly.addEventListener('change', () => {
+    showPrivate = !dom.publicOnly.checked;
+    setPref(PUBLIC_ONLY_PREF, dom.publicOnly.checked);
+    refresh();
+  });
+  // on a phone the filter list would cover the map
+  if (window.matchMedia('(max-width: 800px)').matches) dom.legend.open = false;
 }
 
 function showDetail(...children) {
-  dom.detail.replaceChildren(
-    el('button', { class: 'link-button', type: 'button', id: 'close-detail', text: '← All facilities' }),
-    ...children.filter(Boolean));
+  const back = el('button', { class: 'link-button', type: 'button', text: t('panel.back') });
+  back.addEventListener('click', clearSelection);
+  dom.detail.replaceChildren(back, ...children.filter(Boolean));
   dom.detail.hidden = false;
   dom.intro.hidden = true;
-  document.getElementById('close-detail').addEventListener('click', clearSelection);
   document.getElementById('panel-body').scrollTop = 0;
 }
 
@@ -120,22 +215,22 @@ async function select(cnes, { fly = false } = {}) {
     map.closePopup(popup);
   }
 
-  showDetail(el('p', { class: 'hint', text: `Loading ${facility.name}…` }));
+  showDetail(el('p', { class: 'hint', text: t('panel.loading', { name: facility.name }) }));
   try {
     const row = await getFacility(facility.cnes);
     if (token !== selectionToken) return;
-    if (!row) throw new Error('Facility not found.');
+    if (!row) throw new Error(t('panel.notFound'));
+    const note = (text) => (text ? el('p', { class: 'notice', text }) : null);
     showDetail(
       facilityHeader(row),
-      facility.coordStatus
-        ? el('p', { class: 'notice', text: `Not shown on the map. ${COORD_STATUS[facility.coordStatus]}` })
-        : null,
-      positionNote(row) ? el('p', { class: 'notice', text: positionNote(row) }) : null,
-      el('a', { class: 'button', href: `facility.html?cnes=${facility.cnes}`, text: 'More info' }),
+      note(facility.coordStatus && `${t('panel.notOnMap')} ${coordStatusNote(facility.coordStatus)}`),
+      note(!facility.susNetwork && !showPrivate && facility.lat !== undefined && t('panel.hiddenPrivate')),
+      note(positionNote(row)),
+      el('a', { class: 'button', href: `facility.html?cnes=${facility.cnes}`, text: t('panel.more') }),
       renderFacility(row, { compact: true }));
   } catch (error) {
     if (token !== selectionToken) return;
-    showDetail(el('p', { class: 'notice is-error', text: `Could not load this facility: ${error.message}` }));
+    showDetail(el('p', { class: 'notice is-error', text: t('panel.loadError', { message: error.message }) }));
   }
 }
 
@@ -151,40 +246,42 @@ function runSearch() {
     if (matches.length === MAX_SEARCH_RESULTS) break;
   }
   dom.results.replaceChildren(...(matches.length ? matches.map((facility) => {
+    const meta = [
+      typeInfo(facility.type).label,
+      `CNES ${formatCnes(facility.cnes)}`,
+      facility.coordStatus && t('search.notOnMap'),
+      !facility.susNetwork && t('search.private'),
+    ].filter(Boolean).join(' · ');
     const button = el('button', { type: 'button' },
       el('span', { class: 'result-name', text: facility.name }),
-      el('span', { class: 'result-meta', text:
-        `${typeInfo(facility.type).label} · CNES ${formatCnes(facility.cnes)}${facility.coordStatus ? ' · not on map' : ''}` }));
+      el('span', { class: 'result-meta', text: meta }));
     button.addEventListener('click', () => {
       dom.results.hidden = true;
       dom.search.value = facility.name;
       select(facility.cnes, { fly: true });
     });
     return el('li', {}, button);
-  }) : [el('li', { class: 'empty', text: 'No facility matches.' })]));
+  }) : [el('li', { class: 'empty', text: t('search.none') })]));
   dom.results.hidden = false;
 }
 
 async function init() {
   try {
-    const { located, unlocated } = await getFacilityPoints();
-    facilities = [...located, ...unlocated].map((facility) => ({
-      ...facility,
-      key: `${searchKey(facility.name || '')} ${formatCnes(facility.cnes)}`,
-    }));
+    const points = await getFacilityPoints();
+    located = points.located;
+    // public-network facilities first, so they lead the search results
+    facilities = [...points.located, ...points.unlocated]
+      .map((facility) => ({ ...facility, key: `${searchKey(facility.name || '')} ${formatCnes(facility.cnes)}` }))
+      .sort((a, b) => Number(b.susNetwork) - Number(a.susNetwork));
     byCnes = new Map(facilities.map((facility) => [facility.cnes, facility]));
-    drawPoints(located);
-    buildLegend(located);
-    const corrected = located.filter((facility) => facility.coordSource === 'cnefe_corrected').length;
-    const geocoded = located.filter((facility) => facility.coordSource !== 'cnes').length - corrected;
-    const approximate = located.filter((facility) => APPROXIMATE_SOURCES.has(facility.coordSource)).length;
-    dom.status.textContent =
-      `${formatCount(located.length)} facilities on the map. ${formatCount(geocoded)} of them were placed from their street address because the registry had no usable coordinate; ${formatCount(approximate)} of those are approximate and drawn as hollow points. Another ${formatCount(corrected)} had a registry coordinate that did not match their own street address and were moved to the address. ${formatCount(unlocated.length)} could not be placed and can only be found through search.`;
+    drawPoints();
+    buildLegend();
+    refresh();
 
     const initial = new URLSearchParams(location.search).get('cnes');
     if (initial) select(initial, { fly: true });
   } catch (error) {
-    dom.status.textContent = `Could not load facilities: ${error.message}`;
+    dom.status.textContent = t('map.loadError', { message: error.message });
     dom.status.classList.add('is-error');
   }
 }
@@ -194,6 +291,6 @@ dom.search.addEventListener('focus', runSearch);
 document.addEventListener('click', (event) => {
   if (!event.target.closest('.panel-top')) dom.results.hidden = true;
 });
-document.getElementById('legend').addEventListener('submit', (event) => event.preventDefault());
+dom.legend.addEventListener('submit', (event) => event.preventDefault());
 
 init();
