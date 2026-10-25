@@ -54,6 +54,11 @@ export function getMunicipalIndicators() {
   return rpc('municipal_indicators');
 }
 
+/** São Paulo city's 96 districts: SMS-SP outcomes and census factors. */
+export function getDistrictIndicators() {
+  return rpc('district_indicators');
+}
+
 /** Census and facility aggregates within radiusM metres of a facility. */
 export function getSurroundings(cnes, radiusM, signal) {
   return rpc('facility_surroundings', { p_cnes: Number(cnes), p_radius_m: radiusM }, signal);

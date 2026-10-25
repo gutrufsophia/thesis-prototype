@@ -2,7 +2,7 @@
 // computed for the radius, with health outcomes that are only published per
 // municipality. Every block is labelled with the scale it refers to.
 
-import { getMunicipalIndicators } from './api.js';
+import { getDistrictIndicators, getMunicipalIndicators } from './api.js';
 import { barList, el, section } from './charts.js';
 import { formatCount, formatDistance, formatNumber } from './fields.js';
 import { t } from './i18n.js';
@@ -18,19 +18,36 @@ const ILL_DEFINED = 'xviii';
 const ILL_DEFINED_FLAG_PCT = 10;
 
 let indicatorsPromise = null;
+let districtsPromise = null;
 
 /** All municipalities keyed by code, plus the metropolitan totals under `region`. */
 function loadIndicators() {
   indicatorsPromise ??= getMunicipalIndicators().then((rows) => {
-    const region = {};
-    for (const row of rows) {
-      for (const [key, value] of Object.entries(row)) {
-        if (typeof value === 'number') region[key] = (region[key] || 0) + value;
-      }
-    }
-    return { byCode: new Map(rows.map((row) => [row.cd_municipio6, row])), region };
+    return { byCode: new Map(rows.map((row) => [row.cd_municipio6, row])), region: sumRows(rows) };
   });
   return indicatorsPromise;
+}
+
+const sumRows = (rows) => {
+  const total = {};
+  for (const row of rows) {
+    for (const [key, value] of Object.entries(row)) {
+      if (typeof value === 'number') total[key] = (total[key] || 0) + value;
+    }
+  }
+  return total;
+};
+
+/**
+ * São Paulo city districts keyed by IBGE code. The city reference is the sum of the districts,
+ * so both come from the same SMS-SP systems and leave out records without a district.
+ */
+function loadDistricts() {
+  districtsPromise ??= getDistrictIndicators().then((rows) => ({
+    byCode: new Map(rows.map((row) => [row.cd_dist, row])),
+    city: sumRows(rows),
+  }));
+  return districtsPromise;
 }
 
 const per100k = (cases, population) => (population ? (cases / population) * 100000 : null);
@@ -41,8 +58,8 @@ function scopeChip(text, kind) {
   return el('p', { class: `scope scope-${kind}` }, text);
 }
 
-function referenceLegend() {
-  return el('p', { class: 'hint reference-legend' }, el('span', { class: 'reference-key' }), t('ter.referenceLegend'));
+function referenceLegend(key = 'ter.referenceLegend') {
+  return el('p', { class: 'hint reference-legend' }, el('span', { class: 'reference-key' }), t(key));
 }
 
 /** Radius, municipality and region side by side for one census indicator. */
@@ -65,11 +82,25 @@ function municipalChart(title, home, region, value, options, hint) {
   ], options), { hint });
 }
 
-function municipalScope(surroundings, home) {
+/** District against the whole city, both from the SMS-SP systems. */
+function districtChart(title, district, city, value, options, hint) {
+  return section(title, barList([
+    { label: district.nm_dist, value: value(district) },
+    { label: t('ter.cityWithDistricts'), value: value(city), muted: true },
+  ], options), { hint });
+}
+
+function districtScope(district) {
+  return scopeChip(t('ter.scope.district', { name: district.row.nm_dist }), 'district');
+}
+
+function municipalScope(surroundings, home, hasDistrict = false) {
   const others = surroundings.municipalities.filter((m) => m.code !== home.cd_municipio6).map((m) => m.name);
   const nodes = [scopeChip(t('ter.scope.municipality', { name: home.nome }), 'municipality')];
   if (others.length) nodes.push(el('p', { class: 'hint', text: t('ter.alsoReaches', { names: others.join(', '), home: home.nome }) }));
-  if (home.cd_municipio6 === SAO_PAULO_CITY) nodes.push(el('p', { class: 'hint', text: t('ter.capitalNote') }));
+  if (home.cd_municipio6 === SAO_PAULO_CITY) {
+    nodes.push(el('p', { class: 'hint', text: t(hasDistrict ? 'ter.capitalNote' : 'ter.capitalNoteNoDistrict') }));
+  }
   return nodes;
 }
 
@@ -98,17 +129,23 @@ function environmentCard(surroundings, home, region) {
   ];
 }
 
-function respiratoryCard(surroundings, home, region) {
+function respiratoryCard(surroundings, home, region, district) {
   const years = SINAN_YEARS.length;
+  const tbRate = (row) => per100k(sumYears(row, 'tuberculose') / years, row.populacao);
+  const districtTbRate = (row) => per100k(sumYears(row, 'tb') / years, row.populacao_total);
   return [
     el('h3', { class: 'card-title', text: t('ter.resp.title') }),
     scopeChip(t('ter.scope.radius', { radius: formatDistance(surroundings.radius_m), census: t('period.census') }), 'radius'),
     contextChart(t('ind.crowding'), surroundings, (d) => d.residents_per_household, { digits: 2 }),
     contextChart(t('ter.resp.crowded', { threshold: formatNumber(surroundings.crowding_threshold, 1) }),
       surroundings, (d) => d.crowded_pct, { digits: 1, suffix: '%' }),
-    ...municipalScope(surroundings, home),
-    municipalChart(t('ter.resp.tb'), home, region,
-      (row) => per100k(sumYears(row, 'tuberculose') / years, row.populacao), { digits: 1 }, t('ter.resp.tbHint')),
+    ...(district ? [
+      districtScope(district),
+      districtChart(t('ter.resp.tb'), district.row, district.city, districtTbRate, { digits: 1 },
+        t('ter.resp.tbDistrictHint', { count: formatCount(sumYears(district.row, 'tb')) })),
+    ] : []),
+    ...municipalScope(surroundings, home, Boolean(district)),
+    municipalChart(t('ter.resp.tb'), home, region, tbRate, { digits: 1 }, t('ter.resp.tbHint')),
   ];
 }
 
@@ -127,45 +164,78 @@ function accessCard(surroundings) {
   ];
 }
 
-function maternalCard(surroundings, home, region) {
+function maternalCard(surroundings, home, region, district) {
+  const teen = (row) => percent(row.nasc_mae_menor_20, row.nasc_idade_conhecida);
+  const preterm = (row) => percent(row.nasc_pretermo, row.nasc_gestacao_conhecida);
+  const pct = { digits: 1, suffix: '%' };
   return [
     el('h3', { class: 'card-title', text: t('ter.mat.title') }),
-    ...municipalScope(surroundings, home),
-    municipalChart(t('ter.mat.teen'), home, region,
-      (row) => percent(row.nasc_mae_menor_20, row.nasc_idade_conhecida), { digits: 1, suffix: '%' }),
-    municipalChart(t('ter.mat.preterm'), home, region,
-      (row) => percent(row.nasc_pretermo, row.nasc_gestacao_conhecida), { digits: 1, suffix: '%' }),
+    ...(district ? [
+      districtScope(district),
+      districtChart(t('ter.mat.teen'), district.row, district.city, teen, pct),
+      districtChart(t('ter.mat.preterm'), district.row, district.city, preterm, pct,
+        t('ter.mat.districtHint', { count: formatCount(district.row.nasc_total) })),
+    ] : []),
+    ...municipalScope(surroundings, home, Boolean(district)),
+    municipalChart(t('ter.mat.teen'), home, region, teen, pct),
+    municipalChart(t('ter.mat.preterm'), home, region, preterm, pct),
     el('p', { class: 'hint', text: t('ter.mat.hint', { count: formatCount(home.nasc_total) }) }),
   ];
 }
 
-function mortalityCard(surroundings, home, region) {
-  const defined = (row) => row.obitos_total - row[`obitos_cap_${ILL_DEFINED}`];
-  const share = (row, chapter) => percent(row[`obitos_cap_${chapter}`], defined(row));
-  const listed = (row) => DEATH_CAUSES.reduce((sum, chapter) => sum + row[`obitos_cap_${chapter}`], 0);
+const definedDeaths = (row) => row.obitos_total - row[`obitos_cap_${ILL_DEFINED}`];
+
+function causeShares(row, reference) {
+  const share = (r, chapter) => percent(r[`obitos_cap_${chapter}`], definedDeaths(r));
+  const listed = (r) => DEATH_CAUSES.reduce((sum, chapter) => sum + r[`obitos_cap_${chapter}`], 0);
   const items = DEATH_CAUSES.map((chapter) => ({
-    label: t(`ter.mort.cap.${chapter}`), value: share(home, chapter), reference: share(region, chapter),
+    label: t(`ter.mort.cap.${chapter}`), value: share(row, chapter), reference: share(reference, chapter),
   })).sort((a, b) => b.value - a.value);
   items.push({
     label: t('ter.mort.other'),
-    value: percent(defined(home) - listed(home), defined(home)),
-    reference: percent(defined(region) - listed(region), defined(region)),
+    value: percent(definedDeaths(row) - listed(row), definedDeaths(row)),
+    reference: percent(definedDeaths(reference) - listed(reference), definedDeaths(reference)),
   });
+  return barList(items, { digits: 1, suffix: '%' });
+}
+
+function mortalityCard(surroundings, home, region, district) {
   const illDefined = (row) => percent(row[`obitos_cap_${ILL_DEFINED}`], row.obitos_total);
   const homeIllDefined = illDefined(home);
   return [
     el('h3', { class: 'card-title', text: t('ter.mort.title') }),
-    ...municipalScope(surroundings, home),
+    ...(district ? [
+      districtScope(district),
+      section(t('ter.mort.causes'), causeShares(district.row, district.city), {
+        hint: t('ter.mort.districtHint', { count: formatCount(definedDeaths(district.row)), name: district.row.nm_dist }),
+      }),
+      referenceLegend('ter.cityReferenceLegend'),
+    ] : []),
+    ...municipalScope(surroundings, home, Boolean(district)),
     homeIllDefined > ILL_DEFINED_FLAG_PCT
       ? el('p', { class: 'notice', text: t('ter.mort.illDefinedFlag', {
         share: formatNumber(homeIllDefined, 1), name: home.nome }) })
       : null,
-    section(t('ter.mort.causes'), barList(items, { digits: 1, suffix: '%' }),
-      { hint: t('ter.mort.hint', { count: formatCount(defined(home)), total: formatCount(home.obitos_total) }) }),
+    section(t('ter.mort.causes'), causeShares(home, region),
+      { hint: t('ter.mort.hint', { count: formatCount(definedDeaths(home)), total: formatCount(home.obitos_total) }) }),
     municipalChart(t('ter.mort.illDefined'), home, region, illDefined, { digits: 1, suffix: '%' },
       t('ter.mort.illDefinedHint')),
     referenceLegend(),
   ].filter(Boolean);
+}
+
+/** The facility's district, from the first nine digits of its census tract code; null if unavailable. */
+async function findDistrict(surroundings) {
+  const tract = surroundings.location?.tract;
+  if (!tract) return null;
+  try {
+    const districts = await loadDistricts();
+    const row = districts.byCode.get(String(tract).slice(0, 9));
+    return row ? { row, city: districts.city } : null;
+  } catch (error) {
+    console.warn('District indicators unavailable:', error);
+    return null;
+  }
 }
 
 /** Fill the territory cards for the current radius. */
@@ -190,8 +260,9 @@ export async function renderTerritory(surroundings) {
   }
   const home = indicators.byCode.get(surroundings.location?.municipality_code);
   if (!home) return;
+  const district = home.cd_municipio6 === SAO_PAULO_CITY ? await findDistrict(surroundings) : null;
   cards.environment.replaceChildren(...environmentCard(surroundings, home, indicators.region));
-  cards.respiratory.replaceChildren(...respiratoryCard(surroundings, home, indicators.region));
-  cards.maternal.replaceChildren(...maternalCard(surroundings, home, indicators.region));
-  cards.mortality.replaceChildren(...mortalityCard(surroundings, home, indicators.region));
+  cards.respiratory.replaceChildren(...respiratoryCard(surroundings, home, indicators.region, district));
+  cards.maternal.replaceChildren(...maternalCard(surroundings, home, indicators.region, district));
+  cards.mortality.replaceChildren(...mortalityCard(surroundings, home, indicators.region, district));
 }
