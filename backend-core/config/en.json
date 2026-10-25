@@ -1,0 +1,287 @@
+{
+  "code": "en",
+  "decimal": ".",
+  "thousands": ",",
+  "max_words": 280,
+  "templates": {
+    "profile": "{profile.name} is {profile.type} {profile.network}, serving {profile.flow}.",
+    "profile.noflow": "{profile.name} is {profile.type} {profile.network}.",
+    "beds": "The unit has {beds.unit} <pl:beds.unit|bed|beds>, {beds.sus_unit} for SUS, and {beds.icu_unit} ICU <pl:beds.icu_unit|bed|beds> ({beds.period}).",
+    "staff": "The CNES registry ({staff.period}) lists {staff.physicians_unit} physician <pl:staff.physicians_unit|link|links> and {staff.nurses_unit} nurse <pl:staff.nurses_unit|link|links> at the unit.",
+    "admissions": "Of the {admissions.total_unit} SUS-funded admissions between {admissions.period}, the most frequent reason was {admissions.chapter}, with {admissions.share_unit} of the total.",
+    "stay.long": "Its mean length of stay, {stay.days_unit} days, is among the longest of the hospitals in the metropolitan region.",
+    "stay.short": "Its mean length of stay, {stay.days_unit} days, is among the shortest of the hospitals in the metropolitan region.",
+    "position.approximate": "The unit's position on the map is approximate, to within about {position.precision}, and figures for its surroundings are more reliable for large radii.",
+    "position.corrected": "The CNES coordinate was {position.shift} away from the unit's address and was replaced by the address position in the census address register.",
+    "residents": "About {residents.radius} people in {residents.households_radius} households live within the {residents.extent_radius} radius around the unit (an estimate from the {residents.period}).",
+    "sewage": "{sewage.radius} of households in the radius are not connected to the sewage network, <cmp> {sewage.municipality} in the municipality of {sewage.municipality_name}; the share is {sewage.region} in the metropolitan region.",
+    "precarious": "{precarious.radius} of households in the radius discharge sewage into rudimentary pits, ditches or rivers, or have no bathroom, <cmp> {precarious.municipality} in the municipality of {precarious.municipality_name}; the share is {precarious.region} in the metropolitan region.",
+    "garbage": "{garbage.radius} of households in the radius have no garbage collection, <cmp> {garbage.municipality} in the municipality of {garbage.municipality_name}; the share is {garbage.region} in the metropolitan region.",
+    "crowding": "The radius averages {crowding.radius} residents per household, <cmp> {crowding.municipality} in the municipality of {crowding.municipality_name}; the average is {crowding.region} in the metropolitan region.",
+    "crowded": "{crowded.radius} of residents in the radius live in tracts among the region's {k.top_decile} most crowded, <cmp> {crowded.municipality} in the municipality of {crowded.municipality_name}; the share is {crowded.region} in the metropolitan region.",
+    "access": "In a straight line, {access.radius} of residents in the radius live more than {k.one_km} from a public primary care unit, <cmp> {access.municipality} in the municipality of {access.municipality_name}; the share is {access.region} in the metropolitan region.",
+    "network": "There are {network.count_radius} other health facilities in the radius, {network.public_radius} of them public or providing SUS care.",
+    "network.none": "There is no other health facility within the {network.extent_radius} radius.",
+    "tb_district": "Tuberculosis reached {tb_district.district} cases per {k.per100k} inhabitants a year in the {tb_district.district_name} district between {tb_district.period}, <cmp> {tb_district.city} in São Paulo city, counting only residents with an address.",
+    "tb_district.top": "Tuberculosis reached {tb_district.district} cases per {k.per100k} inhabitants a year in the {tb_district.district_name} district between {tb_district.period}, <cmp> {tb_district.city} in São Paulo city, counting only residents with an address; it is one of the ten districts with the highest rates in the city.",
+    "tb_district.bottom": "Tuberculosis reached {tb_district.district} cases per {k.per100k} inhabitants a year in the {tb_district.district_name} district between {tb_district.period}, <cmp> {tb_district.city} in São Paulo city, counting only residents with an address; it is one of the ten districts with the lowest rates in the city.",
+    "tb_district.small": "In the {tb_district.district_name} district, there <pl:tb_district.count_district|was|were> {tb_district.count_district} tuberculosis <pl:tb_district.count_district|case|cases> between {tb_district.period}, counting only residents with an address.",
+    "teen_district": "{teen_district.district} of live births in the {teen_district.district_name} district between {teen_district.period} were to mothers under {k.twenty}, <cmp> {teen_district.city} in São Paulo city.",
+    "teen_district.small": "In the {teen_district.district_name} district, {teen_district.count_district} live <pl:teen_district.count_district|birth|births> between {teen_district.period} <pl:teen_district.count_district|was|were> to mothers under {k.twenty}.",
+    "tb": "Tuberculosis reached {tb.municipality} cases per {k.per100k} residents a year in the municipality of {tb.municipality_name} between {tb.period}, <cmp> {tb.region} in the metropolitan region.",
+    "tb.small": "In the municipality of {tb.municipality_name}, there <pl:tb.count_municipality|was|were> {tb.count_municipality} tuberculosis <pl:tb.count_municipality|case|cases> among residents between {tb.period}.",
+    "dengue": "In {dengue.year}, the municipality of {dengue.municipality_name} recorded {dengue.municipality} probable dengue cases per {k.per100k} inhabitants, <cmp> {dengue.region} in the metropolitan region.",
+    "dengue.epidemic": "In {dengue.year}, an epidemic year, the municipality of {dengue.municipality_name} recorded {dengue.municipality} probable dengue cases per {k.per100k} inhabitants, <cmp> {dengue.region} in the metropolitan region.",
+    "dengue.small": "In {dengue.year}, the municipality of {dengue.municipality_name} recorded {dengue.count_municipality} probable dengue <pl:dengue.count_municipality|case|cases>.",
+    "lepto": "Leptospirosis reached {lepto.municipality} confirmed cases per {k.per100k} inhabitants a year in the municipality of {lepto.municipality_name} between {lepto.period}, <cmp> {lepto.region} in the metropolitan region.",
+    "lepto.small": "In the municipality of {lepto.municipality_name}, there <pl:lepto.count_municipality|was|were> {lepto.count_municipality} confirmed leptospirosis <pl:lepto.count_municipality|case|cases> between {lepto.period}.",
+    "teen": "{teen.municipality} of live births in the municipality of {teen.municipality_name} between {teen.period} were to mothers under {k.twenty}, <cmp> {teen.region} in the metropolitan region.",
+    "teen.small": "In the municipality of {teen.municipality_name}, {teen.count_municipality} live <pl:teen.count_municipality|birth|births> between {teen.period} <pl:teen.count_municipality|was|were> to mothers under {k.twenty}.",
+    "preterm": "{preterm.municipality} of live births in the municipality of {preterm.municipality_name} between {preterm.period} were preterm, <cmp> {preterm.region} in the metropolitan region.",
+    "preterm.small": "In the municipality of {preterm.municipality_name}, {preterm.count_municipality} live <pl:preterm.count_municipality|birth|births> between {preterm.period} <pl:preterm.count_municipality|was|were> preterm.",
+    "mortality": "Among deaths of residents aged {k.ages} with a defined cause between {mortality.period}, the most frequent group was {mortality.cause}: {mortality.municipality} of deaths in the municipality of {mortality.municipality_name}, <cmp> {mortality.region} in the metropolitan region.",
+    "mortality.small": "In the municipality of {mortality.municipality_name}, there <pl:mortality.count_municipality|was|were> {mortality.count_municipality} <pl:mortality.count_municipality|death|deaths> of residents aged {k.ages} with a defined cause between {mortality.period}; the most frequent group was {mortality.cause}.",
+    "network.one_public": "There is {network.count_radius} other health facility in the radius, public or providing SUS care.",
+    "network.one_private": "There is {network.count_radius} other health facility in the radius, private and outside SUS."
+  },
+  "comparatives": {
+    "similar": "close to",
+    "higher": "above",
+    "much_higher": "well above",
+    "times_higher": "about {%.ratio} times the",
+    "lower": "below",
+    "much_lower": "well below"
+  },
+  "caveats": {
+    "C01.self": {
+      "text": "As a referral hospital it serves patients from the whole region, and per-resident figures for its surroundings do not describe its reach.",
+      "marker": "whole region"
+    },
+    "C01.nearby": {
+      "text": "There is a large hospital in the radius that serves patients from the whole region, and per-resident figures for the surroundings do not describe its reach.",
+      "marker": "whole region"
+    },
+    "C03": {
+      "marker": "about|estimate"
+    },
+    "C03b": {
+      "text": "The estimate is imprecise: census tracts here are large and the radius covers only part of them.",
+      "marker": "imprecise"
+    },
+    "C04.precarious": {
+      "text": "In the radius, {%.precarious_radius} of households discharge sewage into rudimentary pits, ditches or rivers.",
+      "marker": "pits"
+    },
+    "C04.septic": {
+      "text": "In the radius, most households off the network use septic tanks; {%.precarious_radius} have precarious disposal.",
+      "marker": "septic"
+    },
+    "C05": {
+      "marker": "approximate|replaced"
+    },
+    "C06": {
+      "text": "{%.private_radius} private and outside SUS",
+      "marker": "outside SUS"
+    },
+    "C07": {
+      "marker": "links?"
+    },
+    "C08": {
+      "marker": "SUS-funded"
+    },
+    "C08b": {
+      "text": "A long stay reflects the kind of cases treated, chronic or highly complex, and not the quality of care.",
+      "marker": "not the quality"
+    },
+    "C09": {
+      "marker": "straight line"
+    },
+    "C10": {
+      "text": "There are no disease data for areas as small as the radius: the following figures are for the whole municipality.",
+      "marker": "no disease data"
+    },
+    "C10.district": {
+      "text": "There are no disease data for areas as small as the radius: the following figures are for the district.",
+      "marker": "no disease data"
+    },
+    "C12": {
+      "text": "In {%.peak_year}, an epidemic year, the municipality's rate reached {%.peak_municipality}.",
+      "marker": "epidemic"
+    },
+    "C12.current": {
+      "marker": "epidemic"
+    },
+    "C13": {
+      "marker": "residents"
+    },
+    "C15": {
+      "marker": "\\bcases?\\b|live births?|deaths?"
+    },
+    "C16": {
+      "marker": "address"
+    },
+    "C17": {
+      "text": "District figures come from the city's own systems (SMS-SP) and municipal ones from DATASUS; the two are not directly comparable.",
+      "marker": "not directly comparable"
+    },
+    "C18": {
+      "marker": "defined cause"
+    },
+    "C18b": {
+      "text": "{%.ill_defined_municipality} of deaths in the municipality have no defined cause, which makes this profile unreliable.",
+      "marker": "unreliable"
+    },
+    "C14b": {
+      "text": "With so many private services in the radius, being far from public primary care does not by itself mean a lack of care: some residents use private health plans.",
+      "marker": "private health plans"
+    },
+    "C10.district_municipality": {
+      "text": "There are no disease data for areas as small as the radius: the following figures are for the district and the municipality.",
+      "marker": "no disease data"
+    }
+  },
+  "labels": {
+    "type:Centro de Saúde/UBS": "a primary care centre (UBS)",
+    "type:Posto de Saúde": "a health post",
+    "type:Polo Academia da Saúde": "a Health Academy hub",
+    "type:Hospital Geral": "a general hospital",
+    "type:Hospital Especializado": "a specialised hospital",
+    "type:Unidade Mista": "a mixed unit",
+    "type:Pronto Atendimento (UPA)": "an urgent care unit (UPA)",
+    "type:Pronto Socorro Geral": "a general emergency room",
+    "type:Pronto Socorro Especializado": "a specialised emergency room",
+    "type:Policlínica": "a polyclinic",
+    "type:Clínica/Centro de Especialidade": "a specialty clinic",
+    "type:Centro de Atenção Psicossocial (CAPS)": "a psychosocial care centre (CAPS)",
+    "type:Unidade de Apoio Diagnose e Terapia (SADT Isolado)": "a diagnostic and therapy support unit (SADT)",
+    "network:public": "in the public network",
+    "network:sus_partner": "linked to SUS",
+    "network:private": "with no SUS link",
+    "flow:Atendimento de Demanda Espontânea": "walk-in patients",
+    "flow:Atendimento de Demanda Referenciada": "referred patients",
+    "flow:Atendimento de Demanda Espontânea e Referenciada": "walk-in and referred patients",
+    "period:census": "2022 Census",
+    "period:cnes": "August 2026",
+    "period:sih": "January 2025 and July 2026",
+    "period:sinan": "2022 and 2025",
+    "period:births": "2022 and 2024",
+    "period:deaths": "2022 and 2024",
+    "chapter:internacoes_infecciosas_parasitarias": "infectious and parasitic diseases",
+    "chapter:internacoes_neoplasias_tumores": "neoplasms",
+    "chapter:internacoes_sangue_imunitarias": "blood and immune disorders",
+    "chapter:internacoes_endocrinas_nutricionais": "endocrine, nutritional and metabolic diseases",
+    "chapter:internacoes_transtornos_mentais": "mental and behavioural disorders",
+    "chapter:internacoes_sistema_nervoso": "diseases of the nervous system",
+    "chapter:internacoes_olho_anexos": "diseases of the eye",
+    "chapter:internacoes_ouvido_mastoide": "diseases of the ear",
+    "chapter:internacoes_aparelho_circulatorio": "diseases of the circulatory system",
+    "chapter:internacoes_aparelho_respiratorio": "diseases of the respiratory system",
+    "chapter:internacoes_aparelho_digestivo": "diseases of the digestive system",
+    "chapter:internacoes_pele_tecido_subcutaneo": "diseases of the skin",
+    "chapter:internacoes_osteomuscular_conjuntivo": "musculoskeletal and connective tissue diseases",
+    "chapter:internacoes_aparelho_geniturinario": "diseases of the genitourinary system",
+    "chapter:internacoes_gravidez_parto_puerperio": "pregnancy, childbirth and the puerperium",
+    "chapter:internacoes_afeccoes_perinatais": "perinatal conditions",
+    "chapter:internacoes_malformacoes_congenitas": "congenital malformations",
+    "chapter:internacoes_sintomas_sinais_anormais": "symptoms and abnormal findings",
+    "chapter:internacoes_lesoes_envenenamentos": "injury and poisoning",
+    "chapter:internacoes_contatos_servicos_saude": "contact with health services",
+    "cause:ix": "diseases of the circulatory system",
+    "cause:ii": "neoplasms (cancer)",
+    "cause:x": "diseases of the respiratory system",
+    "cause:xx": "external causes (violence and accidents)",
+    "cause:xi": "diseases of the digestive system",
+    "cause:i": "infectious and parasitic diseases"
+  },
+  "constants": {
+    "per100k": "100,000",
+    "twenty": "20",
+    "ages": "30 to 69",
+    "one_km": "1 km",
+    "top_decile": "10%"
+  },
+  "scope_markers": {
+    "radius": [
+      "\\bradius\\b"
+    ],
+    "district": [
+      "\\bdistrict\\b"
+    ],
+    "city": [
+      "\\bcity\\b"
+    ],
+    "municipality": [
+      "\\bmunicipality\\b"
+    ],
+    "region": [
+      "metropolitan region"
+    ]
+  },
+  "direction_words": {
+    "higher": [
+      "\\babove\\b",
+      "\\bhigher\\b"
+    ],
+    "lower": [
+      "\\bbelow\\b",
+      "\\blower\\b"
+    ],
+    "similar": [
+      "\\bsimilar\\b",
+      "\\bclose to\\b"
+    ],
+    "times": [
+      "\\btimes\\b"
+    ]
+  },
+  "clause_separators": [
+    ",",
+    ";",
+    ":",
+    "(",
+    ")",
+    " and ",
+    " against ",
+    " while ",
+    " compared with "
+  ],
+  "causal": [
+    "\\bdue to\\b",
+    "\\bbecause\\b",
+    "\\bcaused\\b",
+    "\\bcausing\\b",
+    "\\bcauses\\b",
+    "\\bleads? to\\b",
+    "\\bled to\\b",
+    "\\bresults? in\\b",
+    "\\bexplains?\\b",
+    "\\bdrives?\\b",
+    "\\bcontribut",
+    "\\bas a result\\b",
+    "\\bowing to\\b",
+    "\\btherefore\\b"
+  ],
+  "protected_terms": [
+    "external causes",
+    "ill-defined causes",
+    "defined cause",
+    "leading cause",
+    "most frequent cause"
+  ],
+  "mutation": {
+    "scope_words": {
+      "radius": "radius",
+      "district": "district",
+      "city": "city",
+      "municipality": "municipality",
+      "region": "metropolitan region"
+    },
+    "opposites": {
+      "above": "below",
+      "below": "above",
+      "close to": "above",
+      "times the": "times lower than the"
+    },
+    "causal_clause": "due to living conditions in the surroundings"
+  }
+}

@@ -1,0 +1,191 @@
+{
+  "params": {
+    "saturation_ratio": 3,
+    "saturation_pp": 10,
+    "similar_ratio": 1.1,
+    "similar_pp": 2,
+    "higher_ratio": 1.5,
+    "times_ratio": 2,
+    "region_weight": 0.5,
+    "theme_weights": {
+      "living": 1.0,
+      "access": 0.8,
+      "network": 0.6,
+      "outcome": 0.9
+    },
+    "pair_boost": 1.5,
+    "district_boost": 1.2,
+    "reliability": {
+      "low_coverage": 0.7,
+      "few_tracts": 0.7,
+      "approximate_position": 0.6
+    },
+    "low_coverage": 0.5,
+    "few_tracts": 3,
+    "hub_beds": 50,
+    "rank_extreme": 0.2,
+    "district_top": 10,
+    "max_living": 2,
+    "max_outcomes": 2,
+    "min_importance": 0.2,
+    "sinan_years": [
+      "2022",
+      "2023",
+      "2024",
+      "2025"
+    ],
+    "recent_year": "2025",
+    "epidemic_factor": 3,
+    "position_shift_min_m": 500
+  },
+  "rules": [
+    {
+      "id": "C01",
+      "note": 1,
+      "effect": "disclose",
+      "fact": "beds|network",
+      "params": {
+        "hub_beds": 50
+      }
+    },
+    {
+      "id": "C03",
+      "note": 3,
+      "effect": "qualify",
+      "fact": "residents"
+    },
+    {
+      "id": "C03b",
+      "note": 3,
+      "effect": "disclose",
+      "fact": "residents",
+      "params": {
+        "low_coverage": 0.5,
+        "few_tracts": 3
+      }
+    },
+    {
+      "id": "C04",
+      "note": 4,
+      "effect": "disclose",
+      "fact": "sewage",
+      "params": {
+        "min_share": 20
+      }
+    },
+    {
+      "id": "C05",
+      "note": 5,
+      "effect": "qualify",
+      "fact": "position"
+    },
+    {
+      "id": "C06",
+      "note": 6,
+      "effect": "qualify",
+      "fact": "network",
+      "params": {
+        "min_count": 2,
+        "min_share": 0.5
+      }
+    },
+    {
+      "id": "C07",
+      "note": 7,
+      "effect": "qualify",
+      "fact": "staff"
+    },
+    {
+      "id": "C08",
+      "note": 8,
+      "effect": "qualify",
+      "fact": "admissions"
+    },
+    {
+      "id": "C08b",
+      "note": 8,
+      "effect": "disclose",
+      "fact": "stay"
+    },
+    {
+      "id": "C09",
+      "note": 9,
+      "effect": "qualify",
+      "fact": "access"
+    },
+    {
+      "id": "C10",
+      "note": 11,
+      "effect": "disclose",
+      "fact": "first outcome",
+      "before": true
+    },
+    {
+      "id": "C12",
+      "note": 12,
+      "effect": "disclose",
+      "fact": "dengue"
+    },
+    {
+      "id": "C13",
+      "note": 13,
+      "effect": "qualify",
+      "fact": "tb"
+    },
+    {
+      "id": "C14",
+      "note": 14,
+      "effect": "suppress",
+      "fact": "access",
+      "params": {
+        "max_radius_m": 2000
+      }
+    },
+    {
+      "id": "C14b",
+      "note": 14,
+      "effect": "disclose",
+      "fact": "access",
+      "params": {
+        "min_private_share": 0.5
+      }
+    },
+    {
+      "id": "C15",
+      "note": 15,
+      "effect": "qualify",
+      "fact": "outcomes",
+      "params": {
+        "small_count": 20,
+        "reliability": 0.2
+      }
+    },
+    {
+      "id": "C16",
+      "note": 16,
+      "effect": "qualify",
+      "fact": "tb_district"
+    },
+    {
+      "id": "C17",
+      "note": 17,
+      "effect": "disclose",
+      "fact": "last district outcome"
+    },
+    {
+      "id": "C18",
+      "note": 18,
+      "effect": "qualify",
+      "fact": "mortality"
+    },
+    {
+      "id": "C18b",
+      "note": 18,
+      "effect": "disclose",
+      "fact": "mortality",
+      "params": {
+        "max_share": 10
+      }
+    }
+  ]
+}

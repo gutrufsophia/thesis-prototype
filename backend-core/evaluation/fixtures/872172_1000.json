@@ -1,0 +1,1287 @@
+{
+ "city": null,
+ "district": null,
+ "districts": null,
+ "facility": {
+  "CO_CEP": 6763460,
+  "CO_CLIENTELA": 1,
+  "CO_CNES": 872172,
+  "CO_MUNICIPIO_GESTOR": 355280,
+  "CO_NATUREZA_JUR": 2062,
+  "CO_TURNO_ATENDIMENTO": 3,
+  "Dependencia": "Individual",
+  "Fluxo_Clientela": "Atendimento de Demanda Espontânea",
+  "LEITOS_EXISTENTES": 0,
+  "LEITOS_SUS": 0,
+  "NO_BAIRRO": "JARDIM DA GLORIA",
+  "NO_FANTASIA": "SAUDE DA CIDADE",
+  "NO_LOGRADOURO": "AVENIDA CAETANO BARRELLA",
+  "NO_RAZAO_SOCIAL": "SAUDE DA CIDADE LTDA",
+  "NU_CNPJ_MANTENEDORA": null,
+  "NU_ENDERECO": "127",
+  "NU_LATITUDE": "-23.60969525565079",
+  "NU_LONGITUDE": "-46.75504943304502",
+  "TP_GESTAO": "Municipal",
+  "TP_UNIDADE": 4,
+  "UTI_ADULTO_EXIST": 0,
+  "UTI_ADULTO_SUS": 0,
+  "UTI_CORONARIANA_EXIST": 0,
+  "UTI_CORONARIANA_SUS": 0,
+  "UTI_NEONATAL_EXIST": 0,
+  "UTI_NEONATAL_SUS": 0,
+  "UTI_PEDIATRICO_EXIST": 0,
+  "UTI_PEDIATRICO_SUS": 0,
+  "UTI_QUEIMADO_EXIST": 0,
+  "UTI_QUEIMADO_SUS": 0,
+  "UTI_TOTAL_EXIST": 0,
+  "UTI_TOTAL_SUS": 0,
+  "atende_sus": false,
+  "coord": "0101000020E610000057E5B675A56047C0E88BFFFC149C37C0",
+  "coord_precision_m": null,
+  "coord_shift_m": null,
+  "coord_source": "cnes",
+  "coord_status": "ok",
+  "equip_audiologia": 0,
+  "equip_avaliacao_antropometrica_e_funcional": 0,
+  "equip_diagnostico_por_imagem": 1,
+  "equip_dialise": 0,
+  "equip_equipamentos_de_infra-estrutura": 0,
+  "equip_equipamentos_por_metodos_graficos": 2,
+  "equip_equipamentos_por_metodos_opticos": 3,
+  "equip_manutencao_da_vida": 4,
+  "equip_odontologia": 0,
+  "equip_outros_equipamentos": 0,
+  "equip_procedimentos_cirurgicos": 0,
+  "equip_procedimentos_clinicos": null,
+  "equip_quimioterapia": 0,
+  "equip_radioterapia": 0,
+  "equip_reabilitacao": 0,
+  "equip_telessaude_por_imagem": 0,
+  "esfera_juridica": "Entidade Empresarial",
+  "esp_cardiologista": 0,
+  "esp_clinico_geral": 2,
+  "esp_endocrinologista": 0,
+  "esp_ginecologista_obstetra": 0,
+  "esp_infecto_pneumo": 0,
+  "esp_medico_familia": 0,
+  "esp_oncologista": 0,
+  "esp_pediatra": 0,
+  "esp_psicologo": 0,
+  "esp_psiquiatra": 0,
+  "esp_terapeuta_ocupacional": 0,
+  "internacoes_afeccoes_perinatais": 0,
+  "internacoes_aparelho_circulatorio": 0,
+  "internacoes_aparelho_digestivo": 0,
+  "internacoes_aparelho_geniturinario": 0,
+  "internacoes_aparelho_respiratorio": 0,
+  "internacoes_contatos_servicos_saude": 0,
+  "internacoes_endocrinas_nutricionais": 0,
+  "internacoes_gravidez_parto_puerperio": 0,
+  "internacoes_infecciosas_parasitarias": 0,
+  "internacoes_lesoes_envenenamentos": 0,
+  "internacoes_malformacoes_congenitas": 0,
+  "internacoes_neoplasias_tumores": 0,
+  "internacoes_olho_anexos": 0,
+  "internacoes_osteomuscular_conjuntivo": 0,
+  "internacoes_ouvido_mastoide": 0,
+  "internacoes_pele_tecido_subcutaneo": 0,
+  "internacoes_sangue_imunitarias": 0,
+  "internacoes_sintomas_sinais_anormais": 0,
+  "internacoes_sistema_nervoso": 0,
+  "internacoes_total": 0,
+  "internacoes_transtornos_mentais": 0,
+  "media_dias_permanencia": 0,
+  "rede_sus": false,
+  "tipo_equipamento": "Policlínica",
+  "total_enfermeiros": 0,
+  "total_medicos": 3,
+  "total_saude_mental": 0
+ },
+ "hospital_stays": [
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.1,
+  0.2,
+  1.0,
+  1.0,
+  1.4,
+  1.5,
+  1.7,
+  1.9,
+  2.4,
+  2.4,
+  2.4,
+  2.5,
+  2.5,
+  2.6,
+  2.6,
+  2.6,
+  2.7,
+  2.7,
+  2.7,
+  2.8,
+  2.9,
+  2.9,
+  2.9,
+  3.0,
+  3.0,
+  3.1,
+  3.1,
+  3.2,
+  3.2,
+  3.3,
+  3.3,
+  3.4,
+  3.4,
+  3.5,
+  3.5,
+  3.5,
+  3.6,
+  3.6,
+  3.6,
+  3.8,
+  3.8,
+  3.8,
+  3.8,
+  3.9,
+  3.9,
+  3.9,
+  3.9,
+  4.1,
+  4.1,
+  4.1,
+  4.2,
+  4.2,
+  4.3,
+  4.3,
+  4.3,
+  4.4,
+  4.4,
+  4.4,
+  4.4,
+  4.5,
+  4.5,
+  4.5,
+  4.6,
+  4.6,
+  4.6,
+  4.6,
+  4.6,
+  4.7,
+  4.7,
+  4.7,
+  4.7,
+  4.7,
+  4.8,
+  4.8,
+  4.8,
+  4.9,
+  4.9,
+  4.9,
+  4.9,
+  4.9,
+  5.0,
+  5.1,
+  5.1,
+  5.1,
+  5.1,
+  5.2,
+  5.2,
+  5.2,
+  5.4,
+  5.5,
+  5.5,
+  5.5,
+  5.6,
+  5.6,
+  5.6,
+  5.6,
+  5.7,
+  5.7,
+  5.7,
+  5.7,
+  5.8,
+  5.8,
+  5.9,
+  5.9,
+  5.9,
+  6.0,
+  6.0,
+  6.0,
+  6.1,
+  6.1,
+  6.1,
+  6.2,
+  6.3,
+  6.3,
+  6.4,
+  6.4,
+  6.5,
+  6.5,
+  6.5,
+  6.6,
+  6.7,
+  6.7,
+  6.8,
+  6.8,
+  7.0,
+  7.1,
+  7.1,
+  7.2,
+  7.2,
+  7.3,
+  7.6,
+  7.8,
+  7.9,
+  8.0,
+  8.0,
+  8.2,
+  8.6,
+  9.5,
+  9.6,
+  9.7,
+  10.0,
+  11.2,
+  11.2,
+  11.4,
+  12.2,
+  13.3,
+  13.3,
+  17.4,
+  17.7,
+  19.2,
+  20.3,
+  31.6,
+  31.9,
+  33.2,
+  67.0,
+  600.4,
+  1469.0,
+  3220.7,
+  6845.1
+ ],
+ "municipality": {
+  "cd_municipio6": "355280",
+  "dengue_2022": 157,
+  "dengue_2023": 90,
+  "dengue_2024": 5924,
+  "dengue_2025": 925,
+  "dengue_2026": 74,
+  "lepto_2022": 0,
+  "lepto_2023": 0,
+  "lepto_2024": 1,
+  "lepto_2025": 1,
+  "lepto_2026": 1,
+  "nasc_gestacao_conhecida": 9557,
+  "nasc_idade_conhecida": 9560,
+  "nasc_mae_menor_20": 727,
+  "nasc_pretermo": 1099,
+  "nasc_total": 9560,
+  "nome": "Taboão da Serra",
+  "obitos_cap_i": 124,
+  "obitos_cap_ii": 596,
+  "obitos_cap_iii": 6,
+  "obitos_cap_iv": 88,
+  "obitos_cap_ix": 980,
+  "obitos_cap_v": 12,
+  "obitos_cap_vi": 38,
+  "obitos_cap_vii": 0,
+  "obitos_cap_viii": 0,
+  "obitos_cap_x": 163,
+  "obitos_cap_xi": 176,
+  "obitos_cap_xii": 9,
+  "obitos_cap_xiii": 19,
+  "obitos_cap_xiv": 40,
+  "obitos_cap_xv": 4,
+  "obitos_cap_xvi": 0,
+  "obitos_cap_xvii": 6,
+  "obitos_cap_xviii": 68,
+  "obitos_cap_xx": 213,
+  "obitos_total": 2542,
+  "populacao": 273542,
+  "tuberculose_2022": 149,
+  "tuberculose_2023": 140,
+  "tuberculose_2024": 170,
+  "tuberculose_2025": 167
+ },
+ "public_only": false,
+ "region": {
+  "dengue_2022": 18311.0,
+  "dengue_2023": 22171.0,
+  "dengue_2024": 939757.0,
+  "dengue_2025": 117418.0,
+  "dengue_2026": 14140.0,
+  "lepto_2022": 254.0,
+  "lepto_2023": 264.0,
+  "lepto_2024": 202.0,
+  "lepto_2025": 218.0,
+  "lepto_2026": 125.0,
+  "nasc_gestacao_conhecida": 712680.0,
+  "nasc_idade_conhecida": 712927.0,
+  "nasc_mae_menor_20": 55925.0,
+  "nasc_pretermo": 83393.0,
+  "nasc_total": 712938.0,
+  "obitos_cap_i": 10360.0,
+  "obitos_cap_ii": 41092.0,
+  "obitos_cap_iii": 729.0,
+  "obitos_cap_iv": 6785.0,
+  "obitos_cap_ix": 57354.0,
+  "obitos_cap_v": 1101.0,
+  "obitos_cap_vi": 3125.0,
+  "obitos_cap_vii": 4.0,
+  "obitos_cap_viii": 41.0,
+  "obitos_cap_x": 17271.0,
+  "obitos_cap_xi": 12621.0,
+  "obitos_cap_xii": 1017.0,
+  "obitos_cap_xiii": 920.0,
+  "obitos_cap_xiv": 4386.0,
+  "obitos_cap_xv": 209.0,
+  "obitos_cap_xvi": 7.0,
+  "obitos_cap_xvii": 267.0,
+  "obitos_cap_xviii": 7474.0,
+  "obitos_cap_xx": 15040.0,
+  "obitos_total": 179803.0,
+  "populacao": 20731920.0,
+  "tuberculose_2022": 12725.0,
+  "tuberculose_2023": 13998.0,
+  "tuberculose_2024": 14669.0,
+  "tuberculose_2025": 14223.0
+ },
+ "surroundings": {
+  "access_bands": {
+   "over_2000": 0,
+   "upto_1000": 18845,
+   "upto_2000": 4971,
+   "upto_500": 5330
+  },
+  "area_km2": 3.142,
+  "census": {
+   "municipality": {
+    "crowded_pct": 11.9,
+    "far_primary_pct": 4.2,
+    "garbage_pct": 99.4,
+    "households": 99452,
+    "population": 273542,
+    "precarious_pct": 2.5,
+    "residents_per_household": 2.75,
+    "sewage_pct": 96.5,
+    "tracts": 605,
+    "tracts_no_households": 11
+   },
+   "radius": {
+    "crowded_pct": 2.0,
+    "far_primary_pct": 17.1,
+    "garbage_pct": 100.0,
+    "households": 11428,
+    "population": 29653,
+    "precarious_pct": 0.6,
+    "residents_per_household": 2.59,
+    "sewage_pct": 99.3,
+    "tracts": 109,
+    "tracts_no_households": 4
+   },
+   "region": {
+    "crowded_pct": 13.7,
+    "far_primary_pct": 13.0,
+    "garbage_pct": 99.6,
+    "households": 7615622,
+    "population": 20731920,
+    "precarious_pct": 5.7,
+    "residents_per_household": 2.71,
+    "sewage_pct": 91.7,
+    "tracts": 47293,
+    "tracts_no_households": 895
+   }
+  },
+  "crowding_threshold": 3.1,
+  "facilities": [
+   {
+    "beds": 0,
+    "cnes": 9171932,
+    "distance_m": 94,
+    "lat": -23.610132,
+    "lon": -46.755838,
+    "name": "CLINICA VIDA",
+    "nurses": 0,
+    "physicians": 1,
+    "sus_network": false,
+    "type": "Policlínica"
+   },
+   {
+    "beds": 0,
+    "cnes": 2054612,
+    "distance_m": 203,
+    "lat": -23.607885,
+    "lon": -46.755345,
+    "name": "ULTRA X TABOAO DA SERRA",
+    "nurses": 0,
+    "physicians": 0,
+    "sus_network": false,
+    "type": "Unidade de Apoio Diagnose e Terapia (SADT Isolado)"
+   },
+   {
+    "beds": 0,
+    "cnes": 7751648,
+    "distance_m": 247,
+    "lat": -23.607824,
+    "lon": -46.756358,
+    "name": "RICARDO BUCHDID AMARANTE ME",
+    "nurses": 0,
+    "physicians": 1,
+    "sus_network": false,
+    "type": "Unidade de Apoio Diagnose e Terapia (SADT Isolado)"
+   },
+   {
+    "beds": 0,
+    "cnes": 6036147,
+    "distance_m": 256,
+    "lat": -23.607875,
+    "lon": -46.756594,
+    "name": "A SAUDE",
+    "nurses": 1,
+    "physicians": 7,
+    "sus_network": false,
+    "type": "Policlínica"
+   },
+   {
+    "beds": 0,
+    "cnes": 3167305,
+    "distance_m": 259,
+    "lat": -23.607521,
+    "lon": -46.754122,
+    "name": "VIDA E SAUDE",
+    "nurses": 0,
+    "physicians": 0,
+    "sus_network": false,
+    "type": "Policlínica"
+   },
+   {
+    "beds": 0,
+    "cnes": 7732295,
+    "distance_m": 271,
+    "lat": -23.607426,
+    "lon": -46.754065,
+    "name": "VIDA E SAUDE",
+    "nurses": 0,
+    "physicians": 2,
+    "sus_network": false,
+    "type": "Policlínica"
+   },
+   {
+    "beds": 0,
+    "cnes": 6414648,
+    "distance_m": 291,
+    "lat": -23.607837,
+    "lon": -46.757071,
+    "name": "IMMAGE RADIOLOGIA",
+    "nurses": 0,
+    "physicians": 0,
+    "sus_network": false,
+    "type": "Unidade de Apoio Diagnose e Terapia (SADT Isolado)"
+   },
+   {
+    "beds": 0,
+    "cnes": 7946554,
+    "distance_m": 303,
+    "lat": -23.607106,
+    "lon": -46.754075,
+    "name": "CLINICA DE ESPECIALIDADES FIGUEIREDO LIMA",
+    "nurses": 0,
+    "physicians": 2,
+    "sus_network": false,
+    "type": "Policlínica"
+   },
+   {
+    "beds": 0,
+    "cnes": 2052644,
+    "distance_m": 314,
+    "lat": -23.607601,
+    "lon": -46.757119,
+    "name": "BIOCLINIC TABOAO DA SERRA",
+    "nurses": 1,
+    "physicians": 0,
+    "sus_network": false,
+    "type": "Unidade de Apoio Diagnose e Terapia (SADT Isolado)"
+   },
+   {
+    "beds": 0,
+    "cnes": 3167321,
+    "distance_m": 321,
+    "lat": -23.607136,
+    "lon": -46.756522,
+    "name": "CLINICA SAO LUCAS",
+    "nurses": 0,
+    "physicians": 0,
+    "sus_network": false,
+    "type": "Policlínica"
+   },
+   {
+    "beds": 0,
+    "cnes": 2889218,
+    "distance_m": 328,
+    "lat": -23.609099,
+    "lon": -46.758196,
+    "name": "DR CONSULTA CENTRO MEDICO LTDA",
+    "nurses": 1,
+    "physicians": 29,
+    "sus_network": false,
+    "type": "Policlínica"
+   },
+   {
+    "beds": 0,
+    "cnes": 7780990,
+    "distance_m": 348,
+    "lat": -23.606736,
+    "lon": -46.756193,
+    "name": "CELLAB CLINICA MEDICA",
+    "nurses": 1,
+    "physicians": 10,
+    "sus_network": false,
+    "type": "Policlínica"
+   },
+   {
+    "beds": 0,
+    "cnes": 4280083,
+    "distance_m": 351,
+    "lat": -23.606703,
+    "lon": -46.753903,
+    "name": "DOCCTOR MED TABOAO DA SERRA",
+    "nurses": 0,
+    "physicians": 1,
+    "sus_network": false,
+    "type": "Policlínica"
+   },
+   {
+    "beds": 0,
+    "cnes": 4004655,
+    "distance_m": 354,
+    "lat": -23.608698,
+    "lon": -46.758347,
+    "name": "AMORSAUDE TABOAO DA SERRA",
+    "nurses": 1,
+    "physicians": 0,
+    "sus_network": false,
+    "type": "Policlínica"
+   },
+   {
+    "beds": 0,
+    "cnes": 3275655,
+    "distance_m": 361,
+    "lat": -23.60644,
+    "lon": -46.75487,
+    "name": "ENDOLIFE MEDICINA INTEGRATIVA LTDA",
+    "nurses": 0,
+    "physicians": 0,
+    "sus_network": false,
+    "type": "Policlínica"
+   },
+   {
+    "beds": 0,
+    "cnes": 6699545,
+    "distance_m": 375,
+    "lat": -23.606397,
+    "lon": -46.754234,
+    "name": "PREDICT DIAGNOSTICOS MEDICOS LTDA",
+    "nurses": 0,
+    "physicians": 2,
+    "sus_network": false,
+    "type": "Unidade de Apoio Diagnose e Terapia (SADT Isolado)"
+   },
+   {
+    "beds": 0,
+    "cnes": 7780931,
+    "distance_m": 387,
+    "lat": -23.611485,
+    "lon": -46.758305,
+    "name": "CZANI CLINICA MEDICA E ESTETICA",
+    "nurses": 0,
+    "physicians": 0,
+    "sus_network": false,
+    "type": "Policlínica"
+   },
+   {
+    "beds": 0,
+    "cnes": 9872132,
+    "distance_m": 399,
+    "lat": -23.610752,
+    "lon": -46.758786,
+    "name": "DAVITA HEALTHCARE BRASIL SERVICOS MEDICOS LTDA",
+    "nurses": 0,
+    "physicians": 0,
+    "sus_network": false,
+    "type": "Policlínica"
+   },
+   {
+    "beds": 0,
+    "cnes": 7999275,
+    "distance_m": 423,
+    "lat": -23.610755,
+    "lon": -46.759035,
+    "name": "REDE CLINICA POPULAR LTDA",
+    "nurses": 1,
+    "physicians": 17,
+    "sus_network": false,
+    "type": "Policlínica"
+   },
+   {
+    "beds": 0,
+    "cnes": 145661,
+    "distance_m": 425,
+    "lat": -23.610765,
+    "lon": -46.759046,
+    "name": "MASTER HEALTH LIFE",
+    "nurses": 1,
+    "physicians": 16,
+    "sus_network": false,
+    "type": "Policlínica"
+   },
+   {
+    "beds": 0,
+    "cnes": 4142020,
+    "distance_m": 439,
+    "lat": -23.610904,
+    "lon": -46.759141,
+    "name": "HERMES PARDINI TABOAO",
+    "nurses": 0,
+    "physicians": 1,
+    "sus_network": false,
+    "type": "Unidade de Apoio Diagnose e Terapia (SADT Isolado)"
+   },
+   {
+    "beds": 0,
+    "cnes": 3414086,
+    "distance_m": 454,
+    "lat": -23.605677,
+    "lon": -46.754181,
+    "name": "SCAN DIAGNOSTICOS POR IMAGEM",
+    "nurses": 1,
+    "physicians": 1,
+    "sus_network": false,
+    "type": "Unidade de Apoio Diagnose e Terapia (SADT Isolado)"
+   },
+   {
+    "beds": 0,
+    "cnes": 7039271,
+    "distance_m": 481,
+    "lat": -23.611964,
+    "lon": -46.759068,
+    "name": "CAPS II CENTRO DE ATENCAO PSICOSSOCIAL",
+    "nurses": 4,
+    "physicians": 6,
+    "sus_network": true,
+    "type": "Centro de Atenção Psicossocial (CAPS)"
+   },
+   {
+    "beds": 0,
+    "cnes": 4409167,
+    "distance_m": 549,
+    "lat": -23.6094,
+    "lon": -46.76042,
+    "name": "CONCEPTLAB ANALISES CLINICAS LTDA",
+    "nurses": 0,
+    "physicians": 0,
+    "sus_network": false,
+    "type": "Unidade de Apoio Diagnose e Terapia (SADT Isolado)"
+   },
+   {
+    "beds": 0,
+    "cnes": 3167313,
+    "distance_m": 551,
+    "lat": -23.609454,
+    "lon": -46.760443,
+    "name": "POLICLINICA TABOAO",
+    "nurses": 3,
+    "physicians": 31,
+    "sus_network": false,
+    "type": "Policlínica"
+   },
+   {
+    "beds": 54,
+    "cnes": 2080001,
+    "distance_m": 642,
+    "lat": -23.60568,
+    "lon": -46.75051,
+    "name": "NOTRE DAME INTERMEDICA SAUDE S A",
+    "nurses": 59,
+    "physicians": 512,
+    "sus_network": false,
+    "type": "Hospital Geral"
+   },
+   {
+    "beds": 0,
+    "cnes": 4572505,
+    "distance_m": 660,
+    "lat": -23.610873,
+    "lon": -46.761386,
+    "name": "LOBRAFISIO ATENDIMENTO A PACIENTES E FISIOTERAPIA",
+    "nurses": 0,
+    "physicians": 0,
+    "sus_network": false,
+    "type": "Unidade de Apoio Diagnose e Terapia (SADT Isolado)"
+   },
+   {
+    "beds": 0,
+    "cnes": 5545161,
+    "distance_m": 679,
+    "lat": -23.605329,
+    "lon": -46.75038,
+    "name": "SEMEAR",
+    "nurses": 0,
+    "physicians": 0,
+    "sus_network": false,
+    "type": "Hospital Geral"
+   },
+   {
+    "beds": 0,
+    "cnes": 3751031,
+    "distance_m": 688,
+    "lat": -23.608354,
+    "lon": -46.748465,
+    "name": "EML SERVICOS MEDICOS",
+    "nurses": 0,
+    "physicians": 0,
+    "sus_network": false,
+    "type": "Unidade de Apoio Diagnose e Terapia (SADT Isolado)"
+   },
+   {
+    "beds": 0,
+    "cnes": 2882485,
+    "distance_m": 780,
+    "lat": -23.603919,
+    "lon": -46.75942,
+    "name": "CENTRO DE ATENCAO A SAUDE DO ADOLESCENTE",
+    "nurses": 2,
+    "physicians": 3,
+    "sus_network": true,
+    "type": "Clínica/Centro de Especialidade"
+   },
+   {
+    "beds": 0,
+    "cnes": 2051400,
+    "distance_m": 863,
+    "lat": -23.606005,
+    "lon": -46.7625,
+    "name": "UBS DRA MARIA JOSE DE ALBUQUERQUE",
+    "nurses": 9,
+    "physicians": 9,
+    "sus_network": true,
+    "type": "Centro de Saúde/UBS"
+   },
+   {
+    "beds": 0,
+    "cnes": 4927400,
+    "distance_m": 871,
+    "lat": -23.601956,
+    "lon": -46.753548,
+    "name": "CENTRO NEUROMOVIMENTAR",
+    "nurses": 0,
+    "physicians": 0,
+    "sus_network": false,
+    "type": "Policlínica"
+   },
+   {
+    "beds": 0,
+    "cnes": 2052695,
+    "distance_m": 877,
+    "lat": -23.605816,
+    "lon": -46.762543,
+    "name": "CENTRO ESPECIALIDADES MEDICAS DRA MARIA JOSE DE ALBUQUERQUE",
+    "nurses": 7,
+    "physicians": 39,
+    "sus_network": true,
+    "type": "Clínica/Centro de Especialidade"
+   },
+   {
+    "beds": 0,
+    "cnes": 2063786,
+    "distance_m": 929,
+    "lat": -23.606393,
+    "lon": -46.763412,
+    "name": "PRONTO SOCORRO DR AKIRA TADA",
+    "nurses": 0,
+    "physicians": 0,
+    "sus_network": true,
+    "type": "Pronto Socorro Geral"
+   },
+   {
+    "beds": 0,
+    "cnes": 6496113,
+    "distance_m": 934,
+    "lat": -23.605868,
+    "lon": -46.763203,
+    "name": "CSCE",
+    "nurses": 0,
+    "physicians": 1,
+    "sus_network": false,
+    "type": "Policlínica"
+   }
+  ],
+  "facility": {
+   "lat": -23.609695,
+   "lon": -46.755049
+  },
+  "located": true,
+  "location": {
+   "district": "Taboão da Serra",
+   "municipality": "Taboão da Serra",
+   "municipality_code": "355280",
+   "situation": "Urbana",
+   "tract": "355280905000438"
+  },
+  "municipalities": [
+   {
+    "code": "355030",
+    "name": "São Paulo",
+    "population": 16043
+   },
+   {
+    "code": "355280",
+    "name": "Taboão da Serra",
+    "population": 13609
+   }
+  ],
+  "radius_m": 1000,
+  "tracts": [
+   {
+    "population": 573.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 634.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 740.0,
+    "share_inside": 0.432
+   },
+   {
+    "population": 373.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 250.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 466.0,
+    "share_inside": 0.98
+   },
+   {
+    "population": 599.0,
+    "share_inside": 0.068
+   },
+   {
+    "population": 360.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 700.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 408.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 439.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 541.0,
+    "share_inside": 0.457
+   },
+   {
+    "population": 401.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 552.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 4.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 371.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 382.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 242.0,
+    "share_inside": 0.999
+   },
+   {
+    "population": 204.0,
+    "share_inside": 0.66
+   },
+   {
+    "population": 165.0,
+    "share_inside": 0.071
+   },
+   {
+    "population": 367.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 294.0,
+    "share_inside": 0.111
+   },
+   {
+    "population": 0.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 712.0,
+    "share_inside": 0.805
+   },
+   {
+    "population": 680.0,
+    "share_inside": 0.003
+   },
+   {
+    "population": 308.0,
+    "share_inside": 0.207
+   },
+   {
+    "population": 147.0,
+    "share_inside": 0.0
+   },
+   {
+    "population": 227.0,
+    "share_inside": 0.684
+   },
+   {
+    "population": 353.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 169.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 245.0,
+    "share_inside": 0.972
+   },
+   {
+    "population": 63.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 224.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 5.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 312.0,
+    "share_inside": 0.041
+   },
+   {
+    "population": 359.0,
+    "share_inside": 0.012
+   },
+   {
+    "population": 312.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 342.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 52.0,
+    "share_inside": 0.654
+   },
+   {
+    "population": 288.0,
+    "share_inside": 0.709
+   },
+   {
+    "population": 471.0,
+    "share_inside": 0.037
+   },
+   {
+    "population": 248.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 504.0,
+    "share_inside": 0.13
+   },
+   {
+    "population": 388.0,
+    "share_inside": 0.739
+   },
+   {
+    "population": 483.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 232.0,
+    "share_inside": 0.532
+   },
+   {
+    "population": 172.0,
+    "share_inside": 0.286
+   },
+   {
+    "population": 365.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 601.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 152.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 157.0,
+    "share_inside": 0.575
+   },
+   {
+    "population": 46.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 367.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 375.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 309.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 89.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 372.0,
+    "share_inside": 0.943
+   },
+   {
+    "population": 522.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 352.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 567.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 473.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 147.0,
+    "share_inside": 0.389
+   },
+   {
+    "population": 781.0,
+    "share_inside": 0.108
+   },
+   {
+    "population": 519.0,
+    "share_inside": 0.474
+   },
+   {
+    "population": 539.0,
+    "share_inside": 0.198
+   },
+   {
+    "population": 458.0,
+    "share_inside": 0.903
+   },
+   {
+    "population": 571.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 522.0,
+    "share_inside": 0.987
+   },
+   {
+    "population": 20.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 0.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 295.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 436.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 432.0,
+    "share_inside": 0.637
+   },
+   {
+    "population": 2.0,
+    "share_inside": 0.215
+   },
+   {
+    "population": 584.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 205.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 149.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 0.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 481.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 311.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 396.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 262.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 259.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 443.0,
+    "share_inside": 0.959
+   },
+   {
+    "population": 65.0,
+    "share_inside": 0.835
+   },
+   {
+    "population": 268.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 255.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 509.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 302.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 396.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 359.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 106.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 303.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 579.0,
+    "share_inside": 0.603
+   },
+   {
+    "population": 376.0,
+    "share_inside": 0.648
+   },
+   {
+    "population": 458.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 457.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 586.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 444.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 379.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 407.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 142.0,
+    "share_inside": 0.682
+   },
+   {
+    "population": 9.0,
+    "share_inside": 0.555
+   },
+   {
+    "population": 495.0,
+    "share_inside": 0.555
+   },
+   {
+    "population": 303.0,
+    "share_inside": 0.064
+   },
+   {
+    "population": 406.0,
+    "share_inside": 0.9
+   },
+   {
+    "population": 602.0,
+    "share_inside": 0.201
+   },
+   {
+    "population": 443.0,
+    "share_inside": 0.697
+   },
+   {
+    "population": 507.0,
+    "share_inside": 1.0
+   }
+  ]
+ }
+}

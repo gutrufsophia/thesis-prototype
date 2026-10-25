@@ -1,0 +1,1270 @@
+{
+ "city": null,
+ "district": null,
+ "districts": null,
+ "facility": {
+  "CO_CEP": 9015410,
+  "CO_CLIENTELA": 3,
+  "CO_CNES": 3528596,
+  "CO_MUNICIPIO_GESTOR": 354780,
+  "CO_NATUREZA_JUR": 2054,
+  "CO_TURNO_ATENDIMENTO": 4,
+  "Dependencia": "Individual",
+  "Fluxo_Clientela": "Atendimento de Demanda Espontânea e Referenciada",
+  "LEITOS_EXISTENTES": 110,
+  "LEITOS_SUS": 0,
+  "NO_BAIRRO": "VILA ALZIRA",
+  "NO_FANTASIA": "HOSPITAL SANTA HELENA SANTO ANDRE",
+  "NO_LOGRADOURO": "MANOEL VAZ",
+  "NO_RAZAO_SOCIAL": "HOSPITAL SANTA HELENA SOCIEDADE ANONIMA",
+  "NU_CNPJ_MANTENEDORA": null,
+  "NU_ENDERECO": "3559",
+  "NU_LATITUDE": "-23.667733108567",
+  "NU_LONGITUDE": "-46.52031869077699",
+  "TP_GESTAO": "Municipal",
+  "TP_UNIDADE": 5,
+  "UTI_ADULTO_EXIST": 0,
+  "UTI_ADULTO_SUS": 0,
+  "UTI_CORONARIANA_EXIST": 0,
+  "UTI_CORONARIANA_SUS": 0,
+  "UTI_NEONATAL_EXIST": 0,
+  "UTI_NEONATAL_SUS": 0,
+  "UTI_PEDIATRICO_EXIST": 0,
+  "UTI_PEDIATRICO_SUS": 0,
+  "UTI_QUEIMADO_EXIST": 0,
+  "UTI_QUEIMADO_SUS": 0,
+  "UTI_TOTAL_EXIST": 0,
+  "UTI_TOTAL_SUS": 0,
+  "atende_sus": false,
+  "coord": "0101000020E61000003E3188CD994247C06EC0978EF0AA37C0",
+  "coord_precision_m": null,
+  "coord_shift_m": null,
+  "coord_source": "cnes",
+  "coord_status": "ok",
+  "equip_audiologia": 0,
+  "equip_avaliacao_antropometrica_e_funcional": 0,
+  "equip_diagnostico_por_imagem": 10,
+  "equip_dialise": 0,
+  "equip_equipamentos_de_infra-estrutura": 6,
+  "equip_equipamentos_por_metodos_graficos": 20,
+  "equip_equipamentos_por_metodos_opticos": 7,
+  "equip_manutencao_da_vida": 325,
+  "equip_odontologia": 0,
+  "equip_outros_equipamentos": 0,
+  "equip_procedimentos_cirurgicos": 0,
+  "equip_procedimentos_clinicos": null,
+  "equip_quimioterapia": 0,
+  "equip_radioterapia": 0,
+  "equip_reabilitacao": 0,
+  "equip_telessaude_por_imagem": 0,
+  "esfera_juridica": "Entidade Empresarial",
+  "esp_cardiologista": 1,
+  "esp_clinico_geral": 5,
+  "esp_endocrinologista": 0,
+  "esp_ginecologista_obstetra": 0,
+  "esp_infecto_pneumo": 1,
+  "esp_medico_familia": 0,
+  "esp_oncologista": 0,
+  "esp_pediatra": 1,
+  "esp_psicologo": 1,
+  "esp_psiquiatra": 1,
+  "esp_terapeuta_ocupacional": 0,
+  "internacoes_afeccoes_perinatais": 0,
+  "internacoes_aparelho_circulatorio": 0,
+  "internacoes_aparelho_digestivo": 0,
+  "internacoes_aparelho_geniturinario": 0,
+  "internacoes_aparelho_respiratorio": 0,
+  "internacoes_contatos_servicos_saude": 0,
+  "internacoes_endocrinas_nutricionais": 0,
+  "internacoes_gravidez_parto_puerperio": 0,
+  "internacoes_infecciosas_parasitarias": 0,
+  "internacoes_lesoes_envenenamentos": 0,
+  "internacoes_malformacoes_congenitas": 0,
+  "internacoes_neoplasias_tumores": 0,
+  "internacoes_olho_anexos": 0,
+  "internacoes_osteomuscular_conjuntivo": 0,
+  "internacoes_ouvido_mastoide": 0,
+  "internacoes_pele_tecido_subcutaneo": 0,
+  "internacoes_sangue_imunitarias": 0,
+  "internacoes_sintomas_sinais_anormais": 0,
+  "internacoes_sistema_nervoso": 0,
+  "internacoes_total": 0,
+  "internacoes_transtornos_mentais": 0,
+  "media_dias_permanencia": 0,
+  "rede_sus": false,
+  "tipo_equipamento": "Hospital Geral",
+  "total_enfermeiros": 148,
+  "total_medicos": 36,
+  "total_saude_mental": 2
+ },
+ "hospital_stays": [
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.1,
+  0.2,
+  1.0,
+  1.0,
+  1.4,
+  1.5,
+  1.7,
+  1.9,
+  2.4,
+  2.4,
+  2.4,
+  2.5,
+  2.5,
+  2.6,
+  2.6,
+  2.6,
+  2.7,
+  2.7,
+  2.7,
+  2.8,
+  2.9,
+  2.9,
+  2.9,
+  3.0,
+  3.0,
+  3.1,
+  3.1,
+  3.2,
+  3.2,
+  3.3,
+  3.3,
+  3.4,
+  3.4,
+  3.5,
+  3.5,
+  3.5,
+  3.6,
+  3.6,
+  3.6,
+  3.8,
+  3.8,
+  3.8,
+  3.8,
+  3.9,
+  3.9,
+  3.9,
+  3.9,
+  4.1,
+  4.1,
+  4.1,
+  4.2,
+  4.2,
+  4.3,
+  4.3,
+  4.3,
+  4.4,
+  4.4,
+  4.4,
+  4.4,
+  4.5,
+  4.5,
+  4.5,
+  4.6,
+  4.6,
+  4.6,
+  4.6,
+  4.6,
+  4.7,
+  4.7,
+  4.7,
+  4.7,
+  4.7,
+  4.8,
+  4.8,
+  4.8,
+  4.9,
+  4.9,
+  4.9,
+  4.9,
+  4.9,
+  5.0,
+  5.1,
+  5.1,
+  5.1,
+  5.1,
+  5.2,
+  5.2,
+  5.2,
+  5.4,
+  5.5,
+  5.5,
+  5.5,
+  5.6,
+  5.6,
+  5.6,
+  5.6,
+  5.7,
+  5.7,
+  5.7,
+  5.7,
+  5.8,
+  5.8,
+  5.9,
+  5.9,
+  5.9,
+  6.0,
+  6.0,
+  6.0,
+  6.1,
+  6.1,
+  6.1,
+  6.2,
+  6.3,
+  6.3,
+  6.4,
+  6.4,
+  6.5,
+  6.5,
+  6.5,
+  6.6,
+  6.7,
+  6.7,
+  6.8,
+  6.8,
+  7.0,
+  7.1,
+  7.1,
+  7.2,
+  7.2,
+  7.3,
+  7.6,
+  7.8,
+  7.9,
+  8.0,
+  8.0,
+  8.2,
+  8.6,
+  9.5,
+  9.6,
+  9.7,
+  10.0,
+  11.2,
+  11.2,
+  11.4,
+  12.2,
+  13.3,
+  13.3,
+  17.4,
+  17.7,
+  19.2,
+  20.3,
+  31.6,
+  31.9,
+  33.2,
+  67.0,
+  600.4,
+  1469.0,
+  3220.7,
+  6845.1
+ ],
+ "municipality": {
+  "cd_municipio6": "354780",
+  "dengue_2022": 155,
+  "dengue_2023": 288,
+  "dengue_2024": 14569,
+  "dengue_2025": 3465,
+  "dengue_2026": 168,
+  "lepto_2022": 9,
+  "lepto_2023": 3,
+  "lepto_2024": 5,
+  "lepto_2025": 1,
+  "lepto_2026": 5,
+  "nasc_gestacao_conhecida": 21986,
+  "nasc_idade_conhecida": 21989,
+  "nasc_mae_menor_20": 1271,
+  "nasc_pretermo": 2474,
+  "nasc_total": 21989,
+  "nome": "Santo André",
+  "obitos_cap_i": 399,
+  "obitos_cap_ii": 1554,
+  "obitos_cap_iii": 31,
+  "obitos_cap_iv": 232,
+  "obitos_cap_ix": 2138,
+  "obitos_cap_v": 8,
+  "obitos_cap_vi": 151,
+  "obitos_cap_vii": 1,
+  "obitos_cap_viii": 0,
+  "obitos_cap_x": 592,
+  "obitos_cap_xi": 510,
+  "obitos_cap_xii": 33,
+  "obitos_cap_xiii": 32,
+  "obitos_cap_xiv": 171,
+  "obitos_cap_xv": 9,
+  "obitos_cap_xvi": 0,
+  "obitos_cap_xvii": 6,
+  "obitos_cap_xviii": 81,
+  "obitos_cap_xx": 543,
+  "obitos_total": 6491,
+  "populacao": 748919,
+  "tuberculose_2022": 259,
+  "tuberculose_2023": 271,
+  "tuberculose_2024": 256,
+  "tuberculose_2025": 244
+ },
+ "public_only": false,
+ "region": {
+  "dengue_2022": 18311.0,
+  "dengue_2023": 22171.0,
+  "dengue_2024": 939757.0,
+  "dengue_2025": 117418.0,
+  "dengue_2026": 14140.0,
+  "lepto_2022": 254.0,
+  "lepto_2023": 264.0,
+  "lepto_2024": 202.0,
+  "lepto_2025": 218.0,
+  "lepto_2026": 125.0,
+  "nasc_gestacao_conhecida": 712680.0,
+  "nasc_idade_conhecida": 712927.0,
+  "nasc_mae_menor_20": 55925.0,
+  "nasc_pretermo": 83393.0,
+  "nasc_total": 712938.0,
+  "obitos_cap_i": 10360.0,
+  "obitos_cap_ii": 41092.0,
+  "obitos_cap_iii": 729.0,
+  "obitos_cap_iv": 6785.0,
+  "obitos_cap_ix": 57354.0,
+  "obitos_cap_v": 1101.0,
+  "obitos_cap_vi": 3125.0,
+  "obitos_cap_vii": 4.0,
+  "obitos_cap_viii": 41.0,
+  "obitos_cap_x": 17271.0,
+  "obitos_cap_xi": 12621.0,
+  "obitos_cap_xii": 1017.0,
+  "obitos_cap_xiii": 920.0,
+  "obitos_cap_xiv": 4386.0,
+  "obitos_cap_xv": 209.0,
+  "obitos_cap_xvi": 7.0,
+  "obitos_cap_xvii": 267.0,
+  "obitos_cap_xviii": 7474.0,
+  "obitos_cap_xx": 15040.0,
+  "obitos_total": 179803.0,
+  "populacao": 20731920.0,
+  "tuberculose_2022": 12725.0,
+  "tuberculose_2023": 13998.0,
+  "tuberculose_2024": 14669.0,
+  "tuberculose_2025": 14223.0
+ },
+ "surroundings": {
+  "access_bands": {
+   "over_2000": 0,
+   "upto_1000": 16701,
+   "upto_2000": 7566,
+   "upto_500": 5074
+  },
+  "area_km2": 3.142,
+  "census": {
+   "municipality": {
+    "crowded_pct": 7.0,
+    "far_primary_pct": 10.1,
+    "garbage_pct": 99.9,
+    "households": 280600,
+    "population": 748919,
+    "precarious_pct": 2.4,
+    "residents_per_household": 2.66,
+    "sewage_pct": 96.6,
+    "tracts": 1708,
+    "tracts_no_households": 53
+   },
+   "radius": {
+    "crowded_pct": 0.0,
+    "far_primary_pct": 25.8,
+    "garbage_pct": 100.0,
+    "households": 12042,
+    "population": 29342,
+    "precarious_pct": 0.1,
+    "residents_per_household": 2.42,
+    "sewage_pct": 99.9,
+    "tracts": 91,
+    "tracts_no_households": 1
+   },
+   "region": {
+    "crowded_pct": 13.7,
+    "far_primary_pct": 13.0,
+    "garbage_pct": 99.6,
+    "households": 7615622,
+    "population": 20731920,
+    "precarious_pct": 5.7,
+    "residents_per_household": 2.71,
+    "sewage_pct": 91.7,
+    "tracts": 47293,
+    "tracts_no_households": 895
+   }
+  },
+  "crowding_threshold": 3.1,
+  "facilities": [
+   {
+    "beds": 0,
+    "cnes": 3550230,
+    "distance_m": 267,
+    "lat": -23.666809,
+    "lon": -46.522733,
+    "name": "CLINICA MEDICA JCA",
+    "nurses": 0,
+    "physicians": 0,
+    "sus_network": false,
+    "type": "Policlínica"
+   },
+   {
+    "beds": 0,
+    "cnes": 7373325,
+    "distance_m": 331,
+    "lat": -23.664788,
+    "lon": -46.520877,
+    "name": "IMAGEM 3D RADIOLOGIA E TOMOGRAFIA LTDA",
+    "nurses": 0,
+    "physicians": 0,
+    "sus_network": false,
+    "type": "Unidade de Apoio Diagnose e Terapia (SADT Isolado)"
+   },
+   {
+    "beds": 0,
+    "cnes": 276677,
+    "distance_m": 343,
+    "lat": -23.665164,
+    "lon": -46.522205,
+    "name": "UNIDADE AVANCADA SANTO ANDRE",
+    "nurses": 35,
+    "physicians": 254,
+    "sus_network": false,
+    "type": "Pronto Atendimento (UPA)"
+   },
+   {
+    "beds": 0,
+    "cnes": 3413144,
+    "distance_m": 384,
+    "lat": -23.664833,
+    "lon": -46.522382,
+    "name": "EXAME BRASIL",
+    "nurses": 0,
+    "physicians": 0,
+    "sus_network": false,
+    "type": "Unidade de Apoio Diagnose e Terapia (SADT Isolado)"
+   },
+   {
+    "beds": 0,
+    "cnes": 3084388,
+    "distance_m": 430,
+    "lat": -23.664045,
+    "lon": -46.521637,
+    "name": "JC LAB",
+    "nurses": 0,
+    "physicians": 0,
+    "sus_network": false,
+    "type": "Unidade de Apoio Diagnose e Terapia (SADT Isolado)"
+   },
+   {
+    "beds": 48,
+    "cnes": 9335951,
+    "distance_m": 481,
+    "lat": -23.665704,
+    "lon": -46.516149,
+    "name": "HOSPITAL ACACIAS",
+    "nurses": 11,
+    "physicians": 29,
+    "sus_network": true,
+    "type": "Hospital Geral"
+   },
+   {
+    "beds": 0,
+    "cnes": 7113218,
+    "distance_m": 513,
+    "lat": -23.665099,
+    "lon": -46.52446,
+    "name": "UPA PERIMETRAL",
+    "nurses": 31,
+    "physicians": 359,
+    "sus_network": true,
+    "type": "Pronto Atendimento (UPA)"
+   },
+   {
+    "beds": 0,
+    "cnes": 8796,
+    "distance_m": 518,
+    "lat": -23.663405,
+    "lon": -46.522236,
+    "name": "CAPS III AD BARBARA DA SILVA SANTOS",
+    "nurses": 6,
+    "physicians": 9,
+    "sus_network": true,
+    "type": "Centro de Atenção Psicossocial (CAPS)"
+   },
+   {
+    "beds": 0,
+    "cnes": 6015433,
+    "distance_m": 565,
+    "lat": -23.666694,
+    "lon": -46.525743,
+    "name": "OTUR ORTOPEDIA E FISIOTERAPIA LTDA",
+    "nurses": 0,
+    "physicians": 14,
+    "sus_network": false,
+    "type": "Policlínica"
+   },
+   {
+    "beds": 0,
+    "cnes": 9204199,
+    "distance_m": 594,
+    "lat": -23.663666,
+    "lon": -46.524121,
+    "name": "AFIC ASSOCIACAO FAMILIAR DE INTEGRACAO DE CIDADANIA",
+    "nurses": 0,
+    "physicians": 0,
+    "sus_network": false,
+    "type": "Clínica/Centro de Especialidade"
+   },
+   {
+    "beds": 0,
+    "cnes": 4478746,
+    "distance_m": 614,
+    "lat": -23.667075,
+    "lon": -46.526291,
+    "name": "CASA DA ESPERANCA DE SANTO ANDRE III",
+    "nurses": 0,
+    "physicians": 22,
+    "sus_network": true,
+    "type": "Unidade de Apoio Diagnose e Terapia (SADT Isolado)"
+   },
+   {
+    "beds": 0,
+    "cnes": 8486,
+    "distance_m": 621,
+    "lat": -23.666997,
+    "lon": -46.526357,
+    "name": "CENTRO MEDICO DE ESPECIALIDADES JOAQUIM TAVORA",
+    "nurses": 0,
+    "physicians": 0,
+    "sus_network": true,
+    "type": "Policlínica"
+   },
+   {
+    "beds": 0,
+    "cnes": 2026945,
+    "distance_m": 640,
+    "lat": -23.667912,
+    "lon": -46.526586,
+    "name": "CASA DA ESPERANCA DE SANTO ANDRE I",
+    "nurses": 3,
+    "physicians": 90,
+    "sus_network": true,
+    "type": "Policlínica"
+   },
+   {
+    "beds": 0,
+    "cnes": 9875476,
+    "distance_m": 660,
+    "lat": -23.663084,
+    "lon": -46.524366,
+    "name": "C GERTRUDES LIMA",
+    "nurses": 0,
+    "physicians": 6,
+    "sus_network": false,
+    "type": "Clínica/Centro de Especialidade"
+   },
+   {
+    "beds": 0,
+    "cnes": 3236021,
+    "distance_m": 671,
+    "lat": -23.665923,
+    "lon": -46.526598,
+    "name": "INREUMA",
+    "nurses": 1,
+    "physicians": 3,
+    "sus_network": false,
+    "type": "Policlínica"
+   },
+   {
+    "beds": 0,
+    "cnes": 8958,
+    "distance_m": 681,
+    "lat": -23.661976,
+    "lon": -46.522671,
+    "name": "UBS CENTRO",
+    "nurses": 6,
+    "physicians": 9,
+    "sus_network": true,
+    "type": "Centro de Saúde/UBS"
+   },
+   {
+    "beds": 0,
+    "cnes": 4531159,
+    "distance_m": 689,
+    "lat": -23.661894,
+    "lon": -46.522637,
+    "name": "CENTRO DE REFERENCIA PARA DENGUE",
+    "nurses": 0,
+    "physicians": 0,
+    "sus_network": true,
+    "type": "Clínica/Centro de Especialidade"
+   },
+   {
+    "beds": 0,
+    "cnes": 8737,
+    "distance_m": 716,
+    "lat": -23.661771,
+    "lon": -46.523045,
+    "name": "CENTRO MEDICO DE ESPECIALIDADES XAVIER DE TOLEDO",
+    "nurses": 0,
+    "physicians": 0,
+    "sus_network": true,
+    "type": "Policlínica"
+   },
+   {
+    "beds": 0,
+    "cnes": 7291590,
+    "distance_m": 739,
+    "lat": -23.66867,
+    "lon": -46.527494,
+    "name": "HEMOMED INSTITUTO DE ONCOLOGIA E HEMATOLOGIA",
+    "nurses": 0,
+    "physicians": 0,
+    "sus_network": false,
+    "type": "Clínica/Centro de Especialidade"
+   },
+   {
+    "beds": 0,
+    "cnes": 2043025,
+    "distance_m": 748,
+    "lat": -23.666083,
+    "lon": -46.527426,
+    "name": "AMBULATORIO DO CENTRO HOSPITALAR DE SANTO ANDRE",
+    "nurses": 4,
+    "physicians": 196,
+    "sus_network": true,
+    "type": "Policlínica"
+   },
+   {
+    "beds": 0,
+    "cnes": 5075254,
+    "distance_m": 759,
+    "lat": -23.666563,
+    "lon": -46.527652,
+    "name": "CASA DA ESPERANCA DE SANTO ANDRE II",
+    "nurses": 0,
+    "physicians": 120,
+    "sus_network": true,
+    "type": "Policlínica"
+   },
+   {
+    "beds": 0,
+    "cnes": 742309,
+    "distance_m": 760,
+    "lat": -23.665456,
+    "lon": -46.527349,
+    "name": "CIENTIFICALAB NTH SANTO ANDRE",
+    "nurses": 0,
+    "physicians": 0,
+    "sus_network": false,
+    "type": "Unidade de Apoio Diagnose e Terapia (SADT Isolado)"
+   },
+   {
+    "beds": 296,
+    "cnes": 8923,
+    "distance_m": 766,
+    "lat": -23.665946,
+    "lon": -46.527574,
+    "name": "CENTRO HOSPITALAR DE SANTO ANDRE DR NEWTON DA COSTA BRANDAO",
+    "nurses": 188,
+    "physicians": 615,
+    "sus_network": true,
+    "type": "Hospital Geral"
+   },
+   {
+    "beds": 0,
+    "cnes": 804371,
+    "distance_m": 789,
+    "lat": -23.671711,
+    "lon": -46.526735,
+    "name": "DELBONI HOSPITAL DR CHRISTOVAO DA GAMA",
+    "nurses": 0,
+    "physicians": 0,
+    "sus_network": false,
+    "type": "Unidade de Apoio Diagnose e Terapia (SADT Isolado)"
+   },
+   {
+    "beds": 131,
+    "cnes": 2079607,
+    "distance_m": 789,
+    "lat": -23.671711,
+    "lon": -46.526735,
+    "name": "HOSPITAL E MATERNIDADE DR CHRISTOVAO DA GAMA",
+    "nurses": 165,
+    "physicians": 194,
+    "sus_network": false,
+    "type": "Hospital Geral"
+   },
+   {
+    "beds": 0,
+    "cnes": 3455378,
+    "distance_m": 801,
+    "lat": -23.673381,
+    "lon": -46.525231,
+    "name": "CLINICA ANIMA",
+    "nurses": 0,
+    "physicians": 2,
+    "sus_network": false,
+    "type": "Policlínica"
+   },
+   {
+    "beds": 0,
+    "cnes": 9422285,
+    "distance_m": 821,
+    "lat": -23.662251,
+    "lon": -46.52574,
+    "name": "INSTITUTO DE BIOMEDICINA DO ABC LTDA EPP",
+    "nurses": 0,
+    "physicians": 0,
+    "sus_network": false,
+    "type": "Unidade de Apoio Diagnose e Terapia (SADT Isolado)"
+   },
+   {
+    "beds": 0,
+    "cnes": 736643,
+    "distance_m": 856,
+    "lat": -23.662961,
+    "lon": -46.526923,
+    "name": "CIENTIFICALAB AMBULATORIO SANTO ANDRE",
+    "nurses": 0,
+    "physicians": 0,
+    "sus_network": false,
+    "type": "Unidade de Apoio Diagnose e Terapia (SADT Isolado)"
+   },
+   {
+    "beds": 0,
+    "cnes": 9241329,
+    "distance_m": 862,
+    "lat": -23.660779,
+    "lon": -46.524117,
+    "name": "LUMEN CENTRO DE DIAGNOSTICOS",
+    "nurses": 0,
+    "physicians": 3,
+    "sus_network": false,
+    "type": "Unidade de Apoio Diagnose e Terapia (SADT Isolado)"
+   },
+   {
+    "beds": 117,
+    "cnes": 2081881,
+    "distance_m": 878,
+    "lat": -23.673418,
+    "lon": -46.514317,
+    "name": "HOSPITAL E MATERNIDADE SAO JOSE DO ABC",
+    "nurses": 15,
+    "physicians": 39,
+    "sus_network": false,
+    "type": "Hospital Geral"
+   },
+   {
+    "beds": 0,
+    "cnes": 7929056,
+    "distance_m": 911,
+    "lat": -23.659601,
+    "lon": -46.521647,
+    "name": "AMEL",
+    "nurses": 0,
+    "physicians": 10,
+    "sus_network": false,
+    "type": "Policlínica"
+   },
+   {
+    "beds": 0,
+    "cnes": 7885709,
+    "distance_m": 912,
+    "lat": -23.668776,
+    "lon": -46.529182,
+    "name": "ENDODERMA SERVICOS MEDICOS",
+    "nurses": 0,
+    "physicians": 2,
+    "sus_network": false,
+    "type": "Policlínica"
+   },
+   {
+    "beds": 0,
+    "cnes": 109746,
+    "distance_m": 931,
+    "lat": -23.670353,
+    "lon": -46.511643,
+    "name": "HOSPITAL DE CAMPANHA COVID 19 PEDRO DELL ANTONIA",
+    "nurses": 0,
+    "physicians": 0,
+    "sus_network": true,
+    "type": "Hospital Geral"
+   },
+   {
+    "beds": 0,
+    "cnes": 3221059,
+    "distance_m": 934,
+    "lat": -23.664576,
+    "lon": -46.528811,
+    "name": "ALVES ALCALA SERVICOS MEDICOS LTDA",
+    "nurses": 0,
+    "physicians": 2,
+    "sus_network": false,
+    "type": "Policlínica"
+   },
+   {
+    "beds": 0,
+    "cnes": 4048784,
+    "distance_m": 934,
+    "lat": -23.664576,
+    "lon": -46.528811,
+    "name": "RED LAB",
+    "nurses": 0,
+    "physicians": 0,
+    "sus_network": false,
+    "type": "Unidade de Apoio Diagnose e Terapia (SADT Isolado)"
+   },
+   {
+    "beds": 0,
+    "cnes": 9994734,
+    "distance_m": 949,
+    "lat": -23.663732,
+    "lon": -46.528547,
+    "name": "BIOFAST PLUS SANTO ANDRE",
+    "nurses": 0,
+    "physicians": 0,
+    "sus_network": false,
+    "type": "Unidade de Apoio Diagnose e Terapia (SADT Isolado)"
+   },
+   {
+    "beds": 0,
+    "cnes": 7809980,
+    "distance_m": 953,
+    "lat": -23.667009,
+    "lon": -46.529623,
+    "name": "AF CENTRO INTEGRADO DE TERAPIAS PREV E REAB DA SAUDE",
+    "nurses": 0,
+    "physicians": 0,
+    "sus_network": false,
+    "type": "Policlínica"
+   },
+   {
+    "beds": 0,
+    "cnes": 4386167,
+    "distance_m": 962,
+    "lat": -23.66186,
+    "lon": -46.527271,
+    "name": "HOSPITAL SILOE",
+    "nurses": 0,
+    "physicians": 0,
+    "sus_network": false,
+    "type": "Hospital Geral"
+   },
+   {
+    "beds": 0,
+    "cnes": 2078988,
+    "distance_m": 972,
+    "lat": -23.661628,
+    "lon": -46.527169,
+    "name": "HOSPITAL CORACAO DE JESUS",
+    "nurses": 0,
+    "physicians": 0,
+    "sus_network": false,
+    "type": "Hospital Geral"
+   },
+   {
+    "beds": 0,
+    "cnes": 3224899,
+    "distance_m": 990,
+    "lat": -23.65915,
+    "lon": -46.523014,
+    "name": "CLINICA SHERRINGTON",
+    "nurses": 0,
+    "physicians": 2,
+    "sus_network": false,
+    "type": "Policlínica"
+   }
+  ],
+  "facility": {
+   "lat": -23.667733,
+   "lon": -46.520319
+  },
+  "located": true,
+  "location": {
+   "district": "Santo André",
+   "municipality": "Santo André",
+   "municipality_code": "354780",
+   "situation": "Urbana",
+   "tract": "354780905000585"
+  },
+  "municipalities": [
+   {
+    "code": "354780",
+    "name": "Santo André",
+    "population": 29342
+   }
+  ],
+  "radius_m": 1000,
+  "tracts": [
+   {
+    "population": 430.0,
+    "share_inside": 0.494
+   },
+   {
+    "population": 318.0,
+    "share_inside": 0.038
+   },
+   {
+    "population": 460.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 584.0,
+    "share_inside": 0.755
+   },
+   {
+    "population": 543.0,
+    "share_inside": 0.994
+   },
+   {
+    "population": 41.0,
+    "share_inside": 0.161
+   },
+   {
+    "population": 135.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 407.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 364.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 657.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 551.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 367.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 365.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 547.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 527.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 506.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 54.0,
+    "share_inside": 0.136
+   },
+   {
+    "population": 980.0,
+    "share_inside": 0.422
+   },
+   {
+    "population": 584.0,
+    "share_inside": 0.618
+   },
+   {
+    "population": 512.0,
+    "share_inside": 0.505
+   },
+   {
+    "population": 794.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 493.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 379.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 393.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 812.0,
+    "share_inside": 0.142
+   },
+   {
+    "population": 462.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 207.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 384.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 644.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 803.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 25.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 492.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 557.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 148.0,
+    "share_inside": 0.189
+   },
+   {
+    "population": 288.0,
+    "share_inside": 0.492
+   },
+   {
+    "population": 613.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 0.0,
+    "share_inside": 0.635
+   },
+   {
+    "population": 219.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 403.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 330.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 128.0,
+    "share_inside": 0.412
+   },
+   {
+    "population": 391.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 509.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 647.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 1113.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 639.0,
+    "share_inside": 0.384
+   },
+   {
+    "population": 281.0,
+    "share_inside": 0.532
+   },
+   {
+    "population": 242.0,
+    "share_inside": 0.625
+   },
+   {
+    "population": 186.0,
+    "share_inside": 0.197
+   },
+   {
+    "population": 112.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 115.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 58.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 418.0,
+    "share_inside": 0.882
+   },
+   {
+    "population": 238.0,
+    "share_inside": 0.098
+   },
+   {
+    "population": 511.0,
+    "share_inside": 0.542
+   },
+   {
+    "population": 278.0,
+    "share_inside": 0.468
+   },
+   {
+    "population": 471.0,
+    "share_inside": 0.175
+   },
+   {
+    "population": 266.0,
+    "share_inside": 0.29
+   },
+   {
+    "population": 424.0,
+    "share_inside": 0.011
+   },
+   {
+    "population": 602.0,
+    "share_inside": 0.008
+   },
+   {
+    "population": 292.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 185.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 549.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 296.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 387.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 126.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 502.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 542.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 405.0,
+    "share_inside": 0.327
+   },
+   {
+    "population": 376.0,
+    "share_inside": 0.259
+   },
+   {
+    "population": 574.0,
+    "share_inside": 0.334
+   },
+   {
+    "population": 370.0,
+    "share_inside": 0.432
+   },
+   {
+    "population": 87.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 888.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 372.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 293.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 130.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 687.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 360.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 415.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 692.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 301.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 77.0,
+    "share_inside": 0.033
+   },
+   {
+    "population": 345.0,
+    "share_inside": 0.697
+   },
+   {
+    "population": 513.0,
+    "share_inside": 0.886
+   },
+   {
+    "population": 221.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 560.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 328.0,
+    "share_inside": 0.541
+   },
+   {
+    "population": 313.0,
+    "share_inside": 0.541
+   },
+   {
+    "population": 652.0,
+    "share_inside": 0.55
+   },
+   {
+    "population": 340.0,
+    "share_inside": 0.892
+   }
+  ]
+ }
+}
