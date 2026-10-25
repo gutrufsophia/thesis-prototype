@@ -1,6 +1,6 @@
 """How much of the tract-level variation in sanitation and crowding lies between RMSP municipalities.
 
-Usage: python3 -I analysis/scale_decomposition_pilot.py dados_censo_culturaeduca.csv
+Usage: python3 -I analysis/scale_decomposition_pilot.py data/dados_censo_culturaeduca.csv
 """
 import csv
 import sys

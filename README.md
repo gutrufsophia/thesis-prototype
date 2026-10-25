@@ -97,7 +97,8 @@ python3 database/seeders/seed.py --replace
 | `public/` | Frontend: map page (`index.html`) and facility page (`facility.html`) |
 | `database/migrations/` | SQL for access policies and the read API functions |
 | `database/seeders/` | Loader for the cleaned CSVs |
-| `limpeza.py`, `limpeza_ibge.py`, `limpeza_datasus.py` | ETL from the raw CNES, SIH, IBGE and DATASUS TabNet files to the cleaned CSVs |
+| `etl/` | ETL from the raw CNES, SIH, IBGE and DATASUS TabNet files to the cleaned CSVs |
+| `data/` | The cleaned CSVs loaded into the database |
 | `database/geocoding/` | Address geocoding of facilities with CNEFE 2022, and its validation |
 | `deploy/` | Files used by the Docker image |
 | `backend-core/` | C++ storytelling service: facts, caveat rules, templates, verifier, tests and evaluation |

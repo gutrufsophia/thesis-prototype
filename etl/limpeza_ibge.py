@@ -1,4 +1,8 @@
+from pathlib import Path
+
 import pandas as pd
+
+RAIZ = Path(__file__).resolve().parents[1]
 
 municipios_rmsp = [
     '3550308', '3503901', '3505708', '3506607', '3509007', '3509205', '3510609', '3513009', 
@@ -102,5 +106,5 @@ df_final = df_final[colunas_finais]
 
 # 7. Salvar o arquivo final!
 print("Salvando arquivo limpo...")
-df_final.to_csv("dados_censo_culturaeduca.csv", index=False)
+df_final.to_csv(RAIZ / "data" / "dados_censo_culturaeduca.csv", index=False)
 print("Sucesso! O arquivo dados_censo_culturaeduca.csv está pronto e levinho.")

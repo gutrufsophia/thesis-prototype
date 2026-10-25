@@ -1,5 +1,9 @@
-import pandas as pd
 import re
+from pathlib import Path
+
+import pandas as pd
+
+RAIZ = Path(__file__).resolve().parents[1]
 
 print("Iniciando o ETL da Infraestrutura de Saúde (CulturaEduca) - RMSP...")
 
@@ -257,7 +261,7 @@ df_final[colunas_metricas] = df_final[colunas_metricas].fillna(0)
 # =====================================================================
 # 7. EXPORTAR PARA O BANCO DE DADOS
 # =====================================================================
-nome_saida = 'culturaeduca_infraestrutura_saude_rmsp.csv'
+nome_saida = RAIZ / 'data' / 'culturaeduca_infraestrutura_saude_rmsp.csv'
 df_final.to_csv(nome_saida, index=False, encoding='utf-8')
 
 print(f"SUCESSO! O arquivo limpo '{nome_saida}' está pronto para o Supabase/PostGIS.")

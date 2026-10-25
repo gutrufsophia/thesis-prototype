@@ -76,7 +76,7 @@ def main():
         (detail["tier"] == "exact_cep") & (detail["geo_level"] == 1)
         & (detail["spread_m"] <= AMBIGUOUS_SPREAD_M) & (detail["error_m"] > CORRECTION_THRESHOLD_M)
     ]
-    health = pd.read_csv(ROOT / "culturaeduca_infraestrutura_saude_rmsp.csv", dtype=str)
+    health = pd.read_csv(ROOT / "data" / "culturaeduca_infraestrutura_saude_rmsp.csv", dtype=str)
     health["cnes"] = health["CO_CNES"].str.zfill(7)
     names = {}
     for line in (Path.home() / "Downloads/cnefe_rmsp/to_download.txt").read_text().split():
