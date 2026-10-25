@@ -326,6 +326,7 @@ a { color: var(--accent-ink); }
   font-weight: 600;
 }
 .scope-radius { background: #e3eefb; color: var(--accent-ink); }
+.scope-district { margin-top: 6px; background: #ece6f5; color: #553f86; }
 .scope-municipality { margin-top: 6px; background: #ecebe6; color: var(--ink-secondary); }
 .bar-value { font-size: 12px; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .bar-note { color: var(--ink-muted); }
