@@ -33,6 +33,32 @@ docker build -t thesis-prototype .
 docker run --rm -p 10000:10000 -e SUPABASE_URL=... -e SUPABASE_ANON_KEY=... thesis-prototype
 ```
 
+## Storytelling service (`backend-core/`)
+
+A C++17 service that writes the short "Reading the territory" text on the facility page. It reads the same Supabase functions as the frontend, extracts facts at each scale (unit, radius, district, municipality, region), applies the caveat rules in `config/rules.json`, fills the bilingual templates in `config/pt.json` and `config/en.json`, and verifies the result before returning it. Numbers only enter the text through slots, never through the templates.
+
+Build and test (needs CMake ≥ 3.16, a C++17 compiler and `libcurl4-openssl-dev`; other libraries are fetched by CMake):
+
+```bash
+cmake -S backend-core -B backend-core/build
+cmake --build backend-core/build -j
+ctest --test-dir backend-core/build --output-on-failure
+```
+
+Run it locally against the database, then add `export const STORY_API_URL = 'http://localhost:8080';` to `public/js/config.js`:
+
+```bash
+export SUPABASE_URL=... SUPABASE_ANON_KEY=... STORY_CONFIG_DIR=backend-core/config
+backend-core/build/storyteller serve                          # GET /narrative?cnes=&radius=&lang=pt|en&public_only=0|1
+backend-core/build/storyteller payload 2786826 1000 > f.json  # freeze a facility's data as a fixture
+backend-core/build/storyteller narrate f.json pt --text        # tell it offline
+backend-core/build/storyteller mutate backend-core/evaluation/fixtures/*.json   # fault-injection table
+```
+
+Deploy it on Render as a second **Web Service** (runtime Docker, root directory `backend-core`) with `SUPABASE_URL`, `SUPABASE_ANON_KEY` and `ALLOWED_ORIGIN` (the frontend's URL), and give the frontend service `STORY_API_URL` with the service's URL. Without `STORY_API_URL` the page works as before, without the text.
+
+The evaluation sample (`backend-core/evaluation/sample.py`) draws facilities by stratum with a fixed seed; their frozen payloads are in `backend-core/evaluation/fixtures/` and are never used by the unit tests.
+
 ## Keeping the Supabase project awake
 
 Supabase pauses free-tier projects after a week without activity. The workflow `.github/workflows/supabase-keepalive.yml` reads one row through the REST API every Monday and Thursday. It needs the repository secrets `SUPABASE_URL` and `SUPABASE_ANON_KEY` (Settings → Secrets and variables → Actions), and it only runs once it is on the default branch. A failed run usually means the project is already paused: restore it from the Supabase dashboard.
@@ -74,3 +100,5 @@ python3 database/seeders/seed.py --replace
 | `limpeza.py`, `limpeza_ibge.py`, `limpeza_datasus.py` | ETL from the raw CNES, SIH, IBGE and DATASUS TabNet files to the cleaned CSVs |
 | `database/geocoding/` | Address geocoding of facilities with CNEFE 2022, and its validation |
 | `deploy/` | Files used by the Docker image |
+| `backend-core/` | C++ storytelling service: facts, caveat rules, templates, verifier, tests and evaluation |
+| `database/tabnet/` | Reproducible DATASUS and SMS-SP TabNet downloads, and the São Paulo district indicators |
