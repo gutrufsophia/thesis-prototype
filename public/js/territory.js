@@ -10,8 +10,12 @@ import { t } from './i18n.js';
 // Years with a full calendar year of notifications in the TabNet exports
 const SINAN_YEARS = ['2022', '2023', '2024', '2025'];
 const SAO_PAULO_CITY = '355030';
-// ICD-10 chapters shown individually; the remaining chapters are grouped as "other"
-const DEATH_CAUSES = ['ix', 'ii', 'x', 'xx', 'xi', 'i', 'xviii'];
+// ICD-10 chapters shown individually; the remaining defined chapters are grouped as "other"
+const DEATH_CAUSES = ['ix', 'ii', 'x', 'xx', 'xi', 'i'];
+// Chapter XVIII (ill-defined causes) ranges from 0.8% to 26.3% of deaths across RMSP
+// municipalities, so cause shares are taken over defined deaths and XVIII is shown apart.
+const ILL_DEFINED = 'xviii';
+const ILL_DEFINED_FLAG_PCT = 10;
 
 let indicatorsPromise = null;
 
@@ -136,23 +140,32 @@ function maternalCard(surroundings, home, region) {
 }
 
 function mortalityCard(surroundings, home, region) {
-  const share = (row, chapter) => percent(row[`obitos_cap_${chapter}`], row.obitos_total);
+  const defined = (row) => row.obitos_total - row[`obitos_cap_${ILL_DEFINED}`];
+  const share = (row, chapter) => percent(row[`obitos_cap_${chapter}`], defined(row));
   const listed = (row) => DEATH_CAUSES.reduce((sum, chapter) => sum + row[`obitos_cap_${chapter}`], 0);
   const items = DEATH_CAUSES.map((chapter) => ({
     label: t(`ter.mort.cap.${chapter}`), value: share(home, chapter), reference: share(region, chapter),
   })).sort((a, b) => b.value - a.value);
   items.push({
     label: t('ter.mort.other'),
-    value: percent(home.obitos_total - listed(home), home.obitos_total),
-    reference: percent(region.obitos_total - listed(region), region.obitos_total),
+    value: percent(defined(home) - listed(home), defined(home)),
+    reference: percent(defined(region) - listed(region), defined(region)),
   });
+  const illDefined = (row) => percent(row[`obitos_cap_${ILL_DEFINED}`], row.obitos_total);
+  const homeIllDefined = illDefined(home);
   return [
     el('h3', { class: 'card-title', text: t('ter.mort.title') }),
     ...municipalScope(surroundings, home),
+    homeIllDefined > ILL_DEFINED_FLAG_PCT
+      ? el('p', { class: 'notice', text: t('ter.mort.illDefinedFlag', {
+        share: formatNumber(homeIllDefined, 1), name: home.nome }) })
+      : null,
     section(t('ter.mort.causes'), barList(items, { digits: 1, suffix: '%' }),
-      { hint: t('ter.mort.hint', { count: formatCount(home.obitos_total) }) }),
+      { hint: t('ter.mort.hint', { count: formatCount(defined(home)), total: formatCount(home.obitos_total) }) }),
+    municipalChart(t('ter.mort.illDefined'), home, region, illDefined, { digits: 1, suffix: '%' },
+      t('ter.mort.illDefinedHint')),
     referenceLegend(),
-  ];
+  ].filter(Boolean);
 }
 
 /** Fill the territory cards for the current radius. */
