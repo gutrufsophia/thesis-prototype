@@ -1,0 +1,32 @@
+# query: sp_obitos_30a69_cap_ano
+# form: https://tabnet.saude.prefeitura.sp.gov.br/cgi/deftohtm3.exe?secretarias/saude/TABNET/sim/obito.def
+# row: Causa(Cap CID10) | column: Ano do Óbito
+# increment: Óbitos Residentes MSP
+# files: 2024, 2023, 2022
+# filters: {'Faixa Etária (13)': ['30 - 39', '40 - 49', '50 - 59', '60 - 69']}
+# downloaded: 2026-10-25
+# note: Notas Técnicas
+# note: Fonte: Sistema de Informações sobre Mortalidade  SIM/PRO-AIM  CEInfo SMS-SP
+# note: Notas:
+"Causa(Cap CID10)";"2022";"2023";"2024";"Total"
+"I.   Algumas doenças infecciosas e parasitárias";2305;1675;1769;5749
+"II.  Neoplasias (tumores)";7587;7813;7622;23022
+"III. Doenças sangue órgãos hemat e transt imunitár";132;111;108;351
+"IV.  Doenças endócrinas nutricionais e metabólicas";1311;1160;1092;3563
+"V.   Transtornos mentais e comportamentais";282;428;288;998
+"VI.  Doenças do sistema nervoso";589;560;609;1758
+"VII. Doenças do olho e anexos";1;3;3;7
+"VIII.Doenças do ouvido e da apófise mastóide";9;6;11;26
+"IX.  Doenças do aparelho circulatório";10338;9933;10082;30353
+"X.   Doenças do aparelho respiratório";2974;2862;3746;9582
+"XI.  Doenças do aparelho digestivo";2361;2102;2235;6698
+"XII. Doenças da pele e do tecido subcutâneo";247;253;277;777
+"XIII.Doenças sist osteomuscular e tec conjuntivo";186;156;190;532
+"XIV. Doenças do aparelho geniturinário";746;708;838;2292
+"XV.  Gravidez parto e puerpério";33;40;35;108
+"XVI. Algumas afec originadas no período perinatal";1;4;1;6
+"XVII.Malf cong deformid e anomalias cromossômicas";66;46;58;170
+"XVIII.Sint sinais e achad anorm ex clín e laborat";366;507;700;1573
+"XX.  Causas externas de morbidade e mortalidade";2719;2651;2887;8257
+"Total";32253;31018;32551;95822
+&

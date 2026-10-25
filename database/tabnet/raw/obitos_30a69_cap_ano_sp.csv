@@ -1,0 +1,35 @@
+# query: obitos_30a69_cap_ano_sp
+# form: http://tabnet.datasus.gov.br/cgi/deftohtm.exe?sim/cnv/obt10sp.def
+# row: Capítulo CID-10 | column: Ano do Óbito
+# increment: Óbitos p/Residênc
+# files: 2024, 2023, 2022
+# filters: {'Faixa Etária': ['30 a 39 anos', '40 a 49 anos', '50 a 59 anos', '60 a 69 anos'], 'Município': ['355030 SAO PAULO']}
+# downloaded: 2026-10-25
+# note: Notas Técnicas
+# note: Fonte: MS/SVSA/CGIAE - Sistema de Informações sobre Mortalidade - SIM
+# note: Notas
+# note: Dados finais disponíveis até 2024 - data de extração 02/12/2025.
+# note: Dados de 2025 - Preliminares - data de extração 28/07/2026.
+# note: Dados de 2026 - 2a prévia - data de extração 01/09/2026.
+"Capítulo CID-10";"2022";"2023";"2024";"Total"
+"I.   Algumas doenças infecciosas e parasitárias";2398;1573;1583;5554
+"II.  Neoplasias (tumores)";7491;7826;7653;22970
+"III. Doenças sangue órgãos hemat e transt imunitár";129;110;107;346
+"IV.  Doenças endócrinas nutricionais e metabólicas";1260;1135;1095;3490
+"V.   Transtornos mentais e comportamentais";202;211;160;573
+"VI.  Doenças do sistema nervoso";562;540;601;1703
+"VII. Doenças do olho e anexos";-;-;2;2
+"VIII.Doenças do ouvido e da apófise mastóide";8;6;11;25
+"IX.  Doenças do aparelho circulatório";9888;9649;9799;29336
+"X.   Doenças do aparelho respiratório";3051;2899;3778;9728
+"XI.  Doenças do aparelho digestivo";2298;2050;2199;6547
+"XII. Doenças da pele e do tecido subcutâneo";174;175;226;575
+"XIII.Doenças sist osteomuscular e tec conjuntivo";179;159;186;524
+"XIV. Doenças do aparelho geniturinário";704;675;829;2208
+"XV.  Gravidez parto e puerpério";30;37;31;98
+"XVI. Algumas afec originadas no período perinatal";1;3;1;5
+"XVII.Malf cong deformid e anomalias cromossômicas";61;43;58;162
+"XVIII.Sint sinais e achad anorm ex clín e laborat";1373;1508;1605;4486
+"XX.  Causas externas de morbidade e mortalidade";2424;2390;2611;7425
+"Total";32233;30989;32535;95757
+&

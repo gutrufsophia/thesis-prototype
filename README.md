@@ -33,6 +33,10 @@ docker build -t thesis-prototype .
 docker run --rm -p 10000:10000 -e SUPABASE_URL=... -e SUPABASE_ANON_KEY=... thesis-prototype
 ```
 
+## Keeping the Supabase project awake
+
+Supabase pauses free-tier projects after a week without activity. The workflow `.github/workflows/supabase-keepalive.yml` reads one row through the REST API every Monday and Thursday. It needs the repository secrets `SUPABASE_URL` and `SUPABASE_ANON_KEY` (Settings → Secrets and variables → Actions), and it only runs once it is on the default branch. A failed run usually means the project is already paused: restore it from the Supabase dashboard.
+
 ## Setting up the database
 
 Requires a Supabase project with PostGIS and the census tract polygons already loaded into `setores_censitarios_grande_sp`. To reload the tract outlines from the original IBGE mesh with a light, gap-free simplification, run `python3 database/seeders/load_geometry.py ~/Downloads/SP_setores_CD2022.json --tolerance 10`. Put `DATABASE_URL=postgresql://...` in `.env`, then:

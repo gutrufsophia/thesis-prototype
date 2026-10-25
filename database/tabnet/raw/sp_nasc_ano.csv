@@ -1,0 +1,18 @@
+# query: sp_nasc_ano
+# form: https://tabnet.saude.prefeitura.sp.gov.br/cgi/deftohtm3.exe?secretarias/saude/TABNET/sinasc/nascido.def
+# row: Ano nascimento | column: Não ativa
+# increment: NV parturientes residentes MSP
+# files: 2026, 2025, 2024, 2023, 2022
+# filters: none
+# downloaded: 2026-10-25
+# note: Notas Técnicas
+# note: Fonte: SINASC/CEInfo/CIS/SERMAP/SMS/PMSP. Dados atualizados em 16/10/2026.
+# note: Notas Técnicas
+"Ano nascimento";"NV parturientes residentes MSP"
+"2022";132106
+"2023";128736
+"2024";120786
+"2025";122805
+"2026";91652
+"Total";596085
+&
