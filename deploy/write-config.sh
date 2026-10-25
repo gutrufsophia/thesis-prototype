@@ -12,6 +12,7 @@ cat > "$target" <<CONFIG
 // Generated at deploy time by deploy/write-config.sh. Do not edit.
 export const SUPABASE_URL = '${SUPABASE_URL}';
 export const SUPABASE_ANON_KEY = '${SUPABASE_ANON_KEY}';
+export const STORY_API_URL = '${STORY_API_URL:-}';
 CONFIG
 
 echo "write-config.sh: wrote $target"

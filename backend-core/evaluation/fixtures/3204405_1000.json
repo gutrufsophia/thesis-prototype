@@ -1,0 +1,999 @@
+{
+ "city": null,
+ "district": null,
+ "districts": null,
+ "facility": {
+  "CO_CEP": 6816550,
+  "CO_CLIENTELA": 1,
+  "CO_CNES": 3204405,
+  "CO_MUNICIPIO_GESTOR": 351500,
+  "CO_NATUREZA_JUR": 1244,
+  "CO_TURNO_ATENDIMENTO": 3,
+  "Dependencia": "Mantida",
+  "Fluxo_Clientela": "Atendimento de Demanda Espontânea",
+  "LEITOS_EXISTENTES": 0,
+  "LEITOS_SUS": 0,
+  "NO_BAIRRO": "JARDIM SAO LUIZ",
+  "NO_FANTASIA": "UBS JARDIM SAO LUIZ",
+  "NO_LOGRADOURO": "AVENIDA JOAO PAULO I",
+  "NO_RAZAO_SOCIAL": "PREFEITURA DE EMBU DAS ARTES",
+  "NU_CNPJ_MANTENEDORA": "46523114000117",
+  "NU_ENDERECO": "3376",
+  "NU_LATITUDE": "-23.6365787",
+  "NU_LONGITUDE": "-46.8229427",
+  "TP_GESTAO": "Municipal",
+  "TP_UNIDADE": 2,
+  "UTI_ADULTO_EXIST": 0,
+  "UTI_ADULTO_SUS": 0,
+  "UTI_CORONARIANA_EXIST": 0,
+  "UTI_CORONARIANA_SUS": 0,
+  "UTI_NEONATAL_EXIST": 0,
+  "UTI_NEONATAL_SUS": 0,
+  "UTI_PEDIATRICO_EXIST": 0,
+  "UTI_PEDIATRICO_SUS": 0,
+  "UTI_QUEIMADO_EXIST": 0,
+  "UTI_QUEIMADO_SUS": 0,
+  "UTI_TOTAL_EXIST": 0,
+  "UTI_TOTAL_SUS": 0,
+  "atende_sus": true,
+  "coord": "0101000020E6100000DE7536E49F6747C0A8C30AB77CA437C0",
+  "coord_precision_m": null,
+  "coord_shift_m": 1515,
+  "coord_source": "cnefe_corrected",
+  "coord_status": "ok",
+  "equip_audiologia": 0,
+  "equip_avaliacao_antropometrica_e_funcional": 0,
+  "equip_diagnostico_por_imagem": 0,
+  "equip_dialise": 0,
+  "equip_equipamentos_de_infra-estrutura": 0,
+  "equip_equipamentos_por_metodos_graficos": 1,
+  "equip_equipamentos_por_metodos_opticos": 0,
+  "equip_manutencao_da_vida": 0,
+  "equip_odontologia": 2,
+  "equip_outros_equipamentos": 0,
+  "equip_procedimentos_cirurgicos": 0,
+  "equip_procedimentos_clinicos": null,
+  "equip_quimioterapia": 0,
+  "equip_radioterapia": 0,
+  "equip_reabilitacao": 0,
+  "equip_telessaude_por_imagem": 0,
+  "esfera_juridica": "Administração Pública",
+  "esp_cardiologista": 0,
+  "esp_clinico_geral": 1,
+  "esp_endocrinologista": 0,
+  "esp_ginecologista_obstetra": 0,
+  "esp_infecto_pneumo": 0,
+  "esp_medico_familia": 0,
+  "esp_oncologista": 0,
+  "esp_pediatra": 0,
+  "esp_psicologo": 0,
+  "esp_psiquiatra": 0,
+  "esp_terapeuta_ocupacional": 0,
+  "internacoes_afeccoes_perinatais": 0,
+  "internacoes_aparelho_circulatorio": 0,
+  "internacoes_aparelho_digestivo": 0,
+  "internacoes_aparelho_geniturinario": 0,
+  "internacoes_aparelho_respiratorio": 0,
+  "internacoes_contatos_servicos_saude": 0,
+  "internacoes_endocrinas_nutricionais": 0,
+  "internacoes_gravidez_parto_puerperio": 0,
+  "internacoes_infecciosas_parasitarias": 0,
+  "internacoes_lesoes_envenenamentos": 0,
+  "internacoes_malformacoes_congenitas": 0,
+  "internacoes_neoplasias_tumores": 0,
+  "internacoes_olho_anexos": 0,
+  "internacoes_osteomuscular_conjuntivo": 0,
+  "internacoes_ouvido_mastoide": 0,
+  "internacoes_pele_tecido_subcutaneo": 0,
+  "internacoes_sangue_imunitarias": 0,
+  "internacoes_sintomas_sinais_anormais": 0,
+  "internacoes_sistema_nervoso": 0,
+  "internacoes_total": 0,
+  "internacoes_transtornos_mentais": 0,
+  "media_dias_permanencia": 0,
+  "rede_sus": true,
+  "tipo_equipamento": "Centro de Saúde/UBS",
+  "total_enfermeiros": 5,
+  "total_medicos": 5,
+  "total_saude_mental": 0
+ },
+ "hospital_stays": [
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.1,
+  0.2,
+  1.0,
+  1.0,
+  1.4,
+  1.5,
+  1.7,
+  1.9,
+  2.4,
+  2.4,
+  2.4,
+  2.5,
+  2.5,
+  2.6,
+  2.6,
+  2.6,
+  2.7,
+  2.7,
+  2.7,
+  2.8,
+  2.9,
+  2.9,
+  2.9,
+  3.0,
+  3.0,
+  3.1,
+  3.1,
+  3.2,
+  3.2,
+  3.3,
+  3.3,
+  3.4,
+  3.4,
+  3.5,
+  3.5,
+  3.5,
+  3.6,
+  3.6,
+  3.6,
+  3.8,
+  3.8,
+  3.8,
+  3.8,
+  3.9,
+  3.9,
+  3.9,
+  3.9,
+  4.1,
+  4.1,
+  4.1,
+  4.2,
+  4.2,
+  4.3,
+  4.3,
+  4.3,
+  4.4,
+  4.4,
+  4.4,
+  4.4,
+  4.5,
+  4.5,
+  4.5,
+  4.6,
+  4.6,
+  4.6,
+  4.6,
+  4.6,
+  4.7,
+  4.7,
+  4.7,
+  4.7,
+  4.7,
+  4.8,
+  4.8,
+  4.8,
+  4.9,
+  4.9,
+  4.9,
+  4.9,
+  4.9,
+  5.0,
+  5.1,
+  5.1,
+  5.1,
+  5.1,
+  5.2,
+  5.2,
+  5.2,
+  5.4,
+  5.5,
+  5.5,
+  5.5,
+  5.6,
+  5.6,
+  5.6,
+  5.6,
+  5.7,
+  5.7,
+  5.7,
+  5.7,
+  5.8,
+  5.8,
+  5.9,
+  5.9,
+  5.9,
+  6.0,
+  6.0,
+  6.0,
+  6.1,
+  6.1,
+  6.1,
+  6.2,
+  6.3,
+  6.3,
+  6.4,
+  6.4,
+  6.5,
+  6.5,
+  6.5,
+  6.6,
+  6.7,
+  6.7,
+  6.8,
+  6.8,
+  7.0,
+  7.1,
+  7.1,
+  7.2,
+  7.2,
+  7.3,
+  7.6,
+  7.8,
+  7.9,
+  8.0,
+  8.0,
+  8.2,
+  8.6,
+  9.5,
+  9.6,
+  9.7,
+  10.0,
+  11.2,
+  11.2,
+  11.4,
+  12.2,
+  13.3,
+  13.3,
+  17.4,
+  17.7,
+  19.2,
+  20.3,
+  31.6,
+  31.9,
+  33.2,
+  67.0,
+  600.4,
+  1469.0,
+  3220.7,
+  6845.1
+ ],
+ "municipality": {
+  "cd_municipio6": "351500",
+  "dengue_2022": 117,
+  "dengue_2023": 179,
+  "dengue_2024": 5475,
+  "dengue_2025": 322,
+  "dengue_2026": 30,
+  "lepto_2022": 5,
+  "lepto_2023": 4,
+  "lepto_2024": 3,
+  "lepto_2025": 4,
+  "lepto_2026": 2,
+  "nasc_gestacao_conhecida": 9978,
+  "nasc_idade_conhecida": 9980,
+  "nasc_mae_menor_20": 962,
+  "nasc_pretermo": 1051,
+  "nasc_total": 9981,
+  "nome": "Embu das Artes",
+  "obitos_cap_i": 122,
+  "obitos_cap_ii": 441,
+  "obitos_cap_iii": 12,
+  "obitos_cap_iv": 82,
+  "obitos_cap_ix": 982,
+  "obitos_cap_v": 10,
+  "obitos_cap_vi": 21,
+  "obitos_cap_vii": 0,
+  "obitos_cap_viii": 1,
+  "obitos_cap_x": 210,
+  "obitos_cap_xi": 182,
+  "obitos_cap_xii": 8,
+  "obitos_cap_xiii": 10,
+  "obitos_cap_xiv": 52,
+  "obitos_cap_xv": 2,
+  "obitos_cap_xvi": 0,
+  "obitos_cap_xvii": 5,
+  "obitos_cap_xviii": 70,
+  "obitos_cap_xx": 245,
+  "obitos_total": 2455,
+  "populacao": 250691,
+  "tuberculose_2022": 122,
+  "tuberculose_2023": 151,
+  "tuberculose_2024": 194,
+  "tuberculose_2025": 136
+ },
+ "public_only": false,
+ "region": {
+  "dengue_2022": 18311.0,
+  "dengue_2023": 22171.0,
+  "dengue_2024": 939757.0,
+  "dengue_2025": 117418.0,
+  "dengue_2026": 14140.0,
+  "lepto_2022": 254.0,
+  "lepto_2023": 264.0,
+  "lepto_2024": 202.0,
+  "lepto_2025": 218.0,
+  "lepto_2026": 125.0,
+  "nasc_gestacao_conhecida": 712680.0,
+  "nasc_idade_conhecida": 712927.0,
+  "nasc_mae_menor_20": 55925.0,
+  "nasc_pretermo": 83393.0,
+  "nasc_total": 712938.0,
+  "obitos_cap_i": 10360.0,
+  "obitos_cap_ii": 41092.0,
+  "obitos_cap_iii": 729.0,
+  "obitos_cap_iv": 6785.0,
+  "obitos_cap_ix": 57354.0,
+  "obitos_cap_v": 1101.0,
+  "obitos_cap_vi": 3125.0,
+  "obitos_cap_vii": 4.0,
+  "obitos_cap_viii": 41.0,
+  "obitos_cap_x": 17271.0,
+  "obitos_cap_xi": 12621.0,
+  "obitos_cap_xii": 1017.0,
+  "obitos_cap_xiii": 920.0,
+  "obitos_cap_xiv": 4386.0,
+  "obitos_cap_xv": 209.0,
+  "obitos_cap_xvi": 7.0,
+  "obitos_cap_xvii": 267.0,
+  "obitos_cap_xviii": 7474.0,
+  "obitos_cap_xx": 15040.0,
+  "obitos_total": 179803.0,
+  "populacao": 20731920.0,
+  "tuberculose_2022": 12725.0,
+  "tuberculose_2023": 13998.0,
+  "tuberculose_2024": 14669.0,
+  "tuberculose_2025": 14223.0
+ },
+ "surroundings": {
+  "access_bands": {
+   "over_2000": 0,
+   "upto_1000": 5902,
+   "upto_2000": 0,
+   "upto_500": 26684
+  },
+  "area_km2": 3.142,
+  "census": {
+   "municipality": {
+    "crowded_pct": 17.7,
+    "far_primary_pct": 9.1,
+    "garbage_pct": 99.0,
+    "households": 88081,
+    "population": 250691,
+    "precarious_pct": 15.1,
+    "residents_per_household": 2.84,
+    "sewage_pct": 79.4,
+    "tracts": 642,
+    "tracts_no_households": 33
+   },
+   "radius": {
+    "crowded_pct": 9.8,
+    "far_primary_pct": 0.0,
+    "garbage_pct": 99.9,
+    "households": 13364,
+    "population": 37218,
+    "precarious_pct": 8.1,
+    "residents_per_household": 2.79,
+    "sewage_pct": 91.2,
+    "tracts": 109,
+    "tracts_no_households": 2
+   },
+   "region": {
+    "crowded_pct": 13.7,
+    "far_primary_pct": 13.0,
+    "garbage_pct": 99.6,
+    "households": 7615622,
+    "population": 20731920,
+    "precarious_pct": 5.7,
+    "residents_per_household": 2.71,
+    "sewage_pct": 91.7,
+    "tracts": 47293,
+    "tracts_no_households": 895
+   }
+  },
+  "crowding_threshold": 3.1,
+  "facilities": [
+   {
+    "beds": 312,
+    "cnes": 2079828,
+    "distance_m": 212,
+    "lat": -23.640664,
+    "lon": -46.81005,
+    "name": "HOSPITAL GERAL PIRAJUSSARA",
+    "nurses": 129,
+    "physicians": 696,
+    "sus_network": true,
+    "type": "Hospital Geral"
+   },
+   {
+    "beds": 0,
+    "cnes": 6082467,
+    "distance_m": 568,
+    "lat": -23.64404,
+    "lon": -46.814882,
+    "name": "UBS JARDIM NOSSA SENHORA DE FATIMA",
+    "nurses": 6,
+    "physicians": 12,
+    "sus_network": true,
+    "type": "Centro de Saúde/UBS"
+   },
+   {
+    "beds": 0,
+    "cnes": 3742466,
+    "distance_m": 638,
+    "lat": -23.63884,
+    "lon": -46.804769,
+    "name": "CRSM CENTRO DE REFERENCIA DA SAUDE DA MULHER",
+    "nurses": 7,
+    "physicians": 16,
+    "sus_network": true,
+    "type": "Clínica/Centro de Especialidade"
+   },
+   {
+    "beds": 0,
+    "cnes": 2058847,
+    "distance_m": 742,
+    "lat": -23.637271,
+    "lon": -46.805057,
+    "name": "UBS JARDIM SANTO ONOFRE MARIA JOSE SORIANO",
+    "nurses": 6,
+    "physicians": 10,
+    "sus_network": true,
+    "type": "Centro de Saúde/UBS"
+   },
+   {
+    "beds": 0,
+    "cnes": 3844358,
+    "distance_m": 745,
+    "lat": -23.636332,
+    "lon": -46.806719,
+    "name": "UBS JARDIM SCANDIA PANORAMA MARIA APARECIDA DE JESUS",
+    "nurses": 6,
+    "physicians": 7,
+    "sus_network": true,
+    "type": "Centro de Saúde/UBS"
+   },
+   {
+    "beds": 0,
+    "cnes": 2051419,
+    "distance_m": 804,
+    "lat": -23.637275,
+    "lon": -46.804125,
+    "name": "PRONTO SOCORRO SANTO ONOFRE",
+    "nurses": 0,
+    "physicians": 0,
+    "sus_network": true,
+    "type": "Pronto Socorro Geral"
+   },
+   {
+    "beds": 0,
+    "cnes": 8125104,
+    "distance_m": 852,
+    "lat": -23.64761,
+    "lon": -46.803303,
+    "name": "DROGARIA SAO PAULO",
+    "nurses": 0,
+    "physicians": 0,
+    "sus_network": false,
+    "type": "Unidade de Apoio Diagnose e Terapia (SADT Isolado)"
+   },
+   {
+    "beds": 0,
+    "cnes": 3167356,
+    "distance_m": 872,
+    "lat": -23.639726,
+    "lon": -46.80158,
+    "name": "CLIMEPI",
+    "nurses": 0,
+    "physicians": 0,
+    "sus_network": false,
+    "type": "Policlínica"
+   },
+   {
+    "beds": 0,
+    "cnes": 7999305,
+    "distance_m": 933,
+    "lat": -23.639511,
+    "lon": -46.801032,
+    "name": "CLIMEPI ASSISTENCIA MEDICA S C LTDA",
+    "nurses": 0,
+    "physicians": 1,
+    "sus_network": false,
+    "type": "Policlínica"
+   },
+   {
+    "beds": 0,
+    "cnes": 4749154,
+    "distance_m": 985,
+    "lat": -23.647684,
+    "lon": -46.801696,
+    "name": "UBS SANTA TEREZA II",
+    "nurses": 6,
+    "physicians": 4,
+    "sus_network": true,
+    "type": "Centro de Saúde/UBS"
+   },
+   {
+    "beds": 0,
+    "cnes": 4749162,
+    "distance_m": 986,
+    "lat": -23.647659,
+    "lon": -46.801672,
+    "name": "CENTRO DE REFERENCIA EM SAUDE II",
+    "nurses": 3,
+    "physicians": 87,
+    "sus_network": true,
+    "type": "Policlínica"
+   }
+  ],
+  "facility": {
+   "lat": -23.642528,
+   "lon": -46.809567
+  },
+  "located": true,
+  "location": {
+   "district": "Embu das Artes",
+   "municipality": "Embu das Artes",
+   "municipality_code": "351500",
+   "situation": "Urbana",
+   "tract": "351500405000875"
+  },
+  "municipalities": [
+   {
+    "code": "351500",
+    "name": "Embu das Artes",
+    "population": 25406
+   },
+   {
+    "code": "355280",
+    "name": "Taboão da Serra",
+    "population": 11812
+   }
+  ],
+  "radius_m": 1000,
+  "tracts": [
+   {
+    "population": 738.0,
+    "share_inside": 0.895
+   },
+   {
+    "population": 717.0,
+    "share_inside": 0.782
+   },
+   {
+    "population": 480.0,
+    "share_inside": 0.523
+   },
+   {
+    "population": 546.0,
+    "share_inside": 0.717
+   },
+   {
+    "population": 791.0,
+    "share_inside": 0.008
+   },
+   {
+    "population": 431.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 546.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 203.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 523.0,
+    "share_inside": 0.272
+   },
+   {
+    "population": 603.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 694.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 592.0,
+    "share_inside": 0.646
+   },
+   {
+    "population": 567.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 624.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 427.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 375.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 475.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 488.0,
+    "share_inside": 0.52
+   },
+   {
+    "population": 559.0,
+    "share_inside": 0.922
+   },
+   {
+    "population": 662.0,
+    "share_inside": 0.093
+   },
+   {
+    "population": 403.0,
+    "share_inside": 0.794
+   },
+   {
+    "population": 416.0,
+    "share_inside": 0.945
+   },
+   {
+    "population": 0.0,
+    "share_inside": 0.689
+   },
+   {
+    "population": 145.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 288.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 518.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 452.0,
+    "share_inside": 0.309
+   },
+   {
+    "population": 311.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 237.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 503.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 483.0,
+    "share_inside": 0.266
+   },
+   {
+    "population": 839.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 591.0,
+    "share_inside": 0.697
+   },
+   {
+    "population": 476.0,
+    "share_inside": 0.901
+   },
+   {
+    "population": 83.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 418.0,
+    "share_inside": 0.555
+   },
+   {
+    "population": 235.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 423.0,
+    "share_inside": 0.568
+   },
+   {
+    "population": 475.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 829.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 341.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 465.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 31.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 376.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 425.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 294.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 472.0,
+    "share_inside": 0.328
+   },
+   {
+    "population": 434.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 0.0,
+    "share_inside": 0.873
+   },
+   {
+    "population": 226.0,
+    "share_inside": 0.47
+   },
+   {
+    "population": 99.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 502.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 201.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 60.0,
+    "share_inside": 0.869
+   },
+   {
+    "population": 292.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 524.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 811.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 2.0,
+    "share_inside": 0.905
+   },
+   {
+    "population": 520.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 428.0,
+    "share_inside": 0.844
+   },
+   {
+    "population": 797.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 169.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 326.0,
+    "share_inside": 0.213
+   },
+   {
+    "population": 249.0,
+    "share_inside": 0.502
+   },
+   {
+    "population": 579.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 237.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 270.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 125.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 379.0,
+    "share_inside": 0.27
+   },
+   {
+    "population": 811.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 567.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 416.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 221.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 578.0,
+    "share_inside": 0.269
+   },
+   {
+    "population": 697.0,
+    "share_inside": 0.938
+   },
+   {
+    "population": 603.0,
+    "share_inside": 0.566
+   },
+   {
+    "population": 664.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 751.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 309.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 709.0,
+    "share_inside": 0.22
+   },
+   {
+    "population": 253.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 640.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 631.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 673.0,
+    "share_inside": 0.1
+   },
+   {
+    "population": 610.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 548.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 485.0,
+    "share_inside": 0.309
+   },
+   {
+    "population": 297.0,
+    "share_inside": 0.052
+   },
+   {
+    "population": 307.0,
+    "share_inside": 0.702
+   },
+   {
+    "population": 384.0,
+    "share_inside": 0.053
+   },
+   {
+    "population": 100.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 415.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 515.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 460.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 81.0,
+    "share_inside": 0.511
+   },
+   {
+    "population": 655.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 688.0,
+    "share_inside": 0.751
+   },
+   {
+    "population": 425.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 448.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 338.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 234.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 102.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 261.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 610.0,
+    "share_inside": 0.463
+   },
+   {
+    "population": 150.0,
+    "share_inside": 0.81
+   },
+   {
+    "population": 265.0,
+    "share_inside": 0.449
+   },
+   {
+    "population": 303.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 207.0,
+    "share_inside": 0.722
+   },
+   {
+    "population": 144.0,
+    "share_inside": 1.0
+   }
+  ]
+ }
+}

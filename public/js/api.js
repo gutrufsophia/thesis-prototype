@@ -1,7 +1,11 @@
 // Data access layer. Everything the pages know about the backend lives here, so
 // swapping Supabase for the C++ API later only means rewriting this module.
 
-import { SUPABASE_URL, SUPABASE_ANON_KEY } from './config.js';
+import * as config from './config.js';
+
+const { SUPABASE_URL, SUPABASE_ANON_KEY } = config;
+// Optional: without it the page works as before, with no generated narrative.
+const STORY_API_URL = (config.STORY_API_URL || '').replace(/\/$/, '');
 
 const HEADERS = {
   apikey: SUPABASE_ANON_KEY,
@@ -57,6 +61,19 @@ export function getMunicipalIndicators() {
 /** São Paulo city's 96 districts: SMS-SP outcomes and census factors. */
 export function getDistrictIndicators() {
   return rpc('district_indicators');
+}
+
+export const hasNarrative = () => Boolean(STORY_API_URL);
+
+/** Generated narrative for a facility and radius, from the C++ storytelling service. */
+export async function getNarrative(cnes, radiusM, { lang, publicOnly }, signal) {
+  const params = new URLSearchParams({ cnes, radius: radiusM, lang, public_only: publicOnly ? '1' : '0' });
+  const response = await fetch(`${STORY_API_URL}/narrative?${params}`, { signal });
+  if (!response.ok) {
+    const body = await response.json().catch(() => ({}));
+    throw new Error(body.error || `Request failed (${response.status})`);
+  }
+  return response.json();
 }
 
 /** Census and facility aggregates within radiusM metres of a facility. */

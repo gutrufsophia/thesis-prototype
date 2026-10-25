@@ -1,0 +1,1118 @@
+{
+ "city": null,
+ "district": null,
+ "districts": null,
+ "facility": {
+  "CO_CEP": 6321665,
+  "CO_CLIENTELA": 3,
+  "CO_CNES": 2792168,
+  "CO_MUNICIPIO_GESTOR": 351060,
+  "CO_NATUREZA_JUR": 1023,
+  "CO_TURNO_ATENDIMENTO": 6,
+  "Dependencia": "Mantida",
+  "Fluxo_Clientela": "Atendimento de Demanda Espontânea e Referenciada",
+  "LEITOS_EXISTENTES": 241,
+  "LEITOS_SUS": 241,
+  "NO_BAIRRO": "PARQUE JOSE ALEX AND",
+  "NO_FANTASIA": "HOSPITAL GERAL DE CARAPICUIBA",
+  "NO_LOGRADOURO": "RUA DA PEDREIRA",
+  "NO_RAZAO_SOCIAL": "SECRETARIA DE ESTADO DA SAUDE DE SAO PAULO",
+  "NU_CNPJ_MANTENEDORA": "46374500000194",
+  "NU_ENDERECO": "95",
+  "NU_LATITUDE": "-23.5341611",
+  "NU_LONGITUDE": "-46.83035318652958",
+  "TP_GESTAO": "Estadual",
+  "TP_UNIDADE": 5,
+  "UTI_ADULTO_EXIST": 20,
+  "UTI_ADULTO_SUS": 20,
+  "UTI_CORONARIANA_EXIST": 0,
+  "UTI_CORONARIANA_SUS": 0,
+  "UTI_NEONATAL_EXIST": 13,
+  "UTI_NEONATAL_SUS": 13,
+  "UTI_PEDIATRICO_EXIST": 6,
+  "UTI_PEDIATRICO_SUS": 6,
+  "UTI_QUEIMADO_EXIST": 0,
+  "UTI_QUEIMADO_SUS": 0,
+  "UTI_TOTAL_EXIST": 39,
+  "UTI_TOTAL_SUS": 39,
+  "atende_sus": true,
+  "coord": "0101000020E610000010236203496A47C09E4B27C8BE8837C0",
+  "coord_precision_m": null,
+  "coord_shift_m": null,
+  "coord_source": "cnes",
+  "coord_status": "ok",
+  "equip_audiologia": 0,
+  "equip_avaliacao_antropometrica_e_funcional": 0,
+  "equip_diagnostico_por_imagem": 19,
+  "equip_dialise": 54,
+  "equip_equipamentos_de_infra-estrutura": 3,
+  "equip_equipamentos_por_metodos_graficos": 7,
+  "equip_equipamentos_por_metodos_opticos": 14,
+  "equip_manutencao_da_vida": 518,
+  "equip_odontologia": 0,
+  "equip_outros_equipamentos": 6,
+  "equip_procedimentos_cirurgicos": 0,
+  "equip_procedimentos_clinicos": null,
+  "equip_quimioterapia": 0,
+  "equip_radioterapia": 0,
+  "equip_reabilitacao": 0,
+  "equip_telessaude_por_imagem": 0,
+  "esfera_juridica": "Administração Pública",
+  "esp_cardiologista": 6,
+  "esp_clinico_geral": 123,
+  "esp_endocrinologista": 0,
+  "esp_ginecologista_obstetra": 49,
+  "esp_infecto_pneumo": 5,
+  "esp_medico_familia": 0,
+  "esp_oncologista": 0,
+  "esp_pediatra": 81,
+  "esp_psicologo": 4,
+  "esp_psiquiatra": 13,
+  "esp_terapeuta_ocupacional": 1,
+  "internacoes_afeccoes_perinatais": 1145,
+  "internacoes_aparelho_circulatorio": 2578,
+  "internacoes_aparelho_digestivo": 3658,
+  "internacoes_aparelho_geniturinario": 1118,
+  "internacoes_aparelho_respiratorio": 1335,
+  "internacoes_contatos_servicos_saude": 893,
+  "internacoes_endocrinas_nutricionais": 470,
+  "internacoes_gravidez_parto_puerperio": 6038,
+  "internacoes_infecciosas_parasitarias": 749,
+  "internacoes_lesoes_envenenamentos": 2941,
+  "internacoes_malformacoes_congenitas": 259,
+  "internacoes_neoplasias_tumores": 726,
+  "internacoes_olho_anexos": 22,
+  "internacoes_osteomuscular_conjuntivo": 841,
+  "internacoes_ouvido_mastoide": 3,
+  "internacoes_pele_tecido_subcutaneo": 2346,
+  "internacoes_sangue_imunitarias": 173,
+  "internacoes_sintomas_sinais_anormais": 330,
+  "internacoes_sistema_nervoso": 323,
+  "internacoes_total": 26373,
+  "internacoes_transtornos_mentais": 425,
+  "media_dias_permanencia": 3.6,
+  "rede_sus": true,
+  "tipo_equipamento": "Hospital Geral",
+  "total_enfermeiros": 156,
+  "total_medicos": 661,
+  "total_saude_mental": 18
+ },
+ "hospital_stays": [
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.1,
+  0.2,
+  1.0,
+  1.0,
+  1.4,
+  1.5,
+  1.7,
+  1.9,
+  2.4,
+  2.4,
+  2.4,
+  2.5,
+  2.5,
+  2.6,
+  2.6,
+  2.6,
+  2.7,
+  2.7,
+  2.7,
+  2.8,
+  2.9,
+  2.9,
+  2.9,
+  3.0,
+  3.0,
+  3.1,
+  3.1,
+  3.2,
+  3.2,
+  3.3,
+  3.3,
+  3.4,
+  3.4,
+  3.5,
+  3.5,
+  3.5,
+  3.6,
+  3.6,
+  3.6,
+  3.8,
+  3.8,
+  3.8,
+  3.8,
+  3.9,
+  3.9,
+  3.9,
+  3.9,
+  4.1,
+  4.1,
+  4.1,
+  4.2,
+  4.2,
+  4.3,
+  4.3,
+  4.3,
+  4.4,
+  4.4,
+  4.4,
+  4.4,
+  4.5,
+  4.5,
+  4.5,
+  4.6,
+  4.6,
+  4.6,
+  4.6,
+  4.6,
+  4.7,
+  4.7,
+  4.7,
+  4.7,
+  4.7,
+  4.8,
+  4.8,
+  4.8,
+  4.9,
+  4.9,
+  4.9,
+  4.9,
+  4.9,
+  5.0,
+  5.1,
+  5.1,
+  5.1,
+  5.1,
+  5.2,
+  5.2,
+  5.2,
+  5.4,
+  5.5,
+  5.5,
+  5.5,
+  5.6,
+  5.6,
+  5.6,
+  5.6,
+  5.7,
+  5.7,
+  5.7,
+  5.7,
+  5.8,
+  5.8,
+  5.9,
+  5.9,
+  5.9,
+  6.0,
+  6.0,
+  6.0,
+  6.1,
+  6.1,
+  6.1,
+  6.2,
+  6.3,
+  6.3,
+  6.4,
+  6.4,
+  6.5,
+  6.5,
+  6.5,
+  6.6,
+  6.7,
+  6.7,
+  6.8,
+  6.8,
+  7.0,
+  7.1,
+  7.1,
+  7.2,
+  7.2,
+  7.3,
+  7.6,
+  7.8,
+  7.9,
+  8.0,
+  8.0,
+  8.2,
+  8.6,
+  9.5,
+  9.6,
+  9.7,
+  10.0,
+  11.2,
+  11.2,
+  11.4,
+  12.2,
+  13.3,
+  13.3,
+  17.4,
+  17.7,
+  19.2,
+  20.3,
+  31.6,
+  31.9,
+  33.2,
+  67.0,
+  600.4,
+  1469.0,
+  3220.7,
+  6845.1
+ ],
+ "municipality": {
+  "cd_municipio6": "351060",
+  "dengue_2022": 153,
+  "dengue_2023": 97,
+  "dengue_2024": 6013,
+  "dengue_2025": 1258,
+  "dengue_2026": 45,
+  "lepto_2022": 4,
+  "lepto_2023": 4,
+  "lepto_2024": 3,
+  "lepto_2025": 10,
+  "lepto_2026": 3,
+  "nasc_gestacao_conhecida": 15089,
+  "nasc_idade_conhecida": 15099,
+  "nasc_mae_menor_20": 1498,
+  "nasc_pretermo": 2000,
+  "nasc_total": 15099,
+  "nome": "Carapicuíba",
+  "obitos_cap_i": 230,
+  "obitos_cap_ii": 633,
+  "obitos_cap_iii": 8,
+  "obitos_cap_iv": 104,
+  "obitos_cap_ix": 1210,
+  "obitos_cap_v": 16,
+  "obitos_cap_vi": 58,
+  "obitos_cap_vii": 0,
+  "obitos_cap_viii": 0,
+  "obitos_cap_x": 317,
+  "obitos_cap_xi": 233,
+  "obitos_cap_xii": 19,
+  "obitos_cap_xiii": 17,
+  "obitos_cap_xiv": 80,
+  "obitos_cap_xv": 1,
+  "obitos_cap_xvi": 0,
+  "obitos_cap_xvii": 1,
+  "obitos_cap_xviii": 47,
+  "obitos_cap_xx": 276,
+  "obitos_total": 3250,
+  "populacao": 386984,
+  "tuberculose_2022": 291,
+  "tuberculose_2023": 315,
+  "tuberculose_2024": 312,
+  "tuberculose_2025": 377
+ },
+ "public_only": false,
+ "region": {
+  "dengue_2022": 18311.0,
+  "dengue_2023": 22171.0,
+  "dengue_2024": 939757.0,
+  "dengue_2025": 117418.0,
+  "dengue_2026": 14140.0,
+  "lepto_2022": 254.0,
+  "lepto_2023": 264.0,
+  "lepto_2024": 202.0,
+  "lepto_2025": 218.0,
+  "lepto_2026": 125.0,
+  "nasc_gestacao_conhecida": 712680.0,
+  "nasc_idade_conhecida": 712927.0,
+  "nasc_mae_menor_20": 55925.0,
+  "nasc_pretermo": 83393.0,
+  "nasc_total": 712938.0,
+  "obitos_cap_i": 10360.0,
+  "obitos_cap_ii": 41092.0,
+  "obitos_cap_iii": 729.0,
+  "obitos_cap_iv": 6785.0,
+  "obitos_cap_ix": 57354.0,
+  "obitos_cap_v": 1101.0,
+  "obitos_cap_vi": 3125.0,
+  "obitos_cap_vii": 4.0,
+  "obitos_cap_viii": 41.0,
+  "obitos_cap_x": 17271.0,
+  "obitos_cap_xi": 12621.0,
+  "obitos_cap_xii": 1017.0,
+  "obitos_cap_xiii": 920.0,
+  "obitos_cap_xiv": 4386.0,
+  "obitos_cap_xv": 209.0,
+  "obitos_cap_xvi": 7.0,
+  "obitos_cap_xvii": 267.0,
+  "obitos_cap_xviii": 7474.0,
+  "obitos_cap_xx": 15040.0,
+  "obitos_total": 179803.0,
+  "populacao": 20731920.0,
+  "tuberculose_2022": 12725.0,
+  "tuberculose_2023": 13998.0,
+  "tuberculose_2024": 14669.0,
+  "tuberculose_2025": 14223.0
+ },
+ "surroundings": {
+  "access_bands": {
+   "over_2000": 0,
+   "upto_1000": 25589,
+   "upto_2000": 2381,
+   "upto_500": 25832
+  },
+  "area_km2": 3.142,
+  "census": {
+   "municipality": {
+    "crowded_pct": 19.6,
+    "far_primary_pct": 6.7,
+    "garbage_pct": 99.9,
+    "households": 136868,
+    "population": 386984,
+    "precarious_pct": 8.6,
+    "residents_per_household": 2.83,
+    "sewage_pct": 88.3,
+    "tracts": 876,
+    "tracts_no_households": 16
+   },
+   "radius": {
+    "crowded_pct": 8.6,
+    "far_primary_pct": 4.4,
+    "garbage_pct": 99.9,
+    "households": 19879,
+    "population": 53994,
+    "precarious_pct": 4.2,
+    "residents_per_household": 2.72,
+    "sewage_pct": 94.8,
+    "tracts": 161,
+    "tracts_no_households": 2
+   },
+   "region": {
+    "crowded_pct": 13.7,
+    "far_primary_pct": 13.0,
+    "garbage_pct": 99.6,
+    "households": 7615622,
+    "population": 20731920,
+    "precarious_pct": 5.7,
+    "residents_per_household": 2.71,
+    "sewage_pct": 91.7,
+    "tracts": 47293,
+    "tracts_no_households": 895
+   }
+  },
+  "crowding_threshold": 3.1,
+  "facilities": [
+   {
+    "beds": 0,
+    "cnes": 2045982,
+    "distance_m": 477,
+    "lat": -23.530468,
+    "lon": -46.827958,
+    "name": "PRONTO SOCORRO COHAB II",
+    "nurses": 37,
+    "physicians": 59,
+    "sus_network": true,
+    "type": "Pronto Socorro Geral"
+   },
+   {
+    "beds": 0,
+    "cnes": 2046628,
+    "distance_m": 515,
+    "lat": -23.530202,
+    "lon": -46.827701,
+    "name": "UBS JUDITH ANDRADE DOS SANTOS COHAB II",
+    "nurses": 6,
+    "physicians": 5,
+    "sus_network": true,
+    "type": "Centro de Saúde/UBS"
+   },
+   {
+    "beds": 0,
+    "cnes": 5253454,
+    "distance_m": 824,
+    "lat": -23.529009,
+    "lon": -46.836181,
+    "name": "CENTRO CLINICO CARAPICUIBA",
+    "nurses": 0,
+    "physicians": 0,
+    "sus_network": false,
+    "type": "Policlínica"
+   },
+   {
+    "beds": 0,
+    "cnes": 987085,
+    "distance_m": 931,
+    "lat": -23.527096,
+    "lon": -46.835301,
+    "name": "TOXICLIN",
+    "nurses": 0,
+    "physicians": 0,
+    "sus_network": false,
+    "type": "Policlínica"
+   }
+  ],
+  "facility": {
+   "lat": -23.534161,
+   "lon": -46.830353
+  },
+  "located": true,
+  "location": {
+   "district": "Carapicuíba",
+   "municipality": "Carapicuíba",
+   "municipality_code": "351060",
+   "situation": "Urbana",
+   "tract": "351060905000583"
+  },
+  "municipalities": [
+   {
+    "code": "351060",
+    "name": "Carapicuíba",
+    "population": 53994
+   }
+  ],
+  "radius_m": 1000,
+  "tracts": [
+   {
+    "population": 369.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 718.0,
+    "share_inside": 0.042
+   },
+   {
+    "population": 751.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 377.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 410.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 0.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 757.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 247.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 238.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 672.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 514.0,
+    "share_inside": 0.827
+   },
+   {
+    "population": 452.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 366.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 497.0,
+    "share_inside": 0.764
+   },
+   {
+    "population": 558.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 324.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 451.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 721.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 610.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 432.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 317.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 331.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 730.0,
+    "share_inside": 0.74
+   },
+   {
+    "population": 585.0,
+    "share_inside": 0.813
+   },
+   {
+    "population": 764.0,
+    "share_inside": 0.994
+   },
+   {
+    "population": 549.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 593.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 355.0,
+    "share_inside": 0.833
+   },
+   {
+    "population": 745.0,
+    "share_inside": 0.933
+   },
+   {
+    "population": 167.0,
+    "share_inside": 0.614
+   },
+   {
+    "population": 367.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 681.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 701.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 649.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 534.0,
+    "share_inside": 0.849
+   },
+   {
+    "population": 577.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 637.0,
+    "share_inside": 0.017
+   },
+   {
+    "population": 703.0,
+    "share_inside": 0.549
+   },
+   {
+    "population": 508.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 736.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 515.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 269.0,
+    "share_inside": 0.999
+   },
+   {
+    "population": 433.0,
+    "share_inside": 0.065
+   },
+   {
+    "population": 445.0,
+    "share_inside": 0.975
+   },
+   {
+    "population": 263.0,
+    "share_inside": 0.342
+   },
+   {
+    "population": 491.0,
+    "share_inside": 0.73
+   },
+   {
+    "population": 730.0,
+    "share_inside": 0.159
+   },
+   {
+    "population": 554.0,
+    "share_inside": 0.555
+   },
+   {
+    "population": 669.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 525.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 464.0,
+    "share_inside": 0.331
+   },
+   {
+    "population": 712.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 456.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 303.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 378.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 286.0,
+    "share_inside": 0.001
+   },
+   {
+    "population": 500.0,
+    "share_inside": 0.575
+   },
+   {
+    "population": 471.0,
+    "share_inside": 0.482
+   },
+   {
+    "population": 444.0,
+    "share_inside": 0.797
+   },
+   {
+    "population": 349.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 487.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 391.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 456.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 464.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 197.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 306.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 383.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 190.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 493.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 477.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 387.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 517.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 532.0,
+    "share_inside": 0.182
+   },
+   {
+    "population": 474.0,
+    "share_inside": 0.038
+   },
+   {
+    "population": 397.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 286.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 244.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 322.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 402.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 472.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 239.0,
+    "share_inside": 0.181
+   },
+   {
+    "population": 460.0,
+    "share_inside": 0.796
+   },
+   {
+    "population": 321.0,
+    "share_inside": 0.515
+   },
+   {
+    "population": 326.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 319.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 261.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 401.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 224.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 454.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 422.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 229.0,
+    "share_inside": 0.045
+   },
+   {
+    "population": 445.0,
+    "share_inside": 0.819
+   },
+   {
+    "population": 437.0,
+    "share_inside": 0.464
+   },
+   {
+    "population": 337.0,
+    "share_inside": 0.736
+   },
+   {
+    "population": 43.0,
+    "share_inside": 0.691
+   },
+   {
+    "population": 394.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 440.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 354.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 197.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 378.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 312.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 564.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 468.0,
+    "share_inside": 0.309
+   },
+   {
+    "population": 480.0,
+    "share_inside": 0.162
+   },
+   {
+    "population": 357.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 205.0,
+    "share_inside": 0.968
+   },
+   {
+    "population": 425.0,
+    "share_inside": 0.315
+   },
+   {
+    "population": 0.0,
+    "share_inside": 0.192
+   },
+   {
+    "population": 808.0,
+    "share_inside": 0.12
+   },
+   {
+    "population": 47.0,
+    "share_inside": 0.008
+   },
+   {
+    "population": 289.0,
+    "share_inside": 0.774
+   },
+   {
+    "population": 295.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 397.0,
+    "share_inside": 0.159
+   },
+   {
+    "population": 254.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 414.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 449.0,
+    "share_inside": 0.979
+   },
+   {
+    "population": 333.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 486.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 344.0,
+    "share_inside": 0.988
+   },
+   {
+    "population": 481.0,
+    "share_inside": 0.622
+   },
+   {
+    "population": 246.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 313.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 133.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 684.0,
+    "share_inside": 0.024
+   },
+   {
+    "population": 365.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 397.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 468.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 784.0,
+    "share_inside": 0.523
+   },
+   {
+    "population": 200.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 414.0,
+    "share_inside": 0.31
+   },
+   {
+    "population": 328.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 249.0,
+    "share_inside": 0.972
+   },
+   {
+    "population": 423.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 369.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 280.0,
+    "share_inside": 0.525
+   },
+   {
+    "population": 438.0,
+    "share_inside": 0.965
+   },
+   {
+    "population": 529.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 526.0,
+    "share_inside": 0.008
+   },
+   {
+    "population": 311.0,
+    "share_inside": 0.103
+   },
+   {
+    "population": 235.0,
+    "share_inside": 0.141
+   },
+   {
+    "population": 307.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 344.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 301.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 347.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 451.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 244.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 414.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 217.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 445.0,
+    "share_inside": 0.315
+   },
+   {
+    "population": 214.0,
+    "share_inside": 0.0
+   },
+   {
+    "population": 407.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 394.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 414.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 351.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 350.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 353.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 295.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 473.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 345.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 3.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 189.0,
+    "share_inside": 1.0
+   }
+  ]
+ }
+}

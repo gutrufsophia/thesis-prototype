@@ -1,0 +1,946 @@
+{
+ "city": null,
+ "district": null,
+ "districts": null,
+ "facility": {
+  "CO_CEP": 9270410,
+  "CO_CLIENTELA": 3,
+  "CO_CNES": 6020917,
+  "CO_MUNICIPIO_GESTOR": 354780,
+  "CO_NATUREZA_JUR": 1244,
+  "CO_TURNO_ATENDIMENTO": 6,
+  "Dependencia": "Mantida",
+  "Fluxo_Clientela": "Atendimento de Demanda Espontânea e Referenciada",
+  "LEITOS_EXISTENTES": 120,
+  "LEITOS_SUS": 120,
+  "NO_BAIRRO": "PQ NOVO ORATORIO",
+  "NO_FANTASIA": "HOSPITAL DA MULHER MARIA JOSE DOS SANTOS STEIN",
+  "NO_LOGRADOURO": "RUA AMERICA DO SUL",
+  "NO_RAZAO_SOCIAL": "PREFEITURA MUNICIPAL DE SANTO ANDRE",
+  "NU_CNPJ_MANTENEDORA": "46522942000130",
+  "NU_ENDERECO": "285",
+  "NU_LATITUDE": "-23.6351",
+  "NU_LONGITUDE": "-46.4995",
+  "TP_GESTAO": "Municipal",
+  "TP_UNIDADE": 7,
+  "UTI_ADULTO_EXIST": 4,
+  "UTI_ADULTO_SUS": 4,
+  "UTI_CORONARIANA_EXIST": 0,
+  "UTI_CORONARIANA_SUS": 0,
+  "UTI_NEONATAL_EXIST": 24,
+  "UTI_NEONATAL_SUS": 24,
+  "UTI_PEDIATRICO_EXIST": 0,
+  "UTI_PEDIATRICO_SUS": 0,
+  "UTI_QUEIMADO_EXIST": 0,
+  "UTI_QUEIMADO_SUS": 0,
+  "UTI_TOTAL_EXIST": 28,
+  "UTI_TOTAL_SUS": 28,
+  "atende_sus": true,
+  "coord": "0101000020E61000000E2DB29DEF3F47C08AB0E1E995A237C0",
+  "coord_precision_m": null,
+  "coord_shift_m": null,
+  "coord_source": "cnes",
+  "coord_status": "ok",
+  "equip_audiologia": 0,
+  "equip_avaliacao_antropometrica_e_funcional": 0,
+  "equip_diagnostico_por_imagem": 8,
+  "equip_dialise": 0,
+  "equip_equipamentos_de_infra-estrutura": 0,
+  "equip_equipamentos_por_metodos_graficos": 8,
+  "equip_equipamentos_por_metodos_opticos": 1,
+  "equip_manutencao_da_vida": 222,
+  "equip_odontologia": 0,
+  "equip_outros_equipamentos": 0,
+  "equip_procedimentos_cirurgicos": 0,
+  "equip_procedimentos_clinicos": null,
+  "equip_quimioterapia": 0,
+  "equip_radioterapia": 0,
+  "equip_reabilitacao": 0,
+  "equip_telessaude_por_imagem": 0,
+  "esfera_juridica": "Administração Pública",
+  "esp_cardiologista": 2,
+  "esp_clinico_geral": 11,
+  "esp_endocrinologista": 0,
+  "esp_ginecologista_obstetra": 106,
+  "esp_infecto_pneumo": 1,
+  "esp_medico_familia": 0,
+  "esp_oncologista": 0,
+  "esp_pediatra": 40,
+  "esp_psicologo": 1,
+  "esp_psiquiatra": 0,
+  "esp_terapeuta_ocupacional": 0,
+  "internacoes_afeccoes_perinatais": 823,
+  "internacoes_aparelho_circulatorio": 18,
+  "internacoes_aparelho_digestivo": 169,
+  "internacoes_aparelho_geniturinario": 1123,
+  "internacoes_aparelho_respiratorio": 66,
+  "internacoes_contatos_servicos_saude": 741,
+  "internacoes_endocrinas_nutricionais": 4,
+  "internacoes_gravidez_parto_puerperio": 6569,
+  "internacoes_infecciosas_parasitarias": 214,
+  "internacoes_lesoes_envenenamentos": 70,
+  "internacoes_malformacoes_congenitas": 33,
+  "internacoes_neoplasias_tumores": 554,
+  "internacoes_olho_anexos": 1,
+  "internacoes_osteomuscular_conjuntivo": 3,
+  "internacoes_ouvido_mastoide": 0,
+  "internacoes_pele_tecido_subcutaneo": 47,
+  "internacoes_sangue_imunitarias": 6,
+  "internacoes_sintomas_sinais_anormais": 193,
+  "internacoes_sistema_nervoso": 6,
+  "internacoes_total": 10641,
+  "internacoes_transtornos_mentais": 1,
+  "media_dias_permanencia": 3.4,
+  "rede_sus": true,
+  "tipo_equipamento": "Hospital Especializado",
+  "total_enfermeiros": 82,
+  "total_medicos": 265,
+  "total_saude_mental": 1
+ },
+ "hospital_stays": [
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.1,
+  0.2,
+  1.0,
+  1.0,
+  1.4,
+  1.5,
+  1.7,
+  1.9,
+  2.4,
+  2.4,
+  2.4,
+  2.5,
+  2.5,
+  2.6,
+  2.6,
+  2.6,
+  2.7,
+  2.7,
+  2.7,
+  2.8,
+  2.9,
+  2.9,
+  2.9,
+  3.0,
+  3.0,
+  3.1,
+  3.1,
+  3.2,
+  3.2,
+  3.3,
+  3.3,
+  3.4,
+  3.4,
+  3.5,
+  3.5,
+  3.5,
+  3.6,
+  3.6,
+  3.6,
+  3.8,
+  3.8,
+  3.8,
+  3.8,
+  3.9,
+  3.9,
+  3.9,
+  3.9,
+  4.1,
+  4.1,
+  4.1,
+  4.2,
+  4.2,
+  4.3,
+  4.3,
+  4.3,
+  4.4,
+  4.4,
+  4.4,
+  4.4,
+  4.5,
+  4.5,
+  4.5,
+  4.6,
+  4.6,
+  4.6,
+  4.6,
+  4.6,
+  4.7,
+  4.7,
+  4.7,
+  4.7,
+  4.7,
+  4.8,
+  4.8,
+  4.8,
+  4.9,
+  4.9,
+  4.9,
+  4.9,
+  4.9,
+  5.0,
+  5.1,
+  5.1,
+  5.1,
+  5.1,
+  5.2,
+  5.2,
+  5.2,
+  5.4,
+  5.5,
+  5.5,
+  5.5,
+  5.6,
+  5.6,
+  5.6,
+  5.6,
+  5.7,
+  5.7,
+  5.7,
+  5.7,
+  5.8,
+  5.8,
+  5.9,
+  5.9,
+  5.9,
+  6.0,
+  6.0,
+  6.0,
+  6.1,
+  6.1,
+  6.1,
+  6.2,
+  6.3,
+  6.3,
+  6.4,
+  6.4,
+  6.5,
+  6.5,
+  6.5,
+  6.6,
+  6.7,
+  6.7,
+  6.8,
+  6.8,
+  7.0,
+  7.1,
+  7.1,
+  7.2,
+  7.2,
+  7.3,
+  7.6,
+  7.8,
+  7.9,
+  8.0,
+  8.0,
+  8.2,
+  8.6,
+  9.5,
+  9.6,
+  9.7,
+  10.0,
+  11.2,
+  11.2,
+  11.4,
+  12.2,
+  13.3,
+  13.3,
+  17.4,
+  17.7,
+  19.2,
+  20.3,
+  31.6,
+  31.9,
+  33.2,
+  67.0,
+  600.4,
+  1469.0,
+  3220.7,
+  6845.1
+ ],
+ "municipality": {
+  "cd_municipio6": "354780",
+  "dengue_2022": 155,
+  "dengue_2023": 288,
+  "dengue_2024": 14569,
+  "dengue_2025": 3465,
+  "dengue_2026": 168,
+  "lepto_2022": 9,
+  "lepto_2023": 3,
+  "lepto_2024": 5,
+  "lepto_2025": 1,
+  "lepto_2026": 5,
+  "nasc_gestacao_conhecida": 21986,
+  "nasc_idade_conhecida": 21989,
+  "nasc_mae_menor_20": 1271,
+  "nasc_pretermo": 2474,
+  "nasc_total": 21989,
+  "nome": "Santo André",
+  "obitos_cap_i": 399,
+  "obitos_cap_ii": 1554,
+  "obitos_cap_iii": 31,
+  "obitos_cap_iv": 232,
+  "obitos_cap_ix": 2138,
+  "obitos_cap_v": 8,
+  "obitos_cap_vi": 151,
+  "obitos_cap_vii": 1,
+  "obitos_cap_viii": 0,
+  "obitos_cap_x": 592,
+  "obitos_cap_xi": 510,
+  "obitos_cap_xii": 33,
+  "obitos_cap_xiii": 32,
+  "obitos_cap_xiv": 171,
+  "obitos_cap_xv": 9,
+  "obitos_cap_xvi": 0,
+  "obitos_cap_xvii": 6,
+  "obitos_cap_xviii": 81,
+  "obitos_cap_xx": 543,
+  "obitos_total": 6491,
+  "populacao": 748919,
+  "tuberculose_2022": 259,
+  "tuberculose_2023": 271,
+  "tuberculose_2024": 256,
+  "tuberculose_2025": 244
+ },
+ "public_only": false,
+ "region": {
+  "dengue_2022": 18311.0,
+  "dengue_2023": 22171.0,
+  "dengue_2024": 939757.0,
+  "dengue_2025": 117418.0,
+  "dengue_2026": 14140.0,
+  "lepto_2022": 254.0,
+  "lepto_2023": 264.0,
+  "lepto_2024": 202.0,
+  "lepto_2025": 218.0,
+  "lepto_2026": 125.0,
+  "nasc_gestacao_conhecida": 712680.0,
+  "nasc_idade_conhecida": 712927.0,
+  "nasc_mae_menor_20": 55925.0,
+  "nasc_pretermo": 83393.0,
+  "nasc_total": 712938.0,
+  "obitos_cap_i": 10360.0,
+  "obitos_cap_ii": 41092.0,
+  "obitos_cap_iii": 729.0,
+  "obitos_cap_iv": 6785.0,
+  "obitos_cap_ix": 57354.0,
+  "obitos_cap_v": 1101.0,
+  "obitos_cap_vi": 3125.0,
+  "obitos_cap_vii": 4.0,
+  "obitos_cap_viii": 41.0,
+  "obitos_cap_x": 17271.0,
+  "obitos_cap_xi": 12621.0,
+  "obitos_cap_xii": 1017.0,
+  "obitos_cap_xiii": 920.0,
+  "obitos_cap_xiv": 4386.0,
+  "obitos_cap_xv": 209.0,
+  "obitos_cap_xvi": 7.0,
+  "obitos_cap_xvii": 267.0,
+  "obitos_cap_xviii": 7474.0,
+  "obitos_cap_xx": 15040.0,
+  "obitos_total": 179803.0,
+  "populacao": 20731920.0,
+  "tuberculose_2022": 12725.0,
+  "tuberculose_2023": 13998.0,
+  "tuberculose_2024": 14669.0,
+  "tuberculose_2025": 14223.0
+ },
+ "surroundings": {
+  "access_bands": {
+   "over_2000": 0,
+   "upto_1000": 21276,
+   "upto_2000": 833,
+   "upto_500": 18651
+  },
+  "area_km2": 3.142,
+  "census": {
+   "municipality": {
+    "crowded_pct": 7.0,
+    "far_primary_pct": 10.1,
+    "garbage_pct": 99.9,
+    "households": 280600,
+    "population": 748919,
+    "precarious_pct": 2.4,
+    "residents_per_household": 2.66,
+    "sewage_pct": 96.6,
+    "tracts": 1708,
+    "tracts_no_households": 53
+   },
+   "radius": {
+    "crowded_pct": 4.4,
+    "far_primary_pct": 2.0,
+    "garbage_pct": 100.0,
+    "households": 15377,
+    "population": 40761,
+    "precarious_pct": 0.2,
+    "residents_per_household": 2.65,
+    "sewage_pct": 99.8,
+    "tracts": 109,
+    "tracts_no_households": 1
+   },
+   "region": {
+    "crowded_pct": 13.7,
+    "far_primary_pct": 13.0,
+    "garbage_pct": 99.6,
+    "households": 7615622,
+    "population": 20731920,
+    "precarious_pct": 5.7,
+    "residents_per_household": 2.71,
+    "sewage_pct": 91.7,
+    "tracts": 47293,
+    "tracts_no_households": 895
+   }
+  },
+  "crowding_threshold": 3.1,
+  "facilities": [
+   {
+    "beds": 0,
+    "cnes": 4802233,
+    "distance_m": 270,
+    "lat": -23.632707,
+    "lon": -46.500025,
+    "name": "CIDADE DOS MENINOS",
+    "nurses": 0,
+    "physicians": 0,
+    "sus_network": false,
+    "type": "Clínica/Centro de Especialidade"
+   },
+   {
+    "beds": 0,
+    "cnes": 7249713,
+    "distance_m": 279,
+    "lat": -23.634309,
+    "lon": -46.502098,
+    "name": "TECNOLAB UNIDADE X",
+    "nurses": 1,
+    "physicians": 3,
+    "sus_network": false,
+    "type": "Unidade de Apoio Diagnose e Terapia (SADT Isolado)"
+   },
+   {
+    "beds": 0,
+    "cnes": 3216160,
+    "distance_m": 381,
+    "lat": -23.636132,
+    "lon": -46.495941,
+    "name": "LABORATORIO FLEMING ORATORIO",
+    "nurses": 0,
+    "physicians": 0,
+    "sus_network": false,
+    "type": "Unidade de Apoio Diagnose e Terapia (SADT Isolado)"
+   },
+   {
+    "beds": 0,
+    "cnes": 5380278,
+    "distance_m": 542,
+    "lat": -23.632822,
+    "lon": -46.494799,
+    "name": "UBS JARDIM SANTO ALBERTO",
+    "nurses": 3,
+    "physicians": 13,
+    "sus_network": true,
+    "type": "Centro de Saúde/UBS"
+   },
+   {
+    "beds": 0,
+    "cnes": 8893,
+    "distance_m": 707,
+    "lat": -23.635785,
+    "lon": -46.506384,
+    "name": "CENTRO DE REABILITACAO MUNICIPAL SANTO ANDRE CREM",
+    "nurses": 0,
+    "physicians": 0,
+    "sus_network": true,
+    "type": "Clínica/Centro de Especialidade"
+   },
+   {
+    "beds": 0,
+    "cnes": 2940744,
+    "distance_m": 800,
+    "lat": -23.63793,
+    "lon": -46.492286,
+    "name": "CTNUTRI",
+    "nurses": 0,
+    "physicians": 0,
+    "sus_network": false,
+    "type": "Policlínica"
+   },
+   {
+    "beds": 0,
+    "cnes": 8710,
+    "distance_m": 818,
+    "lat": -23.639798,
+    "lon": -46.493312,
+    "name": "UBS CENTRO DE SAUDE ESCOLA",
+    "nurses": 6,
+    "physicians": 22,
+    "sus_network": true,
+    "type": "Centro de Saúde/UBS"
+   }
+  ],
+  "facility": {
+   "lat": -23.6351,
+   "lon": -46.4995
+  },
+  "located": true,
+  "location": {
+   "district": "Capuava",
+   "municipality": "Santo André",
+   "municipality_code": "354780",
+   "situation": "Urbana",
+   "tract": "354780908000179"
+  },
+  "municipalities": [
+   {
+    "code": "354780",
+    "name": "Santo André",
+    "population": 40761
+   }
+  ],
+  "radius_m": 1000,
+  "tracts": [
+   {
+    "population": 403.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 571.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 671.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 818.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 787.0,
+    "share_inside": 0.175
+   },
+   {
+    "population": 574.0,
+    "share_inside": 0.164
+   },
+   {
+    "population": 566.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 687.0,
+    "share_inside": 0.219
+   },
+   {
+    "population": 388.0,
+    "share_inside": 0.962
+   },
+   {
+    "population": 439.0,
+    "share_inside": 0.989
+   },
+   {
+    "population": 463.0,
+    "share_inside": 0.878
+   },
+   {
+    "population": 319.0,
+    "share_inside": 0.415
+   },
+   {
+    "population": 464.0,
+    "share_inside": 0.477
+   },
+   {
+    "population": 362.0,
+    "share_inside": 0.122
+   },
+   {
+    "population": 708.0,
+    "share_inside": 0.003
+   },
+   {
+    "population": 384.0,
+    "share_inside": 0.996
+   },
+   {
+    "population": 389.0,
+    "share_inside": 0.389
+   },
+   {
+    "population": 556.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 402.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 591.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 566.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 560.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 521.0,
+    "share_inside": 0.0
+   },
+   {
+    "population": 496.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 638.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 859.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 760.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 634.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 487.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 476.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 547.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 585.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 689.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 678.0,
+    "share_inside": 0.941
+   },
+   {
+    "population": 337.0,
+    "share_inside": 0.805
+   },
+   {
+    "population": 890.0,
+    "share_inside": 0.882
+   },
+   {
+    "population": 665.0,
+    "share_inside": 0.006
+   },
+   {
+    "population": 625.0,
+    "share_inside": 0.39
+   },
+   {
+    "population": 335.0,
+    "share_inside": 0.967
+   },
+   {
+    "population": 490.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 504.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 747.0,
+    "share_inside": 0.172
+   },
+   {
+    "population": 418.0,
+    "share_inside": 0.364
+   },
+   {
+    "population": 856.0,
+    "share_inside": 0.143
+   },
+   {
+    "population": 456.0,
+    "share_inside": 0.388
+   },
+   {
+    "population": 560.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 522.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 501.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 501.0,
+    "share_inside": 0.985
+   },
+   {
+    "population": 164.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 699.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 395.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 480.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 508.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 125.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 713.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 680.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 743.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 206.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 2.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 301.0,
+    "share_inside": 0.837
+   },
+   {
+    "population": 317.0,
+    "share_inside": 0.968
+   },
+   {
+    "population": 181.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 193.0,
+    "share_inside": 0.768
+   },
+   {
+    "population": 253.0,
+    "share_inside": 0.191
+   },
+   {
+    "population": 372.0,
+    "share_inside": 0.103
+   },
+   {
+    "population": 233.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 160.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 647.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 449.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 646.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 332.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 440.0,
+    "share_inside": 0.166
+   },
+   {
+    "population": 440.0,
+    "share_inside": 0.186
+   },
+   {
+    "population": 565.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 489.0,
+    "share_inside": 0.051
+   },
+   {
+    "population": 612.0,
+    "share_inside": 0.172
+   },
+   {
+    "population": 517.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 403.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 454.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 397.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 710.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 640.0,
+    "share_inside": 0.965
+   },
+   {
+    "population": 655.0,
+    "share_inside": 0.93
+   },
+   {
+    "population": 459.0,
+    "share_inside": 0.8
+   },
+   {
+    "population": 443.0,
+    "share_inside": 0.416
+   },
+   {
+    "population": 233.0,
+    "share_inside": 0.564
+   },
+   {
+    "population": 525.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 481.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 445.0,
+    "share_inside": 0.935
+   },
+   {
+    "population": 479.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 341.0,
+    "share_inside": 0.824
+   },
+   {
+    "population": 297.0,
+    "share_inside": 0.691
+   },
+   {
+    "population": 389.0,
+    "share_inside": 0.172
+   },
+   {
+    "population": 561.0,
+    "share_inside": 0.044
+   },
+   {
+    "population": 511.0,
+    "share_inside": 0.802
+   },
+   {
+    "population": 370.0,
+    "share_inside": 0.508
+   },
+   {
+    "population": 440.0,
+    "share_inside": 0.543
+   },
+   {
+    "population": 98.0,
+    "share_inside": 0.869
+   },
+   {
+    "population": 115.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 0.0,
+    "share_inside": 0.868
+   },
+   {
+    "population": 507.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 385.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 490.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 438.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 379.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 478.0,
+    "share_inside": 0.868
+   },
+   {
+    "population": 405.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 507.0,
+    "share_inside": 1.0
+   }
+  ]
+ }
+}

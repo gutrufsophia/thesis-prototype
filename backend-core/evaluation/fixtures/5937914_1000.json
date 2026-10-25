@@ -1,0 +1,835 @@
+{
+ "city": null,
+ "district": null,
+ "districts": null,
+ "facility": {
+  "CO_CEP": 8550450,
+  "CO_CLIENTELA": 2,
+  "CO_CNES": 5937914,
+  "CO_MUNICIPIO_GESTOR": 353980,
+  "CO_NATUREZA_JUR": 1244,
+  "CO_TURNO_ATENDIMENTO": 3,
+  "Dependencia": "Mantida",
+  "Fluxo_Clientela": "Atendimento de Demanda Referenciada",
+  "LEITOS_EXISTENTES": 0,
+  "LEITOS_SUS": 0,
+  "NO_BAIRRO": "JD ESTELA",
+  "NO_FANTASIA": "CENTRO DE ESPECIALIDADES ODONTOLOGICAS DE POA CEO",
+  "NO_LOGRADOURO": "AV LUCAS NOGUEIRA GARCEZ",
+  "NO_RAZAO_SOCIAL": "PREFEITURA MUNICIPAL DA ESTANCIA HIDROMINERAL DE POA",
+  "NU_CNPJ_MANTENEDORA": "55021455000185",
+  "NU_ENDERECO": "S/N",
+  "NU_LATITUDE": "-23.53214796442321",
+  "NU_LONGITUDE": "-46.34919847635521",
+  "TP_GESTAO": "Municipal",
+  "TP_UNIDADE": 36,
+  "UTI_ADULTO_EXIST": 0,
+  "UTI_ADULTO_SUS": 0,
+  "UTI_CORONARIANA_EXIST": 0,
+  "UTI_CORONARIANA_SUS": 0,
+  "UTI_NEONATAL_EXIST": 0,
+  "UTI_NEONATAL_SUS": 0,
+  "UTI_PEDIATRICO_EXIST": 0,
+  "UTI_PEDIATRICO_SUS": 0,
+  "UTI_QUEIMADO_EXIST": 0,
+  "UTI_QUEIMADO_SUS": 0,
+  "UTI_TOTAL_EXIST": 0,
+  "UTI_TOTAL_SUS": 0,
+  "atende_sus": true,
+  "coord": "0101000020E61000001CE12189B22C47C0A6D457D93A8837C0",
+  "coord_precision_m": null,
+  "coord_shift_m": null,
+  "coord_source": "cnes",
+  "coord_status": "ok",
+  "equip_audiologia": 0,
+  "equip_avaliacao_antropometrica_e_funcional": 0,
+  "equip_diagnostico_por_imagem": 4,
+  "equip_dialise": 0,
+  "equip_equipamentos_de_infra-estrutura": 0,
+  "equip_equipamentos_por_metodos_graficos": 0,
+  "equip_equipamentos_por_metodos_opticos": 0,
+  "equip_manutencao_da_vida": 0,
+  "equip_odontologia": 89,
+  "equip_outros_equipamentos": 0,
+  "equip_procedimentos_cirurgicos": 0,
+  "equip_procedimentos_clinicos": null,
+  "equip_quimioterapia": 0,
+  "equip_radioterapia": 0,
+  "equip_reabilitacao": 0,
+  "equip_telessaude_por_imagem": 0,
+  "esfera_juridica": "Administração Pública",
+  "esp_cardiologista": 0,
+  "esp_clinico_geral": 0,
+  "esp_endocrinologista": 0,
+  "esp_ginecologista_obstetra": 0,
+  "esp_infecto_pneumo": 0,
+  "esp_medico_familia": 0,
+  "esp_oncologista": 0,
+  "esp_pediatra": 0,
+  "esp_psicologo": 0,
+  "esp_psiquiatra": 0,
+  "esp_terapeuta_ocupacional": 0,
+  "internacoes_afeccoes_perinatais": 0,
+  "internacoes_aparelho_circulatorio": 0,
+  "internacoes_aparelho_digestivo": 0,
+  "internacoes_aparelho_geniturinario": 0,
+  "internacoes_aparelho_respiratorio": 0,
+  "internacoes_contatos_servicos_saude": 0,
+  "internacoes_endocrinas_nutricionais": 0,
+  "internacoes_gravidez_parto_puerperio": 0,
+  "internacoes_infecciosas_parasitarias": 0,
+  "internacoes_lesoes_envenenamentos": 0,
+  "internacoes_malformacoes_congenitas": 0,
+  "internacoes_neoplasias_tumores": 0,
+  "internacoes_olho_anexos": 0,
+  "internacoes_osteomuscular_conjuntivo": 0,
+  "internacoes_ouvido_mastoide": 0,
+  "internacoes_pele_tecido_subcutaneo": 0,
+  "internacoes_sangue_imunitarias": 0,
+  "internacoes_sintomas_sinais_anormais": 0,
+  "internacoes_sistema_nervoso": 0,
+  "internacoes_total": 0,
+  "internacoes_transtornos_mentais": 0,
+  "media_dias_permanencia": 0,
+  "rede_sus": true,
+  "tipo_equipamento": "Clínica/Centro de Especialidade",
+  "total_enfermeiros": 0,
+  "total_medicos": 0,
+  "total_saude_mental": 0
+ },
+ "hospital_stays": [
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.1,
+  0.2,
+  1.0,
+  1.0,
+  1.4,
+  1.5,
+  1.7,
+  1.9,
+  2.4,
+  2.4,
+  2.4,
+  2.5,
+  2.5,
+  2.6,
+  2.6,
+  2.6,
+  2.7,
+  2.7,
+  2.7,
+  2.8,
+  2.9,
+  2.9,
+  2.9,
+  3.0,
+  3.0,
+  3.1,
+  3.1,
+  3.2,
+  3.2,
+  3.3,
+  3.3,
+  3.4,
+  3.4,
+  3.5,
+  3.5,
+  3.5,
+  3.6,
+  3.6,
+  3.6,
+  3.8,
+  3.8,
+  3.8,
+  3.8,
+  3.9,
+  3.9,
+  3.9,
+  3.9,
+  4.1,
+  4.1,
+  4.1,
+  4.2,
+  4.2,
+  4.3,
+  4.3,
+  4.3,
+  4.4,
+  4.4,
+  4.4,
+  4.4,
+  4.5,
+  4.5,
+  4.5,
+  4.6,
+  4.6,
+  4.6,
+  4.6,
+  4.6,
+  4.7,
+  4.7,
+  4.7,
+  4.7,
+  4.7,
+  4.8,
+  4.8,
+  4.8,
+  4.9,
+  4.9,
+  4.9,
+  4.9,
+  4.9,
+  5.0,
+  5.1,
+  5.1,
+  5.1,
+  5.1,
+  5.2,
+  5.2,
+  5.2,
+  5.4,
+  5.5,
+  5.5,
+  5.5,
+  5.6,
+  5.6,
+  5.6,
+  5.6,
+  5.7,
+  5.7,
+  5.7,
+  5.7,
+  5.8,
+  5.8,
+  5.9,
+  5.9,
+  5.9,
+  6.0,
+  6.0,
+  6.0,
+  6.1,
+  6.1,
+  6.1,
+  6.2,
+  6.3,
+  6.3,
+  6.4,
+  6.4,
+  6.5,
+  6.5,
+  6.5,
+  6.6,
+  6.7,
+  6.7,
+  6.8,
+  6.8,
+  7.0,
+  7.1,
+  7.1,
+  7.2,
+  7.2,
+  7.3,
+  7.6,
+  7.8,
+  7.9,
+  8.0,
+  8.0,
+  8.2,
+  8.6,
+  9.5,
+  9.6,
+  9.7,
+  10.0,
+  11.2,
+  11.2,
+  11.4,
+  12.2,
+  13.3,
+  13.3,
+  17.4,
+  17.7,
+  19.2,
+  20.3,
+  31.6,
+  31.9,
+  33.2,
+  67.0,
+  600.4,
+  1469.0,
+  3220.7,
+  6845.1
+ ],
+ "municipality": {
+  "cd_municipio6": "353980",
+  "dengue_2022": 50,
+  "dengue_2023": 73,
+  "dengue_2024": 6049,
+  "dengue_2025": 186,
+  "dengue_2026": 30,
+  "lepto_2022": 1,
+  "lepto_2023": 0,
+  "lepto_2024": 0,
+  "lepto_2025": 1,
+  "lepto_2026": 1,
+  "nasc_gestacao_conhecida": 3651,
+  "nasc_idade_conhecida": 3654,
+  "nasc_mae_menor_20": 257,
+  "nasc_pretermo": 424,
+  "nasc_total": 3654,
+  "nome": "Poá",
+  "obitos_cap_i": 80,
+  "obitos_cap_ii": 228,
+  "obitos_cap_iii": 7,
+  "obitos_cap_iv": 53,
+  "obitos_cap_ix": 184,
+  "obitos_cap_v": 6,
+  "obitos_cap_vi": 11,
+  "obitos_cap_vii": 0,
+  "obitos_cap_viii": 0,
+  "obitos_cap_x": 93,
+  "obitos_cap_xi": 55,
+  "obitos_cap_xii": 11,
+  "obitos_cap_xiii": 5,
+  "obitos_cap_xiv": 43,
+  "obitos_cap_xv": 0,
+  "obitos_cap_xvi": 0,
+  "obitos_cap_xvii": 1,
+  "obitos_cap_xviii": 305,
+  "obitos_cap_xx": 77,
+  "obitos_total": 1159,
+  "populacao": 103765,
+  "tuberculose_2022": 46,
+  "tuberculose_2023": 58,
+  "tuberculose_2024": 55,
+  "tuberculose_2025": 45
+ },
+ "public_only": false,
+ "region": {
+  "dengue_2022": 18311.0,
+  "dengue_2023": 22171.0,
+  "dengue_2024": 939757.0,
+  "dengue_2025": 117418.0,
+  "dengue_2026": 14140.0,
+  "lepto_2022": 254.0,
+  "lepto_2023": 264.0,
+  "lepto_2024": 202.0,
+  "lepto_2025": 218.0,
+  "lepto_2026": 125.0,
+  "nasc_gestacao_conhecida": 712680.0,
+  "nasc_idade_conhecida": 712927.0,
+  "nasc_mae_menor_20": 55925.0,
+  "nasc_pretermo": 83393.0,
+  "nasc_total": 712938.0,
+  "obitos_cap_i": 10360.0,
+  "obitos_cap_ii": 41092.0,
+  "obitos_cap_iii": 729.0,
+  "obitos_cap_iv": 6785.0,
+  "obitos_cap_ix": 57354.0,
+  "obitos_cap_v": 1101.0,
+  "obitos_cap_vi": 3125.0,
+  "obitos_cap_vii": 4.0,
+  "obitos_cap_viii": 41.0,
+  "obitos_cap_x": 17271.0,
+  "obitos_cap_xi": 12621.0,
+  "obitos_cap_xii": 1017.0,
+  "obitos_cap_xiii": 920.0,
+  "obitos_cap_xiv": 4386.0,
+  "obitos_cap_xv": 209.0,
+  "obitos_cap_xvi": 7.0,
+  "obitos_cap_xvii": 267.0,
+  "obitos_cap_xviii": 7474.0,
+  "obitos_cap_xx": 15040.0,
+  "obitos_total": 179803.0,
+  "populacao": 20731920.0,
+  "tuberculose_2022": 12725.0,
+  "tuberculose_2023": 13998.0,
+  "tuberculose_2024": 14669.0,
+  "tuberculose_2025": 14223.0
+ },
+ "surroundings": {
+  "access_bands": {
+   "over_2000": 0,
+   "upto_1000": 12556,
+   "upto_2000": 0,
+   "upto_500": 11271
+  },
+  "area_km2": 3.142,
+  "census": {
+   "municipality": {
+    "crowded_pct": 26.2,
+    "far_primary_pct": 0.6,
+    "garbage_pct": 99.6,
+    "households": 35383,
+    "population": 103765,
+    "precarious_pct": 2.8,
+    "residents_per_household": 2.93,
+    "sewage_pct": 96.7,
+    "tracts": 220,
+    "tracts_no_households": 4
+   },
+   "radius": {
+    "crowded_pct": 11.5,
+    "far_primary_pct": 0.0,
+    "garbage_pct": 99.9,
+    "households": 8930,
+    "population": 25461,
+    "precarious_pct": 2.0,
+    "residents_per_household": 2.84,
+    "sewage_pct": 97.8,
+    "tracts": 74,
+    "tracts_no_households": 0
+   },
+   "region": {
+    "crowded_pct": 13.7,
+    "far_primary_pct": 13.0,
+    "garbage_pct": 99.6,
+    "households": 7615622,
+    "population": 20731920,
+    "precarious_pct": 5.7,
+    "residents_per_household": 2.71,
+    "sewage_pct": 91.7,
+    "tracts": 47293,
+    "tracts_no_households": 895
+   }
+  },
+  "crowding_threshold": 3.1,
+  "facilities": [
+   {
+    "beds": 0,
+    "cnes": 9968776,
+    "distance_m": 6,
+    "lat": -23.532171,
+    "lon": -46.349247,
+    "name": "SANCET LUCAS NOGUEIRA",
+    "nurses": 0,
+    "physicians": 0,
+    "sus_network": false,
+    "type": "Unidade de Apoio Diagnose e Terapia (SADT Isolado)"
+   },
+   {
+    "beds": 0,
+    "cnes": 2979985,
+    "distance_m": 535,
+    "lat": -23.532182,
+    "lon": -46.343955,
+    "name": "LAR MAE MARIANA",
+    "nurses": 2,
+    "physicians": 0,
+    "sus_network": false,
+    "type": "Clínica/Centro de Especialidade"
+   },
+   {
+    "beds": 0,
+    "cnes": 2773457,
+    "distance_m": 568,
+    "lat": -23.536677,
+    "lon": -46.351807,
+    "name": "UBS JOSE PERETA VILA PERETA",
+    "nurses": 2,
+    "physicians": 4,
+    "sus_network": true,
+    "type": "Centro de Saúde/UBS"
+   },
+   {
+    "beds": 0,
+    "cnes": 6322840,
+    "distance_m": 672,
+    "lat": -23.526712,
+    "lon": -46.346285,
+    "name": "CASI CENTRO DE ATENCAO A SAUDE DO IDOSO IRMA DULCE",
+    "nurses": 0,
+    "physicians": 0,
+    "sus_network": true,
+    "type": "Clínica/Centro de Especialidade"
+   },
+   {
+    "beds": 0,
+    "cnes": 7861532,
+    "distance_m": 831,
+    "lat": -23.526395,
+    "lon": -46.343977,
+    "name": "MASTER CLINICA MEDICA",
+    "nurses": 0,
+    "physicians": 0,
+    "sus_network": false,
+    "type": "Policlínica"
+   },
+   {
+    "beds": 0,
+    "cnes": 2773163,
+    "distance_m": 967,
+    "lat": -23.523413,
+    "lon": -46.34911,
+    "name": "UBS DR MURILO MENDES SOARES VILA JULIA",
+    "nurses": 3,
+    "physicians": 6,
+    "sus_network": true,
+    "type": "Centro de Saúde/UBS"
+   },
+   {
+    "beds": 0,
+    "cnes": 6322719,
+    "distance_m": 973,
+    "lat": -23.523363,
+    "lon": -46.34916,
+    "name": "UBS DR MURILO MENDES SOARES VILA JULIA",
+    "nurses": 0,
+    "physicians": 0,
+    "sus_network": true,
+    "type": "Centro de Saúde/UBS"
+   },
+   {
+    "beds": 0,
+    "cnes": 3105709,
+    "distance_m": 982,
+    "lat": -23.525649,
+    "lon": -46.342652,
+    "name": "LABCLIM LABORATORIO DE ANALISES CLINICAS",
+    "nurses": 0,
+    "physicians": 0,
+    "sus_network": false,
+    "type": "Unidade de Apoio Diagnose e Terapia (SADT Isolado)"
+   },
+   {
+    "beds": 0,
+    "cnes": 5030307,
+    "distance_m": 996,
+    "lat": -23.524205,
+    "lon": -46.34463,
+    "name": "CYTOLAB LABORATORIO POA",
+    "nurses": 0,
+    "physicians": 0,
+    "sus_network": false,
+    "type": "Unidade de Apoio Diagnose e Terapia (SADT Isolado)"
+   }
+  ],
+  "facility": {
+   "lat": -23.532148,
+   "lon": -46.349198
+  },
+  "located": true,
+  "location": {
+   "district": "Poá",
+   "municipality": "Poá",
+   "municipality_code": "353980",
+   "situation": "Urbana",
+   "tract": "353980605000011"
+  },
+  "municipalities": [
+   {
+    "code": "353980",
+    "name": "Poá",
+    "population": 23465
+   },
+   {
+    "code": "351570",
+    "name": "Ferraz de Vasconcelos",
+    "population": 1996
+   }
+  ],
+  "radius_m": 1000,
+  "tracts": [
+   {
+    "population": 405.0,
+    "share_inside": 0.082
+   },
+   {
+    "population": 636.0,
+    "share_inside": 0.656
+   },
+   {
+    "population": 515.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 447.0,
+    "share_inside": 0.317
+   },
+   {
+    "population": 496.0,
+    "share_inside": 0.267
+   },
+   {
+    "population": 272.0,
+    "share_inside": 0.179
+   },
+   {
+    "population": 430.0,
+    "share_inside": 0.55
+   },
+   {
+    "population": 560.0,
+    "share_inside": 0.158
+   },
+   {
+    "population": 854.0,
+    "share_inside": 0.033
+   },
+   {
+    "population": 617.0,
+    "share_inside": 0.418
+   },
+   {
+    "population": 97.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 324.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 641.0,
+    "share_inside": 0.354
+   },
+   {
+    "population": 585.0,
+    "share_inside": 0.099
+   },
+   {
+    "population": 470.0,
+    "share_inside": 0.202
+   },
+   {
+    "population": 260.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 748.0,
+    "share_inside": 0.953
+   },
+   {
+    "population": 656.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 406.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 623.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 442.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 774.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 452.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 516.0,
+    "share_inside": 0.811
+   },
+   {
+    "population": 620.0,
+    "share_inside": 0.771
+   },
+   {
+    "population": 656.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 436.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 447.0,
+    "share_inside": 0.506
+   },
+   {
+    "population": 484.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 703.0,
+    "share_inside": 0.216
+   },
+   {
+    "population": 545.0,
+    "share_inside": 0.178
+   },
+   {
+    "population": 665.0,
+    "share_inside": 0.664
+   },
+   {
+    "population": 385.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 562.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 590.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 418.0,
+    "share_inside": 0.972
+   },
+   {
+    "population": 632.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 367.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 341.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 456.0,
+    "share_inside": 0.109
+   },
+   {
+    "population": 675.0,
+    "share_inside": 0.491
+   },
+   {
+    "population": 544.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 623.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 433.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 669.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 544.0,
+    "share_inside": 0.852
+   },
+   {
+    "population": 488.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 377.0,
+    "share_inside": 0.075
+   },
+   {
+    "population": 373.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 400.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 361.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 493.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 766.0,
+    "share_inside": 0.001
+   },
+   {
+    "population": 544.0,
+    "share_inside": 0.13
+   },
+   {
+    "population": 342.0,
+    "share_inside": 0.944
+   },
+   {
+    "population": 384.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 744.0,
+    "share_inside": 0.047
+   },
+   {
+    "population": 401.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 345.0,
+    "share_inside": 0.069
+   },
+   {
+    "population": 558.0,
+    "share_inside": 0.09
+   },
+   {
+    "population": 112.0,
+    "share_inside": 0.204
+   },
+   {
+    "population": 167.0,
+    "share_inside": 0.041
+   },
+   {
+    "population": 108.0,
+    "share_inside": 0.134
+   },
+   {
+    "population": 557.0,
+    "share_inside": 0.859
+   },
+   {
+    "population": 471.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 146.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 683.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 577.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 527.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 313.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 351.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 406.0,
+    "share_inside": 0.859
+   },
+   {
+    "population": 384.0,
+    "share_inside": 0.972
+   },
+   {
+    "population": 1019.0,
+    "share_inside": 0.889
+   }
+  ]
+ }
+}

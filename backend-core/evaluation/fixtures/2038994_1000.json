@@ -1,0 +1,874 @@
+{
+ "city": null,
+ "district": null,
+ "districts": null,
+ "facility": {
+  "CO_CEP": 9360340,
+  "CO_CLIENTELA": 1,
+  "CO_CNES": 2038994,
+  "CO_MUNICIPIO_GESTOR": 352940,
+  "CO_NATUREZA_JUR": 1244,
+  "CO_TURNO_ATENDIMENTO": 3,
+  "Dependencia": "Mantida",
+  "Fluxo_Clientela": "Atendimento de Demanda Espontânea",
+  "LEITOS_EXISTENTES": 0,
+  "LEITOS_SUS": 0,
+  "NO_BAIRRO": "JARDIM GUAPITUBA",
+  "NO_FANTASIA": "UBS GUAPITUBA",
+  "NO_LOGRADOURO": "AVENIDA ROSA BONINI MARIANI",
+  "NO_RAZAO_SOCIAL": "PREFEITURA MUNICIPAL DE MAUA",
+  "NU_CNPJ_MANTENEDORA": "46522959000198",
+  "NU_ENDERECO": "204",
+  "NU_LATITUDE": "-23.674477",
+  "NU_LONGITUDE": "-46.459271",
+  "TP_GESTAO": "Municipal",
+  "TP_UNIDADE": 2,
+  "UTI_ADULTO_EXIST": 0,
+  "UTI_ADULTO_SUS": 0,
+  "UTI_CORONARIANA_EXIST": 0,
+  "UTI_CORONARIANA_SUS": 0,
+  "UTI_NEONATAL_EXIST": 0,
+  "UTI_NEONATAL_SUS": 0,
+  "UTI_PEDIATRICO_EXIST": 0,
+  "UTI_PEDIATRICO_SUS": 0,
+  "UTI_QUEIMADO_EXIST": 0,
+  "UTI_QUEIMADO_SUS": 0,
+  "UTI_TOTAL_EXIST": 0,
+  "UTI_TOTAL_SUS": 0,
+  "atende_sus": true,
+  "coord": "0101000020E61000008D2441B8023A47C0A609DB4FC6B037C0",
+  "coord_precision_m": null,
+  "coord_shift_m": 1888,
+  "coord_source": "cnefe_corrected",
+  "coord_status": "ok",
+  "equip_audiologia": 0,
+  "equip_avaliacao_antropometrica_e_funcional": 0,
+  "equip_diagnostico_por_imagem": 0,
+  "equip_dialise": 0,
+  "equip_equipamentos_de_infra-estrutura": 1,
+  "equip_equipamentos_por_metodos_graficos": 1,
+  "equip_equipamentos_por_metodos_opticos": 0,
+  "equip_manutencao_da_vida": 2,
+  "equip_odontologia": 1,
+  "equip_outros_equipamentos": 0,
+  "equip_procedimentos_cirurgicos": 0,
+  "equip_procedimentos_clinicos": null,
+  "equip_quimioterapia": 0,
+  "equip_radioterapia": 0,
+  "equip_reabilitacao": 0,
+  "equip_telessaude_por_imagem": 0,
+  "esfera_juridica": "Administração Pública",
+  "esp_cardiologista": 0,
+  "esp_clinico_geral": 3,
+  "esp_endocrinologista": 0,
+  "esp_ginecologista_obstetra": 1,
+  "esp_infecto_pneumo": 0,
+  "esp_medico_familia": 0,
+  "esp_oncologista": 0,
+  "esp_pediatra": 2,
+  "esp_psicologo": 1,
+  "esp_psiquiatra": 1,
+  "esp_terapeuta_ocupacional": 0,
+  "internacoes_afeccoes_perinatais": 0,
+  "internacoes_aparelho_circulatorio": 0,
+  "internacoes_aparelho_digestivo": 0,
+  "internacoes_aparelho_geniturinario": 0,
+  "internacoes_aparelho_respiratorio": 0,
+  "internacoes_contatos_servicos_saude": 0,
+  "internacoes_endocrinas_nutricionais": 0,
+  "internacoes_gravidez_parto_puerperio": 0,
+  "internacoes_infecciosas_parasitarias": 0,
+  "internacoes_lesoes_envenenamentos": 0,
+  "internacoes_malformacoes_congenitas": 0,
+  "internacoes_neoplasias_tumores": 0,
+  "internacoes_olho_anexos": 0,
+  "internacoes_osteomuscular_conjuntivo": 0,
+  "internacoes_ouvido_mastoide": 0,
+  "internacoes_pele_tecido_subcutaneo": 0,
+  "internacoes_sangue_imunitarias": 0,
+  "internacoes_sintomas_sinais_anormais": 0,
+  "internacoes_sistema_nervoso": 0,
+  "internacoes_total": 0,
+  "internacoes_transtornos_mentais": 0,
+  "media_dias_permanencia": 0,
+  "rede_sus": true,
+  "tipo_equipamento": "Centro de Saúde/UBS",
+  "total_enfermeiros": 3,
+  "total_medicos": 7,
+  "total_saude_mental": 2
+ },
+ "hospital_stays": [
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.1,
+  0.2,
+  1.0,
+  1.0,
+  1.4,
+  1.5,
+  1.7,
+  1.9,
+  2.4,
+  2.4,
+  2.4,
+  2.5,
+  2.5,
+  2.6,
+  2.6,
+  2.6,
+  2.7,
+  2.7,
+  2.7,
+  2.8,
+  2.9,
+  2.9,
+  2.9,
+  3.0,
+  3.0,
+  3.1,
+  3.1,
+  3.2,
+  3.2,
+  3.3,
+  3.3,
+  3.4,
+  3.4,
+  3.5,
+  3.5,
+  3.5,
+  3.6,
+  3.6,
+  3.6,
+  3.8,
+  3.8,
+  3.8,
+  3.8,
+  3.9,
+  3.9,
+  3.9,
+  3.9,
+  4.1,
+  4.1,
+  4.1,
+  4.2,
+  4.2,
+  4.3,
+  4.3,
+  4.3,
+  4.4,
+  4.4,
+  4.4,
+  4.4,
+  4.5,
+  4.5,
+  4.5,
+  4.6,
+  4.6,
+  4.6,
+  4.6,
+  4.6,
+  4.7,
+  4.7,
+  4.7,
+  4.7,
+  4.7,
+  4.8,
+  4.8,
+  4.8,
+  4.9,
+  4.9,
+  4.9,
+  4.9,
+  4.9,
+  5.0,
+  5.1,
+  5.1,
+  5.1,
+  5.1,
+  5.2,
+  5.2,
+  5.2,
+  5.4,
+  5.5,
+  5.5,
+  5.5,
+  5.6,
+  5.6,
+  5.6,
+  5.6,
+  5.7,
+  5.7,
+  5.7,
+  5.7,
+  5.8,
+  5.8,
+  5.9,
+  5.9,
+  5.9,
+  6.0,
+  6.0,
+  6.0,
+  6.1,
+  6.1,
+  6.1,
+  6.2,
+  6.3,
+  6.3,
+  6.4,
+  6.4,
+  6.5,
+  6.5,
+  6.5,
+  6.6,
+  6.7,
+  6.7,
+  6.8,
+  6.8,
+  7.0,
+  7.1,
+  7.1,
+  7.2,
+  7.2,
+  7.3,
+  7.6,
+  7.8,
+  7.9,
+  8.0,
+  8.0,
+  8.2,
+  8.6,
+  9.5,
+  9.6,
+  9.7,
+  10.0,
+  11.2,
+  11.2,
+  11.4,
+  12.2,
+  13.3,
+  13.3,
+  17.4,
+  17.7,
+  19.2,
+  20.3,
+  31.6,
+  31.9,
+  33.2,
+  67.0,
+  600.4,
+  1469.0,
+  3220.7,
+  6845.1
+ ],
+ "municipality": {
+  "cd_municipio6": "352940",
+  "dengue_2022": 88,
+  "dengue_2023": 86,
+  "dengue_2024": 11534,
+  "dengue_2025": 1688,
+  "dengue_2026": 84,
+  "lepto_2022": 4,
+  "lepto_2023": 3,
+  "lepto_2024": 9,
+  "lepto_2025": 2,
+  "lepto_2026": 1,
+  "nasc_gestacao_conhecida": 12882,
+  "nasc_idade_conhecida": 12883,
+  "nasc_mae_menor_20": 1132,
+  "nasc_pretermo": 1753,
+  "nasc_total": 12884,
+  "nome": "Mauá",
+  "obitos_cap_i": 188,
+  "obitos_cap_ii": 750,
+  "obitos_cap_iii": 17,
+  "obitos_cap_iv": 169,
+  "obitos_cap_ix": 1248,
+  "obitos_cap_v": 5,
+  "obitos_cap_vi": 58,
+  "obitos_cap_vii": 0,
+  "obitos_cap_viii": 1,
+  "obitos_cap_x": 349,
+  "obitos_cap_xi": 301,
+  "obitos_cap_xii": 21,
+  "obitos_cap_xiii": 17,
+  "obitos_cap_xiv": 108,
+  "obitos_cap_xv": 5,
+  "obitos_cap_xvi": 0,
+  "obitos_cap_xvii": 4,
+  "obitos_cap_xviii": 40,
+  "obitos_cap_xx": 325,
+  "obitos_total": 3606,
+  "populacao": 418261,
+  "tuberculose_2022": 175,
+  "tuberculose_2023": 219,
+  "tuberculose_2024": 215,
+  "tuberculose_2025": 186
+ },
+ "public_only": false,
+ "region": {
+  "dengue_2022": 18311.0,
+  "dengue_2023": 22171.0,
+  "dengue_2024": 939757.0,
+  "dengue_2025": 117418.0,
+  "dengue_2026": 14140.0,
+  "lepto_2022": 254.0,
+  "lepto_2023": 264.0,
+  "lepto_2024": 202.0,
+  "lepto_2025": 218.0,
+  "lepto_2026": 125.0,
+  "nasc_gestacao_conhecida": 712680.0,
+  "nasc_idade_conhecida": 712927.0,
+  "nasc_mae_menor_20": 55925.0,
+  "nasc_pretermo": 83393.0,
+  "nasc_total": 712938.0,
+  "obitos_cap_i": 10360.0,
+  "obitos_cap_ii": 41092.0,
+  "obitos_cap_iii": 729.0,
+  "obitos_cap_iv": 6785.0,
+  "obitos_cap_ix": 57354.0,
+  "obitos_cap_v": 1101.0,
+  "obitos_cap_vi": 3125.0,
+  "obitos_cap_vii": 4.0,
+  "obitos_cap_viii": 41.0,
+  "obitos_cap_x": 17271.0,
+  "obitos_cap_xi": 12621.0,
+  "obitos_cap_xii": 1017.0,
+  "obitos_cap_xiii": 920.0,
+  "obitos_cap_xiv": 4386.0,
+  "obitos_cap_xv": 209.0,
+  "obitos_cap_xvi": 7.0,
+  "obitos_cap_xvii": 267.0,
+  "obitos_cap_xviii": 7474.0,
+  "obitos_cap_xx": 15040.0,
+  "obitos_total": 179803.0,
+  "populacao": 20731920.0,
+  "tuberculose_2022": 12725.0,
+  "tuberculose_2023": 13998.0,
+  "tuberculose_2024": 14669.0,
+  "tuberculose_2025": 14223.0
+ },
+ "surroundings": {
+  "access_bands": {
+   "over_2000": 0,
+   "upto_1000": 9261,
+   "upto_2000": 1,
+   "upto_500": 22533
+  },
+  "area_km2": 3.142,
+  "census": {
+   "municipality": {
+    "crowded_pct": 5.0,
+    "far_primary_pct": 5.6,
+    "garbage_pct": 99.4,
+    "households": 152723,
+    "population": 418261,
+    "precarious_pct": 6.1,
+    "residents_per_household": 2.74,
+    "sewage_pct": 93.2,
+    "tracts": 846,
+    "tracts_no_households": 14
+   },
+   "radius": {
+    "crowded_pct": 0.0,
+    "far_primary_pct": 0.0,
+    "garbage_pct": 99.9,
+    "households": 11987,
+    "population": 32074,
+    "precarious_pct": 0.4,
+    "residents_per_household": 2.68,
+    "sewage_pct": 99.6,
+    "tracts": 88,
+    "tracts_no_households": 1
+   },
+   "region": {
+    "crowded_pct": 13.7,
+    "far_primary_pct": 13.0,
+    "garbage_pct": 99.6,
+    "households": 7615622,
+    "population": 20731920,
+    "precarious_pct": 5.7,
+    "residents_per_household": 2.71,
+    "sewage_pct": 91.7,
+    "tracts": 47293,
+    "tracts_no_households": 895
+   }
+  },
+  "crowding_threshold": 3.1,
+  "facilities": [
+   {
+    "beds": 0,
+    "cnes": 7525966,
+    "distance_m": 347,
+    "lat": -23.687654,
+    "lon": -46.451852,
+    "name": "CENTRO MEDICO HOSPITALAR MAUA",
+    "nurses": 2,
+    "physicians": 62,
+    "sus_network": false,
+    "type": "Pronto Atendimento (UPA)"
+   },
+   {
+    "beds": 0,
+    "cnes": 2073951,
+    "distance_m": 535,
+    "lat": -23.685717,
+    "lon": -46.452663,
+    "name": "CENTRO DE REFERENCIA EM SAUDE DO TRABALHADOR",
+    "nurses": 2,
+    "physicians": 1,
+    "sus_network": true,
+    "type": "Clínica/Centro de Especialidade"
+   },
+   {
+    "beds": 0,
+    "cnes": 3357082,
+    "distance_m": 733,
+    "lat": -23.68509,
+    "lon": -46.4573,
+    "name": "CAPS III ADULTO PRIMAVERA",
+    "nurses": 10,
+    "physicians": 2,
+    "sus_network": true,
+    "type": "Centro de Atenção Psicossocial (CAPS)"
+   },
+   {
+    "beds": 0,
+    "cnes": 436194,
+    "distance_m": 774,
+    "lat": -23.686948,
+    "lon": -46.459726,
+    "name": "EXAME BRASIL II",
+    "nurses": 0,
+    "physicians": 0,
+    "sus_network": false,
+    "type": "Unidade de Apoio Diagnose e Terapia (SADT Isolado)"
+   },
+   {
+    "beds": 0,
+    "cnes": 3425266,
+    "distance_m": 896,
+    "lat": -23.687485,
+    "lon": -46.461353,
+    "name": "HEMOCENTRO TRANSFUSAO",
+    "nurses": 0,
+    "physicians": 1,
+    "sus_network": false,
+    "type": "Unidade de Apoio Diagnose e Terapia (SADT Isolado)"
+   },
+   {
+    "beds": 0,
+    "cnes": 5490774,
+    "distance_m": 910,
+    "lat": -23.69076,
+    "lon": -46.46213,
+    "name": "UBS KENNEDY",
+    "nurses": 4,
+    "physicians": 5,
+    "sus_network": true,
+    "type": "Centro de Saúde/UBS"
+   },
+   {
+    "beds": 0,
+    "cnes": 2038986,
+    "distance_m": 915,
+    "lat": -23.687597,
+    "lon": -46.444823,
+    "name": "UBS PARQUE DAS AMERICAS",
+    "nurses": 6,
+    "physicians": 6,
+    "sus_network": true,
+    "type": "Centro de Saúde/UBS"
+   },
+   {
+    "beds": 0,
+    "cnes": 18279,
+    "distance_m": 972,
+    "lat": -23.696544,
+    "lon": -46.446268,
+    "name": "BIOFAST PLUS MAUA",
+    "nurses": 0,
+    "physicians": 0,
+    "sus_network": false,
+    "type": "Unidade de Apoio Diagnose e Terapia (SADT Isolado)"
+   }
+  ],
+  "facility": {
+   "lat": -23.690526,
+   "lon": -46.453208
+  },
+  "located": true,
+  "location": {
+   "district": "Mauá",
+   "municipality": "Mauá",
+   "municipality_code": "352940",
+   "situation": "Urbana",
+   "tract": "352940105000784"
+  },
+  "municipalities": [
+   {
+    "code": "352940",
+    "name": "Mauá",
+    "population": 32074
+   }
+  ],
+  "radius_m": 1000,
+  "tracts": [
+   {
+    "population": 511.0,
+    "share_inside": 0.102
+   },
+   {
+    "population": 206.0,
+    "share_inside": 0.594
+   },
+   {
+    "population": 944.0,
+    "share_inside": 0.663
+   },
+   {
+    "population": 741.0,
+    "share_inside": 0.114
+   },
+   {
+    "population": 690.0,
+    "share_inside": 0.834
+   },
+   {
+    "population": 574.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 507.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 672.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 556.0,
+    "share_inside": 0.983
+   },
+   {
+    "population": 357.0,
+    "share_inside": 0.626
+   },
+   {
+    "population": 727.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 691.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 574.0,
+    "share_inside": 0.045
+   },
+   {
+    "population": 607.0,
+    "share_inside": 0.153
+   },
+   {
+    "population": 784.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 738.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 883.0,
+    "share_inside": 0.702
+   },
+   {
+    "population": 0.0,
+    "share_inside": 0.916
+   },
+   {
+    "population": 386.0,
+    "share_inside": 0.013
+   },
+   {
+    "population": 170.0,
+    "share_inside": 0.633
+   },
+   {
+    "population": 665.0,
+    "share_inside": 0.047
+   },
+   {
+    "population": 97.0,
+    "share_inside": 0.01
+   },
+   {
+    "population": 509.0,
+    "share_inside": 0.455
+   },
+   {
+    "population": 531.0,
+    "share_inside": 0.253
+   },
+   {
+    "population": 712.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 374.0,
+    "share_inside": 0.474
+   },
+   {
+    "population": 665.0,
+    "share_inside": 0.554
+   },
+   {
+    "population": 238.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 178.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 532.0,
+    "share_inside": 0.499
+   },
+   {
+    "population": 382.0,
+    "share_inside": 0.446
+   },
+   {
+    "population": 678.0,
+    "share_inside": 0.029
+   },
+   {
+    "population": 358.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 458.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 356.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 458.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 526.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 355.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 637.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 631.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 301.0,
+    "share_inside": 0.366
+   },
+   {
+    "population": 321.0,
+    "share_inside": 0.569
+   },
+   {
+    "population": 442.0,
+    "share_inside": 0.057
+   },
+   {
+    "population": 599.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 459.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 481.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 385.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 414.0,
+    "share_inside": 0.81
+   },
+   {
+    "population": 407.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 501.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 875.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 786.0,
+    "share_inside": 0.043
+   },
+   {
+    "population": 545.0,
+    "share_inside": 0.518
+   },
+   {
+    "population": 345.0,
+    "share_inside": 0.724
+   },
+   {
+    "population": 533.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 293.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 520.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 552.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 484.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 669.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 669.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 584.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 480.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 468.0,
+    "share_inside": 0.987
+   },
+   {
+    "population": 406.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 428.0,
+    "share_inside": 0.643
+   },
+   {
+    "population": 435.0,
+    "share_inside": 0.761
+   },
+   {
+    "population": 474.0,
+    "share_inside": 0.511
+   },
+   {
+    "population": 482.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 454.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 564.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 629.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 552.0,
+    "share_inside": 0.215
+   },
+   {
+    "population": 483.0,
+    "share_inside": 0.62
+   },
+   {
+    "population": 544.0,
+    "share_inside": 0.438
+   },
+   {
+    "population": 465.0,
+    "share_inside": 0.703
+   },
+   {
+    "population": 640.0,
+    "share_inside": 0.986
+   },
+   {
+    "population": 877.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 667.0,
+    "share_inside": 0.144
+   },
+   {
+    "population": 489.0,
+    "share_inside": 0.016
+   },
+   {
+    "population": 446.0,
+    "share_inside": 0.165
+   },
+   {
+    "population": 446.0,
+    "share_inside": 0.582
+   },
+   {
+    "population": 340.0,
+    "share_inside": 0.189
+   },
+   {
+    "population": 550.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 348.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 340.0,
+    "share_inside": 0.787
+   },
+   {
+    "population": 735.0,
+    "share_inside": 0.335
+   },
+   {
+    "population": 94.0,
+    "share_inside": 0.338
+   }
+  ]
+ }
+}

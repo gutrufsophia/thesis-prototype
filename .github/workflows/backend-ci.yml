@@ -1,0 +1,46 @@
+name: Storytelling service
+
+on:
+  push:
+    paths: ['backend-core/**', '.github/workflows/backend-ci.yml']
+  pull_request:
+    paths: ['backend-core/**', '.github/workflows/backend-ci.yml']
+
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: backend-core
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: sudo apt-get update && sudo apt-get install -y libcurl4-openssl-dev gcovr
+
+      - name: Build with coverage
+        run: |
+          cmake -S . -B build -DSTORY_COVERAGE=ON -DCMAKE_BUILD_TYPE=Debug
+          cmake --build build -j"$(nproc)"
+
+      - name: Unit and golden tests
+        run: ctest --test-dir build --output-on-failure
+
+      - name: Verifier coverage of at least 80%
+        run: gcovr --root . --filter 'src/verifier\.cpp' --fail-under-line 80 build
+
+      # Fails the build if any planted error goes undetected or a clean text is flagged.
+      - name: Fault injection
+        env:
+          STORY_CONFIG_DIR: config
+        run: |
+          ./build/storyteller mutate tests/fixtures/*.json > mutation.json
+          python3 - <<'EOF'
+          import json, sys
+          d = json.load(open("mutation.json"))
+          missed = [m for m in d["mutants"] if not m["verifier"]]
+          for op, c in d["operators"].items():
+              print(f"{op}: {c['verifier']}/{c['mutants']} caught (numeric-only baseline: {c['baseline']})")
+          print(f"clean texts flagged: {d['originals_flagged_by_verifier']} of {d['originals']}")
+          sys.exit(1 if missed or d["originals_flagged_by_verifier"] else 0)
+          EOF
