@@ -1,7 +1,7 @@
 """Build indicadores_distrito_sp.csv: outcomes and census factors for São Paulo city's 96 districts.
 
 Reads the SMS-SP exports in database/tabnet/raw (run fetch_tabnet.py first). Column definitions
-match limpeza_datasus.py.
+match etl/limpeza_datasus.py.
 
 Usage: python3 -I database/tabnet/build_district_indicators.py
 """
@@ -66,7 +66,7 @@ def deaths(v):
 def add_census(by_code):
     for d in by_code.values():
         d.update({k: 0.0 for k in CENSUS}, tracts=0, residents=0.0)
-    with open(ROOT / 'dados_censo_culturaeduca.csv', encoding='utf-8') as f:
+    with open(ROOT / 'data' / 'dados_censo_culturaeduca.csv', encoding='utf-8') as f:
         for r in csv.DictReader(f):
             # The tract code starts with the district code (UF + municipality + district, 9 digits).
             d = by_code.get(r['cd_setor'][:9])
@@ -108,7 +108,7 @@ def main():
     sample = next(iter(by_code.values()))
     fields = ['cd_dist', 'nm_dist', 'tracts'] + CENSUS + ['media_moradores_domicilio'] + \
              [k for k in sample if k.startswith(('tb_', 'nasc_', 'obitos_'))]
-    out = ROOT / 'indicadores_distrito_sp.csv'
+    out = ROOT / 'data' / 'indicadores_distrito_sp.csv'
     with open(out, 'w', newline='', encoding='utf-8') as f:
         writer = csv.DictWriter(f, fieldnames=fields)
         writer.writeheader()

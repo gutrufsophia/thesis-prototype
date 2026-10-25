@@ -17,11 +17,11 @@ import pandas as pd
 import psycopg2
 
 ROOT = Path(__file__).resolve().parents[2]
-HEALTH_CSV = ROOT / "culturaeduca_infraestrutura_saude_rmsp.csv"
-CENSUS_CSV = ROOT / "dados_censo_culturaeduca.csv"
+HEALTH_CSV = ROOT / "data" / "culturaeduca_infraestrutura_saude_rmsp.csv"
+CENSUS_CSV = ROOT / "data" / "dados_censo_culturaeduca.csv"
 HEALTH_TABLE = "infraestrutura_saude"
 CENSUS_TABLE = "dados_censo_grande_sp"
-MUNICIPAL_CSV = ROOT / "indicadores_municipais_rmsp.csv"
+MUNICIPAL_CSV = ROOT / "data" / "indicadores_municipais_rmsp.csv"
 MUNICIPAL_TABLE = "indicadores_municipio"
 ACCESS_TABLE = "setor_acesso"
 ACCESS_CSV = ROOT / "database" / "geocoding" / "setor_acesso.csv"

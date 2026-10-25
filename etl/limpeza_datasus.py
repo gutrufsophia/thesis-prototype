@@ -1,6 +1,10 @@
 import re
+from pathlib import Path
 
 import pandas as pd
+
+RAIZ = Path(__file__).resolve().parents[1]
+TABNET = RAIZ / 'database' / 'tabnet' / 'raw'
 
 print("Iniciando o ETL dos indicadores municipais (DATASUS/TabNet) - RMSP...")
 
@@ -21,10 +25,10 @@ PASTA = '/home/sophia/Downloads/'
 ARQ_DENGUE = PASTA + 'sinannet_cnv_denguebsp180054191_181_56_142.csv'
 ARQ_LEPTO = PASTA + 'sinannet_cnv_leptosp132731191_181_56_142.csv'
 # Gerados por database/tabnet/fetch_tabnet.py
-ARQ_TUBERCULOSE = 'database/tabnet/raw/tb_res.csv'
-ARQ_NASC_IDADE_MAE = 'database/tabnet/raw/nasc_idade_res.csv'
-ARQ_NASC_GESTACAO = 'database/tabnet/raw/nasc_gestacao_res.csv'
-ARQ_OBITOS = 'database/tabnet/raw/obitos_30a69_res.csv'
+ARQ_TUBERCULOSE = TABNET / 'tb_res.csv'
+ARQ_NASC_IDADE_MAE = TABNET / 'nasc_idade_res.csv'
+ARQ_NASC_GESTACAO = TABNET / 'nasc_gestacao_res.csv'
+ARQ_OBITOS = TABNET / 'obitos_30a69_res.csv'
 
 
 # =====================================================================
@@ -97,6 +101,6 @@ for coluna in obitos.columns:
 # =====================================================================
 # 5. EXPORTAR
 # =====================================================================
-nome_saida = 'indicadores_municipais_rmsp.csv'
+nome_saida = RAIZ / 'data' / 'indicadores_municipais_rmsp.csv'
 final.reset_index().to_csv(nome_saida, index=False)
-print(f"SUCESSO! '{nome_saida}' pronto: {len(final)} municípios, {final.shape[1]} indicadores.")
+print(f"SUCESSO! '{nome_saida.name}' pronto: {len(final)} municípios, {final.shape[1]} indicadores.")

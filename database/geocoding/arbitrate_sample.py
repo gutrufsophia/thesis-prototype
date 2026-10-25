@@ -37,7 +37,7 @@ def main():
     detail["cnes"] = detail["cnes"].str.zfill(7)
     detail = detail[(detail["tier"] == "exact_cep") & (detail["geo_level"] == 1)]
 
-    health = pd.read_csv(ROOT / "culturaeduca_infraestrutura_saude_rmsp.csv", dtype=str)
+    health = pd.read_csv(ROOT / "data" / "culturaeduca_infraestrutura_saude_rmsp.csv", dtype=str)
     health["cnes"] = health["CO_CNES"].str.zfill(7)
     # municipality names come from the CNEFE file names
     names = {}

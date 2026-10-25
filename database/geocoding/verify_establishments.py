@@ -96,7 +96,7 @@ def main():
 
     detail = pd.read_csv(HERE / "validation_detail.csv", dtype={"cnes": str})
     detail["cnes"] = detail["cnes"].str.zfill(7)
-    health = pd.read_csv(ROOT / "culturaeduca_infraestrutura_saude_rmsp.csv", dtype=str)
+    health = pd.read_csv(ROOT / "data" / "culturaeduca_infraestrutura_saude_rmsp.csv", dtype=str)
     health["cnes"] = health["CO_CNES"].str.zfill(7)
     health["muni"] = health["CO_MUNICIPIO_GESTOR"].str[:6]
     facilities = detail.merge(health[["cnes", "muni", "NO_FANTASIA", "NO_RAZAO_SOCIAL"]], on="cnes")

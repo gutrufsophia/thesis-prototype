@@ -33,7 +33,7 @@ import pandas as pd
 import psycopg2
 
 ROOT = Path(__file__).resolve().parents[2]
-HEALTH_CSV = ROOT / "culturaeduca_infraestrutura_saude_rmsp.csv"
+HEALTH_CSV = ROOT / "data" / "culturaeduca_infraestrutura_saude_rmsp.csv"
 OUT_DIR = Path(__file__).resolve().parent
 
 TIERS = ["exact_cep", "exact_street", "street_cep", "cep"]

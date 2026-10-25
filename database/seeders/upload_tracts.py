@@ -19,7 +19,7 @@ print("Lendo o arquivo GeoJSON...")
 gdf = gpd.read_file("/home/sophia/Downloads/SP_setores_CD2022 (1).json")
 
 # 2. A conexão vem do .env (DATABASE_URL), que não é versionado
-uri_conexao = os.environ.get("DATABASE_URL") or read_env(Path(__file__).resolve().parent / ".env")["DATABASE_URL"]
+uri_conexao = os.environ.get("DATABASE_URL") or read_env(Path(__file__).resolve().parents[2] / ".env")["DATABASE_URL"]
 engine = create_engine(uri_conexao)
 
 # 3. Envia os polígonos para o banco criando a tabela espacial
