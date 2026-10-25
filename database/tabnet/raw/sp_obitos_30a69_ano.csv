@@ -1,0 +1,16 @@
+# query: sp_obitos_30a69_ano
+# form: https://tabnet.saude.prefeitura.sp.gov.br/cgi/deftohtm3.exe?secretarias/saude/TABNET/sim/obito.def
+# row: Ano do Óbito | column: Não ativa
+# increment: Óbitos Residentes MSP
+# files: 2024, 2023, 2022
+# filters: {'Faixa Etária (13)': ['30 - 39', '40 - 49', '50 - 59', '60 - 69']}
+# downloaded: 2026-10-25
+# note: Notas Técnicas
+# note: Fonte: Sistema de Informações sobre Mortalidade  SIM/PRO-AIM  CEInfo SMS-SP
+# note: Notas:
+"Ano do Óbito";"Óbitos Residentes MSP"
+"2022";32253
+"2023";31018
+"2024";32551
+"Total";95822
+&
