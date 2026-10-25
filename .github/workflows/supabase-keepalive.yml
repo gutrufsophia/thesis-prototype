@@ -1,0 +1,39 @@
+# Supabase pauses free-tier projects after 7 days without activity. This job reads
+# one row through the REST API twice a week, so the database never sits idle that
+# long. If the request fails (for example, the project is already paused), the run
+# fails and GitHub sends a notification e-mail.
+#
+# Requires two repository secrets (Settings → Secrets and variables → Actions):
+#   SUPABASE_URL       https://<project-ref>.supabase.co
+#   SUPABASE_ANON_KEY  the project's anon (public) key
+
+name: Supabase keep-alive
+
+on:
+  schedule:
+    # Mondays and Thursdays at 09:00 UTC: never more than 4 days apart
+    - cron: '0 9 * * 1,4'
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Query the database
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: |
+          if [ -z "$SUPABASE_URL" ] || [ -z "$SUPABASE_ANON_KEY" ]; then
+            echo "::error::SUPABASE_URL and SUPABASE_ANON_KEY secrets must be set"
+            exit 1
+          fi
+          curl --silent --show-error --fail --retry 3 --retry-delay 20 --max-time 30 \
+            --header "apikey: $SUPABASE_ANON_KEY" \
+            --header "Authorization: Bearer $SUPABASE_ANON_KEY" \
+            --output /dev/null \
+            --write-out "HTTP %{http_code} in %{time_total}s\n" \
+            "$SUPABASE_URL/rest/v1/infraestrutura_saude?select=CO_CNES&limit=1"
