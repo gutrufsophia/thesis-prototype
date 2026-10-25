@@ -1,15 +1,16 @@
 // Facility page: the full record of one facility, plus census and health-network
 // indicators for an adjustable radius around it.
 
-import { getFacility, getSurroundings } from './api.js';
+import { getFacility, getNarrative, getSurroundings, hasNarrative } from './api.js';
 import { barList, el, section, statTiles } from './charts.js';
 import { facilityHeader, renderFacility } from './facility-view.js';
+import { renderNarrative, renderNarrativeState } from './narrative.js';
 import { renderTerritory } from './territory.js';
 import {
   TYPE_GROUPS, coordStatusNote, facilityName, formatCount, formatDistance, formatNumber, formatPercent,
   positionNote, typeInfo,
 } from './fields.js';
-import { applyStaticTranslations, getPref, pick, setPref, t } from './i18n.js';
+import { applyStaticTranslations, getPref, lang, pick, setPref, t } from './i18n.js';
 
 const REQUEST_DELAY_MS = 300;
 const NEAREST_SHOWN = 10;
@@ -74,6 +75,7 @@ const dom = {
   mapLegend: document.getElementById('map-legend'),
   nearbyTypes: document.getElementById('nearby-types'),
   nearbyList: document.getElementById('nearby-list'),
+  narrative: document.getElementById('narrative'),
 };
 
 let facility = null;
@@ -81,6 +83,7 @@ let surroundings = null;
 let map = null;
 let layers = null;
 let pendingRequest = null;
+let pendingNarrative = null;
 let requestTimer = null;
 // Private facilities without a SUS link are shown unless the user asks for the public network only
 let showPrivate = !getPref(PUBLIC_ONLY_PREF);
@@ -281,12 +284,30 @@ async function loadSurroundings() {
   }
 }
 
+// The narrative comes from a separate service; the page works without it.
+async function loadNarrative() {
+  if (!hasNarrative()) return;
+  pendingNarrative?.abort();
+  const controller = new AbortController();
+  pendingNarrative = controller;
+  renderNarrativeState(dom.narrative, 'narrative.loading');
+  try {
+    const body = await getNarrative(cnes, Number(dom.radius.value), { lang, publicOnly: !showPrivate }, controller.signal);
+    if (!controller.signal.aborted) renderNarrative(dom.narrative, body);
+  } catch (error) {
+    if (error.name !== 'AbortError') renderNarrativeState(dom.narrative, 'narrative.unavailable');
+  }
+}
+
 function onRadiusInput() {
   const radius = Number(dom.radius.value);
   dom.radiusValue.textContent = formatDistance(radius);
   layers?.circle.setRadius(radius);
   clearTimeout(requestTimer);
-  requestTimer = setTimeout(loadSurroundings, REQUEST_DELAY_MS);
+  requestTimer = setTimeout(() => {
+    loadSurroundings();
+    loadNarrative();
+  }, REQUEST_DELAY_MS);
 }
 
 async function init() {
@@ -345,8 +366,10 @@ async function init() {
     showPrivate = !dom.publicOnly.checked;
     setPref(PUBLIC_ONLY_PREF, dom.publicOnly.checked);
     if (surroundings) renderFacilityParts();
+    loadNarrative();
   });
   loadSurroundings();
+  loadNarrative();
 }
 
 init();

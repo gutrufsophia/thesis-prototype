@@ -439,3 +439,22 @@ a { color: var(--accent-ink); }
   .page { padding: 16px; }
   .mini-map { height: 320px; }
 }
+
+/* Generated narrative */
+.narrative { display: grid; gap: 8px; }
+.narrative-text { margin: 0; font-size: 15px; line-height: 1.6; max-width: 72ch; }
+.narrative-sentence { border-radius: 4px; transition: background-color 120ms; }
+.narrative-sentence[data-fact]:not([data-fact=""]):hover { background: #eef4fc; }
+.scope-inline { padding: 0 4px; border-radius: 4px; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.scope-inline.scope-radius { background: #e3eefb; color: var(--accent-ink); }
+.scope-inline.scope-district { background: #ece6f5; color: #553f86; }
+.scope-inline.scope-city { background: #f1ecf8; color: #553f86; }
+.scope-inline.scope-municipality { background: #ecebe6; color: var(--ink-secondary); }
+.scope-inline.scope-region { background: #f3f2ee; color: var(--ink-muted); }
+.scope-inline.scope-unit { background: transparent; padding: 0; }
+.card.is-linked { outline: 2px solid var(--accent); outline-offset: 2px; }
+.narrative-how summary { cursor: pointer; color: var(--accent-ink); font-size: 13px; }
+.narrative-facts { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 6px; }
+.narrative-facts th, .narrative-facts td { text-align: left; padding: 4px 6px; border-bottom: 1px solid var(--hairline); vertical-align: top; }
+.narrative-facts .numeric { text-align: right; font-variant-numeric: tabular-nums; }
+.narrative-rules { margin: 6px 0; padding-left: 18px; font-size: 12px; color: var(--ink-secondary); }
