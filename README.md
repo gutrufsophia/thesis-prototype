@@ -57,7 +57,41 @@ backend-core/build/storyteller mutate backend-core/evaluation/fixtures/*.json   
 
 Deploy it on Render as a second **Web Service** (runtime Docker, root directory `backend-core`) with `SUPABASE_URL`, `SUPABASE_ANON_KEY` and `ALLOWED_ORIGIN` (the frontend's URL), and give the frontend service `STORY_API_URL` with the service's URL. Without `STORY_API_URL` the page works as before, without the text.
 
+The narrative also compares each facility's 1 km surroundings with its peers. That reference is built once, after the census and income data are loaded:
+
+```bash
+python3 -I etl/limpeza_renda.py ~/Downloads/Agregados_por_setores_renda_responsavel_BR_20260508_csv.zip
+database/reference/build_surroundings.sh 3        # all facilities at 1 km -> data/surroundings_1000.csv (~30 min)
+python3 -I analysis/typology.py                   # territorial types -> data/surroundings_types.csv
+python3 -I analysis/outcome_relations.py          # relations page data and expected counts
+python3 database/reference/compute_catchment.py --cnefe-dir ~/Downloads/cnefe_rmsp
+                                                  # population each public primary care unit is expected to serve
+                                                  # -> data/catchment_units.csv, catchment_tracts.csv, catchment_summary.json
+```
+
+Then apply migrations 012, 013 and 014 and load the CSVs with `\copy` (connection from `.env` via `eval "$(python3 -I database/pgenv.py)"`, so no password appears on the command line; migration 014 shows how to load the catchment file).
+
+Need and supply around public primary care units are told on each unit's estimated catchment, not on the radius on screen: residents are split among the units nearest their homes by a Huff model with distance decay, within catchments that widen where units are sparse. Where a unit has no catchment figure, the service falls back to the 1 km radius and rule C21 keeps a sparse circle from being told as spare capacity.
+
 The evaluation sample (`backend-core/evaluation/sample.py`) draws facilities by stratum with a fixed seed; their frozen payloads are in `backend-core/evaluation/fixtures/` and are never used by the unit tests.
+
+## Facility page
+
+`public/facility.html` follows the layout of CulturaEduca's facility pages: a band with the location trail and the radius control, the map as a banner (expandable to a full map with the indicator choropleth), and tabs:
+
+| Tab | Contents | Scale |
+|---|---|---|
+| Reading the territory | the generated narrative and a key to its scale colours | all, each figure marked |
+| Record | the CNES record, location and a link to the facility's CNES page | facility |
+| Surroundings data | census of the radius against municipality and region, and the 1 km peer comparison | radius |
+| Health indicators | tuberculosis, dengue, leptospirosis, births and premature mortality | district (capital) and municipality |
+| Nearby facilities | the other facilities in the radius, by category | radius |
+
+The open tab is kept in the URL hash (`facility.html?cnes=2786826#health`). Clicking a sentence of the narrative opens the map on its indicator or the tab and card with its data. The peer comparison card uses the `reference` block of the narrative response, so it shows the figures the text cites, and only at the 1 km reference radius.
+
+## Relations page
+
+`public/relations.html` shows how tuberculosis, dengue, leptospirosis and teenage pregnancy relate to income, housing and sanitation, by municipality and by district of São Paulo city. Its data are a static file, `public/data/relations.json`, written by `analysis/outcome_relations.py`.
 
 ## Keeping the Supabase project awake
 
@@ -94,7 +128,7 @@ python3 database/seeders/seed.py --replace
 
 | Path | Contents |
 |---|---|
-| `public/` | Frontend: map page (`index.html`) and facility page (`facility.html`) |
+| `public/` | Frontend: map page (`index.html`), facility page (`facility.html`) and relations page (`relations.html`) |
 | `database/migrations/` | SQL for access policies and the read API functions |
 | `database/seeders/` | Loader for the cleaned CSVs |
 | `etl/` | ETL from the raw CNES, SIH, IBGE and DATASUS TabNet files to the cleaned CSVs |
@@ -102,4 +136,6 @@ python3 database/seeders/seed.py --replace
 | `database/geocoding/` | Address geocoding of facilities with CNEFE 2022, and its validation |
 | `deploy/` | Files used by the Docker image |
 | `backend-core/` | C++ storytelling service: facts, caveat rules, templates, verifier, tests and evaluation |
+| `analysis/` | Statistical analyses: scale decomposition, TB scale transfer, outcome relations, territorial typology |
+| `database/reference/` | Builds the 1 km surroundings of every facility, the reference for peer comparisons |
 | `database/tabnet/` | Reproducible DATASUS and SMS-SP TabNet downloads, and the São Paulo district indicators |
