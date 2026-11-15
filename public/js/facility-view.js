@@ -58,16 +58,18 @@ function profile(row) {
 function keyFigures(row) {
   const admissions = Number(row.internacoes_total) || 0;
   const sus = (column) => t('tile.susNote', { count: formatCount(row[column]) });
+  // SIH covers SUS admissions only: a private hospital without SUS would otherwise show 0
+  const sih = row.atende_sus || admissions > 0;
   return statTiles([
     { label: t('tile.beds'), value: formatCount(row.LEITOS_EXISTENTES), note: sus('LEITOS_SUS') },
     { label: t('tile.icu'), value: formatCount(row.UTI_TOTAL_EXIST), note: sus('UTI_TOTAL_SUS') },
     { label: t('tile.physicians'), value: formatCount(row.total_medicos) },
     { label: t('tile.nurses'), value: formatCount(row.total_enfermeiros) },
-    { label: t('tile.admissions'), value: formatCount(admissions), note: t('period.sihShort') },
+    { label: t('tile.admissions'), value: sih ? formatCount(admissions) : '–', note: sih ? t('period.sihShort') : t('tile.notSus') },
     {
       label: t('tile.stay'),
       value: admissions ? t('tile.days', { value: formatNumber(row.media_dias_permanencia, 1) }) : '–',
-      note: t('period.sihShort'),
+      note: sih ? t('period.sihShort') : t('tile.notSus'),
     },
   ]);
 }

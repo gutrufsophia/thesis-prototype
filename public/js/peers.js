@@ -50,16 +50,41 @@ function scaleHeader() {
 }
 
 /** Need and supply among public primary care units: on the unit's catchment, or on the 1 km radius. */
+const PNAB = [2000, 3500];
+
+/** People per team on a linear scale, with the PNAB range shaded. */
+function pnabRow(perTeam) {
+  const max = Math.max(7000, perTeam * 1.1);
+  const where = perTeam > PNAB[1] ? 'above' : perTeam < PNAB[0] ? 'below' : 'within';
+  const value = formatCount(perTeam);
+  return el('div', { class: 'rank-row', role: 'listitem', title: t('peers.perTeamTitle', { value, where: t(`peers.pnab.${where}`) }) },
+    el('span', { class: 'rank-label', text: t('peers.perTeam') }),
+    el('span', { class: 'rank-track', style: { '--p': (perTeam / max).toFixed(4) } },
+      el('span', { class: 'rank-band is-pnab', style: { '--lo': PNAB[0] / max, '--hi': PNAB[1] / max } }),
+      el('span', { class: 'rank-dot' })),
+    el('span', { class: 'rank-value' }, el('strong', { text: value }), ` · ${t(`peers.pnab.${where}`)}`));
+}
+
+/** Need and supply among public primary care units: on the unit's catchment, or on the 1 km radius. */
 function needBlock(reference) {
   if (reference.need_percentile === undefined || reference.load_percentile === undefined) return [];
   const count = reference.public_primary_size;
+  const v = reference.values;
   if (reference.supply_measure === 'catchment') {
+    const teams = reference.team_equivalents > 0 && v.served_per_team !== undefined;
     return [
       el('h4', { class: 'rank-subtitle', text: t('peers.need', { count: formatCount(count) }) }),
       el('p', { class: 'scope scope-catchment', text: t('peers.catchmentScope') }),
       el('div', { class: 'ranks', role: 'list' },
-        rankRow(t('peers.served'), formatCount(reference.values.served), reference.load_percentile, count),
-        rankRow(t('peers.servedDeprived'), percent(reference.values.served_deprived), reference.need_percentile, count)),
+        rankRow(t('peers.servedDeprived'), percent(v.served_deprived), reference.need_percentile, count),
+        rankRow(t('peers.served'), formatCount(v.served), reference.load_percentile, count),
+        teams ? pnabRow(v.served_per_team) : null),
+      el('p', { class: 'hint', text: teams
+        ? t('peers.teamsHint', { teams: formatNumber(reference.team_equivalents, reference.team_equivalents % 1 ? 2 : 0) })
+        : t('peers.noTeams') }),
+      v.served_mean_distance !== undefined ? el('p', { class: 'hint', text: t('peers.reach', {
+        distance: formatDistance(v.served_mean_distance), far: percent(v.served_far || 0),
+      }) }) : null,
       el('p', { class: 'hint', text: t('peers.catchmentHint', { distance: formatDistance(reference.mean_catchment_m || 0) }) }),
       reference.near_edge ? el('p', { class: 'notice', text: t('peers.nearEdge', { distance: formatDistance(reference.edge_m || 0) }) }) : null,
     ];
@@ -67,8 +92,8 @@ function needBlock(reference) {
   return [
     el('h4', { class: 'rank-subtitle', text: t('peers.need', { count: formatCount(count) }) }),
     el('div', { class: 'ranks', role: 'list' },
-      rankRow(t('peers.ind.deprived'), percent(reference.values.deprived), reference.need_percentile, count),
-      rankRow(t('peers.load'), formatCount(reference.values.load), reference.load_percentile, count)),
+      rankRow(t('peers.ind.deprived'), percent(v.deprived), reference.need_percentile, count),
+      rankRow(t('peers.load'), formatCount(v.load), reference.load_percentile, count)),
   ];
 }
 
