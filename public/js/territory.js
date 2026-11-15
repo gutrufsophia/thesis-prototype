@@ -136,6 +136,17 @@ function modelBlock(models, district, outcome) {
       el('a', { href: 'relations.html#surpresas', text: t('model.link') })));
 }
 
+/** The district's place among the city's districts for one rate, as the narrative ranks it. */
+function districtRank(district, rate) {
+  const rates = district.all.map(rate).filter((v) => v !== null).sort((a, b) => a - b);
+  const own = rate(district.row);
+  const fromLow = rates.filter((v) => v < own).length + 1;
+  const fromHigh = rates.filter((v) => v > own).length + 1;
+  return fromLow <= fromHigh
+    ? t('ter.rank.low', { rank: fromLow, count: rates.length })
+    : t('ter.rank.high', { rank: fromHigh, count: rates.length });
+}
+
 function districtScope(district) {
   return scopeChip(t('ter.scope.district', { name: district.row.nm_dist }), 'district');
 }
@@ -151,11 +162,20 @@ const cardTitle = (key) => el('h3', { class: 'card-title', text: t(key) });
 function summaryCard(surroundings) {
   const radius = surroundings.census.radius;
   const area = surroundings.area_km2;
+  // share of the touched tracts' population that lives inside the circle: the basis of rule C03b
+  let inside = 0;
+  let total = 0;
+  for (const feature of surroundings.tracts?.features || []) {
+    const p = feature.properties;
+    inside += (p.population || 0) * (p.share_inside || 0);
+    total += p.population || 0;
+  }
   return [
     cardTitle('sur.summary'),
     keyValues([
       [t('sur.area'), formatNumber(area, 2)],
       [t('sur.tractsLabel'), formatCount(radius.tracts)],
+      [t('sur.coverage'), total ? `${formatNumber((100 * inside) / total, 0)}%` : '–'],
       [t('sur.residents'), formatCount(radius.population)],
       [t('sur.households'), formatCount(radius.households)],
       [t('ind.crowding'), formatNumber(radius.residents_per_household, 2)],
@@ -221,7 +241,7 @@ function tbCard(home, region, district, models) {
     ...(district ? [
       districtScope(district),
       districtChart(t('ter.resp.tb'), district.row, district.city, districtTbRate, { digits: 1 },
-        t('ter.resp.tbDistrictHint', { count: formatCount(sumYears(district.row, 'tb')) })),
+        [t('ter.resp.tbDistrictHint', { count: formatCount(sumYears(district.row, 'tb')) }), districtRank(district, districtTbRate)].join(' ')),
       modelBlock(models, district, 'tb'),
     ] : []),
     municipalScope(home),
@@ -316,7 +336,7 @@ async function findDistrict(surroundings) {
   try {
     const districts = await loadDistricts();
     const row = districts.byCode.get(String(tract).slice(0, 9));
-    return row ? { row, city: districts.city } : null;
+    return row ? { row, city: districts.city, all: [...districts.byCode.values()] } : null;
   } catch (error) {
     console.warn('District indicators unavailable:', error);
     return null;

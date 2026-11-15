@@ -55,21 +55,25 @@ function profile(row) {
   return keyValues(entries);
 }
 
-function keyFigures(row) {
+function keyFigures(row, stays) {
   const admissions = Number(row.internacoes_total) || 0;
   const sus = (column) => t('tile.susNote', { count: formatCount(row[column]) });
   // SIH covers SUS admissions only: a private hospital without SUS would otherwise show 0
   const sih = row.atende_sus || admissions > 0;
   return statTiles([
     { label: t('tile.beds'), value: formatCount(row.LEITOS_EXISTENTES), note: sus('LEITOS_SUS') },
-    { label: t('tile.icu'), value: formatCount(row.UTI_TOTAL_EXIST), note: sus('UTI_TOTAL_SUS') },
+    {
+      label: t('tile.icu'), value: formatCount(row.UTI_TOTAL_EXIST),
+      // CNES counts ICU beds inside the existing beds
+      note: Number(row.UTI_TOTAL_EXIST) > 0 ? `${sus('UTI_TOTAL_SUS')} · ${t('tile.icuIncluded')}` : sus('UTI_TOTAL_SUS'),
+    },
     { label: t('tile.physicians'), value: formatCount(row.total_medicos) },
     { label: t('tile.nurses'), value: formatCount(row.total_enfermeiros) },
     { label: t('tile.admissions'), value: sih ? formatCount(admissions) : '–', note: sih ? t('period.sihShort') : t('tile.notSus') },
     {
       label: t('tile.stay'),
       value: admissions ? t('tile.days', { value: formatNumber(row.media_dias_permanencia, 1) }) : '–',
-      note: sih ? t('period.sihShort') : t('tile.notSus'),
+      note: !sih ? t('tile.notSus') : [stayRank(row, stays), t('period.sihShort')].filter(Boolean).join(' · '),
     },
   ]);
 }
@@ -87,14 +91,22 @@ function icuSection(row) {
   });
 }
 
+/** Where the facility's mean stay falls among hospitals with SUS admissions, as the narrative compares it. */
+function stayRank(row, stays) {
+  const stay = Number(row.media_dias_permanencia);
+  if (!stays?.length || !(Number(row.internacoes_total) > 0) || !Number.isFinite(stay)) return null;
+  const longer = stays.filter((s) => s < stay).length;
+  return t('tile.stayRank', { share: Math.round((100 * longer) / stays.length), count: formatCount(stays.length) });
+}
+
 /**
  * @param {object} row  record from infraestrutura_saude
  * @param {{compact?: boolean}} options  compact trims long lists for the side panel
  */
-export function renderFacility(row, { compact = false } = {}) {
+export function renderFacility(row, { compact = false, stays = null } = {}) {
   const limit = compact ? 5 : 0;
   return el('div', { class: `facility${compact ? ' is-compact' : ''}` },
-    keyFigures(row),
+    keyFigures(row, stays),
     el('p', { class: 'hint', text: t('figures.sources', sources()) }),
     el('div', { class: 'facility-sections' },
       section(t('profile.title'), profile(row)),

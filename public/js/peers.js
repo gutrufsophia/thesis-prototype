@@ -18,6 +18,28 @@ const INDICATORS = [
   { key: 'far_primary', label: () => t('ter.access.far'), format: percent },
   { key: 'income', label: () => t('ind.income'), format: (value) => `R$ ${formatCount(value)}` },
 ];
+let typologyPromise = null;
+const loadTypology = () => {
+  typologyPromise ??= fetch('data/typology.json').then((r) => (r.ok ? r.json() : null)).catch(() => null);
+  return typologyPromise;
+};
+
+/** How the territorial types were made and the mean profile of this one (analysis/typology.py). */
+function typeExplanation(typeId) {
+  const node = el('p', { class: 'hint' });
+  loadTypology().then((typology) => {
+    const type = typology?.types.find((tp) => tp.type === typeId);
+    if (!type) return;
+    node.textContent = t('peers.typeHow', {
+      facilities: formatCount(typology.facilities), k: typology.k,
+      income: formatCount(type.mean.income), offNetwork: formatNumber(type.mean.off_network, 1),
+      crowded: formatNumber(type.mean.crowded, 1), density: formatCount(type.mean.density_per_km2),
+      silhouette: formatNumber(typology.silhouette, 2),
+    });
+  });
+  return node;
+}
+
 // Outside the central band a rank is extreme enough for the text to mention it (peer_extreme 0.8)
 const BAND = [0.1, 0.9];
 
@@ -135,6 +157,7 @@ export function renderPeers(container, reference, facts, radius) {
     territory ? el('p', { text: t('peers.type', {
       type: territory, count: formatCount(reference.type_size), total: formatCount(reference.facilities),
     }) }) : null,
+    territory ? typeExplanation(reference.territory_type) : null,
     el('div', { class: 'ranks', role: 'list' }, scaleHeader(), rows),
     ...needBlock(reference),
     legend(),
