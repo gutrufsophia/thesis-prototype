@@ -163,9 +163,13 @@ void add_unit_facts(const Payload& p, const json& params, std::vector<Fact>& fac
         f.theme = "unit";
         f.mandatory = true;
         f.salience = 1;
+        const double sus = number_or(row, "LEITOS_SUS");
+        const double icu = number_or(row, "UTI_TOTAL_EXIST");
+        // CNES counts ICU beds inside the existing beds, so the text says "of these", never "and"
+        f.variant = std::string(sus >= beds ? "all" : sus <= 0 ? "none" : "part") + (icu > 0 ? "_icu" : "");
         f.slots["unit"] = Slot::count(beds);
-        f.slots["sus_unit"] = Slot::count(number_or(row, "LEITOS_SUS"));
-        f.slots["icu_unit"] = Slot::count(number_or(row, "UTI_TOTAL_EXIST"));
+        f.slots["sus_unit"] = Slot::count(sus);
+        f.slots["icu_unit"] = Slot::count(icu);
         f.slots["period"] = Slot::label("period:cnes");
         facts.push_back(f);
     } else {

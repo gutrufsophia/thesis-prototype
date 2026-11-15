@@ -11,7 +11,7 @@
 
 namespace story {
 
-inline constexpr const char* kVersion = "0.3.1";
+inline constexpr const char* kVersion = "0.3.2";
 
 struct Story {
     std::vector<Fact> facts;
