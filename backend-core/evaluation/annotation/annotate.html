@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Anotação dos textos gerados</title>
+  <link rel="stylesheet" href="annotate.css">
+</head>
+<body>
+  <header class="bar">
+    <strong>Anotação · Leitura do território</strong>
+    <span id="progress"></span>
+    <span class="bar-actions">
+      <button type="button" id="export">Exportar anotações</button>
+      <label class="file">Importar<input type="file" id="import" accept="application/json"></label>
+    </span>
+  </header>
+
+  <main id="app">
+    <section id="start" class="card">
+      <h1>Antes de começar</h1>
+      <p>Leia o guia (<code>GUIA.md</code>, nesta pasta). Use sempre o mesmo identificador: ele define a ordem das unidades e a chave em que o progresso fica salvo neste navegador.</p>
+      <label for="annotator">Seu identificador (iniciais, sem nome completo)</label>
+      <input id="annotator" autocomplete="off" maxlength="12" pattern="[A-Za-z0-9_-]+">
+      <button type="button" id="begin">Começar ou continuar</button>
+    </section>
+    <section id="unit" hidden></section>
+  </main>
+
+  <script src="tasks.js"></script>
+  <script src="annotate.js"></script>
+</body>
+</html>
