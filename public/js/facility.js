@@ -1,23 +1,28 @@
-// Facility page: the full record of one facility, plus census and health-network
-// indicators for an adjustable radius around it.
+// Facility page, laid out like a CulturaEduca facility page: a map banner, then tabs for the
+// generated narrative, the facility record, the census of the radius, the health indicators
+// (district and municipality) and the other facilities in the radius.
 
 import { getFacility, getNarrative, getSurroundings, hasNarrative } from './api.js';
-import { barList, el, section, statTiles } from './charts.js';
-import { facilityHeader, renderFacility } from './facility-view.js';
+import { el, keyValues, section, statTiles } from './charts.js';
+import { renderFacility } from './facility-view.js';
 import { renderNarrative, renderNarrativeState } from './narrative.js';
+import { renderPeers } from './peers.js';
+import { setupTabs } from './tabs.js';
 import { renderTerritory } from './territory.js';
 import {
-  TYPE_GROUPS, coordStatusNote, facilityName, formatCount, formatDistance, formatNumber, formatPercent,
-  positionNote, typeInfo,
+  TYPE_GROUPS, coordStatusNote, facilityAddress, facilityName, formatCnes, formatCount, formatDistance,
+  formatNumber, formatPercent, positionNote, typeInfo,
 } from './fields.js';
 import { applyStaticTranslations, getPref, lang, pick, setPref, t } from './i18n.js';
 
 const REQUEST_DELAY_MS = 300;
-const NEAREST_SHOWN = 10;
 const PUBLIC_ONLY_PREF = 'publicOnly';
 const NO_DATA_COLOR = '#e1e0d9';
+const TRACT_OUTLINE = '#2a78d6';
 // Sequential blue ramp, light to dark: more of the indicator is darker
 const RAMP = ['#cde2fb', '#9ec5f4', '#5598e7', '#256abf', '#0d366b'];
+// Map handlers that stay off while the map is a banner, so the page scrolls over it
+const MAP_HANDLERS = ['dragging', 'touchZoom', 'doubleClickZoom', 'boxZoom', 'keyboard'];
 
 // `breaks` are the lower bounds of ramp steps 2..5
 const INDICATORS = [
@@ -50,6 +55,13 @@ const INDICATORS = [
     format: (value) => formatNumber(value, 1),
   },
   {
+    id: 'income',
+    label: t('ind.income'),
+    value: (p) => p.income,
+    breaks: [1650, 2700, 5000, 10000],
+    format: (value) => `R$ ${formatNumber(value)}`,
+  },
+  {
     id: 'primary_distance',
     label: t('ind.primaryDistance'),
     value: (p) => p.dist_primary_m,
@@ -58,30 +70,64 @@ const INDICATORS = [
   },
 ];
 
+// Where the data behind a narrative sentence is shown: a map indicator first, else a card.
+const INDICATOR_OF_FACT = {
+  sewage: 'no_sewage', precarious: 'precarious', garbage: 'no_garbage', crowding: 'crowding', crowded: 'crowding',
+  access: 'primary_distance',
+};
+const INDICATOR_OF_PEER = {
+  precarious: 'precarious', off_network: 'no_sewage', no_garbage: 'no_garbage', crowded: 'crowding',
+  far_primary: 'primary_distance', income: 'income',
+};
+const CARD_OF_FACT = {
+  profile: 'panel-record', beds: 'panel-record', staff: 'panel-record', admissions: 'panel-record', stay: 'panel-record',
+  position: 'record-location',
+  residents: 's-summary', territory: 's-peers', peer: 's-peers', need_supply: 's-peers',
+  sewage: 's-sanitation', precarious: 's-sanitation', garbage: 's-sanitation',
+  crowding: 's-housing', crowded: 's-housing',
+  access: 's-access',
+  dengue: 'h-environment', lepto: 'h-environment',
+  tb: 'h-tb', tb_district: 'h-tb', surprise_tb: 'h-tb',
+  teen: 'h-maternal', teen_district: 'h-maternal', preterm: 'h-maternal', surprise_teen: 'h-maternal',
+  mortality: 'h-mortality',
+  network: 'n-groups',
+};
+
 applyStaticTranslations();
 document.title = t('page.title');
 
 const cnes = new URLSearchParams(location.search).get('cnes');
+const $ = (id) => document.getElementById(id);
 const dom = {
-  root: document.getElementById('facility-root'),
-  surroundings: document.getElementById('surroundings'),
-  body: document.getElementById('surroundings-body'),
-  locationLine: document.getElementById('location-line'),
-  radius: document.getElementById('radius'),
-  radiusValue: document.getElementById('radius-value'),
-  publicOnly: document.getElementById('public-only'),
-  indicator: document.getElementById('indicator'),
-  tiles: document.getElementById('tiles'),
-  mapLegend: document.getElementById('map-legend'),
-  nearbyTypes: document.getElementById('nearby-types'),
-  nearbyList: document.getElementById('nearby-list'),
-  narrative: document.getElementById('narrative'),
+  hero: $('hero'),
+  head: $('facility-head'),
+  expand: $('expand-map'),
+  mapPanel: $('map-panel'),
+  indicator: $('indicator'),
+  mapLegend: $('map-legend'),
+  radius: $('radius'),
+  radiusValue: $('radius-value'),
+  publicOnly: $('public-only'),
+  record: $('facility-root'),
+  narrative: $('narrative'),
+  netSummary: $('n-summary'),
+  netGroups: $('n-groups'),
+  livePanels: [...document.querySelectorAll('.live-panel')],
 };
+// The tab bar sticks just under the band, whose height changes when it wraps
+const band = document.querySelector('.band');
+new ResizeObserver(() => document.documentElement.style.setProperty('--band-height', `${band.offsetHeight}px`)).observe(band);
+const tabs = setupTabs($('tabs'), { initial: hasNarrative() ? 'story' : 'record' });
 
+let row = null;
 let facility = null;
 let surroundings = null;
+let narrative = null;
 let map = null;
+let zoomControl = null;
+let attribution = null;
 let layers = null;
+let expanded = false;
 let pendingRequest = null;
 let pendingNarrative = null;
 let requestTimer = null;
@@ -105,24 +151,73 @@ function countedFacilities() {
   return surroundings.facilities.filter((other) => other.sus_network || showPrivate);
 }
 
-// Created on the first response, which carries the facility's coordinates
+// ---------- Header ----------
+
+function renderHead() {
+  const info = typeInfo(row.tipo_equipamento);
+  dom.head.replaceChildren(
+    el('span', { class: 'avatar', style: { '--type': info.color }, 'aria-hidden': 'true' }),
+    el('div', { class: 'facility-title' },
+      el('h1', { text: facilityName(row) }),
+      el('p', { class: 'facility-sub', text: `${info.label} · ${info.groupLabel}` }),
+      el('p', { class: 'facility-sub', text: facilityAddress(row) })));
+}
+
+function renderCrumbs() {
+  const place = surroundings.location;
+  const municipality = $('crumb-municipality');
+  const district = $('crumb-district');
+  municipality.textContent = place?.municipality || '';
+  municipality.hidden = !place?.municipality;
+  district.textContent = place?.district || '';
+  district.hidden = !place?.district || place.district === place.municipality;
+}
+
+// ---------- Map banner ----------
+
 function setupMap() {
   const position = [surroundings.facility.lat, surroundings.facility.lon];
-  map = L.map('mini-map', { preferCanvas: true, scrollWheelZoom: false }).setView(position, 14);
+  map = L.map('mini-map', {
+    preferCanvas: true, zoomControl: false, attributionControl: false, scrollWheelZoom: false, zoomSnap: 0.25,
+    ...Object.fromEntries(MAP_HANDLERS.map((handler) => [handler, false])),
+  }).setView(position, 14);
+  zoomControl = L.control.zoom({ position: 'topleft' });
+  // Top right while the header covers the bottom of the banner; the indicator panel takes that corner when expanded
+  attribution = L.control.attribution({ position: 'topright' }).addTo(map);
   L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     maxZoom: 19,
   }).addTo(map);
   layers = {
-    tracts: L.geoJSON(null).addTo(map),
+    tracts: L.layerGroup().addTo(map),
     circle: L.circle(position, {
-      radius: Number(dom.radius.value), color: '#0b0b0b', weight: 2, fill: false, interactive: false,
+      radius: Number(dom.radius.value), color: '#0b0b0b', weight: 1.5, dashArray: '4 4', fill: false, interactive: false,
     }).addTo(map),
     nearby: L.layerGroup().addTo(map),
+    self: L.circleMarker(position, {
+      radius: 8, color: '#fcfcfb', weight: 2, fillColor: '#0b0b0b', fillOpacity: 1,
+    }).bindTooltip(facility.name).addTo(map),
   };
-  L.circleMarker(position, {
-    radius: 8, color: '#fcfcfb', weight: 2, fillColor: '#0b0b0b', fillOpacity: 1,
-  }).bindTooltip(facility.name).addTo(map);
+}
+
+function fitRadius() {
+  map.fitBounds(layers.circle.getBounds(), { padding: expanded ? [24, 24] : [12, 12] });
+}
+
+function setExpanded(on) {
+  expanded = on;
+  dom.hero.classList.toggle('is-expanded', on);
+  dom.expand.setAttribute('aria-expanded', String(on));
+  dom.expand.textContent = t(on ? 'hero.collapse' : 'hero.expand');
+  dom.mapPanel.hidden = !on;
+  for (const handler of MAP_HANDLERS) map[handler][on ? 'enable' : 'disable']();
+  if (on) zoomControl.addTo(map);
+  else zoomControl.remove();
+  attribution.setPosition(on ? 'bottomright' : 'topright');
+  map.invalidateSize();
+  fitRadius();
+  drawTracts();
+  drawNearby();
 }
 
 function tractTooltip(properties) {
@@ -139,23 +234,30 @@ function tractTooltip(properties) {
     el(index === 0 ? 'strong' : 'span', { text: line })));
 }
 
+// Collapsed, the banner only outlines the tracts in the radius; colour encodes data only when
+// the map is expanded and its legend is visible.
 function drawTracts() {
   const indicator = currentIndicator();
   layers.tracts.clearLayers();
   L.geoJSON(surroundings.tracts, {
-    style: (feature) => ({
-      fillColor: rampColor(indicator, feature.properties),
-      fillOpacity: 0.75,
-      color: '#fcfcfb',
-      weight: 1,
-    }),
+    interactive: expanded,
+    style: (feature) => (expanded
+      ? { fillColor: rampColor(indicator, feature.properties), fillOpacity: 0.75, color: '#fcfcfb', weight: 1 }
+      : { fillColor: TRACT_OUTLINE, fillOpacity: 0.08, color: TRACT_OUTLINE, weight: 1, opacity: 0.5 }),
     onEachFeature: (feature, layer) => {
+      if (!expanded) return;
       layer.bindTooltip(() => tractTooltip(feature.properties), { sticky: true });
       layer.on('mouseover', () => layer.setStyle({ color: '#0b0b0b', weight: 2 }));
       layer.on('mouseout', () => layer.setStyle({ color: '#fcfcfb', weight: 1 }));
     },
   }).addTo(layers.tracts);
+  // Redrawn tracts would otherwise cover the markers drawn before them on the shared canvas
+  layers.nearby.eachLayer((marker) => marker.bringToFront());
+  layers.self.bringToFront();
+  if (expanded) drawLegend(indicator);
+}
 
+function drawLegend(indicator) {
   const bounds = [t('ramp.under', { value: indicator.format(indicator.breaks[0]) })];
   indicator.breaks.forEach((lower, index) => {
     const upper = indicator.breaks[index + 1];
@@ -174,115 +276,166 @@ function drawNearby() {
   layers.nearby.clearLayers();
   for (const other of countedFacilities()) {
     const info = typeInfo(other.type);
-    L.circleMarker([other.lat, other.lon], {
-      radius: 5, color: '#fcfcfb', weight: 2, fillColor: info.color, fillOpacity: 1,
-    })
-      .bindTooltip(`${other.name} · ${info.label} · ${formatDistance(other.distance_m)}`)
-      .on('click', () => { location.href = `facility.html?cnes=${other.cnes}`; })
-      .addTo(layers.nearby);
+    const marker = L.circleMarker([other.lat, other.lon], {
+      radius: 5, color: '#fcfcfb', weight: 2, fillColor: info.color, fillOpacity: 1, interactive: expanded,
+    });
+    if (expanded) {
+      marker.bindTooltip(`${other.name} · ${info.label} · ${formatDistance(other.distance_m)}`)
+        .on('click', () => { location.href = `facility.html?cnes=${other.cnes}`; });
+    }
+    marker.addTo(layers.nearby);
   }
+  layers.self.bringToFront();
 }
 
-function renderTiles() {
-  const { census, area_km2: area } = surroundings;
+// ---------- Record tab ----------
+
+function cnesLink() {
+  if (!row.CO_MUNICIPIO_GESTOR) return null;
+  const href = `https://cnes.datasus.gov.br/pages/estabelecimentos/ficha/index.jsp?coUnidade=${row.CO_MUNICIPIO_GESTOR}${formatCnes(row.CO_CNES)}`;
+  return el('a', { href, target: '_blank', rel: 'noopener', text: t('record.cnesLink') });
+}
+
+function renderLocation() {
+  const place = surroundings?.location;
+  const entries = [
+    [t('record.address'), facilityAddress(row)],
+    [t('record.municipality'), place?.municipality],
+    [t('record.district'), place?.district && place.district !== place.municipality ? place.district : null],
+    [t('record.tract'), place?.tract],
+    [t('record.position'), row.coord ? positionNote(row) || t('record.positionRegistry') : coordStatusNote(row.coord_status)],
+  ].filter(([, value]) => value);
+  const link = cnesLink();
+  $('record-location').replaceChildren(
+    el('h3', { text: t('record.location') }),
+    keyValues(entries),
+    link ? el('p', { class: 'hint' }, link) : null);
+}
+
+// ---------- Network tab ----------
+
+function renderNetworkSummary() {
+  const radius = surroundings.census.radius;
   const facilities = countedFacilities();
-  const radius = census.radius;
-  const beds = facilities.reduce((sum, other) => sum + (other.beds || 0), 0) + (facility.beds || 0);
-  const physicians = facilities.reduce((sum, other) => sum + (other.physicians || 0), 0) + (facility.physicians || 0);
+  const beds = facilities.reduce((sum, other) => sum + (other.beds || 0), 0) + facility.beds;
+  const physicians = facilities.reduce((sum, other) => sum + (other.physicians || 0), 0) + facility.physicians;
   const per10k = (count) => t('sur.per10k', {
     value: radius.population ? formatNumber((count / radius.population) * 10000, 1) : '–',
     period: t('period.cnesShort'),
   });
-  dom.tiles.replaceChildren(statTiles([
-    { label: t('sur.residents'), value: formatCount(radius.population), note: t('sur.tracts', { count: formatCount(radius.tracts) }) },
-    { label: t('sur.households'), value: formatCount(radius.households), note: t('sur.censusNote') },
-    { label: t('sur.density'), value: formatCount(Math.round((radius.population || 0) / area)), note: t('sur.censusNote') },
-    { label: t('sur.others'), value: formatCount(facilities.length), note: t('sur.withinRadius', { period: t('period.cnesShort') }) },
-    { label: t('tile.beds'), value: formatCount(beds), note: per10k(beds) },
-    { label: t('tile.physicians'), value: formatCount(physicians), note: per10k(physicians) },
-  ]));
+  const hidden = surroundings.facilities.length - facilities.length;
+  dom.netSummary.replaceChildren(
+    statTiles([
+      { label: t('sur.others'), value: formatCount(facilities.length), note: t('sur.withinRadius', { period: t('period.cnesShort') }) },
+      { label: t('tile.beds'), value: formatCount(beds), note: per10k(beds) },
+      { label: t('tile.physicians'), value: formatCount(physicians), note: per10k(physicians) },
+    ]),
+    el('p', { class: 'hint', text: [t('net.summaryHint'), hidden ? t('sur.hiddenPrivate', { count: formatCount(hidden) }) : null]
+      .filter(Boolean).join(' ') }));
 }
 
-function renderNearby() {
-  const facilities = countedFacilities();
-  const hidden = surroundings.facilities.length - facilities.length;
-  const hiddenNote = hidden ? t('sur.hiddenPrivate', { count: formatCount(hidden) }) : null;
-
-  const counts = new Map();
-  for (const other of facilities) counts.set(other.type, (counts.get(other.type) || 0) + 1);
-  const byType = [...counts.entries()]
-    .map(([type, value]) => ({ label: typeInfo(type).label, value, color: typeInfo(type).color }))
-    .sort((a, b) => b.value - a.value);
-
-  dom.nearbyTypes.replaceChildren(section(t('sur.byType'), byType.length ? barList(byType) : null, {
-    hint: byType.length ? t('sur.byTypeHint', { cnes: t('period.cnes') }) : null,
-    emptyText: [t('sur.noOthers'), hiddenNote].filter(Boolean).join(' '),
-  }));
-  if (byType.length) {
-    const used = new Set(facilities.map((other) => typeInfo(other.type).group));
-    dom.nearbyTypes.append(el('div', { class: 'ramp-legend' }, TYPE_GROUPS
-      .filter((group) => used.has(group.id))
-      .map((group) => el('span', { class: 'ramp-step' },
-        el('span', { class: 'dot', style: { background: group.color } }), pick(group.label)))));
-    if (hiddenNote) dom.nearbyTypes.append(el('p', { class: 'hint', text: hiddenNote }));
-  }
-
-  const nearest = facilities.slice(0, NEAREST_SHOWN);
-  const table = nearest.length ? el('table', { class: 'table' },
+function facilityTable(facilities) {
+  return el('table', { class: 'table' },
     el('thead', {}, el('tr', {},
       el('th', { text: t('sur.col.facility') }), el('th', { text: t('sur.col.type') }),
+      el('th', { text: t('net.col.sus') }),
       el('th', { class: 'num', text: t('sur.col.distance') }), el('th', { class: 'num', text: t('sur.col.beds') }))),
-    el('tbody', {}, nearest.map((other) => el('tr', {},
+    el('tbody', {}, facilities.map((other) => el('tr', {},
       el('td', {}, el('a', { href: `facility.html?cnes=${other.cnes}`, text: other.name })),
       el('td', { text: typeInfo(other.type).label }),
+      el('td', { text: other.sus_network ? t('yes') : t('no') }),
       el('td', { class: 'num', text: formatDistance(other.distance_m) }),
-      el('td', { class: 'num', text: formatCount(other.beds) }))))) : null;
-  dom.nearbyList.replaceChildren(section(t('sur.nearest'), table, {
-    hint: facilities.length > NEAREST_SHOWN
-      ? t('sur.nearestOf', { shown: NEAREST_SHOWN, total: formatCount(facilities.length), cnes: t('period.cnes') })
-      : t('sur.nearestHint', { cnes: t('period.cnes') }),
-    emptyText: t('sur.noOthers'),
-  }));
+      el('td', { class: 'num', text: formatCount(other.beds) })))));
+}
+
+/** One collapsible row per facility category, as in CulturaEduca's list of nearby facilities. */
+function renderNetworkGroups() {
+  const open = new Set([...dom.netGroups.querySelectorAll('details[open]')].map((node) => node.dataset.group));
+  const facilities = countedFacilities();
+  dom.netGroups.replaceChildren(
+    el('h3', { class: 'card-title', text: t('net.title', { radius: formatDistance(surroundings.radius_m) }) }),
+    el('p', { class: 'hint', text: t('sur.nearestHint', { cnes: t('period.cnes') }) }),
+    ...TYPE_GROUPS.map((group) => {
+      const members = facilities.filter((other) => typeInfo(other.type).group === group.id);
+      return el('details', { class: 'accordion', dataset: { group: group.id }, open: open.has(group.id) ? '' : null },
+        el('summary', {},
+          el('span', { class: 'dot', style: { background: group.color } }),
+          el('span', { class: 'accordion-label', text: pick(group.label) }),
+          el('span', { class: 'accordion-count', text: `(${formatCount(members.length)})` })),
+        members.length ? facilityTable(members) : el('p', { class: 'empty', text: t('net.noneInGroup') }));
+    }));
 }
 
 /** The parts that depend on which nearby facilities are counted. */
 function renderFacilityParts() {
   drawNearby();
-  renderTiles();
-  renderNearby();
+  renderNetworkSummary();
+  renderNetworkGroups();
 }
 
-function renderSurroundings() {
-  const place = surroundings.location;
-  dom.locationLine.textContent = place ? t('sur.location', {
-    place: place.district && place.district !== place.municipality ? `${place.district}, ${place.municipality}` : place.municipality,
-    tract: place.tract,
-  }) : '';
-  layers.circle.setRadius(surroundings.radius_m);
-  map.fitBounds(layers.circle.getBounds(), { padding: [16, 16] });
-  drawTracts();
-  renderTerritory(surroundings);
-  renderFacilityParts();
+// ---------- Loading ----------
+
+function setLoading(on) {
+  for (const panel of dom.livePanels) panel.classList.toggle('is-loading', on);
 }
 
 async function loadSurroundings() {
   pendingRequest?.abort();
   const controller = new AbortController();
   pendingRequest = controller;
-  dom.body.classList.add('is-loading');
+  setLoading(true);
   try {
     const data = await getSurroundings(cnes, Number(dom.radius.value), controller.signal);
     if (controller.signal.aborted) return;
     surroundings = data;
     if (!map) setupMap();
-    renderSurroundings();
+    layers.circle.setRadius(surroundings.radius_m);
+    fitRadius();
+    drawTracts();
+    renderCrumbs();
+    renderLocation();
+    renderTerritory(surroundings);
+    renderFacilityParts();
+    $('load-error').hidden = true;
   } catch (error) {
     if (error.name === 'AbortError') return;
-    dom.tiles.replaceChildren(el('p', { class: 'notice is-error', text: t('sur.loadError', { message: error.message }) }));
+    $('load-error').textContent = t('sur.loadError', { message: error.message });
+    $('load-error').hidden = false;
   } finally {
-    if (pendingRequest === controller) dom.body.classList.remove('is-loading');
+    if (pendingRequest === controller) setLoading(false);
   }
 }
+
+// ---------- Narrative ----------
+
+function indicatorOfFact(fact) {
+  if (fact !== 'peer') return INDICATOR_OF_FACT[fact];
+  const key = narrative?.facts.find((f) => f.id === 'peer')?.slots.indicator?.key?.split(':')[1];
+  return INDICATOR_OF_PEER[key];
+}
+
+const sentenceLink = {
+  title(fact) {
+    if (indicatorOfFact(fact)) return t('narrative.selectMap');
+    return CARD_OF_FACT[fact] ? t('narrative.selectCard') : null;
+  },
+  select(fact) {
+    const indicator = indicatorOfFact(fact);
+    if (indicator && map) {
+      dom.indicator.value = indicator;
+      if (expanded) drawTracts();
+      else setExpanded(true);
+      dom.hero.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      return;
+    }
+    const card = $(CARD_OF_FACT[fact]);
+    if (!card) return;
+    tabs.reveal(card);
+    card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    card.classList.add('is-linked');
+    setTimeout(() => card.classList.remove('is-linked'), 2400);
+  },
+};
 
 // The narrative comes from a separate service; the page works without it.
 async function loadNarrative() {
@@ -293,9 +446,15 @@ async function loadNarrative() {
   renderNarrativeState(dom.narrative, 'narrative.loading');
   try {
     const body = await getNarrative(cnes, Number(dom.radius.value), { lang, publicOnly: !showPrivate }, controller.signal);
-    if (!controller.signal.aborted) renderNarrative(dom.narrative, body);
+    if (!controller.signal.aborted) {
+      narrative = body;
+      renderNarrative(dom.narrative, body, sentenceLink);
+      renderPeers($('s-peers'), body.reference, body.facts, Number(dom.radius.value));
+    }
   } catch (error) {
-    if (error.name !== 'AbortError') renderNarrativeState(dom.narrative, 'narrative.unavailable');
+    if (error.name === 'AbortError') return;
+    renderNarrativeState(dom.narrative, 'narrative.unavailable');
+    $('s-peers').hidden = true;
   }
 }
 
@@ -310,30 +469,40 @@ function onRadiusInput() {
   }, REQUEST_DELAY_MS);
 }
 
+function fail(text, isError = false) {
+  dom.head.replaceChildren(el('p', { class: `notice${isError ? ' is-error' : ''}`, text }));
+  dom.record.replaceChildren();
+  tabs.select('record');
+}
+
 async function init() {
   if (!cnes) {
-    dom.root.replaceChildren(el('p', { class: 'notice', text: t('page.noneSelected') }));
+    fail(t('page.noneSelected'));
     return;
   }
-  document.getElementById('back').href = `index.html?cnes=${encodeURIComponent(cnes)}`;
+  $('back').href = `index.html?cnes=${encodeURIComponent(cnes)}`;
 
-  let row;
   try {
     row = await getFacility(cnes);
   } catch (error) {
-    dom.root.replaceChildren(el('p', { class: 'notice is-error', text: t('panel.loadError', { message: error.message }) }));
+    fail(t('panel.loadError', { message: error.message }), true);
     return;
   }
   if (!row) {
-    dom.root.replaceChildren(el('p', { class: 'notice', text: t('page.unknownCnes', { cnes }) }));
+    fail(t('page.unknownCnes', { cnes }));
     return;
   }
 
   document.title = `${facilityName(row)} · ${t('brand')}`;
-  dom.root.replaceChildren(facilityHeader(row, 'h1'), renderFacility(row));
+  renderHead();
+  const record = renderFacility(row);
+  record.querySelector('.facility-sections').prepend(el('section', { class: 'block', id: 'record-location' }));
+  dom.record.replaceChildren(record);
+  renderLocation();
 
   if (!row.coord) {
-    dom.root.append(el('p', { class: 'notice', text: `${t('page.noSurroundings')} ${coordStatusNote(row.coord_status)}` }));
+    dom.record.prepend(el('p', { class: 'notice', text: `${t('page.noSurroundings')} ${coordStatusNote(row.coord_status)}` }));
+    tabs.select('record');
     return;
   }
   facility = {
@@ -352,16 +521,24 @@ async function init() {
   const note = positionNote(row);
   if (note) {
     const limit = minRadius > step ? ` ${t('sur.radiusLimit', { radius: formatDistance(minRadius) })}` : '';
-    dom.locationLine.after(el('p', { class: 'notice', text: note + limit }));
+    $('surroundings-scope').after(el('p', { class: 'notice', text: note + limit }));
   }
 
   dom.indicator.replaceChildren(...INDICATORS.map((indicator) =>
     el('option', { value: indicator.id, text: indicator.label })));
   dom.publicOnly.checked = !showPrivate;
-  document.getElementById('map-hint').textContent = t('sur.mapHint', { census: t('period.census'), cnes: t('period.cnes') });
-  dom.surroundings.hidden = false;
+  $('map-hint').textContent = t('sur.mapHint', { census: t('period.census'), cnes: t('period.cnes') });
+
+  dom.hero.classList.remove('is-static');
+  for (const id of ['crumb-radius', 'public-only-control', 'expand-map', 'tab-surroundings', 'tab-health', 'tab-network']) {
+    $(id).hidden = false;
+  }
+  $('tab-story').hidden = !hasNarrative();
+  tabs.start();
+
   dom.radius.addEventListener('input', onRadiusInput);
   dom.indicator.addEventListener('change', () => surroundings && drawTracts());
+  dom.expand.addEventListener('click', () => map && setExpanded(!expanded));
   dom.publicOnly.addEventListener('change', () => {
     showPrivate = !dom.publicOnly.checked;
     setPref(PUBLIC_ONLY_PREF, dom.publicOnly.checked);
