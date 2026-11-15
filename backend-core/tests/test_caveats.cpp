@@ -6,6 +6,7 @@
 #include "story/caveats.hpp"
 #include "story/facts.hpp"
 #include "story/narrative.hpp"
+#include "story/planner.hpp"
 
 namespace {
 
@@ -46,7 +47,8 @@ TEST_CASE("C01: referral hospitals are described as hubs") {
         {{"type", "Hospital Geral"}, {"beds", 120}, {"sus_network", true}, {"distance_m", 400}});
     const auto s = story::tell(payload, test::config(), "pt");
     CHECK(has(s.plan.caveats, "C01", "nearby"));
-    CHECK(std::find(s.plan.paragraphs[1].begin(), s.plan.paragraphs[1].end(), "network") != s.plan.paragraphs[1].end());
+    const auto& around = s.plan.paragraphs[story::kSurroundings];
+    CHECK(std::find(around.begin(), around.end(), "network") != around.end());
 }
 
 TEST_CASE("C03b: imprecise estimates are disclosed") {
@@ -56,18 +58,18 @@ TEST_CASE("C03b: imprecise estimates are disclosed") {
 
 TEST_CASE("C04: off-network sewage says what households use instead") {
     CHECK(has(told("padeiros_1000").plan.caveats, "C04", "precarious"));
-    CHECK_FALSE(has(post_rules_for("butanta_1000", {{}, {"sewage"}, {}}), "C04"));  // 0.6% off the network
+    CHECK_FALSE(has(post_rules_for("butanta_1000", {{}, {}, {"sewage"}, {}}), "C04"));  // 0.6% off the network
 }
 
 TEST_CASE("C06: private capacity without SUS is pointed out") {
     CHECK(has(told("butanta_1000").plan.caveats, "C06"));
-    CHECK_FALSE(has(post_rules_for("padeiros_1000", {{}, {"network"}, {}}), "C06"));  // no other facility
+    CHECK_FALSE(has(post_rules_for("padeiros_1000", {{}, {}, {"network"}, {}}), "C06"));  // no other facility
 }
 
 TEST_CASE("C10: the bridge names the scales that follow") {
     CHECK(has(told("hc_1000").plan.caveats, "C10", "district"));
     CHECK(has(told("padeiros_1000").plan.caveats, "C10", ""));
-    CHECK(has(post_rules_for("butanta_1000", {{}, {}, {"tb_district", "dengue"}}), "C10", "district_municipality"));
+    CHECK(has(post_rules_for("butanta_1000", {{}, {}, {}, {"tb_district", "dengue"}}), "C10", "district_municipality"));
 }
 
 TEST_CASE("C12: an earlier epidemic year is disclosed") {
@@ -82,7 +84,7 @@ TEST_CASE("C14: no 'far from primary care' figure around a public primary care u
 
 TEST_CASE("C14b: poor public access among private services is put in context") {
     CHECK(has(told("hc_1000").plan.caveats, "C14b"));
-    CHECK_FALSE(has(post_rules_for("poa_1000", {{}, {"access"}, {}}), "C14b"));  // access similar to the municipality
+    CHECK_FALSE(has(post_rules_for("poa_1000", {{}, {}, {"access"}, {}}), "C14b"));  // access similar to the municipality
 }
 
 TEST_CASE("C15: small counts are told as counts") {
@@ -96,13 +98,107 @@ TEST_CASE("C15: small counts are told as counts") {
 }
 
 TEST_CASE("C17: district and municipal sources are told apart") {
-    CHECK(has(post_rules_for("butanta_1000", {{}, {}, {"tb_district", "dengue"}}), "C17"));
-    CHECK_FALSE(has(post_rules_for("butanta_1000", {{}, {}, {"tb_district", "teen_district"}}), "C17"));
+    CHECK(has(post_rules_for("butanta_1000", {{}, {}, {}, {"tb_district", "dengue"}}), "C17"));
+    CHECK_FALSE(has(post_rules_for("butanta_1000", {{}, {}, {}, {"tb_district", "teen_district"}}), "C17"));
 }
 
 TEST_CASE("C18b: a profile with many ill-defined deaths is flagged") {
-    CHECK(has(post_rules_for("poa_1000", {{}, {}, {"mortality"}}), "C18b"));
-    CHECK_FALSE(has(post_rules_for("padeiros_1000", {{}, {}, {"mortality"}}), "C18b"));
+    CHECK(has(post_rules_for("poa_1000", {{}, {}, {}, {"mortality"}}), "C18b"));
+    CHECK_FALSE(has(post_rules_for("padeiros_1000", {{}, {}, {}, {"mortality"}}), "C18b"));
+}
+
+TEST_CASE("C19: a district outside the model's range is told with the model's limits") {
+    auto payload = test::fixture("butanta_1000");
+    for (auto& row : payload.expected) {
+        if (row.value("outcome", "") == "tb" && row.value("scale", "") == "district") row["flag"] = "above";
+    }
+    const auto s = story::tell(payload, test::config(), "pt");
+    REQUIRE(story::find_fact(s.facts, "surprise_tb") != nullptr);
+    CHECK(has(s.plan.caveats, "C19"));
+    CHECK(s.plan.paragraphs[story::kLead] == std::vector<std::string>{"surprise_tb"});
+}
+
+namespace {
+
+// Need and supply for Padeiros as the 1 km radius tells them: few residents per unit, high need.
+story::Payload radius_fallback(double population, int territory_type) {
+    auto payload = test::fixture("padeiros_1000");
+    auto& ctx = payload.context;
+    ctx["supply_measure"] = "radius";
+    ctx["territory_type"] = territory_type;
+    ctx["values"]["deprived"] = 100.0;
+    ctx["values"]["load"] = population;
+    ctx["values"]["population"] = population;
+    ctx["need_percentile"] = 0.99;
+    ctx["load_percentile"] = 0.02;
+    return payload;
+}
+
+// The same unit on the catchment model, with high need and few people per unit.
+story::Payload catchment(bool near_edge) {
+    auto payload = test::fixture("padeiros_1000");
+    auto& ctx = payload.context;
+    ctx["supply_measure"] = "catchment";
+    ctx["values"]["served"] = 3000.0;
+    ctx["values"]["served_deprived"] = 95.0;
+    ctx["need_percentile"] = 0.99;
+    ctx["load_percentile"] = 0.05;
+    ctx["near_edge"] = near_edge;
+    return payload;
+}
+
+}  // namespace
+
+TEST_CASE("C20: peer comparisons only at the reference radius") {
+    auto payload = radius_fallback(169, 1);
+    payload.surroundings["radius_m"] = 2000;
+    const auto s = story::tell(payload, test::config(), "pt");
+    CHECK(has(s.suppressed, "C20"));
+    CHECK(story::find_fact(s.facts, "peer") == nullptr);
+    CHECK(story::find_fact(s.facts, "need_supply") == nullptr);
+    CHECK_FALSE(has(told("padeiros_1000").suppressed, "C20"));
+}
+
+TEST_CASE("C20: need and supply on the catchment do not depend on the radius") {
+    auto payload = catchment(false);
+    payload.surroundings["radius_m"] = 2000;
+    const auto s = story::tell(payload, test::config(), "pt");
+    CHECK(has(s.suppressed, "C20"));  // peer and territory still go
+    CHECK(story::find_fact(s.facts, "peer") == nullptr);
+    const auto* need = story::find_fact(s.facts, "need_supply");
+    REQUIRE(need != nullptr);
+    CHECK(need->variant == "served");
+    CHECK(need->slots.count("served_catchment"));
+}
+
+TEST_CASE("C21: without the catchment, few residents per unit in sparse surroundings is not spare capacity") {
+    const auto sparse = story::tell(radius_fallback(169, 1), test::config(), "pt");
+    CHECK(story::find_fact(sparse.facts, "need_supply")->variant == "sparse_radius");
+    CHECK(has(sparse.plan.caveats, "C21"));
+    CHECK(story::find_fact(story::tell(radius_fallback(3000, 2), test::config(), "pt").facts, "need_supply")->variant ==
+          "sparse_radius");  // populated below the threshold
+
+    const auto dense = story::tell(radius_fallback(30000, 3), test::config(), "pt");
+    CHECK(story::find_fact(dense.facts, "need_supply")->variant == "served_radius");
+    CHECK_FALSE(has(dense.plan.caveats, "C21"));
+    CHECK_FALSE(has(story::tell(catchment(false), test::config(), "pt").plan.caveats, "C21"));
+}
+
+TEST_CASE("C21b: a catchment near the region's edge is disclosed") {
+    const auto edge = story::tell(catchment(true), test::config(), "pt");
+    REQUIRE(story::find_fact(edge.facts, "need_supply") != nullptr);
+    CHECK(has(edge.plan.caveats, "C21b"));
+    CHECK_FALSE(has(story::tell(catchment(false), test::config(), "pt").plan.caveats, "C21b"));
+}
+
+TEST_CASE("need and supply are told and verified on both measures") {
+    for (auto payload : {radius_fallback(169, 1), radius_fallback(30000, 3), catchment(false), catchment(true)}) {
+        for (const char* code : {"pt", "en"}) {
+            const auto body = story::narrate(payload, test::config(), code);
+            INFO(code << " " << body.at("issues").dump());
+            CHECK(body.at("verified").get<bool>());
+        }
+    }
 }
 
 TEST_CASE("caveats only attach to planned facts") {

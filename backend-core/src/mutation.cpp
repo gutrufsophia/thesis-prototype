@@ -40,6 +40,7 @@ Scope swapped(Scope s) {
         case Scope::City: return Scope::Region;
         case Scope::Region: return Scope::Municipality;
         case Scope::Unit: return Scope::Radius;
+        case Scope::Catchment: return Scope::Radius;
     }
     return Scope::Radius;
 }

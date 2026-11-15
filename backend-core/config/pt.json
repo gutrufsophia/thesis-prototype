@@ -2,7 +2,7 @@
   "code": "pt",
   "decimal": ",",
   "thousands": ".",
-  "max_words": 280,
+  "max_words": 320,
   "templates": {
     "profile": "{profile.name} é {profile.type} {profile.network}, com atendimento {profile.flow}.",
     "profile.noflow": "{profile.name} é {profile.type} {profile.network}.",
@@ -42,7 +42,18 @@
     "mortality": "Entre os óbitos de moradores de {k.ages} anos com causa definida entre {mortality.period}, o grupo mais frequente foi o das {mortality.cause}: {mortality.municipality} dos óbitos no município de {mortality.municipality_name}, <cmp> {mortality.region} na região metropolitana.",
     "mortality.small": "No município de {mortality.municipality_name}, houve {mortality.count_municipality} <pl:mortality.count_municipality|óbito|óbitos> de moradores de {k.ages} anos com causa definida entre {mortality.period}; o grupo mais frequente foi o das {mortality.cause}.",
     "network.one_public": "Há {network.count_radius} outra unidade de saúde no raio, da rede pública ou com atendimento pelo SUS.",
-    "network.one_private": "Há {network.count_radius} outra unidade de saúde no raio, privada e sem vínculo com o SUS."
+    "network.one_private": "Há {network.count_radius} outra unidade de saúde no raio, privada e sem vínculo com o SUS.",
+    "peer": "Entre as {peer.count_group} unidades de {peer.group} mapeadas na região, o raio de {peer.extent_radius} em volta desta unidade está entre os {peer.rank} com {peer.indicator}.",
+    "territory": "Pelo perfil, o raio de {territory.extent_radius} em volta desta unidade é do tipo «{territory.type}», como o de {territory.count_group} das {territory.total} unidades mapeadas na região.",
+    "surprise_tb.above": "A tuberculose no distrito {surprise_tb.district_name} ficou acima do que a renda e a moradia do distrito preveem: foram {surprise_tb.observed_district} casos entre {surprise_tb.period}, quando o modelo esperava cerca de {surprise_tb.expected_district}, numa faixa de {surprise_tb.lower_district} a {surprise_tb.upper_district}.",
+    "surprise_tb.below": "A tuberculose no distrito {surprise_tb.district_name} ficou abaixo do que a renda e a moradia do distrito preveem: foram {surprise_tb.observed_district} casos entre {surprise_tb.period}, quando o modelo esperava cerca de {surprise_tb.expected_district}, numa faixa de {surprise_tb.lower_district} a {surprise_tb.upper_district}.",
+    "surprise_teen.above": "Os nascimentos de mães com menos de {k.twenty} anos no distrito {surprise_teen.district_name} ficaram acima do que a renda e a moradia do distrito preveem: foram {surprise_teen.observed_district} entre {surprise_teen.period}, quando o modelo esperava cerca de {surprise_teen.expected_district}, numa faixa de {surprise_teen.lower_district} a {surprise_teen.upper_district}.",
+    "surprise_teen.below": "Os nascimentos de mães com menos de {k.twenty} anos no distrito {surprise_teen.district_name} ficaram abaixo do que a renda e a moradia do distrito preveem: foram {surprise_teen.observed_district} entre {surprise_teen.period}, quando o modelo esperava cerca de {surprise_teen.expected_district}, numa faixa de {surprise_teen.lower_district} a {surprise_teen.upper_district}.",
+    "need_supply.pressure_radius": "No raio de {need_supply.extent_radius}, {need_supply.deprived_radius} dos moradores vivem em setores com ao menos uma privação (esgoto precário, adensamento, falta de coleta ou renda baixa), mais que em {need_supply.need_rank} das {need_supply.count_group} unidades básicas públicas da região; e cada unidade básica pública do raio tem, em média, cerca de {need_supply.load_radius} moradores, mais que em {need_supply.load_rank} delas.",
+    "need_supply.served_radius": "No raio de {need_supply.extent_radius}, {need_supply.deprived_radius} dos moradores vivem em setores com ao menos uma privação (esgoto precário, adensamento, falta de coleta ou renda baixa), mais que em {need_supply.need_rank} das {need_supply.count_group} unidades básicas públicas da região; ainda assim, cada unidade básica pública do raio tem, em média, cerca de {need_supply.load_radius} moradores, menos que em {need_supply.load_rank} delas.",
+    "need_supply.pressure": "Na área de atendimento estimada desta unidade, com os moradores da região divididos entre as unidades básicas públicas mais próximas de cada casa, vivem cerca de {need_supply.served_catchment} pessoas; {need_supply.deprived_catchment} delas moram em setores com ao menos uma privação (esgoto precário, adensamento, falta de coleta ou renda baixa), mais que em {need_supply.need_rank} das {need_supply.count_group} unidades básicas públicas da região, e são mais pessoas por unidade do que em {need_supply.load_rank} delas.",
+    "need_supply.served": "Na área de atendimento estimada desta unidade, com os moradores da região divididos entre as unidades básicas públicas mais próximas de cada casa, vivem cerca de {need_supply.served_catchment} pessoas; {need_supply.deprived_catchment} delas moram em setores com ao menos uma privação (esgoto precário, adensamento, falta de coleta ou renda baixa), mais que em {need_supply.need_rank} das {need_supply.count_group} unidades básicas públicas da região; ainda assim, são menos pessoas por unidade do que em {need_supply.load_rank} delas.",
+    "need_supply.sparse_radius": "No raio de {need_supply.extent_radius}, {need_supply.deprived_radius} dos moradores vivem em setores com ao menos uma privação (esgoto precário, adensamento, falta de coleta ou renda baixa), mais que em {need_supply.need_rank} das {need_supply.count_group} unidades básicas públicas da região; o raio tem cerca de {need_supply.load_radius} moradores por unidade básica pública, mas cobre só parte do território que a unidade atende, e em área pouco povoada isso não indica oferta folgada."
   },
   "comparatives": {
     "similar": "próximo de",
@@ -138,6 +149,20 @@
     "C10.district_municipality": {
       "text": "Não há dados de doença para áreas do tamanho do raio: os números a seguir são do distrito e do município.",
       "marker": "não há dados de doença"
+    },
+    "C19": {
+      "text": "O modelo usa só renda, moradia e saneamento do Censo: a diferença aponta fatores que ele não mede, sem dizer quais.",
+      "marker": "não mede"
+    },
+    "C20": {
+      "marker": "raio"
+    },
+    "C21": {
+      "marker": "não indica oferta folgada"
+    },
+    "C21b": {
+      "text": "A unidade fica perto do limite da região metropolitana, e a área de atendimento estimada não inclui moradores de municípios vizinhos de fora dela.",
+      "marker": "limite da região metropolitana"
     }
   },
   "labels": {
@@ -191,7 +216,29 @@
     "cause:x": "doenças do aparelho respiratório",
     "cause:xx": "causas externas (violência e acidentes)",
     "cause:xi": "doenças do aparelho digestivo",
-    "cause:i": "doenças infecciosas e parasitárias"
+    "cause:i": "doenças infecciosas e parasitárias",
+    "group:primary": "atenção básica",
+    "group:hospital": "internação (hospitais)",
+    "group:emergency": "urgência e emergência",
+    "group:specialised": "atenção especializada e saúde mental",
+    "group:diagnostic": "diagnose e terapia",
+    "peer:deprived:worse": "mais moradores em setores com alguma privação",
+    "peer:deprived:better": "menos moradores em setores com alguma privação",
+    "peer:precarious:worse": "mais domicílios com esgoto precário",
+    "peer:precarious:better": "menos domicílios com esgoto precário",
+    "peer:off_network:worse": "mais domicílios fora da rede de esgoto",
+    "peer:off_network:better": "menos domicílios fora da rede de esgoto",
+    "peer:no_garbage:worse": "mais domicílios sem coleta de lixo",
+    "peer:no_garbage:better": "menos domicílios sem coleta de lixo",
+    "peer:crowded:worse": "mais moradores em setores adensados",
+    "peer:crowded:better": "menos moradores em setores adensados",
+    "peer:far_primary:worse": "mais moradores longe de uma unidade básica pública",
+    "peer:far_primary:better": "menos moradores longe de uma unidade básica pública",
+    "peer:income:worse": "a renda média mais baixa",
+    "peer:income:better": "a renda média mais alta",
+    "territory:1": "borda rural com saneamento precário",
+    "territory:2": "periferia urbana adensada, de renda mais baixa",
+    "territory:3": "área urbana consolidada, de renda alta"
   },
   "constants": {
     "per100k": "100 mil",
@@ -215,6 +262,9 @@
     ],
     "region": [
       "região metropolitana"
+    ],
+    "catchment": [
+      "área de atendimento"
     ]
   },
   "direction_words": {
@@ -281,7 +331,8 @@
       "district": "distrito",
       "city": "cidade",
       "municipality": "município",
-      "region": "região metropolitana"
+      "region": "região metropolitana",
+      "catchment": "área de atendimento"
     },
     "opposites": {
       "acima de": "abaixo de",
@@ -290,5 +341,9 @@
       "vezes os": "vezes menor que os"
     },
     "causal_clause": "devido às condições de vida do entorno"
+  },
+  "connectives": {
+    "contrast": "Por outro lado,",
+    "addition": "Além disso,"
   }
 }

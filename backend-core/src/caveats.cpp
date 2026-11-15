@@ -6,6 +6,7 @@
 #include <string>
 
 #include "story/facts.hpp"
+#include "story/planner.hpp"
 
 namespace story {
 
@@ -83,6 +84,7 @@ std::vector<Caveat> small_counts(const Payload&, const Rule& rule, std::vector<F
             if (field.rfind("count_", 0) == 0 && slot.number < limit) {
                 f.variant = "small";
                 f.tier.reset();
+                f.valence = 0;
                 f.reliability *= penalty;
                 out.push_back(caveat(rule, f.id));
                 break;
@@ -150,16 +152,17 @@ std::vector<Caveat> long_stay(const Payload&, const Rule& rule, const std::vecto
 
 // Notes 2, 10 and 11: outcome data do not exist for the radius; say so before the first one.
 std::vector<Caveat> scale_bridge(const Payload&, const Rule& rule, const std::vector<Fact>& facts, const Plan& plan) {
-    if (plan.paragraphs.size() < 3 || plan.paragraphs[2].empty()) return {};
+    const auto& outcomes = plan.paragraphs[kOutcomes];
+    if (outcomes.empty()) return {};
     bool district = false, municipal = false;
-    for (const auto& id : plan.paragraphs[2]) {
+    for (const auto& id : outcomes) {
         const Fact* f = find_fact(facts, id);
-        if (f && f->slots.count("district")) district = true;
+        if (f && (f->slots.count("district") || f->slots.count("observed_district"))) district = true;
         if (f && f->slots.count("municipality")) municipal = true;
     }
     std::string variant;
     if (district) variant = municipal ? "district_municipality" : "district";
-    return {caveat(rule, plan.paragraphs[2].front(), variant)};
+    return {caveat(rule, outcomes.front(), variant)};
 }
 
 // Note 12: name an epidemic year when there was one.
@@ -173,17 +176,63 @@ std::vector<Caveat> epidemic(const Payload&, const Rule& rule, const std::vector
 
 // Note 17: district and municipal figures come from different systems.
 std::vector<Caveat> sources(const Payload&, const Rule& rule, const std::vector<Fact>& facts, const Plan& plan) {
-    if (plan.paragraphs.size() < 3) return {};
     std::string last_district;
     bool municipal = false;
-    for (const auto& id : plan.paragraphs[2]) {
+    for (const auto& id : plan.paragraphs[kOutcomes]) {
         const Fact* f = find_fact(facts, id);
         if (!f) continue;
-        if (f->slots.count("district")) last_district = id;
+        if (f->slots.count("district") || f->slots.count("observed_district")) last_district = id;
         if (f->slots.count("municipality")) municipal = true;
     }
     if (last_district.empty() || !municipal) return {};
     return {caveat(rule, last_district)};
+}
+
+// Note 19: an area above or below what the model expects points to something the census does not
+// measure, not to a cause.
+std::vector<Caveat> model_surprise(const Payload&, const Rule& rule, const std::vector<Fact>&, const Plan& plan) {
+    for (const char* id : {"surprise_tb", "surprise_teen"}) {
+        auto found = when_planned(rule, plan, id);
+        if (!found.empty()) return found;  // said once, after the first surprise
+    }
+    return {};
+}
+
+// Note 20: peer comparisons and the territorial type describe the reference radius only. Need and
+// supply measured on the unit's catchment do not depend on the radius and stay.
+std::vector<Caveat> reference_radius(const Payload& p, const Rule& rule, std::vector<Fact>& facts) {
+    if (!p.context.is_object() || p.context.empty()) return {};
+    if (number_or(p.surroundings, "radius_m") == p.context.value("radius", 0.0)) return {};
+    std::vector<Caveat> out;
+    for (const char* id : {"peer", "need_supply", "territory"}) {
+        auto it = std::find_if(facts.begin(), facts.end(), [&](const Fact& f) { return f.id == id; });
+        if (it == facts.end() || it->slots.count("served_catchment")) continue;
+        facts.erase(it);
+        out.push_back(caveat(rule, id));
+    }
+    return out;
+}
+
+// Note 23: residents per unit within a fixed radius measure density as much as supply. When the
+// catchment model does not cover the unit, the radius figure is kept, but in sparse surroundings
+// it is not told as spare capacity.
+std::vector<Caveat> sparse_supply(const Payload& p, const Rule& rule, std::vector<Fact>& facts) {
+    Fact* f = find_fact(facts, "need_supply");
+    if (!f || f->variant != "served_radius" || !p.context.is_object()) return {};
+    const bool rural = number_or(p.context, "territory_type") == rule.params.at("sparse_type").get<double>();
+    const bool few = number_or(p.context.value("values", json::object()), "population") <
+                     rule.params.at("sparse_population").get<double>();
+    if (!rural && !few) return {};
+    f->variant = "sparse_radius";
+    f->valence = 0;
+    return {caveat(rule, "need_supply")};
+}
+
+// Note 23: near the region's outer boundary the catchment misses residents from outside the RMSP.
+std::vector<Caveat> catchment_edge(const Payload& p, const Rule& rule, const std::vector<Fact>& facts, const Plan& plan) {
+    const Fact* f = find_fact(facts, "need_supply");
+    if (!f || !f->slots.count("served_catchment") || !p.context.is_object() || !p.context.value("near_edge", false)) return {};
+    return when_planned(rule, plan, "need_supply");
 }
 
 // Note 18: many deaths without a defined cause make the cause profile unreliable.
@@ -204,6 +253,8 @@ const std::map<std::string, PreRule>& pre_rules() {
         {"C01", hub},
         {"C14", access_self},
         {"C15", small_counts},
+        {"C20", reference_radius},
+        {"C21", sparse_supply},
     };
     return rules;
 }
@@ -227,6 +278,8 @@ const std::map<std::string, PostRule>& post_rules() {
         {"C17", sources},
         {"C18", always("mortality")},
         {"C18b", ill_defined},
+        {"C19", model_surprise},
+        {"C21b", catchment_edge},
     };
     return rules;
 }

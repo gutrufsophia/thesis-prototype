@@ -23,6 +23,16 @@ Case told(const std::string& name, const std::string& code) {
     return {story::tell(test::fixture(name), test::config(), code), &test::config().language(code)};
 }
 
+std::pair<int, int> sentence_with(const Case& c, const std::string& token) {
+    for (int pi = 0; pi < static_cast<int>(c.story.paragraphs.size()); ++pi) {
+        for (int si = 0; si < static_cast<int>(c.story.paragraphs[pi].size()); ++si) {
+            if (c.story.paragraphs[pi][si].text.find(token) != std::string::npos) return {pi, si};
+        }
+    }
+    FAIL("no sentence with " << token);
+    return {-1, -1};
+}
+
 std::vector<story::Issue> check_sentence(Case& c, int pi, int si, const std::string& text) {
     auto paragraphs = c.story.paragraphs;
     paragraphs[pi][si].text = text;
@@ -58,36 +68,35 @@ TEST_CASE("every planted error is caught") {
 
 TEST_CASE("V1 and V5 on hand-written sentences") {
     auto c = told("padeiros_1000", "pt");
-    // paragraph 1, sentence 2 is the sewage contrast
-    const auto& original = c.story.paragraphs[1][2].text;
-    REQUIRE(original.find("{sewage.radius}") != std::string::npos);
+    const auto [pi, si] = sentence_with(c, "{sewage.radius}");
+    const auto original = c.story.paragraphs[pi][si].text;
 
-    CHECK(flags(check_sentence(c, 1, 2, original + " Em 2023 foram 90,6%."), "V1"));
+    CHECK(flags(check_sentence(c, pi, si, original + " Em 2023 foram 90,6%."), "V1"));
 
     std::string wrong_scale = original;
     wrong_scale.replace(wrong_scale.find("do raio"), 7, "do município");
-    CHECK(flags(check_sentence(c, 1, 2, wrong_scale), "V5"));
+    CHECK(flags(check_sentence(c, pi, si, wrong_scale), "V5"));
 
     std::string swapped = original;
     swapped.replace(swapped.find("{sewage.radius}"), 15, "{sewage.region}");
-    CHECK(flags(check_sentence(c, 1, 2, swapped), "V5"));
+    CHECK(flags(check_sentence(c, pi, si, swapped), "V5"));
 }
 
 TEST_CASE("V6 and V7 read comparison and causal wording") {
     auto c = told("padeiros_1000", "pt");
-    std::string inverted = c.story.paragraphs[1][2].text;
+    const auto [pi, si] = sentence_with(c, "{sewage.radius}");
+    std::string inverted = c.story.paragraphs[pi][si].text;
     inverted.replace(inverted.find("acima de"), 8, "abaixo de");
-    CHECK(flags(check_sentence(c, 1, 2, inverted), "V6"));
+    CHECK(flags(check_sentence(c, pi, si, inverted), "V6"));
 
-    CHECK(flags(check_sentence(c, 1, 2, "{sewage.radius} dos domicílios do raio adoecem devido à falta de esgoto."), "V7"));
+    CHECK(flags(check_sentence(c, pi, si, "{sewage.radius} dos domicílios do raio adoecem devido à falta de esgoto."), "V7"));
 }
 
 TEST_CASE("domain terms that contain 'causa' are not causal claims") {
     auto c = told("padeiros_1000", "pt");
-    const auto issues = story::verify(c.story.paragraphs, c.story.plan, c.story.facts, *c.lang);
-    CHECK_FALSE(flags(issues, "V7"));
-    const auto& last = c.story.paragraphs.back().back().text;
-    CHECK(last.find("causa definida") != std::string::npos);
+    const auto [pi, si] = sentence_with(c, "{sewage.radius}");
+    const auto text = c.story.paragraphs[pi][si].text + " Entre os óbitos com causa definida, as causas externas pesam pouco.";
+    CHECK_FALSE(flags(check_sentence(c, pi, si, text), "V7"));
 }
 
 TEST_CASE("the numeric-only baseline misses scale errors") {

@@ -36,7 +36,7 @@ std::string least_important_optional(const Plan& plan, const std::vector<Fact>& 
     for (std::size_t pi = 0; pi < plan.paragraphs.size(); ++pi) {
         for (const auto& id : plan.paragraphs[pi]) {
             const Fact* f = find_fact(facts, id);
-            if (!f || f->mandatory || (pi == 2 && plan.paragraphs[pi].size() == 1)) continue;
+            if (!f || f->mandatory || (pi == kOutcomes && plan.paragraphs[pi].size() == 1)) continue;
             if (drop.empty() || f->importance() < lowest) {
                 drop = id;
                 lowest = f->importance();
@@ -55,6 +55,7 @@ nlohmann::json fact_json(const Fact& f, const Language& lang) {
     for (const auto& [field, slot] : f.slots) {
         nlohmann::json s{{"text", format_slot(slot, lang)}};
         if (slot.kind != Slot::Kind::Text && slot.kind != Slot::Kind::Label) s["value"] = slot.number;
+        if (slot.kind == Slot::Kind::Label) s["key"] = slot.text;
         if (auto scope = scope_of_field(field)) s["scope"] = to_string(*scope);
         slots[field] = s;
     }
@@ -155,7 +156,10 @@ nlohmann::json narrate(const Payload& payload, const Config& config, const std::
             {"plan", plan.paragraphs},
             {"trimmed_for_length", story.trimmed},
             {"facts", fact_list},
-            {"caveats", caveats}};
+            {"caveats", caveats},
+            // The 1 km peer comparison behind the peer, need_supply and territory facts, so the
+            // page can show the same figures the text cites.
+            {"reference", payload.context}};
 }
 
 }  // namespace story

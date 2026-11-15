@@ -9,6 +9,7 @@ namespace {
 
 const std::vector<std::string> kUnitOrder{"profile", "beds", "staff", "admissions", "stay", "position"};
 const std::vector<std::string> kLiving{"sewage", "precarious", "garbage", "crowding", "crowded"};
+const std::vector<std::string> kLeadCandidates{"surprise_tb", "surprise_teen", "need_supply", "peer"};
 // Pairs that measure the same thing; at most one of each is told.
 const std::vector<std::pair<std::string, std::string>> kOverlapping{{"sewage", "precarious"}, {"crowding", "crowded"}};
 // With district data, the district figure replaces the city-wide one.
@@ -36,14 +37,25 @@ Plan plan_document(std::vector<Fact>& facts, const nlohmann::json& params) {
     const double pair_boost = params.at("pair_boost").get<double>();
 
     Plan plan;
-    plan.paragraphs.resize(3);
+    plan.paragraphs.resize(4);
 
-    for (const auto& id : kUnitOrder) {
-        if (find_fact(facts, id)) plan.paragraphs[0].push_back(id);
+    // The lead is the single most important comparison: it opens the text and is never trimmed.
+    std::string lead;
+    for (Fact* f : by_importance(facts, kLeadCandidates)) {
+        if (f->importance() < min_importance) break;
+        lead = f->id;
+        f->mandatory = true;
+        plan.paragraphs[kLead].push_back(lead);
+        break;
     }
 
-    auto& surroundings = plan.paragraphs[1];
+    for (const auto& id : kUnitOrder) {
+        if (find_fact(facts, id)) plan.paragraphs[kUnit].push_back(id);
+    }
+
+    auto& surroundings = plan.paragraphs[kSurroundings];
     if (find_fact(facts, "residents")) surroundings.push_back("residents");
+    if (find_fact(facts, "territory")) surroundings.push_back("territory");
     std::vector<std::string> living;
     for (Fact* f : by_importance(facts, kLiving)) {
         if (living.size() == max_living || f->importance() < min_importance) break;
@@ -54,6 +66,10 @@ Plan plan_document(std::vector<Fact>& facts, const nlohmann::json& params) {
         if (!overlaps) living.push_back(f->id);
     }
     surroundings.insert(surroundings.end(), living.begin(), living.end());
+    for (const char* id : {"peer", "need_supply"}) {
+        const Fact* f = find_fact(facts, id);
+        if (f && lead != id && f->importance() >= min_importance) surroundings.push_back(id);
+    }
 
     Fact* network = find_fact(facts, "network");
     Fact* access = find_fact(facts, "access");
@@ -72,7 +88,7 @@ Plan plan_document(std::vector<Fact>& facts, const nlohmann::json& params) {
 
     std::vector<std::string> outcomes;
     for (auto& f : facts) {
-        if (f.theme != "outcome") continue;
+        if (f.theme != "outcome" || f.id == lead) continue;
         const bool replaced = std::any_of(kFinerScale.begin(), kFinerScale.end(), [&](const auto& pair) {
             return f.id == pair.second && find_fact(facts, pair.first);
         });
@@ -90,9 +106,10 @@ Plan plan_document(std::vector<Fact>& facts, const nlohmann::json& params) {
     }
     // District figures first, then the municipality: from the finer scale to the coarser one.
     std::stable_partition(chosen.begin(), chosen.end(), [&](const std::string& id) {
-        return find_fact(facts, id)->slots.count("district") > 0;
+        const Fact* f = find_fact(facts, id);
+        return f->slots.count("district") > 0 || f->slots.count("observed_district") > 0;
     });
-    plan.paragraphs[2] = chosen;
+    plan.paragraphs[kOutcomes] = chosen;
     return plan;
 }
 

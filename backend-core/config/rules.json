@@ -11,7 +11,9 @@
       "living": 1.0,
       "access": 0.8,
       "network": 0.6,
-      "outcome": 0.9
+      "outcome": 0.9,
+      "comparison": 1.1,
+      "tension": 1.2
     },
     "pair_boost": 1.5,
     "district_boost": 1.2,
@@ -36,7 +38,9 @@
     ],
     "recent_year": "2025",
     "epidemic_factor": 3,
-    "position_shift_min_m": 500
+    "position_shift_min_m": 500,
+    "peer_extreme": 0.8,
+    "need_high": 0.75
   },
   "rules": [
     {
@@ -173,6 +177,12 @@
       "fact": "last district outcome"
     },
     {
+      "id": "C19",
+      "note": 19,
+      "effect": "disclose",
+      "fact": "surprise_tb|surprise_teen"
+    },
+    {
       "id": "C18",
       "note": 18,
       "effect": "qualify",
@@ -186,6 +196,28 @@
       "params": {
         "max_share": 10
       }
+    },
+    {
+      "id": "C20",
+      "note": 20,
+      "effect": "suppress",
+      "fact": "peer|need_supply|territory"
+    },
+    {
+      "id": "C21",
+      "note": 23,
+      "effect": "qualify",
+      "fact": "need_supply",
+      "params": {
+        "sparse_type": 1,
+        "sparse_population": 5000
+      }
+    },
+    {
+      "id": "C21b",
+      "note": 23,
+      "effect": "disclose",
+      "fact": "need_supply"
     }
   ]
 }

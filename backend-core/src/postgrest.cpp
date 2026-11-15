@@ -62,6 +62,15 @@ nlohmann::json PostgrestClient::rpc(const std::string& function, const nlohmann:
 }
 
 Reference PostgrestClient::load_reference() const {
+    // The free-tier database can time out on the first, cold call; one retry covers it.
+    try {
+        return load_reference_once();
+    } catch (const std::runtime_error&) {
+        return load_reference_once();
+    }
+}
+
+Reference PostgrestClient::load_reference_once() const {
     Reference r;
     for (const auto& row : rpc("municipal_indicators", nlohmann::json::object())) r.municipalities.push_back(row);
     for (const auto& row : rpc("district_indicators", nlohmann::json::object())) r.districts.push_back(row);
@@ -69,6 +78,8 @@ Reference PostgrestClient::load_reference() const {
         if (row.at("media_dias_permanencia").is_number()) r.hospital_stays.push_back(row.at("media_dias_permanencia"));
     }
     std::sort(r.hospital_stays.begin(), r.hospital_stays.end());
+    for (const auto& row : rpc("surroundings_reference", nlohmann::json::object())) r.surroundings.push_back(row);
+    for (const auto& row : rpc("expected_outcomes", nlohmann::json::object())) r.expected.push_back(row);
     return r;
 }
 

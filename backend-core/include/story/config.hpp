@@ -26,6 +26,7 @@ struct Language {
     std::map<std::string, std::string> comparatives;  // by tier name
     std::map<std::string, std::string> labels;
     std::map<std::string, std::string> constants;
+    std::map<std::string, std::string> connectives;   // contrast, addition
     std::map<std::string, CaveatText> caveats;        // "rule" or "rule.variant"
     std::vector<std::pair<Scope, std::regex>> scope_markers;
     std::map<std::string, std::vector<std::regex>> direction_words;  // higher, lower, similar, times

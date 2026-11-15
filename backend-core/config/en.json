@@ -2,7 +2,7 @@
   "code": "en",
   "decimal": ".",
   "thousands": ",",
-  "max_words": 280,
+  "max_words": 320,
   "templates": {
     "profile": "{profile.name} is {profile.type} {profile.network}, serving {profile.flow}.",
     "profile.noflow": "{profile.name} is {profile.type} {profile.network}.",
@@ -42,7 +42,18 @@
     "mortality": "Among deaths of residents aged {k.ages} with a defined cause between {mortality.period}, the most frequent group was {mortality.cause}: {mortality.municipality} of deaths in the municipality of {mortality.municipality_name}, <cmp> {mortality.region} in the metropolitan region.",
     "mortality.small": "In the municipality of {mortality.municipality_name}, there <pl:mortality.count_municipality|was|were> {mortality.count_municipality} <pl:mortality.count_municipality|death|deaths> of residents aged {k.ages} with a defined cause between {mortality.period}; the most frequent group was {mortality.cause}.",
     "network.one_public": "There is {network.count_radius} other health facility in the radius, public or providing SUS care.",
-    "network.one_private": "There is {network.count_radius} other health facility in the radius, private and outside SUS."
+    "network.one_private": "There is {network.count_radius} other health facility in the radius, private and outside SUS.",
+    "peer": "Among the {peer.count_group} {peer.group} facilities mapped in the region, the {peer.extent_radius} radius around this one is among the {peer.rank} with {peer.indicator}.",
+    "territory": "By its profile, the {territory.extent_radius} radius around this facility is of the type «{territory.type}», like that of {territory.count_group} of the {territory.total} facilities mapped in the region.",
+    "surprise_tb.above": "Tuberculosis in the {surprise_tb.district_name} district was above what the district's income and housing predict: there were {surprise_tb.observed_district} cases between {surprise_tb.period}, where the model expected about {surprise_tb.expected_district}, in a range of {surprise_tb.lower_district} to {surprise_tb.upper_district}.",
+    "surprise_tb.below": "Tuberculosis in the {surprise_tb.district_name} district was below what the district's income and housing predict: there were {surprise_tb.observed_district} cases between {surprise_tb.period}, where the model expected about {surprise_tb.expected_district}, in a range of {surprise_tb.lower_district} to {surprise_tb.upper_district}.",
+    "surprise_teen.above": "Births to mothers under {k.twenty} in the {surprise_teen.district_name} district were above what the district's income and housing predict: there were {surprise_teen.observed_district} between {surprise_teen.period}, where the model expected about {surprise_teen.expected_district}, in a range of {surprise_teen.lower_district} to {surprise_teen.upper_district}.",
+    "surprise_teen.below": "Births to mothers under {k.twenty} in the {surprise_teen.district_name} district were below what the district's income and housing predict: there were {surprise_teen.observed_district} between {surprise_teen.period}, where the model expected about {surprise_teen.expected_district}, in a range of {surprise_teen.lower_district} to {surprise_teen.upper_district}.",
+    "need_supply.pressure_radius": "In the {need_supply.extent_radius} radius, {need_supply.deprived_radius} of residents live in tracts with at least one deprivation (precarious sewage, crowding, no garbage collection or low income), more than around {need_supply.need_rank} of the region's {need_supply.count_group} public primary care units; and each public primary care unit in the radius has about {need_supply.load_radius} residents on average, more than {need_supply.load_rank} of them.",
+    "need_supply.served_radius": "In the {need_supply.extent_radius} radius, {need_supply.deprived_radius} of residents live in tracts with at least one deprivation (precarious sewage, crowding, no garbage collection or low income), more than around {need_supply.need_rank} of the region's {need_supply.count_group} public primary care units; even so, each public primary care unit in the radius has about {need_supply.load_radius} residents on average, fewer than {need_supply.load_rank} of them.",
+    "need_supply.pressure": "In this unit's estimated catchment, with the region's residents split among the public primary care units nearest each home, live about {need_supply.served_catchment} people; {need_supply.deprived_catchment} of them live in tracts with at least one deprivation (precarious sewage, crowding, no garbage collection or low income), more than around {need_supply.need_rank} of the region's {need_supply.count_group} public primary care units, and that is more people per unit than in {need_supply.load_rank} of them.",
+    "need_supply.served": "In this unit's estimated catchment, with the region's residents split among the public primary care units nearest each home, live about {need_supply.served_catchment} people; {need_supply.deprived_catchment} of them live in tracts with at least one deprivation (precarious sewage, crowding, no garbage collection or low income), more than around {need_supply.need_rank} of the region's {need_supply.count_group} public primary care units; even so, that is fewer people per unit than in {need_supply.load_rank} of them.",
+    "need_supply.sparse_radius": "In the {need_supply.extent_radius} radius, {need_supply.deprived_radius} of residents live in tracts with at least one deprivation (precarious sewage, crowding, no garbage collection or low income), more than around {need_supply.need_rank} of the region's {need_supply.count_group} public primary care units; the radius has about {need_supply.load_radius} residents per public primary care unit, but it covers only part of the territory the unit serves, and in a sparsely populated area that does not mean spare capacity."
   },
   "comparatives": {
     "similar": "close to",
@@ -138,6 +149,20 @@
     "C10.district_municipality": {
       "text": "There are no disease data for areas as small as the radius: the following figures are for the district and the municipality.",
       "marker": "no disease data"
+    },
+    "C19": {
+      "text": "The model uses only census income, housing and sanitation: the difference points to factors it does not measure, without saying which.",
+      "marker": "does not measure"
+    },
+    "C20": {
+      "marker": "radius"
+    },
+    "C21": {
+      "marker": "does not mean spare capacity"
+    },
+    "C21b": {
+      "text": "The unit is close to the edge of the metropolitan region, and its estimated catchment leaves out residents of neighbouring municipalities outside it.",
+      "marker": "edge of the metropolitan region"
     }
   },
   "labels": {
@@ -191,7 +216,29 @@
     "cause:x": "diseases of the respiratory system",
     "cause:xx": "external causes (violence and accidents)",
     "cause:xi": "diseases of the digestive system",
-    "cause:i": "infectious and parasitic diseases"
+    "cause:i": "infectious and parasitic diseases",
+    "group:primary": "primary care",
+    "group:hospital": "inpatient (hospital)",
+    "group:emergency": "emergency and urgent care",
+    "group:specialised": "specialised and mental health care",
+    "group:diagnostic": "diagnostic and therapy",
+    "peer:deprived:worse": "the most residents in tracts with some deprivation",
+    "peer:deprived:better": "the fewest residents in tracts with some deprivation",
+    "peer:precarious:worse": "the most households with precarious sewage",
+    "peer:precarious:better": "the fewest households with precarious sewage",
+    "peer:off_network:worse": "the most households off the sewage network",
+    "peer:off_network:better": "the fewest households off the sewage network",
+    "peer:no_garbage:worse": "the most households without garbage collection",
+    "peer:no_garbage:better": "the fewest households without garbage collection",
+    "peer:crowded:worse": "the most residents in crowded tracts",
+    "peer:crowded:better": "the fewest residents in crowded tracts",
+    "peer:far_primary:worse": "the most residents far from public primary care",
+    "peer:far_primary:better": "the fewest residents far from public primary care",
+    "peer:income:worse": "the lowest mean income",
+    "peer:income:better": "the highest mean income",
+    "territory:1": "rural edge with precarious sanitation",
+    "territory:2": "crowded urban periphery, lower income",
+    "territory:3": "consolidated urban area, high income"
   },
   "constants": {
     "per100k": "100,000",
@@ -215,6 +262,9 @@
     ],
     "region": [
       "metropolitan region"
+    ],
+    "catchment": [
+      "\\bcatchment\\b"
     ]
   },
   "direction_words": {
@@ -274,7 +324,8 @@
       "district": "district",
       "city": "city",
       "municipality": "municipality",
-      "region": "metropolitan region"
+      "region": "metropolitan region",
+      "catchment": "catchment"
     },
     "opposites": {
       "above": "below",
@@ -283,5 +334,9 @@
       "times the": "times lower than the"
     },
     "causal_clause": "due to living conditions in the surroundings"
+  },
+  "connectives": {
+    "contrast": "On the other hand,",
+    "addition": "In addition,"
   }
 }

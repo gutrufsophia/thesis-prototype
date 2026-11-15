@@ -1,4 +1,5 @@
 #include <chrono>
+#include <cstdio>
 #include <cstdlib>
 #include <fstream>
 #include <iostream>
@@ -39,6 +40,7 @@ int usage() {
     std::cerr << "usage:\n"
                  "  storyteller serve\n"
                  "  storyteller payload CNES RADIUS_M [--public-only]   (prints a fixture)\n"
+                 "  storyteller payloads RADIUS_M DIR CNES...            (writes DIR/CNES_RADIUS.json)\n"
                  "  storyteller narrate FIXTURE [pt|en] [--text]\n"
                  "  storyteller mutate FIXTURE... (fault-injection table, both languages)\n";
     return 2;
@@ -113,6 +115,30 @@ int dump_payload(int argc, char** argv) {
     std::cout << client.payload(std::stoll(argv[2]), std::stoi(argv[3]), public_only, reference).to_json().dump(1)
               << '\n';
     return 0;
+}
+
+int dump_payloads(int argc, char** argv) {
+    if (argc < 5) return usage();
+    const auto client = client_from_env();
+    const auto reference = client.load_reference();
+    const int radius = std::stoi(argv[2]);
+    const std::string dir = argv[3];
+    int failures = 0;
+    for (int i = 4; i < argc; ++i) {
+        const std::string path = dir + "/" + argv[i] + "_" + std::to_string(radius) + ".json";
+        try {
+            const auto payload = client.payload(std::stoll(argv[i]), radius, false, reference);
+            {
+                std::ofstream out(path + ".tmp");
+                out << payload.to_json().dump(1) << '\n';
+            }
+            std::rename((path + ".tmp").c_str(), path.c_str());
+        } catch (const std::exception& e) {
+            std::cerr << argv[i] << ": " << e.what() << '\n';
+            ++failures;
+        }
+    }
+    return failures ? 1 : 0;
 }
 
 int narrate_fixture(const story::Config& config, int argc, char** argv) {
@@ -207,6 +233,8 @@ int main(int argc, char** argv) {
             status = serve(config);
         } else if (mode == "payload") {
             status = dump_payload(argc, argv);
+        } else if (mode == "payloads") {
+            status = dump_payloads(argc, argv);
         } else if (mode == "narrate") {
             status = narrate_fixture(config, argc, argv);
         } else if (mode == "mutate") {

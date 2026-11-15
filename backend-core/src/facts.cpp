@@ -57,6 +57,19 @@ double sum_years(const json& row, const std::string& prefix, const std::vector<s
     return total;
 }
 
+int direction(std::optional<Tier> tier) {
+    if (!tier) return 0;
+    switch (*tier) {
+        case Tier::Higher:
+        case Tier::MuchHigher:
+        case Tier::TimesHigher: return 1;
+        case Tier::Lower:
+        case Tier::MuchLower: return -1;
+        case Tier::Similar: return 0;
+    }
+    return 0;
+}
+
 double theme_weight(const json& params, const std::string& theme) {
     return params.at("theme_weights").value(theme, 1.0);
 }
@@ -104,6 +117,7 @@ std::optional<Fact> living_fact(const Payload& p, const json& params, const std:
     const auto local = compare(*radius, *municipality, is_percent, params);
     const auto wide = compare(*radius, *region, is_percent, params);
     f.tier = local.tier;
+    f.valence = direction(local.tier);  // every living-condition indicator here is "higher is worse"
     if (local.tier == Tier::TimesHigher) f.slots["ratio"] = Slot::ratio(local.ratio);
     // The municipality is the primary reference; against the regional average almost any
     // central or peripheral area looks exceptional, so the region counts for less.
@@ -306,6 +320,7 @@ Fact outcome_fact(const std::string& id, const json& params, double local, doubl
     f.slots[reference_scope] = slot(reference);
     const auto c = compare(local, reference, is_percent, params);
     f.tier = c.tier;
+    f.valence = direction(c.tier);
     if (c.tier == Tier::TimesHigher) f.slots["ratio"] = Slot::ratio(c.ratio);
     f.salience = c.salience;
     f.weight = theme_weight(params, "outcome");
@@ -417,6 +432,7 @@ void add_municipal_facts(const Payload& p, const json& params, std::vector<Fact>
         f.slots["ill_defined_municipality"] = Slot::percent(
             percent(number_or(home, std::string("obitos_cap_") + kIllDefined), number_or(home, "obitos_total")));
         f.slots["period"] = Slot::label("period:deaths");
+        f.valence = 0;
         facts.push_back(f);
     }
 }
@@ -459,6 +475,125 @@ void add_district_facts(const Payload& p, const json& params, std::vector<Fact>&
         f.slots["count_district"] = Slot::count(number_or(p.district, "nasc_mae_menor_20"));
         f.slots["period"] = Slot::label("period:births");
         f.weight *= boost;
+        facts.push_back(f);
+    }
+}
+
+Slot rank(double share) { return {Slot::Kind::Percent, std::max(1.0, std::ceil(share * 100)), 0, {}}; }
+
+// Facts that place the surroundings among peers. They describe the reference radius (1 km)
+// whatever radius is on screen; rule C20 suppresses them when the two differ.
+void add_reference_facts(const Payload& p, const json& params, std::vector<Fact>& facts) {
+    const auto& ctx = p.context;
+    if (!ctx.is_object() || ctx.empty()) return;
+    const double extent = ctx.value("radius", 1000.0);
+    const std::string group = ctx.value("group", "");
+    const auto& percentiles = ctx.at("percentiles");
+    const double cut = param(params, "peer_extreme");
+
+    bool told_need = false;
+    if (ctx.contains("need_percentile") && ctx.contains("load_percentile")) {
+        const double need = ctx.at("need_percentile").get<double>();
+        const double load = ctx.at("load_percentile").get<double>();
+        const double high = param(params, "need_high");
+        if (need >= high && (load >= high || load <= 1 - high)) {
+            const bool catchment = ctx.value("supply_measure", "") == "catchment";
+            const auto& values = ctx.at("values");
+            Fact f;
+            f.id = "need_supply";
+            f.kind = "composition";
+            f.theme = "comparison";
+            f.variant = std::string(load >= high ? "pressure" : "served") + (catchment ? "" : "_radius");
+            f.salience = 1;
+            f.weight = theme_weight(params, "tension");
+            f.valence = load >= high ? 1 : 0;
+            if (catchment) {
+                f.slots["served_catchment"] = Slot::estimate(values.at("served").get<double>());
+                f.slots["deprived_catchment"] = Slot::percent(values.at("served_deprived").get<double>());
+            } else {
+                f.slots["extent_radius"] = Slot::distance(extent);
+                f.slots["deprived_radius"] = Slot::percent(values.at("deprived").get<double>());
+                f.slots["load_radius"] = Slot::estimate(values.at("load").get<double>());
+            }
+            f.slots["need_rank"] = Slot{Slot::Kind::Percent, std::floor(need * 100), 0, {}};
+            f.slots["load_rank"] = Slot{Slot::Kind::Percent, std::floor((load >= high ? load : 1 - load) * 100), 0, {}};
+            f.slots["count_group"] = Slot::count(ctx.value("public_primary_size", 0.0));
+            facts.push_back(f);
+            told_need = true;
+        }
+    }
+
+
+    // Indicators where a higher value is worse, and income, where it is better.
+    const std::vector<std::pair<std::string, int>> indicators{
+        {"deprived", 1}, {"precarious", 1}, {"off_network", 1}, {"no_garbage", 1},
+        {"crowded", 1},  {"far_primary", 1}, {"income", -1}};
+    std::string best;
+    double worse_share = 0.5, extremeness = 0;
+    for (const auto& [name, polarity] : indicators) {
+        if (!percentiles.contains(name)) continue;
+        if (name == "far_primary" && group == "primary") continue;  // see rule C14
+        if (name == "deprived" && told_need) continue;  // already the subject of need_supply
+        const double pct = percentiles.at(name).get<double>();
+        const double worse = polarity > 0 ? pct : 1 - pct;
+        if (std::fabs(2 * worse - 1) > extremeness) {
+            extremeness = std::fabs(2 * worse - 1);
+            worse_share = worse;
+            best = name;
+        }
+    }
+    if (!best.empty() && extremeness >= cut) {
+        const bool worse = worse_share >= 0.5;
+        Fact f;
+        f.id = "peer";
+        f.kind = "rank";
+        f.theme = "comparison";
+        f.salience = extremeness;
+        f.weight = theme_weight(params, "comparison");
+        f.valence = worse ? 1 : -1;
+        f.slots["count_group"] = Slot::count(ctx.value("group_size", 0.0));
+        f.slots["group"] = Slot::label("group:" + group);
+        f.slots["extent_radius"] = Slot::distance(extent);
+        f.slots["rank"] = rank(worse ? 1 - worse_share : worse_share);
+        f.slots["indicator"] = Slot::label("peer:" + best + (worse ? ":worse" : ":better"));
+        facts.push_back(f);
+    }
+
+    if (field_or(ctx, "territory_type", 0) > 0) {
+        Fact f;
+        f.id = "territory";
+        f.kind = "profile";
+        f.theme = "comparison";
+        f.salience = 0.5;
+        f.weight = theme_weight(params, "comparison");
+        f.slots["type"] = Slot::label("territory:" + std::to_string(ctx.at("territory_type").get<int>()));
+        f.slots["extent_radius"] = Slot::distance(extent);
+        f.slots["count_group"] = Slot::count(ctx.value("type_size", 0.0));
+        f.slots["total"] = Slot::count(ctx.value("facilities", 0.0));
+        facts.push_back(f);
+    }
+}
+
+// An area whose count falls outside the model's 95% prediction interval (analysis/outcome_relations.py).
+void add_surprise_facts(const Payload& p, const json& params, std::vector<Fact>& facts) {
+    for (const auto& row : p.expected) {
+        const std::string flag = field_or<std::string>(row, "flag", "");
+        if (flag.empty() || field_or<std::string>(row, "scale", "") != "district") continue;
+        const std::string outcome = row.value("outcome", "");
+        Fact f;
+        f.id = "surprise_" + outcome;
+        f.kind = "contrast";
+        f.theme = "outcome";
+        f.variant = flag;
+        f.salience = 1;
+        f.weight = theme_weight(params, "outcome") * param(params, "district_boost");
+        f.valence = flag == "above" ? 1 : -1;
+        f.slots["district_name"] = Slot::text_value(row.value("name", ""));
+        f.slots["observed_district"] = Slot::count(row.value("observed", 0.0));
+        f.slots["expected_district"] = Slot::count(std::round(row.value("expected", 0.0)));
+        f.slots["lower_district"] = Slot::count(std::round(row.value("lower", 0.0)));
+        f.slots["upper_district"] = Slot::count(std::round(row.value("upper", 0.0)));
+        f.slots["period"] = Slot::label(outcome == "tb" ? "period:sinan" : "period:births");
         facts.push_back(f);
     }
 }
@@ -524,7 +659,9 @@ std::vector<Fact> extract_facts(const Payload& payload, const json& params) {
     std::vector<Fact> facts;
     add_unit_facts(payload, params, facts);
     add_radius_facts(payload, params, facts);
+    add_reference_facts(payload, params, facts);
     add_district_facts(payload, params, facts);
+    add_surprise_facts(payload, params, facts);
     add_municipal_facts(payload, params, facts);
     return facts;
 }
