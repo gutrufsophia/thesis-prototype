@@ -9,7 +9,9 @@ namespace {
 
 const std::vector<std::string> kUnitOrder{"profile", "beds", "staff", "admissions", "stay", "position"};
 const std::vector<std::string> kLiving{"sewage", "precarious", "garbage", "crowding", "crowded"};
-const std::vector<std::string> kLeadCandidates{"surprise_tb", "surprise_teen", "need_supply", "peer"};
+const std::vector<std::string> kPrimaryCareLeads{"surprise_tb", "surprise_teen", "need_supply", "peer"};
+const std::vector<std::string> kHospitals{"Hospital Geral", "Hospital Especializado", "Unidade Mista"};
+const std::vector<std::string> kPrimaryCare{"Centro de Saúde/UBS", "Posto de Saúde"};
 // Pairs that measure the same thing; at most one of each is told.
 const std::vector<std::pair<std::string, std::string>> kOverlapping{{"sewage", "precarious"}, {"crowding", "crowded"}};
 // With district data, the district figure replaces the city-wide one.
@@ -30,7 +32,19 @@ std::vector<Fact*> by_importance(std::vector<Fact>& facts, const std::vector<std
 
 }  // namespace
 
-Plan plan_document(std::vector<Fact>& facts, const nlohmann::json& params) {
+std::vector<std::string> lead_candidates(const Payload& payload, const nlohmann::json& params) {
+    const auto& f = payload.facility;
+    const std::string type = f.is_object() ? f.value("tipo_equipamento", "") : "";
+    const auto beds = f.is_object() && f.contains("LEITOS_EXISTENTES") && f.at("LEITOS_EXISTENTES").is_number()
+                          ? f.at("LEITOS_EXISTENTES").get<double>()
+                          : 0.0;
+    if (contains(kHospitals, type) && beds >= params.at("hub_beds").get<double>()) return {};
+    if (contains(kPrimaryCare, type)) return kPrimaryCareLeads;
+    return {"peer"};
+}
+
+Plan plan_document(std::vector<Fact>& facts, const nlohmann::json& params,
+                   const std::vector<std::string>& lead_candidates) {
     const double min_importance = params.at("min_importance").get<double>();
     const auto max_living = params.at("max_living").get<std::size_t>();
     const auto max_outcomes = params.at("max_outcomes").get<std::size_t>();
@@ -41,7 +55,7 @@ Plan plan_document(std::vector<Fact>& facts, const nlohmann::json& params) {
 
     // The lead is the single most important comparison: it opens the text and is never trimmed.
     std::string lead;
-    for (Fact* f : by_importance(facts, kLeadCandidates)) {
+    for (Fact* f : by_importance(facts, lead_candidates)) {
         if (f->importance() < min_importance) break;
         lead = f->id;
         f->mandatory = true;

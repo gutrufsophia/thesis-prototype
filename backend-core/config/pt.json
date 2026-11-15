@@ -2,7 +2,7 @@
   "code": "pt",
   "decimal": ",",
   "thousands": ".",
-  "max_words": 320,
+  "max_words": 340,
   "templates": {
     "profile": "{profile.name} é {profile.type} {profile.network}, com atendimento {profile.flow}.",
     "profile.noflow": "{profile.name} é {profile.type} {profile.network}.",
@@ -51,9 +51,12 @@
     "surprise_teen.below": "Os nascimentos de mães com menos de {k.twenty} anos no distrito {surprise_teen.district_name} ficaram abaixo do que a renda e a moradia do distrito preveem: foram {surprise_teen.observed_district} entre {surprise_teen.period}, quando o modelo esperava cerca de {surprise_teen.expected_district}, numa faixa de {surprise_teen.lower_district} a {surprise_teen.upper_district}.",
     "need_supply.pressure_radius": "No raio de {need_supply.extent_radius}, {need_supply.deprived_radius} dos moradores vivem em setores com ao menos uma privação (esgoto precário, adensamento, falta de coleta ou renda baixa), mais que em {need_supply.need_rank} das {need_supply.count_group} unidades básicas públicas da região; e cada unidade básica pública do raio tem, em média, cerca de {need_supply.load_radius} moradores, mais que em {need_supply.load_rank} delas.",
     "need_supply.served_radius": "No raio de {need_supply.extent_radius}, {need_supply.deprived_radius} dos moradores vivem em setores com ao menos uma privação (esgoto precário, adensamento, falta de coleta ou renda baixa), mais que em {need_supply.need_rank} das {need_supply.count_group} unidades básicas públicas da região; ainda assim, cada unidade básica pública do raio tem, em média, cerca de {need_supply.load_radius} moradores, menos que em {need_supply.load_rank} delas.",
-    "need_supply.pressure": "Na área de atendimento estimada desta unidade, com os moradores da região divididos entre as unidades básicas públicas mais próximas de cada casa, vivem cerca de {need_supply.served_catchment} pessoas; {need_supply.deprived_catchment} delas moram em setores com ao menos uma privação (esgoto precário, adensamento, falta de coleta ou renda baixa), mais que em {need_supply.need_rank} das {need_supply.count_group} unidades básicas públicas da região, e são mais pessoas por unidade do que em {need_supply.load_rank} delas.",
-    "need_supply.served": "Na área de atendimento estimada desta unidade, com os moradores da região divididos entre as unidades básicas públicas mais próximas de cada casa, vivem cerca de {need_supply.served_catchment} pessoas; {need_supply.deprived_catchment} delas moram em setores com ao menos uma privação (esgoto precário, adensamento, falta de coleta ou renda baixa), mais que em {need_supply.need_rank} das {need_supply.count_group} unidades básicas públicas da região; ainda assim, são menos pessoas por unidade do que em {need_supply.load_rank} delas.",
-    "need_supply.sparse_radius": "No raio de {need_supply.extent_radius}, {need_supply.deprived_radius} dos moradores vivem em setores com ao menos uma privação (esgoto precário, adensamento, falta de coleta ou renda baixa), mais que em {need_supply.need_rank} das {need_supply.count_group} unidades básicas públicas da região; o raio tem cerca de {need_supply.load_radius} moradores por unidade básica pública, mas cobre só parte do território que a unidade atende, e em área pouco povoada isso não indica oferta folgada."
+    "need_supply.pressure": "Na área de atendimento estimada desta unidade (os moradores divididos entre as UBS públicas mais perto de cada casa) vivem cerca de {need_supply.served_catchment} pessoas; {need_supply.deprived_catchment} delas em setores com alguma privação (esgoto precário, adensamento, falta de coleta ou renda baixa), mais que em {need_supply.need_rank} das {need_supply.count_group} UBS públicas da região; sem equipe de Saúde da Família ou de Atenção Primária registrada no CNES, a unidade tem mais pessoas do que {need_supply.load_rank} delas.",
+    "need_supply.served": "Na área de atendimento estimada desta unidade (os moradores divididos entre as UBS públicas mais perto de cada casa) vivem cerca de {need_supply.served_catchment} pessoas; {need_supply.deprived_catchment} delas em setores com alguma privação (esgoto precário, adensamento, falta de coleta ou renda baixa), mais que em {need_supply.need_rank} das {need_supply.count_group} UBS públicas da região; sem equipe de Saúde da Família ou de Atenção Primária registrada no CNES, a unidade tem menos pessoas do que {need_supply.load_rank} delas.",
+    "need_supply.sparse_radius": "No raio de {need_supply.extent_radius}, {need_supply.deprived_radius} dos moradores vivem em setores com ao menos uma privação (esgoto precário, adensamento, falta de coleta ou renda baixa), mais que em {need_supply.need_rank} das {need_supply.count_group} unidades básicas públicas da região; o raio tem cerca de {need_supply.load_radius} moradores por unidade básica pública, mas cobre só parte do território que a unidade atende, e em área pouco povoada isso não indica oferta folgada.",
+    "need_supply.above": "Na área de atendimento estimada desta unidade (os moradores divididos entre as UBS públicas mais perto de cada casa) vivem cerca de {need_supply.served_catchment} pessoas; {need_supply.deprived_catchment} delas em setores com alguma privação (esgoto precário, adensamento, falta de coleta ou renda baixa), mais que em {need_supply.need_rank} das {need_supply.count_group} UBS públicas da região, e são cerca de {need_supply.per_team_catchment} por equipe de atenção básica, acima da faixa de {k.pnab_low} a {k.pnab_high} da Política Nacional de Atenção Básica.",
+    "need_supply.within": "Na área de atendimento estimada desta unidade (os moradores divididos entre as UBS públicas mais perto de cada casa) vivem cerca de {need_supply.served_catchment} pessoas; {need_supply.deprived_catchment} delas em setores com alguma privação (esgoto precário, adensamento, falta de coleta ou renda baixa), mais que em {need_supply.need_rank} das {need_supply.count_group} UBS públicas da região, e são cerca de {need_supply.per_team_catchment} por equipe de atenção básica, dentro da faixa de {k.pnab_low} a {k.pnab_high} da Política Nacional de Atenção Básica.",
+    "need_supply.below": "Na área de atendimento estimada desta unidade (os moradores divididos entre as UBS públicas mais perto de cada casa) vivem cerca de {need_supply.served_catchment} pessoas; {need_supply.deprived_catchment} delas em setores com alguma privação (esgoto precário, adensamento, falta de coleta ou renda baixa), mais que em {need_supply.need_rank} das {need_supply.count_group} UBS públicas da região; ainda assim, são cerca de {need_supply.per_team_catchment} por equipe de atenção básica, abaixo da faixa de {k.pnab_low} a {k.pnab_high} da Política Nacional de Atenção Básica, que admite menos em áreas vulneráveis."
   },
   "comparatives": {
     "similar": "próximo de",
@@ -161,8 +164,12 @@
       "marker": "não indica oferta folgada"
     },
     "C21b": {
-      "text": "A unidade fica perto do limite da região metropolitana, e a área de atendimento estimada não inclui moradores de municípios vizinhos de fora dela.",
+      "text": "Perto do limite da região metropolitana, a área de atendimento não inclui moradores de municípios vizinhos de fora dela.",
       "marker": "limite da região metropolitana"
+    },
+    "C22": {
+      "text": "As pessoas da área de atendimento moram em média a {%.distance_catchment} da unidade em linha reta; {%.far_catchment} delas, a mais de {k.two_km}.",
+      "marker": "delas, a mais de"
     }
   },
   "labels": {
@@ -245,7 +252,10 @@
     "twenty": "20",
     "ages": "30 a 69",
     "one_km": "1 km",
-    "top_decile": "10%"
+    "top_decile": "10%",
+    "pnab_low": "2.000",
+    "pnab_high": "3.500",
+    "two_km": "2 km"
   },
   "scope_markers": {
     "radius": [
@@ -338,7 +348,10 @@
       "acima de": "abaixo de",
       "abaixo de": "acima de",
       "próximo de": "acima de",
-      "vezes os": "vezes menor que os"
+      "vezes os": "vezes menor que os",
+      "acima da faixa": "abaixo da faixa",
+      "abaixo da faixa": "acima da faixa",
+      "dentro da faixa": "acima da faixa"
     },
     "causal_clause": "devido às condições de vida do entorno"
   },

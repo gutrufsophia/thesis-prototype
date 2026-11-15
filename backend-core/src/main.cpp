@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <chrono>
 #include <cstdio>
 #include <cstdlib>
@@ -11,9 +12,12 @@
 #include <curl/curl.h>
 #include <httplib.h>
 
+#include "story/caveats.hpp"
 #include "story/config.hpp"
+#include "story/facts.hpp"
 #include "story/mutation.hpp"
 #include "story/narrative.hpp"
+#include "story/planner.hpp"
 #include "story/postgrest.hpp"
 #include "story/realiser.hpp"
 #include "story/verifier.hpp"
@@ -42,7 +46,8 @@ int usage() {
                  "  storyteller payload CNES RADIUS_M [--public-only]   (prints a fixture)\n"
                  "  storyteller payloads RADIUS_M DIR CNES...            (writes DIR/CNES_RADIUS.json)\n"
                  "  storyteller narrate FIXTURE [pt|en] [--text]\n"
-                 "  storyteller mutate FIXTURE... (fault-injection table, both languages)\n";
+                 "  storyteller mutate FIXTURE... (fault-injection table, both languages)\n"
+                 "  storyteller triggers FIXTURE... (caveat rules the data trigger, every fact planned)\n";
     return 2;
 }
 
@@ -220,6 +225,41 @@ int mutation_table(const story::Config& config, int argc, char** argv) {
     return 0;
 }
 
+// E1 reference: which caveat rules the data trigger when every extracted fact is told, so the
+// comparison with annotators measures the rules and not the content selection.
+int trigger_table(const story::Config& config, int argc, char** argv) {
+    if (argc < 3) return usage();
+    nlohmann::json out = nlohmann::json::array();
+    for (int i = 2; i < argc; ++i) {
+        std::ifstream in(argv[i]);
+        const auto payload = story::Payload::from_json(nlohmann::json::parse(in));
+        auto facts = story::extract_facts(payload, config.params);
+        auto caveats = story::apply_pre_rules(payload, config, facts);
+        story::Plan plan;
+        plan.paragraphs.resize(4);
+        for (const auto& f : facts) {
+            const bool unit = f.id == "profile" || f.id == "beds" || f.id == "staff" || f.id == "admissions" ||
+                              f.id == "stay" || f.id == "position";
+            plan.paragraphs[f.theme == "outcome" ? story::kOutcomes : unit ? story::kUnit : story::kSurroundings].push_back(f.id);
+        }
+        // finer scale first, as the planner orders outcomes
+        auto& outcomes = plan.paragraphs[story::kOutcomes];
+        std::stable_partition(outcomes.begin(), outcomes.end(), [&](const std::string& id) {
+            const auto* f = story::find_fact(facts, id);
+            return f->slots.count("district") > 0 || f->slots.count("observed_district") > 0;
+        });
+        const auto post = story::apply_post_rules(payload, config, facts, plan);
+        caveats.insert(caveats.end(), post.begin(), post.end());
+        nlohmann::json rules = nlohmann::json::array();
+        for (const auto& c : caveats) rules.push_back({{"rule", c.rule}, {"variant", c.variant}, {"fact", c.fact}});
+        nlohmann::json ids = nlohmann::json::array();
+        for (const auto& f : facts) ids.push_back(f.id);
+        out.push_back({{"fixture", argv[i]}, {"rules", rules}, {"facts", ids}});
+    }
+    std::cout << out.dump(1) << '\n';
+    return 0;
+}
+
 }  // namespace
 
 int main(int argc, char** argv) {
@@ -239,6 +279,8 @@ int main(int argc, char** argv) {
             status = narrate_fixture(config, argc, argv);
         } else if (mode == "mutate") {
             status = mutation_table(config, argc, argv);
+        } else if (mode == "triggers") {
+            status = trigger_table(config, argc, argv);
         } else {
             status = usage();
         }

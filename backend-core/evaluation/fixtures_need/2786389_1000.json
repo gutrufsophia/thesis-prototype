@@ -1,86 +1,90 @@
 {
  "city": null,
  "context": {
-  "edge_m": 8179.0,
+  "edge_m": 16551.0,
   "facilities": 6687,
   "group": "primary",
   "group_size": 1388,
-  "load_percentile": 0.09992401215805471,
-  "mean_catchment_m": 4516.0,
+  "load_percentile": 0.14399696048632218,
+  "mean_catchment_m": 4619.0,
   "near_edge": false,
-  "need_percentile": 0.9707446808510638,
+  "need_percentile": 0.9669452887537994,
   "percentiles": {
-   "crowded": 0.9945965417867435,
-   "deprived": 0.9600144092219021,
-   "far_primary": 0.8406633020908435,
-   "income": 0.24387608069164265,
-   "no_garbage": 0.7777377521613833,
-   "off_network": 0.9520893371757925,
-   "precarious": 0.9697406340057637
+   "crowded": 0.8994956772334294,
+   "deprived": 0.890850144092219,
+   "far_primary": 0.9379956741167988,
+   "income": 0.795028818443804,
+   "no_garbage": 0.659221902017291,
+   "off_network": 0.9888328530259366,
+   "precarious": 0.9520893371757925
   },
   "public_primary_size": 1316,
   "radius": 1000,
   "supply_measure": "catchment",
+  "team_equivalents": 1.5,
   "territory_type": 1,
   "type_size": 137,
   "values": {
-   "crowded": 78.3,
-   "deprived": 78.68284228769497,
-   "far_primary": 4.1,
-   "income": 2192.0,
-   "no_garbage": 0.5,
-   "off_network": 72.9,
-   "population": 1731.0,
-   "precarious": 40.2,
-   "served": 5448.0,
-   "served_deprived": 80.1
+   "crowded": 33.7,
+   "deprived": 55.07088331515813,
+   "far_primary": 14.1,
+   "income": 4251.0,
+   "no_garbage": 0.29999999999999716,
+   "off_network": 96.7,
+   "population": 917.0,
+   "precarious": 31.6,
+   "served": 4180.0,
+   "served_deprived": 79.6,
+   "served_far": 74.5,
+   "served_mean_distance": 2823.0,
+   "served_per_team": 2786.0
   }
  },
  "district": null,
  "districts": null,
  "expected": [
   {
-   "code": "353060",
-   "expected": 1028.7,
+   "code": "351500",
+   "expected": 527.4,
    "flag": null,
-   "lower": 394.5,
-   "name": "Mogi das Cruzes",
-   "observed": 843.0,
+   "lower": 76.0,
+   "name": "Embu das Artes",
+   "observed": 603.0,
    "outcome": "tb",
    "scale": "municipality",
-   "upper": 1662.8
+   "upper": 978.8
   },
   {
-   "code": "353060",
-   "expected": 19971.4,
+   "code": "351500",
+   "expected": 7376.5,
    "flag": null,
-   "lower": 3246.9,
-   "name": "Mogi das Cruzes",
-   "observed": 19414.0,
+   "lower": 0.0,
+   "name": "Embu das Artes",
+   "observed": 5475.0,
    "outcome": "dengue_2024",
    "scale": "municipality",
-   "upper": 36695.8
+   "upper": 17674.3
   }
  ],
  "facility": {
-  "CO_CEP": 8710500,
-  "CO_CLIENTELA": 1,
-  "CO_CNES": 2773368,
-  "CO_MUNICIPIO_GESTOR": 353060,
+  "CO_CEP": 6845210,
+  "CO_CLIENTELA": 3,
+  "CO_CNES": 2786389,
+  "CO_MUNICIPIO_GESTOR": 351500,
   "CO_NATUREZA_JUR": 1244,
   "CO_TURNO_ATENDIMENTO": 3,
   "Dependencia": "Mantida",
-  "Fluxo_Clientela": "Atendimento de Demanda Espontânea",
+  "Fluxo_Clientela": "Atendimento de Demanda Espontânea e Referenciada",
   "LEITOS_EXISTENTES": 0,
   "LEITOS_SUS": 0,
-  "NO_BAIRRO": "BIRITIBA USSU",
-  "NO_FANTASIA": "USF BIRITIBA USSU",
-  "NO_LOGRADOURO": "RUA THIAGO SILVESTRE FURTADO",
-  "NO_RAZAO_SOCIAL": "PREFEITURA MUNICIPAL DE MOGI DAS CRUZES",
-  "NU_CNPJ_MANTENEDORA": "46523270000188",
-  "NU_ENDERECO": "90",
-  "NU_LATITUDE": "-23.63881885",
-  "NU_LONGITUDE": "-46.12150324597677",
+  "NO_BAIRRO": "CHACARAS BARTIRA",
+  "NO_FANTASIA": "UBS ITATUBA",
+  "NO_LOGRADOURO": "ESTRADA VELHA DE COTIA",
+  "NO_RAZAO_SOCIAL": "PREFEITURA DE EMBU DAS ARTES",
+  "NU_CNPJ_MANTENEDORA": "46523114000117",
+  "NU_ENDERECO": "5168",
+  "NU_LATITUDE": "-23.6637393",
+  "NU_LONGITUDE": "-46.8890396",
   "TP_GESTAO": "Municipal",
   "TP_UNIDADE": 2,
   "UTI_ADULTO_EXIST": 0,
@@ -96,7 +100,7 @@
   "UTI_TOTAL_EXIST": 0,
   "UTI_TOTAL_SUS": 0,
   "atende_sus": true,
-  "coord": "0101000020E6100000FEE9196B8D0F47C07ED1D4A189A337C0",
+  "coord": "0101000020E6100000A96CB30CCC7147C0E7919AD1EAA937C0",
   "coord_precision_m": null,
   "coord_shift_m": null,
   "coord_source": "cnes",
@@ -106,9 +110,9 @@
   "equip_diagnostico_por_imagem": 0,
   "equip_dialise": 0,
   "equip_equipamentos_de_infra-estrutura": 0,
-  "equip_equipamentos_por_metodos_graficos": 0,
+  "equip_equipamentos_por_metodos_graficos": 1,
   "equip_equipamentos_por_metodos_opticos": 0,
-  "equip_manutencao_da_vida": 0,
+  "equip_manutencao_da_vida": 1,
   "equip_odontologia": 1,
   "equip_outros_equipamentos": 0,
   "equip_procedimentos_cirurgicos": 0,
@@ -119,14 +123,14 @@
   "equip_telessaude_por_imagem": 0,
   "esfera_juridica": "Administração Pública",
   "esp_cardiologista": 0,
-  "esp_clinico_geral": 0,
+  "esp_clinico_geral": 3,
   "esp_endocrinologista": 0,
-  "esp_ginecologista_obstetra": 1,
+  "esp_ginecologista_obstetra": 0,
   "esp_infecto_pneumo": 0,
   "esp_medico_familia": 0,
   "esp_oncologista": 0,
-  "esp_pediatra": 1,
-  "esp_psicologo": 0,
+  "esp_pediatra": 0,
+  "esp_psicologo": 1,
   "esp_psiquiatra": 0,
   "esp_terapeuta_ocupacional": 0,
   "internacoes_afeccoes_perinatais": 0,
@@ -154,8 +158,8 @@
   "rede_sus": true,
   "tipo_equipamento": "Centro de Saúde/UBS",
   "total_enfermeiros": 3,
-  "total_medicos": 5,
-  "total_saude_mental": 0
+  "total_medicos": 4,
+  "total_saude_mental": 1
  },
  "hospital_stays": [
   0.0,
@@ -325,48 +329,48 @@
   6845.1
  ],
  "municipality": {
-  "cd_municipio6": "353060",
-  "dengue_2022": 100,
-  "dengue_2023": 68,
-  "dengue_2024": 19414,
-  "dengue_2025": 785,
-  "dengue_2026": 90,
-  "lepto_2022": 4,
-  "lepto_2023": 6,
+  "cd_municipio6": "351500",
+  "dengue_2022": 117,
+  "dengue_2023": 179,
+  "dengue_2024": 5475,
+  "dengue_2025": 322,
+  "dengue_2026": 30,
+  "lepto_2022": 5,
+  "lepto_2023": 4,
   "lepto_2024": 3,
   "lepto_2025": 4,
   "lepto_2026": 2,
-  "nasc_gestacao_conhecida": 15444,
-  "nasc_idade_conhecida": 15444,
-  "nasc_mae_menor_20": 1335,
-  "nasc_pretermo": 2480,
-  "nasc_total": 15444,
-  "nome": "Mogi das Cruzes",
-  "obitos_cap_i": 189,
-  "obitos_cap_ii": 962,
-  "obitos_cap_iii": 22,
-  "obitos_cap_iv": 244,
-  "obitos_cap_ix": 1410,
-  "obitos_cap_v": 56,
-  "obitos_cap_vi": 97,
+  "nasc_gestacao_conhecida": 9978,
+  "nasc_idade_conhecida": 9980,
+  "nasc_mae_menor_20": 962,
+  "nasc_pretermo": 1051,
+  "nasc_total": 9981,
+  "nome": "Embu das Artes",
+  "obitos_cap_i": 122,
+  "obitos_cap_ii": 441,
+  "obitos_cap_iii": 12,
+  "obitos_cap_iv": 82,
+  "obitos_cap_ix": 982,
+  "obitos_cap_v": 10,
+  "obitos_cap_vi": 21,
   "obitos_cap_vii": 0,
-  "obitos_cap_viii": 0,
-  "obitos_cap_x": 264,
-  "obitos_cap_xi": 331,
-  "obitos_cap_xii": 23,
+  "obitos_cap_viii": 1,
+  "obitos_cap_x": 210,
+  "obitos_cap_xi": 182,
+  "obitos_cap_xii": 8,
   "obitos_cap_xiii": 10,
-  "obitos_cap_xiv": 91,
-  "obitos_cap_xv": 7,
+  "obitos_cap_xiv": 52,
+  "obitos_cap_xv": 2,
   "obitos_cap_xvi": 0,
-  "obitos_cap_xvii": 2,
-  "obitos_cap_xviii": 58,
-  "obitos_cap_xx": 352,
-  "obitos_total": 4118,
-  "populacao": 451505,
-  "tuberculose_2022": 208,
-  "tuberculose_2023": 216,
-  "tuberculose_2024": 202,
-  "tuberculose_2025": 217
+  "obitos_cap_xvii": 5,
+  "obitos_cap_xviii": 70,
+  "obitos_cap_xx": 245,
+  "obitos_total": 2455,
+  "populacao": 250691,
+  "tuberculose_2022": 122,
+  "tuberculose_2023": 151,
+  "tuberculose_2024": 194,
+  "tuberculose_2025": 136
  },
  "public_only": false,
  "region": {
@@ -413,38 +417,38 @@
  },
  "surroundings": {
   "access_bands": {
-   "over_2000": 3,
-   "upto_1000": 1126,
-   "upto_2000": 68,
-   "upto_500": 530
+   "over_2000": 1,
+   "upto_1000": 315,
+   "upto_2000": 76,
+   "upto_500": 152
   },
   "area_km2": 3.142,
   "census": {
    "municipality": {
-    "crowded_pct": 27.1,
-    "far_primary_pct": 26.0,
-    "garbage_pct": 98.9,
-    "households": 158772,
-    "income": 3468,
-    "population": 451505,
-    "precarious_pct": 9.2,
+    "crowded_pct": 17.7,
+    "far_primary_pct": 9.1,
+    "garbage_pct": 99.0,
+    "households": 88081,
+    "income": 2163,
+    "population": 250691,
+    "precarious_pct": 15.1,
     "residents_per_household": 2.84,
-    "sewage_pct": 81.4,
-    "tracts": 977,
-    "tracts_no_households": 29
+    "sewage_pct": 79.4,
+    "tracts": 642,
+    "tracts_no_households": 33
    },
    "radius": {
-    "crowded_pct": 78.3,
-    "far_primary_pct": 4.1,
-    "garbage_pct": 99.5,
-    "households": 557,
-    "income": 2192,
-    "population": 1731,
-    "precarious_pct": 40.2,
-    "residents_per_household": 3.11,
-    "sewage_pct": 27.1,
-    "tracts": 7,
-    "tracts_no_households": 0
+    "crowded_pct": 33.7,
+    "far_primary_pct": 14.1,
+    "garbage_pct": 99.7,
+    "households": 291,
+    "income": 4251,
+    "population": 917,
+    "precarious_pct": 31.6,
+    "residents_per_household": 2.88,
+    "sewage_pct": 3.3,
+    "tracts": 11,
+    "tracts_no_households": 1
    },
    "region": {
     "crowded_pct": 13.7,
@@ -463,53 +467,79 @@
   "crowding_threshold": 3.1,
   "facilities": [],
   "facility": {
-   "lat": -23.638819,
-   "lon": -46.121503
+   "lat": -23.663739,
+   "lon": -46.88904
   },
   "located": true,
   "location": {
-   "district": "Biritiba-Ussu",
-   "municipality": "Mogi das Cruzes",
-   "municipality_code": "353060",
+   "district": "Embu das Artes",
+   "municipality": "Embu das Artes",
+   "municipality_code": "351500",
    "situation": "Urbana",
-   "tract": "353060707000013"
+   "tract": "351500405000349"
   },
   "municipalities": [
    {
-    "code": "353060",
-    "name": "Mogi das Cruzes",
-    "population": 1731
+    "code": "351500",
+    "name": "Embu das Artes",
+    "population": 551
+   },
+   {
+    "code": "352220",
+    "name": "Itapecerica da Serra",
+    "population": 210
+   },
+   {
+    "code": "351300",
+    "name": "Cotia",
+    "population": 155
    }
   ],
   "radius_m": 1000,
   "tracts": [
    {
-    "population": 952.0,
-    "share_inside": 0.995
+    "population": 0.0,
+    "share_inside": 0.088
    },
    {
-    "population": 701.0,
-    "share_inside": 0.016
+    "population": 629.0,
+    "share_inside": 0.247
    },
    {
-    "population": 497.0,
-    "share_inside": 0.742
+    "population": 230.0,
+    "share_inside": 0.174
    },
    {
-    "population": 448.0,
-    "share_inside": 0.884
+    "population": 134.0,
+    "share_inside": 0.005
    },
    {
-    "population": 509.0,
-    "share_inside": 0.007
+    "population": 139.0,
+    "share_inside": 0.774
    },
    {
-    "population": 145.0,
-    "share_inside": 0.0
+    "population": 236.0,
+    "share_inside": 0.822
    },
    {
-    "population": 269.0,
-    "share_inside": 0.014
+    "population": 216.0,
+    "share_inside": 0.934
+   },
+   {
+    "population": 1.0,
+    "share_inside": 0.033
+   },
+   {
+    "population": 41.0,
+    "share_inside": 0.175
+   },
+   {
+    "population": 527.0,
+    "share_inside": 0.285
+   },
+   {
+    "population": 139.0,
+    "share_inside": 0.435
    }
   ]
  }

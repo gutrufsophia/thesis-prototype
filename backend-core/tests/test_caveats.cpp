@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <utility>
 
 #include <catch2/catch_test_macros.hpp>
 
@@ -134,10 +135,12 @@ story::Payload radius_fallback(double population, int territory_type) {
     return payload;
 }
 
-// The same unit on the catchment model, with high need and few people per unit.
+// The same unit on the catchment model, with high need and few people per unit, and no registered team.
 story::Payload catchment(bool near_edge) {
     auto payload = test::fixture("padeiros_1000");
     auto& ctx = payload.context;
+    ctx.erase("team_equivalents");
+    for (const char* key : {"served_per_team", "served_mean_distance", "served_far"}) ctx["values"].erase(key);
     ctx["supply_measure"] = "catchment";
     ctx["values"]["served"] = 3000.0;
     ctx["values"]["served_deprived"] = 95.0;
@@ -147,7 +150,51 @@ story::Payload catchment(bool near_edge) {
     return payload;
 }
 
+// The catchment model with teams: people per team against the PNAB range, and the distance.
+story::Payload with_teams(double per_team, double mean_distance) {
+    auto payload = catchment(false);
+    auto& ctx = payload.context;
+    ctx["team_equivalents"] = 2.0;
+    ctx["values"]["served_per_team"] = per_team;
+    ctx["values"]["served_mean_distance"] = mean_distance;
+    ctx["values"]["served_far"] = mean_distance > 2000 ? 60.0 : 5.0;
+    return payload;
+}
+
 }  // namespace
+
+TEST_CASE("need against supply is read against the PNAB range of people per team") {
+    const auto variant = [](double per_team) {
+        const auto s = story::tell(with_teams(per_team, 800), test::config(), "pt");
+        const auto* need = story::find_fact(s.facts, "need_supply");
+        REQUIRE(need != nullptr);
+        REQUIRE(need->tier.has_value());
+        return std::make_pair(need->variant, *need->tier);
+    };
+    CHECK(variant(4300) == std::make_pair(std::string("above"), story::Tier::Higher));
+    CHECK(variant(2800) == std::make_pair(std::string("within"), story::Tier::Similar));
+    CHECK(variant(1500) == std::make_pair(std::string("below"), story::Tier::Lower));
+    // without a registered team the unit is ranked by people per unit, with no PNAB comparison
+    const auto none = story::tell(catchment(false), test::config(), "pt");
+    CHECK(story::find_fact(none.facts, "need_supply")->variant == "served");
+    CHECK_FALSE(story::find_fact(none.facts, "need_supply")->tier.has_value());
+}
+
+TEST_CASE("C22: the distance is told when the catchment lives far from the unit") {
+    CHECK(has(story::tell(with_teams(1500, 4100), test::config(), "pt").plan.caveats, "C22"));
+    CHECK_FALSE(has(story::tell(with_teams(1500, 800), test::config(), "pt").plan.caveats, "C22"));
+    CHECK_FALSE(has(story::tell(catchment(false), test::config(), "pt").plan.caveats, "C22"));  // no distance figure
+}
+
+TEST_CASE("every need-against-supply variant is told and verified in both languages") {
+    for (auto payload : {with_teams(4300, 800), with_teams(2800, 3500), with_teams(1500, 4100)}) {
+        for (const char* code : {"pt", "en"}) {
+            const auto body = story::narrate(payload, test::config(), code);
+            INFO(code << " " << body.at("issues").dump());
+            CHECK(body.at("verified").get<bool>());
+        }
+    }
+}
 
 TEST_CASE("C20: peer comparisons only at the reference radius") {
     auto payload = radius_fallback(169, 1);

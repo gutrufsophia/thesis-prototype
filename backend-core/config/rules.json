@@ -40,7 +40,9 @@
     "epidemic_factor": 3,
     "position_shift_min_m": 500,
     "peer_extreme": 0.8,
-    "need_high": 0.75
+    "need_high": 0.75,
+    "pnab_low": 2000,
+    "pnab_high": 3500
   },
   "rules": [
     {
@@ -218,6 +220,15 @@
       "note": 23,
       "effect": "disclose",
       "fact": "need_supply"
+    },
+    {
+      "id": "C22",
+      "note": 24,
+      "effect": "disclose",
+      "fact": "need_supply",
+      "params": {
+        "far_m": 2000
+      }
     }
   ]
 }

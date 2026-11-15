@@ -4,7 +4,7 @@
     "k": 2.0,
     "r_max": 20000,
     "decay": "gaussian",
-    "supply": "units",
+    "supply": "teams",
     "allocation": "huff"
   },
   "neighbours_queried": 64,
@@ -30,147 +30,292 @@
     "p90": 1097.4
   },
   "served_population": {
-    "p10": 5461.7,
-    "median": 15574.7,
-    "p90": 24150.7
+    "p10": 3573.4,
+    "median": 12798.4,
+    "p90": 31616.9
   },
   "served_deprived_pct": {
-    "p10": 5.8,
-    "median": 25.1,
-    "p90": 58.3
+    "p10": 5.4,
+    "median": 25.0,
+    "p90": 58.4
+  },
+  "teams": {
+    "teams_esf": 3093,
+    "teams_eap_20h": 643,
+    "teams_eap_30h": 532,
+    "eap_without_hours": 3,
+    "units_without_team": 201
+  },
+  "served_per_team": {
+    "p10": 2872.7,
+    "median": 4742.0,
+    "p90": 9977.9
+  },
+  "per_team_against_pnab": {
+    "below": 32,
+    "within": 206,
+    "above": 877
   },
   "classes": {
-    "pressure": 35,
-    "served": 170
+    "above": 190,
+    "within": 86,
+    "below": 26,
+    "pressure": 0,
+    "served": 24
   },
   "near_edge": {
-    "units": 41,
-    "of_them_pressure": 1,
-    "of_them_served": 28
+    "units": 39,
+    "of_them_above": 11,
+    "of_them_within": 4,
+    "of_them_below": 14
+  },
+  "reach": {
+    "mean_distance_m": {
+      "p10": 948.4,
+      "median": 1075.2,
+      "p90": 1456.5
+    },
+    "far_pct": {
+      "p10": 0.0,
+      "median": 1.4,
+      "p90": 17.4
+    },
+    "mean_distance_over_1500m": 115,
+    "mean_distance_over_2000m": 40,
+    "mean_distance_over_3000m": 8,
+    "need_high_and_over_2000m": 38
   },
   "mean_catchment_m": {
-    "p10": 2000.5,
-    "median": 2040.5,
-    "p90": 2666.3
+    "p10": 2000.6,
+    "median": 2041.6,
+    "p90": 2692.4
   },
   "padeiros": {
-    "served_population": 1735,
+    "served_population": 1655,
     "served_deprived_pct": 99.9,
-    "class": "served",
-    "mean_catchment_m": 5295,
+    "class": "below",
+    "mean_catchment_m": 5140,
+    "team_equivalents": 1.0,
+    "served_per_team": 1655,
+    "mean_distance_m": 2616,
+    "far_pct": 58.8,
     "edge_m": 4429,
     "near_edge": true
   },
   "against_1km": {
     "units_compared": 1316,
-    "spearman_load": 0.787,
-    "spearman_need": 0.914,
+    "spearman_load": 0.61,
+    "spearman_need": 0.913,
     "old": {
       "pressure": 54,
       "served": 152
     },
     "new": {
-      "pressure": 35,
-      "served": 170
+      "pressure": 43,
+      "served": 137
     },
-    "old_served_still_served": 127,
+    "old_served_still_served": 97,
     "old_served_now_pressure": 0,
     "old_served_rural_edge": 83,
-    "new_served_rural_edge": 83
+    "new_served_rural_edge": 68
   },
   "inverse_care": {
     "tracts": 45963,
-    "spearman_income_access": -0.408,
-    "access_per_10k_deprived": 0.764,
-    "access_per_10k_not_deprived": 0.593
+    "spearman_income_access": -0.523,
+    "access_per_10k_deprived": 2.193,
+    "access_per_10k_not_deprived": 1.854
   },
   "sensitivity": {
     "r0_1km": {
-      "spearman_served": 0.94,
-      "spearman_deprived": 0.962,
-      "same_class_share": 0.946,
-      "pressure": 46,
-      "served": 170,
-      "padeiros_served": 1735,
+      "spearman_served": 0.956,
+      "spearman_deprived": 0.959,
+      "same_class_share": 0.916,
+      "classes": {
+        "above": 187,
+        "within": 84,
+        "below": 27,
+        "pressure": 1,
+        "served": 25
+      },
+      "padeiros_served": 1655,
       "padeiros_deprived_pct": 99.9,
-      "padeiros_class": "served",
+      "padeiros_class": "below",
       "truncated_points": 0
     },
     "r0_3km": {
-      "spearman_served": 0.947,
-      "spearman_deprived": 0.975,
-      "same_class_share": 0.95,
-      "pressure": 23,
-      "served": 180,
-      "padeiros_served": 1735,
+      "spearman_served": 0.982,
+      "spearman_deprived": 0.974,
+      "same_class_share": 0.933,
+      "classes": {
+        "above": 185,
+        "within": 89,
+        "below": 22,
+        "pressure": 0,
+        "served": 31
+      },
+      "padeiros_served": 1655,
       "padeiros_deprived_pct": 99.9,
-      "padeiros_class": "served",
+      "padeiros_class": "below",
       "truncated_points": 0
     },
     "k_1.5": {
-      "spearman_served": 0.997,
+      "spearman_served": 0.998,
       "spearman_deprived": 0.998,
-      "same_class_share": 0.987,
-      "pressure": 37,
-      "served": 165,
-      "padeiros_served": 1863,
+      "same_class_share": 0.976,
+      "classes": {
+        "above": 189,
+        "within": 88,
+        "below": 23,
+        "pressure": 1,
+        "served": 25
+      },
+      "padeiros_served": 1811,
       "padeiros_deprived_pct": 100.0,
-      "padeiros_class": "served",
+      "padeiros_class": "below",
       "truncated_points": 0
     },
     "k_3": {
-      "spearman_served": 0.983,
+      "spearman_served": 0.994,
       "spearman_deprived": 0.994,
-      "same_class_share": 0.978,
-      "pressure": 29,
-      "served": 179,
-      "padeiros_served": 1636,
-      "padeiros_deprived_pct": 99.0,
-      "padeiros_class": "served",
+      "same_class_share": 0.968,
+      "classes": {
+        "above": 185,
+        "within": 86,
+        "below": 27,
+        "pressure": 0,
+        "served": 29
+      },
+      "padeiros_served": 1443,
+      "padeiros_deprived_pct": 99.1,
+      "padeiros_class": "below",
       "truncated_points": 8535
     },
     "rmax_10km": {
       "spearman_served": 1.0,
       "spearman_deprived": 1.0,
       "same_class_share": 0.998,
-      "pressure": 36,
-      "served": 168,
-      "padeiros_served": 1731,
+      "classes": {
+        "above": 190,
+        "within": 86,
+        "below": 26,
+        "pressure": 0,
+        "served": 24
+      },
+      "padeiros_served": 1663,
       "padeiros_deprived_pct": 100.0,
-      "padeiros_class": "served",
+      "padeiros_class": "below",
       "truncated_points": 0
     },
     "uniform_decay": {
-      "spearman_served": 0.962,
+      "spearman_served": 0.99,
       "spearman_deprived": 0.983,
-      "same_class_share": 0.956,
-      "pressure": 28,
-      "served": 175,
-      "padeiros_served": 1681,
-      "padeiros_deprived_pct": 99.4,
-      "padeiros_class": "served",
+      "same_class_share": 0.938,
+      "classes": {
+        "above": 179,
+        "within": 90,
+        "below": 24,
+        "pressure": 0,
+        "served": 34
+      },
+      "padeiros_served": 1577,
+      "padeiros_deprived_pct": 99.5,
+      "padeiros_class": "below",
+      "truncated_points": 0
+    },
+    "unit_supply": {
+      "spearman_served": 0.696,
+      "spearman_deprived": 0.997,
+      "same_class_share": 0.923,
+      "classes": {
+        "above": 173,
+        "within": 101,
+        "below": 27,
+        "pressure": 1,
+        "served": 16
+      },
+      "padeiros_served": 1735,
+      "padeiros_deprived_pct": 99.9,
+      "padeiros_class": "below",
       "truncated_points": 0
     },
     "physician_supply": {
-      "spearman_served": 0.578,
+      "spearman_served": 0.693,
       "spearman_deprived": 0.994,
-      "same_class_share": 0.912,
-      "pressure": 40,
-      "served": 124,
+      "same_class_share": 0.909,
+      "classes": {
+        "above": 155,
+        "within": 86,
+        "below": 60,
+        "pressure": 0,
+        "served": 25
+      },
       "padeiros_served": 1556,
       "padeiros_deprived_pct": 100.0,
-      "padeiros_class": "served",
+      "padeiros_class": "below",
+      "truncated_points": 0
+    },
+    "eap_all_half": {
+      "spearman_served": 0.995,
+      "spearman_deprived": 1.0,
+      "same_class_share": 0.992,
+      "classes": {
+        "above": 187,
+        "within": 88,
+        "below": 26,
+        "pressure": 0,
+        "served": 25
+      },
+      "padeiros_served": 1670,
+      "padeiros_deprived_pct": 99.9,
+      "padeiros_class": "below",
+      "truncated_points": 0
+    },
+    "eap_all_three_quarters": {
+      "spearman_served": 0.993,
+      "spearman_deprived": 1.0,
+      "same_class_share": 0.993,
+      "classes": {
+        "above": 189,
+        "within": 87,
+        "below": 26,
+        "pressure": 0,
+        "served": 24
+      },
+      "padeiros_served": 1646,
+      "padeiros_deprived_pct": 100.0,
+      "padeiros_class": "below",
+      "truncated_points": 0
+    },
+    "no_team_units_half": {
+      "spearman_served": 0.988,
+      "spearman_deprived": 1.0,
+      "same_class_share": 0.991,
+      "classes": {
+        "above": 192,
+        "within": 88,
+        "below": 22,
+        "pressure": 0,
+        "served": 27
+      },
+      "padeiros_served": 1675,
+      "padeiros_deprived_pct": 99.9,
+      "padeiros_class": "below",
       "truncated_points": 0
     },
     "double_decay_3sfca": {
-      "spearman_served": 0.984,
+      "spearman_served": 0.995,
       "spearman_deprived": 0.991,
-      "same_class_share": 0.964,
-      "pressure": 50,
-      "served": 165,
-      "padeiros_served": 1258,
+      "same_class_share": 0.866,
+      "classes": {
+        "above": 96,
+        "within": 127,
+        "below": 77,
+        "pressure": 1,
+        "served": 24
+      },
+      "padeiros_served": 1214,
       "padeiros_deprived_pct": 100.0,
-      "padeiros_class": "served",
+      "padeiros_class": "below",
       "truncated_points": 0
     }
   }

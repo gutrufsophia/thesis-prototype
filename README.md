@@ -64,16 +64,22 @@ python3 -I etl/limpeza_renda.py ~/Downloads/Agregados_por_setores_renda_responsa
 database/reference/build_surroundings.sh 3        # all facilities at 1 km -> data/surroundings_1000.csv (~30 min)
 python3 -I analysis/typology.py                   # territorial types -> data/surroundings_types.csv
 python3 -I analysis/outcome_relations.py          # relations page data and expected counts
-python3 database/reference/compute_catchment.py --cnefe-dir ~/Downloads/cnefe_rmsp
+python3 database/reference/compute_catchment.py --cnefe-dir ~/Downloads/cnefe_rmsp \
+        --cnes-dir ~/Downloads/BASE_DE_DADOS_CNES_202608
                                                   # population each public primary care unit is expected to serve
                                                   # -> data/catchment_units.csv, catchment_tracts.csv, catchment_summary.json
 ```
 
-Then apply migrations 012, 013 and 014 and load the CSVs with `\copy` (connection from `.env` via `eval "$(python3 -I database/pgenv.py)"`, so no password appears on the command line; migration 014 shows how to load the catchment file).
+Then apply migrations 012 to 015 and load the CSVs with `\copy` (connection from `.env` via `eval "$(python3 -I database/pgenv.py)"`, so no password appears on the command line; migrations 014 and 015 show how to load the catchment file).
 
-Need and supply around public primary care units are told on each unit's estimated catchment, not on the radius on screen: residents are split among the units nearest their homes by a Huff model with distance decay, within catchments that widen where units are sparse. Where a unit has no catchment figure, the service falls back to the 1 km radius and rule C21 keeps a sparse circle from being told as spare capacity.
+Need and supply around public primary care units are told on each unit's estimated catchment, not on the radius on screen: residents are split among the units nearest their homes by a Huff model with distance decay, within catchments that widen where units are sparse. Supply is counted in Family Health team equivalents and read against the PNAB range of 2,000 to 3,500 people per team; when the catchment's residents live more than 2 km away on average, the text says so (rule C22). Where a unit has no catchment figure, the service falls back to the 1 km radius and rule C21 keeps a sparse circle from being told as spare capacity.
 
-The evaluation sample (`backend-core/evaluation/sample.py`) draws facilities by stratum with a fixed seed; their frozen payloads are in `backend-core/evaluation/fixtures/` and are never used by the unit tests.
+### Evaluation
+
+The evaluation sample (`backend-core/evaluation/sample.py`) draws facilities by stratum with a fixed seed; their frozen payloads are in `backend-core/evaluation/fixtures/` and are never used by the unit tests. `sample_need.py` adds 10 public primary care units that trigger the need-against-supply sentence, which none of the 40 does.
+
+- Fault injection: `storyteller mutate FIXTURE...` (results in `backend-core/evaluation/results/`).
+- Human annotation of caveats, content selection and text accuracy: `backend-core/evaluation/annotation/`. `build_tasks.py` writes the tasks (`STORYTELLER=path/to/storyteller python3 backend-core/evaluation/annotation/build_tasks.py`); annotators open `annotate.html` and follow `GUIA.md` (in Portuguese, like the texts they check); `agreement.py anotacao_A.json anotacao_B.json` computes agreement and the scores.
 
 ## Facility page
 

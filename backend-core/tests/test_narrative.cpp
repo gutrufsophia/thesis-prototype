@@ -59,11 +59,32 @@ TEST_CASE("the lead is the strongest comparison, and it is not repeated") {
     REQUIRE(peer != nullptr);
     CHECK(peer->slots.at("indicator").text.find("deprived") == std::string::npos);
     const auto* need = story::find_fact(s.facts, "need_supply");
-    CHECK(need->variant == "served");  // high need, few residents per public primary care unit
+    CHECK(need->variant == "below");  // high need, fewer people per team than the PNAB range
     CHECK(need->slots.count("served_catchment"));  // told on the catchment, not the 1 km circle
-    CHECK(std::any_of(s.plan.caveats.begin(), s.plan.caveats.end(),
-                      [](const story::Caveat& c) { return c.rule == "C21b"; }));  // near the RMSP edge
+    const auto has_rule = [&](const char* rule) {
+        return std::any_of(s.plan.caveats.begin(), s.plan.caveats.end(), [&](const story::Caveat& c) { return c.rule == rule; });
+    };
+    CHECK(has_rule("C21b"));  // near the RMSP edge
+    CHECK(has_rule("C22"));   // its residents live 2.6 km away on average
     CHECK(story::find_fact(s.facts, "territory")->slots.at("type").text == "territory:1");
+}
+
+TEST_CASE("the lead depends on the facility's role") {
+    // a referral hospital serves the region: the text starts with the unit itself
+    const auto hub = story::tell(test::fixture("hc_1000"), test::config(), "pt");
+    CHECK(hub.plan.paragraphs[story::kLead].empty());
+    CHECK(hub.plan.paragraphs[story::kUnit].front() == "profile");
+    // a specialised service is not led by district outcomes, only by its peer rank
+    auto payload = test::fixture("poa_1000");
+    for (auto& row : payload.expected) row["flag"] = "above";
+    const auto specialised = story::tell(payload, test::config(), "pt");
+    for (const auto& id : specialised.plan.paragraphs[story::kLead]) CHECK(id == "peer");
+    // a primary care unit can be led by them
+    auto ubs = test::fixture("butanta_1000");
+    for (auto& row : ubs.expected) {
+        if (row.value("outcome", "") == "tb" && row.value("scale", "") == "district") row["flag"] = "above";
+    }
+    CHECK(story::tell(ubs, test::config(), "pt").plan.paragraphs[story::kLead] == std::vector<std::string>{"surprise_tb"});
 }
 
 TEST_CASE("neighbouring facts are joined by the relation between them") {

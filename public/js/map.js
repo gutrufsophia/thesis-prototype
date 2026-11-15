@@ -14,6 +14,22 @@ const MAX_SEARCH_RESULTS = 12;
 const PUBLIC_ONLY_PREF = 'publicOnly';
 // Groups with fewer, larger facilities are drawn last so they stay on top
 const DRAW_ORDER = ['diagnostic', 'specialised', 'primary', 'emergency', 'hospital'];
+// Facilities with beds are proportional symbols: area grows with beds from 50 up, capped so the
+// largest hospital (about 1,500 beds) does not cover its neighbourhood.
+const BASE_RADIUS = 5;
+const MAX_RADIUS = 16;
+const BASE_BEDS = 50;
+const markerRadius = (beds) => Math.min(MAX_RADIUS, Math.max(BASE_RADIUS, BASE_RADIUS * Math.sqrt((beds || 0) / BASE_BEDS)));
+// Zoomed out, full-size symbols would cover the centre of São Paulo; they grow back as the map zooms in
+const zoomScale = (zoom) => Math.min(1, Math.max(0.45, 0.45 + 0.18 * (zoom - 10)));
+const sizedMarkers = [];  // [marker, beds] for facilities drawn larger than the base symbol
+let selectedBeds = 0;
+
+function resizeMarkers() {
+  const scale = zoomScale(map.getZoom());
+  for (const [marker, beds] of sizedMarkers) marker.setRadius(Math.max(BASE_RADIUS, markerRadius(beds) * scale));
+  selectionRing.setRadius(Math.max(BASE_RADIUS, markerRadius(selectedBeds) * scale) + 5);
+}
 
 applyStaticTranslations();
 document.title = t('map.title');
@@ -65,7 +81,8 @@ function isVisible(facility) {
 }
 
 function drawPoints() {
-  for (const facility of located) {
+  // larger symbols first, so smaller ones stay visible on top of them
+  for (const facility of [...located].sort((a, b) => (b.beds || 0) - (a.beds || 0))) {
     const info = typeInfo(facility.type);
     // approximate positions are drawn hollow so they are never read as exact
     const style = APPROXIMATE_SOURCES.has(facility.coordSource)
@@ -73,10 +90,15 @@ function drawPoints() {
       : { color: '#fcfcfb', weight: 1, fillColor: info.color, fillOpacity: 0.9 };
     const key = layerKey(facility.type, facility.susNetwork);
     if (!layers.has(key)) layers.set(key, L.layerGroup());
-    L.circleMarker([facility.lat, facility.lon], { renderer, radius: 5, ...style })
+    const large = markerRadius(facility.beds) > BASE_RADIUS;
+    const marker = L.circleMarker([facility.lat, facility.lon], {
+      renderer, radius: BASE_RADIUS, ...style, ...(large ? { fillOpacity: 0.75 } : {}),
+    })
       .on('click', () => select(facility.cnes))
       .addTo(layers.get(key));
+    if (large) sizedMarkers.push([marker, facility.beds]);
   }
+  resizeMarkers();
 }
 
 /** Show or hide each layer according to the filters, keeping the stacking order. */
@@ -205,7 +227,10 @@ async function select(cnes, { fly = false } = {}) {
 
   if (facility.lat !== undefined) {
     const position = [facility.lat, facility.lon];
-    selectionRing.setLatLng(position).addTo(map).bringToFront();
+    selectedBeds = facility.beds || 0;
+    selectionRing.setLatLng(position)
+      .setRadius(Math.max(BASE_RADIUS, markerRadius(selectedBeds) * zoomScale(map.getZoom())) + 5)
+      .addTo(map).bringToFront();
     popup.setLatLng(position).setContent(el('div', { class: 'popup' },
       el('strong', { text: facility.name }),
       el('span', { text: typeInfo(facility.type).label }))).openOn(map);
@@ -275,6 +300,7 @@ async function init() {
       .sort((a, b) => Number(b.susNetwork) - Number(a.susNetwork));
     byCnes = new Map(facilities.map((facility) => [facility.cnes, facility]));
     drawPoints();
+    map.on('zoomend', resizeMarkers);
     buildLegend();
     refresh();
 

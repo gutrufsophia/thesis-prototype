@@ -139,6 +139,10 @@ json reference_context(const json& facility, const Reference& reference) {
         context["near_edge"] = field_or(*own, "near_edge", false);
         if (const auto m = number(*own, "mean_catchment_m")) context["mean_catchment_m"] = *m;
         if (const auto e = number(*own, "edge_m")) context["edge_m"] = *e;
+        if (const auto t = number(*own, "team_equivalents")) context["team_equivalents"] = *t;
+        if (const auto t = number(*own, "served_per_team")) context["values"]["served_per_team"] = *t;
+        if (const auto d = number(*own, "served_mean_distance_m")) context["values"]["served_mean_distance"] = *d;
+        if (const auto d = number(*own, "served_far_pct")) context["values"]["served_far"] = *d;
     } else if (mine.count("deprived") && mine.at("deprived")) {
         context["supply_measure"] = "radius";
         context["public_primary_size"] = public_primary_size;

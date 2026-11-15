@@ -40,8 +40,8 @@ function rpc(name, args = {}, signal) {
 export async function getFacilityPoints() {
   const data = await rpc('facility_points');
   return {
-    located: data.points.map(([cnes, name, type, lat, lon, coordSource, susNetwork]) =>
-      ({ cnes, name, type, lat, lon, coordSource, susNetwork })),
+    located: data.points.map(([cnes, name, type, lat, lon, coordSource, susNetwork, beds = 0]) =>
+      ({ cnes, name, type, lat, lon, coordSource, susNetwork, beds })),
     unlocated: data.unlocated.map(([cnes, name, type, coordStatus, susNetwork]) =>
       ({ cnes, name, type, coordStatus, susNetwork })),
   };
