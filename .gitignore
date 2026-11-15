@@ -80,3 +80,6 @@ __pycache__/
 
 # Editor settings with machine-specific paths
 .vscode/
+
+# Derived per-tract output of database/reference/compute_catchment.py, not loaded anywhere
+data/catchment_tracts.csv

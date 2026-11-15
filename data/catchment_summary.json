@@ -1,0 +1,177 @@
+{
+  "parameters": {
+    "r0": 2000,
+    "k": 2.0,
+    "r_max": 20000,
+    "decay": "gaussian",
+    "supply": "units",
+    "allocation": "huff"
+  },
+  "neighbours_queried": 64,
+  "low_income_line": 1636,
+  "units": 1316,
+  "residential_addresses": 8774143,
+  "demand_points": 5446666,
+  "tracts_without_addresses": 3074,
+  "population_at_tract_points": 901911.0,
+  "population": 20731920,
+  "allocated_population": 20731920,
+  "unallocated_population": 0,
+  "allocated_check": 20731920,
+  "truncated_points": 0,
+  "catchment_radius_m_population_weighted": {
+    "p10": 2000.0,
+    "median": 2000.0,
+    "p90": 2194.9
+  },
+  "nearest_unit_m_population_weighted": {
+    "p10": 216.2,
+    "median": 544.0,
+    "p90": 1097.4
+  },
+  "served_population": {
+    "p10": 5461.7,
+    "median": 15574.7,
+    "p90": 24150.7
+  },
+  "served_deprived_pct": {
+    "p10": 5.8,
+    "median": 25.1,
+    "p90": 58.3
+  },
+  "classes": {
+    "pressure": 35,
+    "served": 170
+  },
+  "near_edge": {
+    "units": 41,
+    "of_them_pressure": 1,
+    "of_them_served": 28
+  },
+  "mean_catchment_m": {
+    "p10": 2000.5,
+    "median": 2040.5,
+    "p90": 2666.3
+  },
+  "padeiros": {
+    "served_population": 1735,
+    "served_deprived_pct": 99.9,
+    "class": "served",
+    "mean_catchment_m": 5295,
+    "edge_m": 4429,
+    "near_edge": true
+  },
+  "against_1km": {
+    "units_compared": 1316,
+    "spearman_load": 0.787,
+    "spearman_need": 0.914,
+    "old": {
+      "pressure": 54,
+      "served": 152
+    },
+    "new": {
+      "pressure": 35,
+      "served": 170
+    },
+    "old_served_still_served": 127,
+    "old_served_now_pressure": 0,
+    "old_served_rural_edge": 83,
+    "new_served_rural_edge": 83
+  },
+  "inverse_care": {
+    "tracts": 45963,
+    "spearman_income_access": -0.408,
+    "access_per_10k_deprived": 0.764,
+    "access_per_10k_not_deprived": 0.593
+  },
+  "sensitivity": {
+    "r0_1km": {
+      "spearman_served": 0.94,
+      "spearman_deprived": 0.962,
+      "same_class_share": 0.946,
+      "pressure": 46,
+      "served": 170,
+      "padeiros_served": 1735,
+      "padeiros_deprived_pct": 99.9,
+      "padeiros_class": "served",
+      "truncated_points": 0
+    },
+    "r0_3km": {
+      "spearman_served": 0.947,
+      "spearman_deprived": 0.975,
+      "same_class_share": 0.95,
+      "pressure": 23,
+      "served": 180,
+      "padeiros_served": 1735,
+      "padeiros_deprived_pct": 99.9,
+      "padeiros_class": "served",
+      "truncated_points": 0
+    },
+    "k_1.5": {
+      "spearman_served": 0.997,
+      "spearman_deprived": 0.998,
+      "same_class_share": 0.987,
+      "pressure": 37,
+      "served": 165,
+      "padeiros_served": 1863,
+      "padeiros_deprived_pct": 100.0,
+      "padeiros_class": "served",
+      "truncated_points": 0
+    },
+    "k_3": {
+      "spearman_served": 0.983,
+      "spearman_deprived": 0.994,
+      "same_class_share": 0.978,
+      "pressure": 29,
+      "served": 179,
+      "padeiros_served": 1636,
+      "padeiros_deprived_pct": 99.0,
+      "padeiros_class": "served",
+      "truncated_points": 8535
+    },
+    "rmax_10km": {
+      "spearman_served": 1.0,
+      "spearman_deprived": 1.0,
+      "same_class_share": 0.998,
+      "pressure": 36,
+      "served": 168,
+      "padeiros_served": 1731,
+      "padeiros_deprived_pct": 100.0,
+      "padeiros_class": "served",
+      "truncated_points": 0
+    },
+    "uniform_decay": {
+      "spearman_served": 0.962,
+      "spearman_deprived": 0.983,
+      "same_class_share": 0.956,
+      "pressure": 28,
+      "served": 175,
+      "padeiros_served": 1681,
+      "padeiros_deprived_pct": 99.4,
+      "padeiros_class": "served",
+      "truncated_points": 0
+    },
+    "physician_supply": {
+      "spearman_served": 0.578,
+      "spearman_deprived": 0.994,
+      "same_class_share": 0.912,
+      "pressure": 40,
+      "served": 124,
+      "padeiros_served": 1556,
+      "padeiros_deprived_pct": 100.0,
+      "padeiros_class": "served",
+      "truncated_points": 0
+    },
+    "double_decay_3sfca": {
+      "spearman_served": 0.984,
+      "spearman_deprived": 0.991,
+      "same_class_share": 0.964,
+      "pressure": 50,
+      "served": 165,
+      "padeiros_served": 1258,
+      "padeiros_deprived_pct": 100.0,
+      "padeiros_class": "served",
+      "truncated_points": 0
+    }
+  }
+}
