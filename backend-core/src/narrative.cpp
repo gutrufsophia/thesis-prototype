@@ -77,7 +77,7 @@ Story tell(const Payload& payload, const Config& config, const std::string& code
     auto& plan = story.plan;
     facts = extract_facts(payload, config.params);
     const auto pre = apply_pre_rules(payload, config, facts);
-    plan = plan_document(facts, config.params);
+    plan = plan_document(facts, config.params, lead_candidates(payload, config.params));
     for (const auto& c : pre) {
         if (c.effect == Effect::Suppress) story.suppressed.push_back(c);
     }

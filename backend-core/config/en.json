@@ -2,7 +2,7 @@
   "code": "en",
   "decimal": ".",
   "thousands": ",",
-  "max_words": 320,
+  "max_words": 340,
   "templates": {
     "profile": "{profile.name} is {profile.type} {profile.network}, serving {profile.flow}.",
     "profile.noflow": "{profile.name} is {profile.type} {profile.network}.",
@@ -51,9 +51,12 @@
     "surprise_teen.below": "Births to mothers under {k.twenty} in the {surprise_teen.district_name} district were below what the district's income and housing predict: there were {surprise_teen.observed_district} between {surprise_teen.period}, where the model expected about {surprise_teen.expected_district}, in a range of {surprise_teen.lower_district} to {surprise_teen.upper_district}.",
     "need_supply.pressure_radius": "In the {need_supply.extent_radius} radius, {need_supply.deprived_radius} of residents live in tracts with at least one deprivation (precarious sewage, crowding, no garbage collection or low income), more than around {need_supply.need_rank} of the region's {need_supply.count_group} public primary care units; and each public primary care unit in the radius has about {need_supply.load_radius} residents on average, more than {need_supply.load_rank} of them.",
     "need_supply.served_radius": "In the {need_supply.extent_radius} radius, {need_supply.deprived_radius} of residents live in tracts with at least one deprivation (precarious sewage, crowding, no garbage collection or low income), more than around {need_supply.need_rank} of the region's {need_supply.count_group} public primary care units; even so, each public primary care unit in the radius has about {need_supply.load_radius} residents on average, fewer than {need_supply.load_rank} of them.",
-    "need_supply.pressure": "In this unit's estimated catchment, with the region's residents split among the public primary care units nearest each home, live about {need_supply.served_catchment} people; {need_supply.deprived_catchment} of them live in tracts with at least one deprivation (precarious sewage, crowding, no garbage collection or low income), more than around {need_supply.need_rank} of the region's {need_supply.count_group} public primary care units, and that is more people per unit than in {need_supply.load_rank} of them.",
-    "need_supply.served": "In this unit's estimated catchment, with the region's residents split among the public primary care units nearest each home, live about {need_supply.served_catchment} people; {need_supply.deprived_catchment} of them live in tracts with at least one deprivation (precarious sewage, crowding, no garbage collection or low income), more than around {need_supply.need_rank} of the region's {need_supply.count_group} public primary care units; even so, that is fewer people per unit than in {need_supply.load_rank} of them.",
-    "need_supply.sparse_radius": "In the {need_supply.extent_radius} radius, {need_supply.deprived_radius} of residents live in tracts with at least one deprivation (precarious sewage, crowding, no garbage collection or low income), more than around {need_supply.need_rank} of the region's {need_supply.count_group} public primary care units; the radius has about {need_supply.load_radius} residents per public primary care unit, but it covers only part of the territory the unit serves, and in a sparsely populated area that does not mean spare capacity."
+    "need_supply.pressure": "In this unit's estimated catchment (residents split among the public primary care units nearest each home) live about {need_supply.served_catchment} people; {need_supply.deprived_catchment} of them in tracts with some deprivation (precarious sewage, crowding, no garbage collection or low income), more than around {need_supply.need_rank} of the region's {need_supply.count_group} public primary care units; with no Family Health or Primary Care team registered in CNES, the unit has more people than {need_supply.load_rank} of them.",
+    "need_supply.served": "In this unit's estimated catchment (residents split among the public primary care units nearest each home) live about {need_supply.served_catchment} people; {need_supply.deprived_catchment} of them in tracts with some deprivation (precarious sewage, crowding, no garbage collection or low income), more than around {need_supply.need_rank} of the region's {need_supply.count_group} public primary care units; with no Family Health or Primary Care team registered in CNES, the unit has fewer people than {need_supply.load_rank} of them.",
+    "need_supply.sparse_radius": "In the {need_supply.extent_radius} radius, {need_supply.deprived_radius} of residents live in tracts with at least one deprivation (precarious sewage, crowding, no garbage collection or low income), more than around {need_supply.need_rank} of the region's {need_supply.count_group} public primary care units; the radius has about {need_supply.load_radius} residents per public primary care unit, but it covers only part of the territory the unit serves, and in a sparsely populated area that does not mean spare capacity.",
+    "need_supply.above": "In this unit's estimated catchment (residents split among the public primary care units nearest each home) live about {need_supply.served_catchment} people; {need_supply.deprived_catchment} of them in tracts with some deprivation (precarious sewage, crowding, no garbage collection or low income), more than around {need_supply.need_rank} of the region's {need_supply.count_group} public primary care units, and that is about {need_supply.per_team_catchment} per primary care team, above the range of {k.pnab_low} to {k.pnab_high} in the National Primary Care Policy.",
+    "need_supply.within": "In this unit's estimated catchment (residents split among the public primary care units nearest each home) live about {need_supply.served_catchment} people; {need_supply.deprived_catchment} of them in tracts with some deprivation (precarious sewage, crowding, no garbage collection or low income), more than around {need_supply.need_rank} of the region's {need_supply.count_group} public primary care units, and that is about {need_supply.per_team_catchment} per primary care team, within the range of {k.pnab_low} to {k.pnab_high} in the National Primary Care Policy.",
+    "need_supply.below": "In this unit's estimated catchment (residents split among the public primary care units nearest each home) live about {need_supply.served_catchment} people; {need_supply.deprived_catchment} of them in tracts with some deprivation (precarious sewage, crowding, no garbage collection or low income), more than around {need_supply.need_rank} of the region's {need_supply.count_group} public primary care units; even so, that is about {need_supply.per_team_catchment} per primary care team, below the range of {k.pnab_low} to {k.pnab_high} in the National Primary Care Policy, which allows fewer in vulnerable areas."
   },
   "comparatives": {
     "similar": "close to",
@@ -161,8 +164,12 @@
       "marker": "does not mean spare capacity"
     },
     "C21b": {
-      "text": "The unit is close to the edge of the metropolitan region, and its estimated catchment leaves out residents of neighbouring municipalities outside it.",
+      "text": "Close to the edge of the metropolitan region, the catchment leaves out residents of neighbouring municipalities outside it.",
       "marker": "edge of the metropolitan region"
+    },
+    "C22": {
+      "text": "The catchment's residents live on average {%.distance_catchment} from the unit in a straight line; {%.far_catchment} of them, over {k.two_km} away.",
+      "marker": "of them, over"
     }
   },
   "labels": {
@@ -245,7 +252,10 @@
     "twenty": "20",
     "ages": "30 to 69",
     "one_km": "1 km",
-    "top_decile": "10%"
+    "top_decile": "10%",
+    "pnab_low": "2,000",
+    "pnab_high": "3,500",
+    "two_km": "2 km"
   },
   "scope_markers": {
     "radius": [
@@ -331,7 +341,10 @@
       "above": "below",
       "below": "above",
       "close to": "above",
-      "times the": "times lower than the"
+      "times the": "times lower than the",
+      "above the range": "below the range",
+      "below the range": "above the range",
+      "within the range": "above the range"
     },
     "causal_clause": "due to living conditions in the surroundings"
   },

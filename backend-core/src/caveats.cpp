@@ -228,6 +228,15 @@ std::vector<Caveat> sparse_supply(const Payload& p, const Rule& rule, std::vecto
     return {caveat(rule, "need_supply")};
 }
 
+// Note 24: few people per team says nothing about how far they live from the unit; when the
+// catchment's residents live far on average, the distance is told with the supply.
+std::vector<Caveat> catchment_distance(const Payload&, const Rule& rule, const std::vector<Fact>& facts, const Plan& plan) {
+    const Fact* f = find_fact(facts, "need_supply");
+    if (!f || !f->slots.count("distance_catchment")) return {};
+    if (f->slots.at("distance_catchment").number <= rule.params.at("far_m").get<double>()) return {};
+    return when_planned(rule, plan, "need_supply");
+}
+
 // Note 23: near the region's outer boundary the catchment misses residents from outside the RMSP.
 std::vector<Caveat> catchment_edge(const Payload& p, const Rule& rule, const std::vector<Fact>& facts, const Plan& plan) {
     const Fact* f = find_fact(facts, "need_supply");
@@ -280,6 +289,7 @@ const std::map<std::string, PostRule>& post_rules() {
         {"C18b", ill_defined},
         {"C19", model_surprise},
         {"C21b", catchment_edge},
+        {"C22", catchment_distance},
     };
     return rules;
 }

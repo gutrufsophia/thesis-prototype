@@ -496,27 +496,45 @@ void add_reference_facts(const Payload& p, const json& params, std::vector<Fact>
         const double need = ctx.at("need_percentile").get<double>();
         const double load = ctx.at("load_percentile").get<double>();
         const double high = param(params, "need_high");
-        if (need >= high && (load >= high || load <= 1 - high)) {
-            const bool catchment = ctx.value("supply_measure", "") == "catchment";
-            const auto& values = ctx.at("values");
+        const bool catchment = ctx.value("supply_measure", "") == "catchment";
+        const auto& values = ctx.at("values");
+        // With teams, supply is read against the PNAB range of people per team; without, by rank.
+        const bool teams = catchment && ctx.value("team_equivalents", 0.0) > 0 && values.contains("served_per_team");
+        if (need >= high && (teams || load >= high || load <= 1 - high)) {
             Fact f;
             f.id = "need_supply";
             f.kind = "composition";
             f.theme = "comparison";
-            f.variant = std::string(load >= high ? "pressure" : "served") + (catchment ? "" : "_radius");
             f.salience = 1;
             f.weight = theme_weight(params, "tension");
-            f.valence = load >= high ? 1 : 0;
+            if (teams) {
+                const double per_team = values.at("served_per_team").get<double>();
+                const bool above = per_team > param(params, "pnab_high");
+                const bool below = per_team < param(params, "pnab_low");
+                f.variant = above ? "above" : below ? "below" : "within";
+                // the benchmark wording gets a tier, so V6 checks its direction
+                f.tier = above ? Tier::Higher : below ? Tier::Lower : Tier::Similar;
+                f.salience = above || below ? 1 : 0.6;
+                f.valence = above ? 1 : 0;
+                f.slots["per_team_catchment"] = Slot::estimate(per_team);
+            } else {
+                f.variant = std::string(load >= high ? "pressure" : "served") + (catchment ? "" : "_radius");
+                f.valence = load >= high ? 1 : 0;
+                f.slots["load_rank"] = Slot{Slot::Kind::Percent, std::floor((load >= high ? load : 1 - load) * 100), 0, {}};
+            }
             if (catchment) {
                 f.slots["served_catchment"] = Slot::estimate(values.at("served").get<double>());
                 f.slots["deprived_catchment"] = Slot::percent(values.at("served_deprived").get<double>());
+                if (values.contains("served_mean_distance")) {
+                    f.slots["distance_catchment"] = Slot::distance(values.at("served_mean_distance").get<double>());
+                    f.slots["far_catchment"] = Slot::percent(values.value("served_far", 0.0));
+                }
             } else {
                 f.slots["extent_radius"] = Slot::distance(extent);
                 f.slots["deprived_radius"] = Slot::percent(values.at("deprived").get<double>());
                 f.slots["load_radius"] = Slot::estimate(values.at("load").get<double>());
             }
             f.slots["need_rank"] = Slot{Slot::Kind::Percent, std::floor(need * 100), 0, {}};
-            f.slots["load_rank"] = Slot{Slot::Kind::Percent, std::floor((load >= high ? load : 1 - load) * 100), 0, {}};
             f.slots["count_group"] = Slot::count(ctx.value("public_primary_size", 0.0));
             facts.push_back(f);
             told_need = true;
