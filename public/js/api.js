@@ -53,6 +53,12 @@ export async function getFacility(cnes) {
   return rows[0] || null;
 }
 
+/** Mean length of stay of every facility with SUS admissions, sorted: the storytelling service's reference. */
+export async function getHospitalStays() {
+  const rows = await request('infraestrutura_saude?select=media_dias_permanencia&internacoes_total=gt.0');
+  return rows.map((r) => Number(r.media_dias_permanencia)).filter(Number.isFinite).sort((a, b) => a - b);
+}
+
 /** Municipal health outcomes (SINAN, SINASC, SIM) for the 39 municipalities. */
 export function getMunicipalIndicators() {
   return rpc('municipal_indicators');

@@ -2,7 +2,7 @@
 // generated narrative, the facility record, the census of the radius, the health indicators
 // (district and municipality) and the other facilities in the radius.
 
-import { getFacility, getNarrative, getSurroundings, hasNarrative } from './api.js';
+import { getFacility, getHospitalStays, getNarrative, getSurroundings, hasNarrative } from './api.js';
 import { el, keyValues, section, statTiles } from './charts.js';
 import { renderFacility } from './facility-view.js';
 import { renderNarrative, renderNarrativeState } from './narrative.js';
@@ -324,9 +324,13 @@ function renderNetworkSummary() {
     period: t('period.cnesShort'),
   });
   const hidden = surroundings.facilities.length - facilities.length;
+  const linked = facilities.filter((other) => other.sus_network).length;
   dom.netSummary.replaceChildren(
     statTiles([
-      { label: t('sur.others'), value: formatCount(facilities.length), note: t('sur.withinRadius', { period: t('period.cnesShort') }) },
+      {
+        label: t('sur.others'), value: formatCount(facilities.length),
+        note: `${t('net.split', { public: formatCount(linked), private: formatCount(facilities.length - linked) })} · CNES ${t('period.cnesShort')}`,
+      },
       { label: t('tile.beds'), value: formatCount(beds), note: per10k(beds) },
       { label: t('tile.physicians'), value: formatCount(physicians), note: per10k(physicians) },
     ]),
@@ -482,8 +486,9 @@ async function init() {
   }
   $('back').href = `index.html?cnes=${encodeURIComponent(cnes)}`;
 
+  let stays = null;
   try {
-    row = await getFacility(cnes);
+    [row, stays] = await Promise.all([getFacility(cnes), getHospitalStays().catch(() => null)]);
   } catch (error) {
     fail(t('panel.loadError', { message: error.message }), true);
     return;
@@ -495,7 +500,7 @@ async function init() {
 
   document.title = `${facilityName(row)} · ${t('brand')}`;
   renderHead();
-  const record = renderFacility(row);
+  const record = renderFacility(row, { stays });
   record.querySelector('.facility-sections').prepend(el('section', { class: 'block', id: 'record-location' }));
   dom.record.replaceChildren(record);
   renderLocation();
