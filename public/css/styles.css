@@ -688,6 +688,19 @@ a { color: var(--accent-ink); }
   .narrative-layout { grid-template-columns: 1fr; }
 }
 
+/* District model: observed against expected (public/js/territory.js) */
+.model-block { gap: 6px; }
+.model-track { position: relative; height: 18px; margin: 4px 0; }
+.model-track::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 2px; background: var(--hairline); transform: translateY(-50%); }
+.model-band { position: absolute; top: 3px; bottom: 3px; left: calc(var(--lo) * 100%); width: calc((var(--hi) - var(--lo)) * 100%); border-radius: 4px; background: #ece6f5; }
+.model-expected { position: absolute; left: calc(var(--x) * 100%); top: 0; bottom: 0; width: 2px; background: var(--ink-muted); transform: translateX(-50%); }
+.model-observed { position: absolute; left: calc(var(--x) * 100%); top: 50%; width: 12px; height: 12px; border: 2px solid var(--surface); border-radius: 50%; background: #553f86; box-shadow: 0 0 0 1px #553f86; transform: translate(-50%, -50%); }
+.model-value { margin: 0; font-size: 13px; }
+.model-legend { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px; }
+.model-key-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #553f86; }
+.model-key-tick { display: inline-block; width: 2px; height: 12px; margin-left: 10px; background: var(--ink-muted); }
+.model-key-band { display: inline-block; width: 18px; height: 8px; margin-left: 10px; border-radius: 3px; background: #ece6f5; }
+
 /* Rank among peer facilities (public/js/peers.js) */
 .ranks { display: grid; gap: 6px; }
 .rank-row {

@@ -19,6 +19,7 @@ const ILL_DEFINED_FLAG_PCT = 10;
 
 let indicatorsPromise = null;
 let districtsPromise = null;
+let modelsPromise = null;
 
 /** All municipalities keyed by code, plus the metropolitan totals under `region`. */
 function loadIndicators() {
@@ -48,6 +49,23 @@ function loadDistricts() {
     city: sumRows(rows),
   }));
   return districtsPromise;
+}
+
+/**
+ * District expected counts and the share of variation each district model explains: the same
+ * static file as the relations page (public/data/relations.json, analysis/outcome_relations.py).
+ */
+function loadModels() {
+  modelsPromise ??= fetch('data/relations.json')
+    .then((response) => {
+      if (!response.ok) throw new Error(`relations.json: ${response.status}`);
+      return response.json();
+    })
+    .then((data) => ({
+      expected: new Map(data.expected.filter((e) => e.scale === 'district').map((e) => [`${e.code}:${e.outcome}`, e])),
+      explained: Object.fromEntries(data.models.filter((m) => m.scale === 'district').map((m) => [m.outcome, m.deviance_explained])),
+    }));
+  return modelsPromise;
 }
 
 const per100k = (cases, population) => (population ? (cases / population) * 100000 : null);
@@ -88,6 +106,34 @@ function districtChart(title, district, city, value, options, hint) {
     { label: district.nm_dist, value: value(district) },
     { label: t('ter.cityWithDistricts'), value: value(city), muted: true },
   ], options), { hint });
+}
+
+/** Observed count against the district model's expected count and 95% prediction interval. */
+function modelBlock(models, district, outcome) {
+  const row = models?.expected.get(`${district.row.cd_dist}:${outcome}`);
+  if (!row) return null;
+  const where = row.observed > row.upper ? 'above' : row.observed < row.lower ? 'below' : 'within';
+  const max = Math.max(row.upper, row.observed) * 1.1 || 1;
+  const at = (value) => (value / max).toFixed(4);
+  const values = {
+    observed: formatCount(row.observed), expected: formatCount(Math.round(row.expected)),
+    lower: formatCount(Math.round(row.lower)), upper: formatCount(Math.round(row.upper)),
+  };
+  return el('section', { class: 'block model-block' },
+    el('h3', { text: t('model.title') }),
+    el('div', { class: 'model-track', role: 'img', 'aria-label': t('model.aria', { ...values, where: t(`model.${where}`) }) },
+      el('span', { class: 'model-band', style: { '--lo': at(row.lower), '--hi': at(row.upper) } }),
+      el('span', { class: 'model-expected', style: { '--x': at(row.expected) } }),
+      el('span', { class: `model-observed is-${where}`, style: { '--x': at(row.observed) } })),
+    el('p', { class: 'model-value' },
+      el('strong', { text: t(`model.observed.${outcome}`, values) }), ` · ${t('model.expected', values)} · `,
+      el('strong', { text: t(`model.${where}`) })),
+    el('p', { class: 'hint model-legend' },
+      el('span', { class: 'model-key-dot' }), t('model.legendObserved'),
+      el('span', { class: 'model-key-tick' }), t('model.legendExpected'),
+      el('span', { class: 'model-key-band' }), t('model.legendBand')),
+    el('p', { class: 'hint' }, t('model.hint', { share: formatNumber(100 * (models.explained[outcome] || 0), 0) }), ' ',
+      el('a', { href: 'relations.html#surpresas', text: t('model.link') })));
 }
 
 function districtScope(district) {
@@ -166,7 +212,7 @@ function healthIntro(surroundings, home, district) {
   return parts.join(' ');
 }
 
-function tbCard(home, region, district) {
+function tbCard(home, region, district, models) {
   const years = SINAN_YEARS.length;
   const tbRate = (row) => per100k(sumYears(row, 'tuberculose') / years, row.populacao);
   const districtTbRate = (row) => per100k(sumYears(row, 'tb') / years, row.populacao_total);
@@ -176,6 +222,7 @@ function tbCard(home, region, district) {
       districtScope(district),
       districtChart(t('ter.resp.tb'), district.row, district.city, districtTbRate, { digits: 1 },
         t('ter.resp.tbDistrictHint', { count: formatCount(sumYears(district.row, 'tb')) })),
+      modelBlock(models, district, 'tb'),
     ] : []),
     municipalScope(home),
     municipalChart(t('ter.resp.tb'), home, region, tbRate, { digits: 1 }, t('ter.resp.tbHint')),
@@ -201,7 +248,7 @@ function environmentCard(home, region) {
   ];
 }
 
-function maternalCard(home, region, district) {
+function maternalCard(home, region, district, models) {
   const teen = (row) => percent(row.nasc_mae_menor_20, row.nasc_idade_conhecida);
   const preterm = (row) => percent(row.nasc_pretermo, row.nasc_gestacao_conhecida);
   const pct = { digits: 1, suffix: '%' };
@@ -210,6 +257,7 @@ function maternalCard(home, region, district) {
     ...(district ? [
       districtScope(district),
       districtChart(t('ter.mat.teen'), district.row, district.city, teen, pct),
+      modelBlock(models, district, 'teen'),
       districtChart(t('ter.mat.preterm'), district.row, district.city, preterm, pct,
         t('ter.mat.districtHint', { count: formatCount(district.row.nasc_total) })),
     ] : []),
@@ -297,9 +345,13 @@ export async function renderTerritory(surroundings) {
   const home = indicators.byCode.get(surroundings.location?.municipality_code);
   if (!home) return;
   const district = home.cd_municipio6 === SAO_PAULO_CITY ? await findDistrict(surroundings) : null;
+  const models = district ? await loadModels().catch((error) => {
+    console.warn('District models unavailable:', error);
+    return null;
+  }) : null;
   document.getElementById('health-intro').textContent = healthIntro(surroundings, home, district);
-  fill('h-tb', tbCard(home, indicators.region, district));
+  fill('h-tb', tbCard(home, indicators.region, district, models).filter(Boolean));
   fill('h-environment', environmentCard(home, indicators.region));
-  fill('h-maternal', maternalCard(home, indicators.region, district));
+  fill('h-maternal', maternalCard(home, indicators.region, district, models).filter(Boolean));
   fill('h-mortality', mortalityCard(home, indicators.region, district));
 }
