@@ -6600,7 +6600,8 @@
   {
    "baseline": false,
    "checks": [
-    "V1"
+    "V1",
+    "V8"
    ],
    "detail": "territory.extent_radius",
    "fixture": "backend-core/evaluation/fixtures/2078562_1000.json",
@@ -6611,7 +6612,8 @@
   {
    "baseline": true,
    "checks": [
-    "V1"
+    "V1",
+    "V8"
    ],
    "detail": "territory.extent_radius",
    "fixture": "backend-core/evaluation/fixtures/2078562_1000.json",
@@ -6988,7 +6990,8 @@
   {
    "baseline": false,
    "checks": [
-    "V6"
+    "V6",
+    "V8"
    ],
    "detail": "times the -> times lower than the",
    "fixture": "backend-core/evaluation/fixtures/2078562_1000.json",
@@ -19400,7 +19403,8 @@
   {
    "baseline": false,
    "checks": [
-    "V1"
+    "V1",
+    "V2"
    ],
    "detail": "beds.unit",
    "fixture": "backend-core/evaluation/fixtures/3528596_1000.json",
@@ -19411,7 +19415,8 @@
   {
    "baseline": true,
    "checks": [
-    "V1"
+    "V1",
+    "V2"
    ],
    "detail": "beds.unit",
    "fixture": "backend-core/evaluation/fixtures/3528596_1000.json",
@@ -20148,7 +20153,8 @@
   {
    "baseline": false,
    "checks": [
-    "V1"
+    "V1",
+    "V2"
    ],
    "detail": "beds.unit",
    "fixture": "backend-core/evaluation/fixtures/3528596_1000.json",
@@ -20159,7 +20165,8 @@
   {
    "baseline": true,
    "checks": [
-    "V1"
+    "V1",
+    "V2"
    ],
    "detail": "beds.unit",
    "fixture": "backend-core/evaluation/fixtures/3528596_1000.json",
