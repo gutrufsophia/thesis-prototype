@@ -189,6 +189,12 @@ function transferCard(data) {
 }
 
 function surpriseCard(data) {
+  const node = surpriseCardBody(data);
+  node.id = 'surpresas';  // linked from the facility page's district model block
+  return node;
+}
+
+function surpriseCardBody(data) {
   const rows = data.expected.filter((e) => e.flag && model(data, e.scale, e.outcome)?.used_for_flags)
     .map((e) => ({
       label: `${e.name} · ${t(`rel.outcome.${e.outcome}`)}`,
