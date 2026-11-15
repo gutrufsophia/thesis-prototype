@@ -1,20 +1,19 @@
-// Annotation page for E1 (caveats), E2 (content selection) and E4 (text accuracy). Blind by design:
-// the text appears only after E1 and E2 are locked for a unit, and the system's answers are never
-// loaded (they live in system.json). Progress stays in this browser and is exported as JSON.
+// Annotation page for E2 (content selection) and E4 (text accuracy). Blind by design: the text
+// appears only after the E2 choice is locked for a unit, and the system's answers are never loaded
+// (they live in system.json). Progress stays in this browser and is exported as JSON.
 
 const TASKS = window.ANNOTATION_TASKS;
 const STORE_PREFIX = 'anotacao-tcc:';
 const CATEGORIES = [
-  ['NUMERO', 'Número incorreto: não bate com a ficha de dados'],
+  ['NUMERO', 'Número incorreto: não bate com os dados'],
   ['ESCALA', 'Escala errada: o número é de outra escala (raio, área de atendimento, distrito, município, região)'],
   ['NOME', 'Nome ou período incorreto: lugar, ano ou intervalo de anos'],
   ['PALAVRA', 'Palavra incorreta: comparativo, direção ou termo que não corresponde aos dados'],
-  ['CONTEXTO', 'Contexto: correto, mas enganoso sem uma ressalva ou contexto que falta'],
-  ['NAO_VERIFICAVEL', 'Não verificável com a ficha de dados'],
+  ['CONTEXTO', 'Contexto: correto, mas enganoso; falta um aviso ou um aviso não faz sentido'],
+  ['NAO_VERIFICAVEL', 'Não verificável com os dados mostrados'],
   ['OUTRO', 'Outro erro'],
 ];
-const E2_MIN = 3;
-const E2_MAX = 5;
+const PICKS = 3;
 
 let state = null;
 
@@ -83,7 +82,7 @@ function load(annotator) {
 }
 
 function record(id) {
-  state.units[id] ??= { e1: {}, e1_notes: {}, e2: [], e4: {}, reviewed: {}, started_at: new Date().toISOString() };
+  state.units[id] ??= { e2: [], e4: {}, reviewed: {}, started_at: new Date().toISOString() };
   return state.units[id];
 }
 
@@ -93,63 +92,38 @@ function renderProgress() {
   $('progress').textContent = `${state.annotator} · ${done} de ${TASKS.units.length} unidades concluídas`;
 }
 
-function sheet(unit) {
-  return el('div', { class: 'sheet' }, unit.sheet.map((section) => el('section', { class: 'sheet-section' },
-    el('h3', { text: section.title }),
-    el('p', { class: 'source', text: `Fonte: ${section.source}` }),
-    el('table', {}, el('tbody', {}, section.rows.map(([label, value]) => el('tr', {},
-      el('th', { scope: 'row', text: label }), el('td', { text: value }))))))));
-}
-
-function e1Block(unit, rec, locked) {
-  return el('section', { class: 'task' },
-    el('h2', { text: 'Etapa 1 · Ressalvas' }),
-    el('p', { class: 'hint', text: 'Com base apenas na ficha de dados: um texto cuidadoso sobre esta unidade precisaria fazer esta ressalva?' }),
-    TASKS.checklist.map((item) => el('fieldset', { class: 'item' },
-      el('legend', { text: item.title }),
-      el('p', { class: 'hint', text: item.description }),
-      el('div', { class: 'choices' }, ['sim', 'nao'].map((choice) => el('label', {},
-        el('input', {
-          type: 'radio', name: `e1-${item.id}`, value: choice, disabled: locked, checked: rec.e1[item.id] === choice,
-          onchange: () => { rec.e1[item.id] = choice; save(); refreshLock(unit, rec); },
-        }), choice === 'sim' ? ' Sim' : ' Não'))),
-      el('input', {
-        type: 'text', class: 'note', placeholder: 'Comentário (opcional)', disabled: locked, value: rec.e1_notes[item.id] || '',
-        oninput: (event) => { rec.e1_notes[item.id] = event.target.value; save(); },
-      }))));
-}
-
-function e2Block(unit, rec, locked) {
-  const counter = el('p', { class: 'hint', id: 'e2-count' });
-  const update = () => { counter.textContent = `${rec.e2.length} escolhidas (entre ${E2_MIN} e ${E2_MAX}).`; };
+function importanceStep(unit, rec, locked) {
+  const counter = el('p', { class: 'hint' });
+  const update = () => { counter.textContent = `${rec.e2.length} de ${PICKS} escolhidas.`; };
   update();
   return el('section', { class: 'task' },
-    el('h2', { text: 'Etapa 2 · O que é mais importante' }),
-    el('p', { class: 'hint', text: `Escolha de ${E2_MIN} a ${E2_MAX} afirmações que um leitor da página desta unidade mais precisaria saber.` }),
+    el('h2', { text: 'Etapa 1 · O que é mais importante' }),
+    el('p', { class: 'hint', text: `Escolha as ${PICKS} informações que um leitor da página desta unidade mais precisaria saber.` }),
     el('ul', { class: 'statements' }, unit.statements.map((s) => el('li', {}, el('label', {},
       el('input', {
         type: 'checkbox', value: s.id, disabled: locked, checked: rec.e2.includes(s.id),
         onchange: (event) => {
-          if (event.target.checked && rec.e2.length >= E2_MAX) {
+          if (event.target.checked && rec.e2.length >= PICKS) {
             event.target.checked = false;
             return;
           }
           rec.e2 = event.target.checked ? [...rec.e2, s.id] : rec.e2.filter((id) => id !== s.id);
           update();
           save();
-          refreshLock(unit, rec);
+          const button = $('lock');
+          if (button) button.disabled = rec.e2.length !== PICKS;
         },
       }), ` ${s.text}`)))),
     counter);
 }
 
-function canLock(rec) {
-  return TASKS.checklist.every((item) => rec.e1[item.id]) && rec.e2.length >= E2_MIN && rec.e2.length <= E2_MAX;
-}
-
-function refreshLock(unit, rec) {
-  const button = $('lock');
-  if (button) button.disabled = !canLock(rec);
+function dataBox(sentence) {
+  return el('div', { class: 'data' },
+    el('p', { class: 'data-title', text: 'Dados para conferir' }),
+    sentence.data.map((block) => el('div', { class: 'data-block' },
+      el('p', { class: 'data-name', text: block.title }),
+      el('table', {}, el('tbody', {}, block.rows.map(([label, value]) => el('tr', {},
+        el('th', { scope: 'row', text: label }), el('td', { text: value }))))))));
 }
 
 function errorForm(sentence, rec, onAdd) {
@@ -157,32 +131,34 @@ function errorForm(sentence, rec, onAdd) {
   const category = el('select', {}, el('option', { value: '', text: 'Categoria…' }),
     CATEGORIES.map(([value, label]) => el('option', { value, text: label })));
   const correction = el('input', { type: 'text', placeholder: 'Correção' });
-  const note = el('input', { type: 'text', placeholder: 'Comentário (opcional)' });
-  return el('div', { class: 'error-form' }, span, category, correction, note,
-    el('button', {
-      type: 'button', text: 'Adicionar erro',
-      onclick: () => {
-        if (!span.value.trim() || !category.value) return;
-        (rec.e4[sentence.id] ??= []).push({ span: span.value.trim(), category: category.value, correction: correction.value.trim(), note: note.value.trim() });
-        rec.reviewed[sentence.id] = true;
-        save();
-        onAdd();
-      },
-    }));
+  return el('details', { class: 'error-form' },
+    el('summary', { text: 'Registrar um erro nesta frase' }),
+    el('div', { class: 'error-fields' }, span, category, correction,
+      el('button', {
+        type: 'button', text: 'Adicionar erro',
+        onclick: () => {
+          if (!span.value.trim() || !category.value) return;
+          (rec.e4[sentence.id] ??= []).push({ span: span.value.trim(), category: category.value, correction: correction.value.trim() });
+          rec.reviewed[sentence.id] = true;
+          save();
+          onAdd();
+        },
+      })));
 }
 
 function sentenceBlock(sentence, rec, done) {
   const box = el('li', { class: 'sentence' });
   const draw = () => {
     const errors = rec.e4[sentence.id] || [];
-    box.replaceChildren(
+    box.replaceChildren(...[
       el('p', { class: 'sentence-text', text: sentence.text }),
+      dataBox(sentence),
       el('label', { class: 'clean' }, el('input', {
         type: 'checkbox', disabled: done || errors.length > 0, checked: rec.reviewed[sentence.id] && errors.length === 0,
-        onchange: (event) => { rec.reviewed[sentence.id] = event.target.checked; save(); refreshDone(rec); },
-      }), ' Conferida, sem erros'),
+        onchange: (event) => { rec.reviewed[sentence.id] = event.target.checked; save(); refreshDone(); },
+      }), ' Conferida: sem erros'),
       errors.length ? el('ul', { class: 'errors' }, errors.map((e, i) => el('li', {},
-        `[${e.category}] “${e.span}”${e.correction ? ` → ${e.correction}` : ''}${e.note ? ` (${e.note})` : ''} `,
+        `[${e.category}] “${e.span}”${e.correction ? ` → ${e.correction}` : ''} `,
         done ? null : el('button', {
           type: 'button', class: 'link', text: 'remover',
           onclick: () => {
@@ -190,26 +166,28 @@ function sentenceBlock(sentence, rec, done) {
             if (!errors.length) rec.reviewed[sentence.id] = false;
             save();
             draw();
-            refreshDone(rec);
+            refreshDone();
           },
         })))) : null,
-      done ? null : errorForm(sentence, rec, () => { draw(); refreshDone(rec); }));
+      done ? null : errorForm(sentence, rec, () => { draw(); refreshDone(); }),
+    ].filter(Boolean));
   };
   draw();
   return box;
 }
 
-function refreshDone(rec) {
+function refreshDone() {
   const unit = TASKS.units.find((u) => u.id === state.order[state.current]);
+  const rec = record(unit.id);
   const button = $('finish');
   if (button) button.disabled = !unit.sentences.every((s) => rec.reviewed[s.id]);
 }
 
-function e4Block(unit, rec) {
+function errorStep(unit, rec) {
   const done = Boolean(rec.done_at);
   return el('section', { class: 'task' },
-    el('h2', { text: 'Etapa 3 · Erros no texto' }),
-    el('p', { class: 'hint', text: 'Confira cada frase contra a ficha de dados. Marque “sem erros” ou registre cada erro com sua categoria (veja o guia).' }),
+    el('h2', { text: 'Etapa 2 · Erros no texto' }),
+    el('p', { class: 'hint', text: 'Compare cada frase com os dados ao lado dela. Marque “sem erros” ou registre o erro com a categoria (veja o guia). Diferenças de arredondamento não são erro.' }),
     el('ol', { class: 'sentences' }, unit.sentences.map((s) => sentenceBlock(s, rec, done))),
     done ? el('p', { class: 'hint', text: 'Unidade concluída.' }) : el('button', {
       type: 'button', id: 'finish', class: 'primary', text: 'Concluir unidade', disabled: true,
@@ -225,15 +203,14 @@ function render() {
     el('button', { type: 'button', text: '← Anterior', disabled: state.current === 0, onclick: () => go(state.current - 1) }),
     el('span', { text: `Unidade ${state.current + 1} de ${state.order.length}` }),
     el('button', { type: 'button', text: 'Próxima →', disabled: state.current === state.order.length - 1, onclick: () => go(state.current + 1) }));
-  const tasks = el('div', { class: 'tasks' },
-    e1Block(unit, rec, locked),
-    e2Block(unit, rec, locked),
-    locked ? e4Block(unit, rec) : el('button', {
-      type: 'button', id: 'lock', class: 'primary', text: 'Confirmar etapas 1 e 2 e ver o texto', disabled: !canLock(rec),
+  $('unit').replaceChildren(nav,
+    el('header', { class: 'unit-head' }, el('h1', { text: unit.name }), el('p', { class: 'hint', text: unit.type })),
+    importanceStep(unit, rec, locked),
+    locked ? errorStep(unit, rec) : el('button', {
+      type: 'button', id: 'lock', class: 'primary', text: 'Confirmar e ver o texto', disabled: rec.e2.length !== PICKS,
       onclick: () => { rec.locked_at = new Date().toISOString(); save(); render(); },
     }));
-  $('unit').replaceChildren(nav, el('div', { class: 'columns' }, sheet(unit), tasks));
-  if (locked) refreshDone(rec);
+  if (locked) refreshDone();
   window.scrollTo(0, 0);
 }
 

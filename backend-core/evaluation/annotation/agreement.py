@@ -1,16 +1,15 @@
-"""Agreement and evaluation metrics for the annotation of E1 (caveats), E2 (content selection) and
-E4 (text accuracy), from two annotators' exported files and the system's answers (system.json).
+"""Agreement and evaluation metrics for the annotation of E2 (content selection) and E4 (text
+accuracy), from two annotators' exported files and the system's answers (system.json).
 
-E1  Cohen's kappa between annotators (Cohen 1960) with the prevalence and bias indices and PABAK of
-    Byrt, Bishop & Carlin (1993), pooled over facility x rule items and per rule; a 95% interval by
-    resampling facilities. The rules are scored against the items both annotators agree on
-    (precision, recall, F1) and against each annotator (kappa).
-E2  Share of each annotator's chosen statements that the text tells (coverage), against the share
-    expected by chance; Jaccard between annotators as the human ceiling; whether the lead is chosen;
-    facts both annotators chose that the text leaves out.
+E2  Share of each annotator's 3 picks that the text tells (coverage), against the share expected by
+    chance among the statements shown; Jaccard between annotators as the human ceiling; whether the
+    lead is picked when it is among the statements shown; facts both annotators picked that the text
+    leaves out.
 E4  Errors per 100 numeric claims by category (Thomson & Reiter 2020, plus SCALE), for each annotator
-    and for the gold list (sentence and category marked by both); sentence-level kappa on whether a
-    sentence has an error. The verifier passed every text, so each gold error is a verifier miss.
+    and for the gold list (sentence and category marked by both); sentence-level agreement on whether
+    a sentence has an error: Cohen's kappa (Cohen 1960) with the prevalence and bias indices and PABAK
+    of Byrt, Bishop & Carlin (1993), and a 95% interval by resampling facilities. The verifier passed
+    every text, so each gold error is a verifier miss.
 
     python3 backend-core/evaluation/annotation/agreement.py anotacao_A.json anotacao_B.json
 """
@@ -18,7 +17,7 @@ E4  Errors per 100 numeric claims by category (Thomson & Reiter 2020, plus SCALE
 import argparse
 import json
 import random
-from collections import Counter, defaultdict
+from collections import Counter
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -62,49 +61,9 @@ def bootstrap_kappa(by_unit):
     return [round(values[int(0.025 * len(values))], 3), round(values[int(0.975 * len(values)) - 1], 3)] if values else None
 
 
-def prf(pairs):
-    """System (first) against reference (second)."""
-    tp = sum(1 for s, r in pairs if s and r)
-    fp = sum(1 for s, r in pairs if s and not r)
-    fn = sum(1 for s, r in pairs if not s and r)
-    precision = tp / (tp + fp) if tp + fp else None
-    recall = tp / (tp + fn) if tp + fn else None
-    f1 = 2 * precision * recall / (precision + recall) if precision and recall else None
-    rnd = lambda v: round(v, 3) if v is not None else None  # noqa: E731
-    return {"tp": tp, "fp": fp, "fn": fn, "precision": rnd(precision), "recall": rnd(recall), "f1": rnd(f1)}
-
-
 def load_tasks():
     text = (HERE / "tasks.js").read_text()
     return json.loads(text[text.index("=") + 1:].rstrip().rstrip(";"))
-
-
-def e1(tasks, system, ann):
-    rules = [item["id"] for item in tasks["checklist"]]
-    units = [u for u in system if all(u in a["units"] and a["units"][u].get("locked_at") for a in ann)]
-    yes = lambda a, u, r: a["units"][u]["e1"].get(r) == "sim"  # noqa: E731
-    pooled, by_unit = [], defaultdict(list)
-    for u in units:
-        for r in rules:
-            pair = (yes(ann[0], u, r), yes(ann[1], u, r))
-            pooled.append(pair)
-            by_unit[u].append(pair)
-    overall = kappa(pooled)
-    if overall:
-        overall["kappa_95ci"] = bootstrap_kappa(by_unit)
-    per_rule = {}
-    consensus_pairs = []
-    for r in rules:
-        pairs = [(yes(ann[0], u, r), yes(ann[1], u, r)) for u in units]
-        agreed = [(system[u]["rules"][r], yes(ann[0], u, r)) for u in units if yes(ann[0], u, r) == yes(ann[1], u, r)]
-        consensus_pairs += agreed
-        per_rule[r] = {
-            "annotators": kappa(pairs),
-            "system_positives": sum(system[u]["rules"][r] for u in units),
-            "system_vs_consensus": prf(agreed),
-            "system_vs_each": [kappa([(system[u]["rules"][r], yes(a, u, r)) for u in units]) for a in ann],
-        }
-    return {"units": len(units), "annotators": overall, "system_vs_consensus": prf(consensus_pairs), "per_rule": per_rule}
 
 
 def e2(tasks, system, ann):
@@ -119,7 +78,7 @@ def e2(tasks, system, ann):
         chosen = [set(a["units"][u]["e2"]) for a in ann]
         for i, c in enumerate(chosen):
             coverage[i].append(len(c & planned) / len(c))
-        chance.append(len(planned) / statements[u])
+        chance.append(len(planned) / statements[u])  # planned among the statements shown
         both = chosen[0] & chosen[1]
         jaccard.append(len(both) / len(chosen[0] | chosen[1]))
         if both:
@@ -132,7 +91,7 @@ def e2(tasks, system, ann):
         for s in both - planned:
             missed[system[u]["statement_fact"][s]] += 1
     mean = lambda v: round(sum(v) / len(v), 3) if v else None  # noqa: E731
-    with_lead = sum(1 for u in units if system[u]["lead"])
+    with_lead = sum(1 for u in units if system[u]["lead"])  # the lead is among the statements shown
     return {
         "units": len(units),
         "coverage": [mean(c) for c in coverage],
@@ -164,13 +123,17 @@ def e4(tasks, ann):
     gold = marks[0] & marks[1]
     gold_cats = Counter(c for _, _, c in gold)
     has_error = lambda a, u, s: bool(a["units"][u]["e4"].get(s))  # noqa: E731
-    sentence_pairs = [(has_error(ann[0], u, s["id"]), has_error(ann[1], u, s["id"])) for u in units for s in by_id[u]["sentences"]]
+    by_unit = {u: [(has_error(ann[0], u, s["id"]), has_error(ann[1], u, s["id"])) for s in by_id[u]["sentences"]] for u in units}
+    sentence_pairs = [pair for pairs in by_unit.values() for pair in pairs]
+    agreement = kappa(sentence_pairs)
+    if agreement:
+        agreement["kappa_95ci"] = bootstrap_kappa(by_unit)
     return {
         "units": len(units), "sentences": len(sentence_pairs), "claims": claims,
         "annotators": per_annotator,
         "gold": {"errors": len(gold), "per_100_claims": round(100 * len(gold) / claims, 2) if claims else None,
                  "by_category": dict(gold_cats), "verifier_missed": len(gold)},
-        "sentence_kappa": kappa(sentence_pairs),
+        "sentence_kappa": agreement,
     }
 
 
@@ -186,11 +149,9 @@ def main():
         if a.get("version") != tasks["version"]:
             raise SystemExit(f"{a.get('annotator')}: annotations made on another version of the tasks")
     result = {"annotators": [a["annotator"] for a in ann], "version": tasks["version"],
-              "e1": e1(tasks, system, ann), "e2": e2(tasks, system, ann), "e4": e4(tasks, ann)}
+              "e2": e2(tasks, system, ann), "e4": e4(tasks, ann)}
     args.out.write_text(json.dumps(result, indent=1, ensure_ascii=False) + "\n")
-    print(json.dumps({k: v for k, v in result.items() if k != "e1"} | {"e1": {k: v for k, v in result["e1"].items() if k != "per_rule"}},
-                     indent=1, ensure_ascii=False))
-    print(f"\nPer-rule detail and the rest in {args.out}")
+    print(json.dumps(result, indent=1, ensure_ascii=False))
 
 
 if __name__ == "__main__":

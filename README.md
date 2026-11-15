@@ -79,7 +79,7 @@ Need and supply around public primary care units are told on each unit's estimat
 The evaluation sample (`backend-core/evaluation/sample.py`) draws facilities by stratum with a fixed seed; their frozen payloads are in `backend-core/evaluation/fixtures/` and are never used by the unit tests. `sample_need.py` adds 10 public primary care units that trigger the need-against-supply sentence, which none of the 40 does.
 
 - Fault injection: `storyteller mutate FIXTURE...` (results in `backend-core/evaluation/results/`).
-- Human annotation of caveats, content selection and text accuracy: `backend-core/evaluation/annotation/`. `build_tasks.py` writes the tasks (`STORYTELLER=path/to/storyteller python3 backend-core/evaluation/annotation/build_tasks.py`); annotators open `annotate.html` and follow `GUIA.md` (in Portuguese, like the texts they check); `agreement.py anotacao_A.json anotacao_B.json` computes agreement and the scores.
+- Human annotation of content selection and text accuracy (20 of the 40 facilities): `backend-core/evaluation/annotation/`. `build_tasks.py` writes the tasks (`STORYTELLER=path/to/storyteller python3 backend-core/evaluation/annotation/build_tasks.py`); annotators open `annotate.html` and follow `GUIA.md` (in Portuguese, like the texts they check); `agreement.py anotacao_A.json anotacao_B.json` computes agreement and the scores.
 
 ## Facility page
 
