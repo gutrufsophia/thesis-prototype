@@ -33,6 +33,7 @@ Language load_language(const std::string& path) {
     lang.comparatives = j.at("comparatives").get<std::map<std::string, std::string>>();
     lang.labels = j.at("labels").get<std::map<std::string, std::string>>();
     lang.constants = j.at("constants").get<std::map<std::string, std::string>>();
+    lang.connectives = j.at("connectives").get<std::map<std::string, std::string>>();
     lang.max_words = j.value("max_words", 220);
     for (const auto& [id, c] : j.at("caveats").items()) {
         const std::string marker = c.at("marker");

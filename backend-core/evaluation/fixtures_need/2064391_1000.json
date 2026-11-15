@@ -1,0 +1,986 @@
+{
+ "city": null,
+ "context": {
+  "edge_m": 15155.0,
+  "facilities": 6687,
+  "group": "primary",
+  "group_size": 1388,
+  "load_percentile": 0.827887537993921,
+  "mean_catchment_m": 2002.0,
+  "near_edge": false,
+  "need_percentile": 0.8548632218844985,
+  "percentiles": {
+   "crowded": 0.9063400576368876,
+   "deprived": 0.8721181556195965,
+   "far_primary": 0.4322278298485941,
+   "income": 0.18479827089337175,
+   "no_garbage": 0.7777377521613833,
+   "off_network": 0.6905619596541787,
+   "precarious": 0.7669308357348703
+  },
+  "public_primary_size": 1316,
+  "radius": 1000,
+  "supply_measure": "catchment",
+  "territory_type": 2,
+  "type_size": 2966,
+  "values": {
+   "crowded": 34.4,
+   "deprived": 50.56713838176515,
+   "far_primary": 0.4,
+   "income": 2109.0,
+   "no_garbage": 0.5,
+   "off_network": 9.200000000000003,
+   "population": 46285.0,
+   "precarious": 8.9,
+   "served": 21335.0,
+   "served_deprived": 50.7
+  }
+ },
+ "district": null,
+ "districts": null,
+ "expected": [
+  {
+   "code": "351880",
+   "expected": 2874.2,
+   "flag": null,
+   "lower": 1759.9,
+   "name": "Guarulhos",
+   "observed": 2982.0,
+   "outcome": "tb",
+   "scale": "municipality",
+   "upper": 3988.5
+  },
+  {
+   "code": "351880",
+   "expected": 47363.5,
+   "flag": null,
+   "lower": 20340.4,
+   "name": "Guarulhos",
+   "observed": 81017.0,
+   "outcome": "dengue_2024",
+   "scale": "municipality",
+   "upper": 74386.6
+  }
+ ],
+ "facility": {
+  "CO_CEP": 7261080,
+  "CO_CLIENTELA": 1,
+  "CO_CNES": 2064391,
+  "CO_MUNICIPIO_GESTOR": 351880,
+  "CO_NATUREZA_JUR": 1244,
+  "CO_TURNO_ATENDIMENTO": 4,
+  "Dependencia": "Mantida",
+  "Fluxo_Clientela": "Atendimento de Demanda Espontânea",
+  "LEITOS_EXISTENTES": 0,
+  "LEITOS_SUS": 0,
+  "NO_BAIRRO": "PQ JANDAIA",
+  "NO_FANTASIA": "UBS PARQUE JANDAIA",
+  "NO_LOGRADOURO": "RUA PORTO ALEGRE",
+  "NO_RAZAO_SOCIAL": "PREFEITURA MUNICIPAL DE GUARULHOS",
+  "NU_CNPJ_MANTENEDORA": "46319000000150",
+  "NU_ENDERECO": "446",
+  "NU_LATITUDE": "-23.452926011966753",
+  "NU_LONGITUDE": "-46.403840956505881",
+  "TP_GESTAO": "Municipal",
+  "TP_UNIDADE": 2,
+  "UTI_ADULTO_EXIST": 0,
+  "UTI_ADULTO_SUS": 0,
+  "UTI_CORONARIANA_EXIST": 0,
+  "UTI_CORONARIANA_SUS": 0,
+  "UTI_NEONATAL_EXIST": 0,
+  "UTI_NEONATAL_SUS": 0,
+  "UTI_PEDIATRICO_EXIST": 0,
+  "UTI_PEDIATRICO_SUS": 0,
+  "UTI_QUEIMADO_EXIST": 0,
+  "UTI_QUEIMADO_SUS": 0,
+  "UTI_TOTAL_EXIST": 0,
+  "UTI_TOTAL_SUS": 0,
+  "atende_sus": true,
+  "coord": "0101000020E610000062F6B2EDB43347C0570740DCD57337C0",
+  "coord_precision_m": null,
+  "coord_shift_m": 51,
+  "coord_source": "cnefe_corrected",
+  "coord_status": "ok",
+  "equip_audiologia": 0,
+  "equip_avaliacao_antropometrica_e_funcional": 0,
+  "equip_diagnostico_por_imagem": 0,
+  "equip_dialise": 0,
+  "equip_equipamentos_de_infra-estrutura": 0,
+  "equip_equipamentos_por_metodos_graficos": 1,
+  "equip_equipamentos_por_metodos_opticos": 0,
+  "equip_manutencao_da_vida": 2,
+  "equip_odontologia": 13,
+  "equip_outros_equipamentos": 0,
+  "equip_procedimentos_cirurgicos": 0,
+  "equip_procedimentos_clinicos": null,
+  "equip_quimioterapia": 0,
+  "equip_radioterapia": 0,
+  "equip_reabilitacao": 0,
+  "equip_telessaude_por_imagem": 0,
+  "esfera_juridica": "Administração Pública",
+  "esp_cardiologista": 0,
+  "esp_clinico_geral": 1,
+  "esp_endocrinologista": 0,
+  "esp_ginecologista_obstetra": 1,
+  "esp_infecto_pneumo": 0,
+  "esp_medico_familia": 0,
+  "esp_oncologista": 0,
+  "esp_pediatra": 1,
+  "esp_psicologo": 0,
+  "esp_psiquiatra": 0,
+  "esp_terapeuta_ocupacional": 0,
+  "internacoes_afeccoes_perinatais": 0,
+  "internacoes_aparelho_circulatorio": 0,
+  "internacoes_aparelho_digestivo": 0,
+  "internacoes_aparelho_geniturinario": 0,
+  "internacoes_aparelho_respiratorio": 0,
+  "internacoes_contatos_servicos_saude": 0,
+  "internacoes_endocrinas_nutricionais": 0,
+  "internacoes_gravidez_parto_puerperio": 0,
+  "internacoes_infecciosas_parasitarias": 0,
+  "internacoes_lesoes_envenenamentos": 0,
+  "internacoes_malformacoes_congenitas": 0,
+  "internacoes_neoplasias_tumores": 0,
+  "internacoes_olho_anexos": 0,
+  "internacoes_osteomuscular_conjuntivo": 0,
+  "internacoes_ouvido_mastoide": 0,
+  "internacoes_pele_tecido_subcutaneo": 0,
+  "internacoes_sangue_imunitarias": 0,
+  "internacoes_sintomas_sinais_anormais": 0,
+  "internacoes_sistema_nervoso": 0,
+  "internacoes_total": 0,
+  "internacoes_transtornos_mentais": 0,
+  "media_dias_permanencia": 0,
+  "rede_sus": true,
+  "tipo_equipamento": "Centro de Saúde/UBS",
+  "total_enfermeiros": 3,
+  "total_medicos": 10,
+  "total_saude_mental": 0
+ },
+ "hospital_stays": [
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.1,
+  0.2,
+  1.0,
+  1.0,
+  1.4,
+  1.5,
+  1.7,
+  1.9,
+  2.4,
+  2.4,
+  2.4,
+  2.5,
+  2.5,
+  2.6,
+  2.6,
+  2.6,
+  2.7,
+  2.7,
+  2.7,
+  2.8,
+  2.9,
+  2.9,
+  2.9,
+  3.0,
+  3.0,
+  3.1,
+  3.1,
+  3.2,
+  3.2,
+  3.3,
+  3.3,
+  3.4,
+  3.4,
+  3.5,
+  3.5,
+  3.5,
+  3.6,
+  3.6,
+  3.6,
+  3.8,
+  3.8,
+  3.8,
+  3.8,
+  3.9,
+  3.9,
+  3.9,
+  3.9,
+  4.1,
+  4.1,
+  4.1,
+  4.2,
+  4.2,
+  4.3,
+  4.3,
+  4.3,
+  4.4,
+  4.4,
+  4.4,
+  4.4,
+  4.5,
+  4.5,
+  4.5,
+  4.6,
+  4.6,
+  4.6,
+  4.6,
+  4.6,
+  4.7,
+  4.7,
+  4.7,
+  4.7,
+  4.7,
+  4.8,
+  4.8,
+  4.8,
+  4.9,
+  4.9,
+  4.9,
+  4.9,
+  4.9,
+  5.0,
+  5.1,
+  5.1,
+  5.1,
+  5.1,
+  5.2,
+  5.2,
+  5.2,
+  5.4,
+  5.5,
+  5.5,
+  5.5,
+  5.6,
+  5.6,
+  5.6,
+  5.6,
+  5.7,
+  5.7,
+  5.7,
+  5.7,
+  5.8,
+  5.8,
+  5.9,
+  5.9,
+  5.9,
+  6.0,
+  6.0,
+  6.0,
+  6.1,
+  6.1,
+  6.1,
+  6.2,
+  6.3,
+  6.3,
+  6.4,
+  6.4,
+  6.5,
+  6.5,
+  6.5,
+  6.6,
+  6.7,
+  6.7,
+  6.8,
+  6.8,
+  7.0,
+  7.1,
+  7.1,
+  7.2,
+  7.2,
+  7.3,
+  7.6,
+  7.8,
+  7.9,
+  8.0,
+  8.0,
+  8.2,
+  8.6,
+  9.5,
+  9.6,
+  9.7,
+  10.0,
+  11.2,
+  11.2,
+  11.4,
+  12.2,
+  13.3,
+  13.3,
+  17.4,
+  17.7,
+  19.2,
+  20.3,
+  31.6,
+  31.9,
+  33.2,
+  67.0,
+  600.4,
+  1469.0,
+  3220.7,
+  6845.1
+ ],
+ "municipality": {
+  "cd_municipio6": "351880",
+  "dengue_2022": 1066,
+  "dengue_2023": 1882,
+  "dengue_2024": 81017,
+  "dengue_2025": 5522,
+  "dengue_2026": 431,
+  "lepto_2022": 16,
+  "lepto_2023": 13,
+  "lepto_2024": 12,
+  "lepto_2025": 19,
+  "lepto_2026": 11,
+  "nasc_gestacao_conhecida": 51210,
+  "nasc_idade_conhecida": 51228,
+  "nasc_mae_menor_20": 4566,
+  "nasc_pretermo": 5356,
+  "nasc_total": 51228,
+  "nome": "Guarulhos",
+  "obitos_cap_i": 846,
+  "obitos_cap_ii": 2519,
+  "obitos_cap_iii": 60,
+  "obitos_cap_iv": 471,
+  "obitos_cap_ix": 4212,
+  "obitos_cap_v": 66,
+  "obitos_cap_vi": 179,
+  "obitos_cap_vii": 0,
+  "obitos_cap_viii": 4,
+  "obitos_cap_x": 1229,
+  "obitos_cap_xi": 940,
+  "obitos_cap_xii": 75,
+  "obitos_cap_xiii": 57,
+  "obitos_cap_xiv": 416,
+  "obitos_cap_xv": 21,
+  "obitos_cap_xvi": 0,
+  "obitos_cap_xvii": 15,
+  "obitos_cap_xviii": 316,
+  "obitos_cap_xx": 1196,
+  "obitos_total": 12622,
+  "populacao": 1291771,
+  "tuberculose_2022": 604,
+  "tuberculose_2023": 694,
+  "tuberculose_2024": 800,
+  "tuberculose_2025": 884
+ },
+ "public_only": false,
+ "region": {
+  "dengue_2022": 18311.0,
+  "dengue_2023": 22171.0,
+  "dengue_2024": 939757.0,
+  "dengue_2025": 117418.0,
+  "dengue_2026": 14140.0,
+  "lepto_2022": 254.0,
+  "lepto_2023": 264.0,
+  "lepto_2024": 202.0,
+  "lepto_2025": 218.0,
+  "lepto_2026": 125.0,
+  "nasc_gestacao_conhecida": 712680.0,
+  "nasc_idade_conhecida": 712927.0,
+  "nasc_mae_menor_20": 55925.0,
+  "nasc_pretermo": 83393.0,
+  "nasc_total": 712938.0,
+  "obitos_cap_i": 10360.0,
+  "obitos_cap_ii": 41092.0,
+  "obitos_cap_iii": 729.0,
+  "obitos_cap_iv": 6785.0,
+  "obitos_cap_ix": 57354.0,
+  "obitos_cap_v": 1101.0,
+  "obitos_cap_vi": 3125.0,
+  "obitos_cap_vii": 4.0,
+  "obitos_cap_viii": 41.0,
+  "obitos_cap_x": 17271.0,
+  "obitos_cap_xi": 12621.0,
+  "obitos_cap_xii": 1017.0,
+  "obitos_cap_xiii": 920.0,
+  "obitos_cap_xiv": 4386.0,
+  "obitos_cap_xv": 209.0,
+  "obitos_cap_xvi": 7.0,
+  "obitos_cap_xvii": 267.0,
+  "obitos_cap_xviii": 7474.0,
+  "obitos_cap_xx": 15040.0,
+  "obitos_total": 179803.0,
+  "populacao": 20731920.0,
+  "tuberculose_2022": 12725.0,
+  "tuberculose_2023": 13998.0,
+  "tuberculose_2024": 14669.0,
+  "tuberculose_2025": 14223.0
+ },
+ "surroundings": {
+  "access_bands": {
+   "over_2000": 0,
+   "upto_1000": 15900,
+   "upto_2000": 202,
+   "upto_500": 29704
+  },
+  "area_km2": 3.142,
+  "census": {
+   "municipality": {
+    "crowded_pct": 23.3,
+    "far_primary_pct": 8.4,
+    "garbage_pct": 99.3,
+    "households": 450963,
+    "income": 3076,
+    "population": 1291771,
+    "precarious_pct": 6.9,
+    "residents_per_household": 2.85,
+    "sewage_pct": 92.0,
+    "tracts": 2510,
+    "tracts_no_households": 57
+   },
+   "radius": {
+    "crowded_pct": 34.4,
+    "far_primary_pct": 0.4,
+    "garbage_pct": 99.5,
+    "households": 15631,
+    "income": 2109,
+    "population": 46285,
+    "precarious_pct": 8.9,
+    "residents_per_household": 2.95,
+    "sewage_pct": 90.8,
+    "tracts": 111,
+    "tracts_no_households": 2
+   },
+   "region": {
+    "crowded_pct": 13.7,
+    "far_primary_pct": 13.0,
+    "garbage_pct": 99.6,
+    "households": 7615622,
+    "income": 4199,
+    "population": 20731920,
+    "precarious_pct": 5.7,
+    "residents_per_household": 2.71,
+    "sewage_pct": 91.7,
+    "tracts": 47293,
+    "tracts_no_households": 895
+   }
+  },
+  "crowding_threshold": 3.1,
+  "facilities": [
+   {
+    "beds": 0,
+    "cnes": 3338533,
+    "distance_m": 686,
+    "lat": -23.447494,
+    "lon": -46.399977,
+    "name": "UBS NORMANDIA",
+    "nurses": 3,
+    "physicians": 5,
+    "sus_network": true,
+    "type": "Centro de Saúde/UBS"
+   },
+   {
+    "beds": 0,
+    "cnes": 9286063,
+    "distance_m": 865,
+    "lat": -23.446233,
+    "lon": -46.409042,
+    "name": "CLINICA JARDIM SAO JOAO UNIDADE PIMENTAS",
+    "nurses": 0,
+    "physicians": 5,
+    "sus_network": false,
+    "type": "Policlínica"
+   },
+   {
+    "beds": 0,
+    "cnes": 7329091,
+    "distance_m": 872,
+    "lat": -23.44558,
+    "lon": -46.408064,
+    "name": "CLINICORDIS FILIAL",
+    "nurses": 0,
+    "physicians": 0,
+    "sus_network": false,
+    "type": "Policlínica"
+   },
+   {
+    "beds": 0,
+    "cnes": 5275814,
+    "distance_m": 914,
+    "lat": -23.444875,
+    "lon": -46.407435,
+    "name": "UBS NOVA CIDADE",
+    "nurses": 6,
+    "physicians": 5,
+    "sus_network": true,
+    "type": "Centro de Saúde/UBS"
+   }
+  ],
+  "facility": {
+   "lat": -23.452482,
+   "lon": -46.403959
+  },
+  "located": true,
+  "location": {
+   "district": "Jardim Presidente Dutra",
+   "municipality": "Guarulhos",
+   "municipality_code": "351880",
+   "situation": "Urbana",
+   "tract": "351880010000016"
+  },
+  "municipalities": [
+   {
+    "code": "351880",
+    "name": "Guarulhos",
+    "population": 46271
+   },
+   {
+    "code": "352310",
+    "name": "Itaquaquecetuba",
+    "population": 14
+   }
+  ],
+  "radius_m": 1000,
+  "tracts": [
+   {
+    "population": 39.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 0.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 731.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 964.0,
+    "share_inside": 0.947
+   },
+   {
+    "population": 970.0,
+    "share_inside": 0.79
+   },
+   {
+    "population": 641.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 218.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 508.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 622.0,
+    "share_inside": 0.012
+   },
+   {
+    "population": 337.0,
+    "share_inside": 0.272
+   },
+   {
+    "population": 881.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 403.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 405.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 718.0,
+    "share_inside": 0.442
+   },
+   {
+    "population": 911.0,
+    "share_inside": 0.917
+   },
+   {
+    "population": 336.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 684.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 704.0,
+    "share_inside": 0.345
+   },
+   {
+    "population": 509.0,
+    "share_inside": 0.606
+   },
+   {
+    "population": 490.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 527.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 392.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 357.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 566.0,
+    "share_inside": 0.241
+   },
+   {
+    "population": 771.0,
+    "share_inside": 0.092
+   },
+   {
+    "population": 734.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 531.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 467.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 380.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 404.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 444.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 608.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 400.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 588.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 639.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 480.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 310.0,
+    "share_inside": 0.366
+   },
+   {
+    "population": 292.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 446.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 461.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 632.0,
+    "share_inside": 0.779
+   },
+   {
+    "population": 836.0,
+    "share_inside": 0.328
+   },
+   {
+    "population": 520.0,
+    "share_inside": 0.804
+   },
+   {
+    "population": 746.0,
+    "share_inside": 0.626
+   },
+   {
+    "population": 668.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 832.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 839.0,
+    "share_inside": 0.453
+   },
+   {
+    "population": 735.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 667.0,
+    "share_inside": 0.334
+   },
+   {
+    "population": 1052.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 923.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 485.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 659.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 598.0,
+    "share_inside": 0.004
+   },
+   {
+    "population": 146.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 542.0,
+    "share_inside": 0.369
+   },
+   {
+    "population": 281.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 423.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 535.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 428.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 965.0,
+    "share_inside": 0.628
+   },
+   {
+    "population": 703.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 465.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 853.0,
+    "share_inside": 0.388
+   },
+   {
+    "population": 626.0,
+    "share_inside": 0.958
+   },
+   {
+    "population": 537.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 633.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 483.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 674.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 504.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 312.0,
+    "share_inside": 0.869
+   },
+   {
+    "population": 480.0,
+    "share_inside": 0.749
+   },
+   {
+    "population": 436.0,
+    "share_inside": 0.996
+   },
+   {
+    "population": 475.0,
+    "share_inside": 0.994
+   },
+   {
+    "population": 339.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 489.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 272.0,
+    "share_inside": 0.045
+   },
+   {
+    "population": 422.0,
+    "share_inside": 0.613
+   },
+   {
+    "population": 391.0,
+    "share_inside": 0.138
+   },
+   {
+    "population": 474.0,
+    "share_inside": 0.044
+   },
+   {
+    "population": 260.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 520.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 232.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 668.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 409.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 29.0,
+    "share_inside": 0.111
+   },
+   {
+    "population": 723.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 274.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 415.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 603.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 933.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 558.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 348.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 759.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 653.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 752.0,
+    "share_inside": 0.011
+   },
+   {
+    "population": 334.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 328.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 125.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 695.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 52.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 41.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 391.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 554.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 582.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 66.0,
+    "share_inside": 0.491
+   },
+   {
+    "population": 144.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 478.0,
+    "share_inside": 0.687
+   },
+   {
+    "population": 280.0,
+    "share_inside": 0.47
+   },
+   {
+    "population": 30.0,
+    "share_inside": 0.19
+   },
+   {
+    "population": 360.0,
+    "share_inside": 0.039
+   }
+  ]
+ }
+}

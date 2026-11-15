@@ -23,6 +23,7 @@ public:
 
 private:
     nlohmann::json request(const std::string& path, const std::string* body) const;
+    Reference load_reference_once() const;
 
     std::string base_url_;
     std::string anon_key_;

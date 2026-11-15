@@ -1,7 +1,57 @@
 {
  "city": null,
+ "context": {
+  "facilities": 6687,
+  "group": "hospital",
+  "group_size": 499,
+  "percentiles": {
+   "crowded": 0.9338677354709419,
+   "deprived": 0.9468937875751503,
+   "far_primary": 0.7965931863727455,
+   "income": 0.1432865731462926,
+   "no_garbage": 0.5891783567134269,
+   "off_network": 0.9549098196392786,
+   "precarious": 0.9789579158316634
+  },
+  "radius": 1000,
+  "territory_type": 2,
+  "type_size": 2966,
+  "values": {
+   "crowded": 21.9,
+   "deprived": 38.2637628554144,
+   "far_primary": 46.8,
+   "income": 2783.0,
+   "no_garbage": 0.09999999999999432,
+   "off_network": 29.900000000000006,
+   "precarious": 23.6
+  }
+ },
  "district": null,
  "districts": null,
+ "expected": [
+  {
+   "code": "352310",
+   "expected": 639.9,
+   "flag": null,
+   "lower": 108.4,
+   "name": "Itaquaquecetuba",
+   "observed": 657.0,
+   "outcome": "tb",
+   "scale": "municipality",
+   "upper": 1171.3
+  },
+  {
+   "code": "352310",
+   "expected": 10269.1,
+   "flag": null,
+   "lower": 0.0,
+   "name": "Itaquaquecetuba",
+   "observed": 6519.0,
+   "outcome": "dengue_2024",
+   "scale": "municipality",
+   "upper": 22885.4
+  }
+ ],
  "facility": {
   "CO_CEP": 8599280,
   "CO_CLIENTELA": 3,
@@ -365,6 +415,7 @@
     "far_primary_pct": 21.4,
     "garbage_pct": 99.6,
     "households": 122210,
+    "income": 2212,
     "population": 369275,
     "precarious_pct": 17.2,
     "residents_per_household": 3.02,
@@ -377,6 +428,7 @@
     "far_primary_pct": 46.8,
     "garbage_pct": 99.9,
     "households": 3392,
+    "income": 2783,
     "population": 9918,
     "precarious_pct": 23.6,
     "residents_per_household": 2.92,
@@ -389,6 +441,7 @@
     "far_primary_pct": 13.0,
     "garbage_pct": 99.6,
     "households": 7615622,
+    "income": 4199,
     "population": 20731920,
     "precarious_pct": 5.7,
     "residents_per_household": 2.71,
@@ -602,6 +655,14 @@
   "radius_m": 1000,
   "tracts": [
    {
+    "population": 0.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 0.0,
+    "share_inside": 0.102
+   },
+   {
     "population": 372.0,
     "share_inside": 0.873
    },
@@ -654,10 +715,6 @@
     "share_inside": 1.0
    },
    {
-    "population": 0.0,
-    "share_inside": 1.0
-   },
-   {
     "population": 347.0,
     "share_inside": 0.755
    },
@@ -676,10 +733,6 @@
    {
     "population": 153.0,
     "share_inside": 0.141
-   },
-   {
-    "population": 0.0,
-    "share_inside": 0.102
    },
    {
     "population": 820.0,

@@ -27,15 +27,15 @@ export function el(tag, props = {}, ...children) {
  * Horizontal bar list, one row per item, value printed at the bar's tip.
  * `reference` draws a tick on the same scale, for a comparison value.
  * @param {{label: string, value: number, note?: string, muted?: boolean, color?: string, reference?: number}[]} items
- * @param {{digits?: number, suffix?: string, max?: number}} options
+ * @param {{digits?: number, prefix?: string, suffix?: string, max?: number}} options
  */
-export function barList(items, { digits = 0, suffix = '', max } = {}) {
+export function barList(items, { digits = 0, prefix = '', suffix = '', max } = {}) {
   const scaleMax = max ?? Math.max(...items.flatMap((item) => [item.value || 0, item.reference || 0]), 0);
   const hasReference = items.some((item) => item.reference !== undefined && item.reference !== null);
   return el('div', { class: `bars${hasReference ? ' has-reference' : ''}`, role: 'list' }, items.map((item) => {
     const hasValue = item.value !== null && item.value !== undefined;
     const share = hasValue && scaleMax > 0 ? item.value / scaleMax : 0;
-    const valueText = hasValue ? `${formatNumber(item.value, digits)}${suffix}` : t('noData');
+    const valueText = hasValue ? `${prefix}${formatNumber(item.value, digits)}${suffix}` : t('noData');
     return el('div', {
       class: 'bar-row',
       role: 'listitem',
@@ -62,6 +62,14 @@ export function statTiles(tiles) {
       el('div', { class: 'tile-label', text: tile.label }),
       el('div', { class: 'tile-value', text: tile.value }),
       tile.note ? el('div', { class: 'tile-note', text: tile.note }) : null)));
+}
+
+/** Label and value rows, as in a record sheet; `numeric` right-aligns the values. */
+export function keyValues(entries, { numeric = false } = {}) {
+  return el('dl', { class: `profile${numeric ? ' is-numeric' : ''}` }, entries.flatMap(([term, value]) => [
+    el('dt', { text: term }),
+    el('dd', { text: value || '–' }),
+  ]));
 }
 
 /** Titled block; shows `emptyText` instead of the body when there is nothing to plot. */

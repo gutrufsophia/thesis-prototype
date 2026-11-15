@@ -1,7 +1,57 @@
 {
  "city": null,
+ "context": {
+  "facilities": 6687,
+  "group": "hospital",
+  "group_size": 499,
+  "percentiles": {
+   "crowded": 0.9448897795591182,
+   "deprived": 0.9028056112224448,
+   "far_primary": 0.8507014028056112,
+   "income": 0.033066132264529056,
+   "no_garbage": 0.8917835671342685,
+   "off_network": 0.8296593186372746,
+   "precarious": 0.8336673346693386
+  },
+  "radius": 1000,
+  "territory_type": 2,
+  "type_size": 2966,
+  "values": {
+   "crowded": 23.6,
+   "deprived": 29.056824838898653,
+   "far_primary": 55.8,
+   "income": 2239.0,
+   "no_garbage": 0.4000000000000057,
+   "off_network": 5.900000000000006,
+   "precarious": 4.4
+  }
+ },
  "district": null,
  "districts": null,
+ "expected": [
+  {
+   "code": "350660",
+   "expected": 63.4,
+   "flag": null,
+   "lower": 0.0,
+   "name": "Biritiba Mirim",
+   "observed": 39.0,
+   "outcome": "tb",
+   "scale": "municipality",
+   "upper": 214.4
+  },
+  {
+   "code": "350660",
+   "expected": 1554.2,
+   "flag": null,
+   "lower": 0.0,
+   "name": "Biritiba Mirim",
+   "observed": 2005.0,
+   "outcome": "dengue_2024",
+   "scale": "municipality",
+   "upper": 6267.3
+  }
+ ],
  "facility": {
   "CO_CEP": 8940000,
   "CO_CLIENTELA": 1,
@@ -365,6 +415,7 @@
     "far_primary_pct": 48.7,
     "garbage_pct": 95.5,
     "households": 10443,
+    "income": 2122,
     "population": 29683,
     "precarious_pct": 17.4,
     "residents_per_household": 2.84,
@@ -377,6 +428,7 @@
     "far_primary_pct": 55.8,
     "garbage_pct": 99.6,
     "households": 3554,
+    "income": 2239,
     "population": 10242,
     "precarious_pct": 4.4,
     "residents_per_household": 2.88,
@@ -389,6 +441,7 @@
     "far_primary_pct": 13.0,
     "garbage_pct": 99.6,
     "households": 7615622,
+    "income": 4199,
     "population": 20731920,
     "precarious_pct": 5.7,
     "residents_per_household": 2.71,

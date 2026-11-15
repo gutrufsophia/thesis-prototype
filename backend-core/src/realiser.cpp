@@ -48,6 +48,22 @@ std::string append_clause(const std::string& sentence, const std::string& clause
     return base + ", " + clause + ".";
 }
 
+// Rhetorical relation between neighbouring facts (Mann & Thompson 1988): opposite valence is a
+// contrast, the same valence on the same theme an addition (elaboration of the same point).
+std::string connective(const Fact* previous, const Fact& current, const Language& lang) {
+    if (!previous || previous->valence == 0 || current.valence == 0) return {};
+    if (previous->valence != current.valence) return lang.connectives.at("contrast");
+    if (previous->theme == current.theme) return lang.connectives.at("addition");
+    return {};
+}
+
+std::string with_connective(const std::string& sentence, const std::string& word) {
+    if (word.empty()) return sentence;
+    std::string rest = sentence;
+    if (!rest.empty() && rest[0] >= 'A' && rest[0] <= 'Z') rest[0] = static_cast<char>(rest[0] - 'A' + 'a');
+    return word + " " + rest;
+}
+
 std::string fact_sentence(const Fact& fact, const Language& lang) {
     const std::string* tmpl = lang.template_for(fact.id, fact.variant);
     if (!tmpl) throw std::runtime_error("no template for " + fact.id + (fact.variant.empty() ? "" : "." + fact.variant));
@@ -71,10 +87,14 @@ std::vector<Paragraph> realise_templates(const Plan& plan, const std::vector<Fac
     std::vector<Paragraph> paragraphs;
     for (const auto& ids : plan.paragraphs) {
         Paragraph paragraph;
+        const Fact* previous = nullptr;
         for (const auto& id : ids) {
             const Fact* fact = find_fact(facts, id);
             if (!fact) throw std::runtime_error("planned fact not found: " + id);
-            Sentence main{resolve_plurals(fact_sentence(*fact, lang), facts), {id}, {}};
+            Sentence main{with_connective(resolve_plurals(fact_sentence(*fact, lang), facts),
+                                          connective(previous, *fact, lang)),
+                          {id}, {}};
+            previous = fact;
             Paragraph before, after;
             for (const auto& c : plan.caveats) {
                 if (c.fact != id || c.effect == Effect::Suppress) continue;

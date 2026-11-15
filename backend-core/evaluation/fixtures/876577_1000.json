@@ -39,6 +39,32 @@
   "total_lixo_coletado": 4295958.0,
   "tracts": 27301.0
  },
+ "context": {
+  "facilities": 6687,
+  "group": "diagnostic",
+  "group_size": 2488,
+  "percentiles": {
+   "crowded": 0.8279742765273312,
+   "deprived": 0.8233520900321544,
+   "far_primary": 0.1270096463022508,
+   "income": 0.08741961414790997,
+   "no_garbage": 0.6607717041800643,
+   "off_network": 0.8647508038585209,
+   "precarious": 0.8888665594855305
+  },
+  "radius": 1000,
+  "territory_type": 2,
+  "type_size": 2966,
+  "values": {
+   "crowded": 8.4,
+   "deprived": 12.970462767968034,
+   "far_primary": 0.4,
+   "income": 2893.0,
+   "no_garbage": 0.09999999999999432,
+   "off_network": 3.0,
+   "precarious": 3.0
+  }
+ },
  "district": {
   "cd_dist": "355030876",
   "domicilios_esgoto_informado": 94724.0,
@@ -4115,6 +4141,52 @@
    "tracts": 308
   }
  ],
+ "expected": [
+  {
+   "code": "355030876",
+   "expected": 936.1,
+   "flag": null,
+   "lower": 553.0,
+   "name": "Sapopemba",
+   "observed": 818.0,
+   "outcome": "tb",
+   "scale": "district",
+   "upper": 1319.2
+  },
+  {
+   "code": "355030",
+   "expected": 33485.1,
+   "flag": null,
+   "lower": 28809.9,
+   "name": "São Paulo",
+   "observed": 36946.0,
+   "outcome": "tb",
+   "scale": "municipality",
+   "upper": 38160.3
+  },
+  {
+   "code": "355030",
+   "expected": 583110.4,
+   "flag": null,
+   "lower": 463754.3,
+   "name": "São Paulo",
+   "observed": 633243.0,
+   "outcome": "dengue_2024",
+   "scale": "municipality",
+   "upper": 702466.6
+  },
+  {
+   "code": "355030876",
+   "expected": 827.1,
+   "flag": null,
+   "lower": 649.9,
+   "name": "Sapopemba",
+   "observed": 794.0,
+   "outcome": "teen",
+   "scale": "district",
+   "upper": 1004.3
+  }
+ ],
  "facility": {
   "CO_CEP": 3271020,
   "CO_CLIENTELA": 1,
@@ -4478,6 +4550,7 @@
     "far_primary_pct": 12.9,
     "garbage_pct": 99.7,
     "households": 4316336,
+    "income": 4869,
     "population": 11451999,
     "precarious_pct": 4.0,
     "residents_per_household": 2.65,
@@ -4490,6 +4563,7 @@
     "far_primary_pct": 0.4,
     "garbage_pct": 99.9,
     "households": 19992,
+    "income": 2893,
     "population": 55557,
     "precarious_pct": 3.0,
     "residents_per_household": 2.78,
@@ -4502,6 +4576,7 @@
     "far_primary_pct": 13.0,
     "garbage_pct": 99.6,
     "households": 7615622,
+    "income": 4199,
     "population": 20731920,
     "precarious_pct": 5.7,
     "residents_per_household": 2.71,
@@ -4642,6 +4717,10 @@
   ],
   "radius_m": 1000,
   "tracts": [
+   {
+    "population": 0.0,
+    "share_inside": 1.0
+   },
    {
     "population": 510.0,
     "share_inside": 0.233
@@ -5141,10 +5220,6 @@
    {
     "population": 334.0,
     "share_inside": 0.745
-   },
-   {
-    "population": 0.0,
-    "share_inside": 1.0
    },
    {
     "population": 535.0,

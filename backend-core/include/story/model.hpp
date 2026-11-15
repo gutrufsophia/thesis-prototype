@@ -8,7 +8,8 @@
 namespace story {
 
 // The spatial scale a figure describes. Every value slot is bound to one.
-enum class Scope { Unit, Radius, District, City, Municipality, Region };
+// Catchment: the residents a unit is expected to serve (database/reference/compute_catchment.py)
+enum class Scope { Unit, Radius, District, City, Municipality, Region, Catchment };
 
 std::string to_string(Scope scope);
 std::optional<Scope> scope_from_string(const std::string& name);
@@ -51,6 +52,9 @@ struct Fact {
     double salience = 0;
     double weight = 1;
     double reliability = 1;
+    // +1 when the fact shows the area worse off than its reference, -1 better off, 0 neither.
+    // Chooses the connective between neighbouring sentences.
+    int valence = 0;
     bool mandatory = false;
     std::vector<std::string> pairs_with;  // outcome facts: living facts they relate to
 

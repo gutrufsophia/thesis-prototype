@@ -1,7 +1,7 @@
 // Renders one facility record. Used by the map's side panel (compact) and by the
 // facility page (full).
 
-import { barList, el, section, statTiles } from './charts.js';
+import { barList, el, keyValues, section, statTiles } from './charts.js';
 import {
   ADMISSIONS, EQUIPMENT, ICU_BEDS, SPECIALTIES,
   facilityAddress, facilityName, flowLabel, formatCnes, formatCount, formatNumber,
@@ -52,10 +52,7 @@ function profile(row) {
     [t('profile.flow'), flowLabel(row.Fluxo_Clientela)],
     [t('profile.hours'), shiftLabel(row.CO_TURNO_ATENDIMENTO)],
   ];
-  return el('dl', { class: 'profile' }, entries.flatMap(([term, value]) => [
-    el('dt', { text: term }),
-    el('dd', { text: value || '–' }),
-  ]));
+  return keyValues(entries);
 }
 
 function keyFigures(row) {

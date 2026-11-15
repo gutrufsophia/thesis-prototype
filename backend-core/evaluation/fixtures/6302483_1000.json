@@ -1,7 +1,57 @@
 {
  "city": null,
+ "context": {
+  "facilities": 6687,
+  "group": "specialised",
+  "group_size": 2070,
+  "percentiles": {
+   "crowded": 0.11908212560386473,
+   "deprived": 0.9084541062801932,
+   "far_primary": 0.49105848235862737,
+   "income": 0.12004830917874396,
+   "no_garbage": 0.8480676328502416,
+   "off_network": 0.9664251207729468,
+   "precarious": 0.9698067632850241
+  },
+  "radius": 1000,
+  "territory_type": 2,
+  "type_size": 2966,
+  "values": {
+   "crowded": 0.1,
+   "deprived": 30.758988015978694,
+   "far_primary": 8.2,
+   "income": 2551.0,
+   "no_garbage": 0.29999999999999716,
+   "off_network": 23.799999999999997,
+   "precarious": 13.9
+  }
+ },
  "district": null,
  "districts": null,
+ "expected": [
+  {
+   "code": "354995",
+   "expected": 41.4,
+   "flag": null,
+   "lower": 0.0,
+   "name": "São Lourenço da Serra",
+   "observed": 29.0,
+   "outcome": "tb",
+   "scale": "municipality",
+   "upper": 165.1
+  },
+  {
+   "code": "354995",
+   "expected": 792.5,
+   "flag": null,
+   "lower": 0.0,
+   "name": "São Lourenço da Serra",
+   "observed": 152.0,
+   "outcome": "dengue_2024",
+   "scale": "municipality",
+   "upper": 4094.5
+  }
+ ],
  "facility": {
   "CO_CEP": 6890000,
   "CO_CLIENTELA": 3,
@@ -365,6 +415,7 @@
     "far_primary_pct": 52.9,
     "garbage_pct": 97.0,
     "households": 5850,
+    "income": 2412,
     "population": 16067,
     "precarious_pct": 29.1,
     "residents_per_household": 2.73,
@@ -377,6 +428,7 @@
     "far_primary_pct": 8.2,
     "garbage_pct": 99.7,
     "households": 574,
+    "income": 2551,
     "population": 1502,
     "precarious_pct": 13.9,
     "residents_per_household": 2.6,
@@ -389,6 +441,7 @@
     "far_primary_pct": 13.0,
     "garbage_pct": 99.6,
     "households": 7615622,
+    "income": 4199,
     "population": 20731920,
     "precarious_pct": 5.7,
     "residents_per_household": 2.71,

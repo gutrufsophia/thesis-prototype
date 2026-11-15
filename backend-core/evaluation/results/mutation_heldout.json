@@ -117,6 +117,61 @@
    "checks": [
     "V1"
    ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2023962_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2023962_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/2023962_1000.json",
+   "lang": "en",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2023962_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/2023962_1000.json",
+   "lang": "en",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
    "detail": "crowded.radius",
    "fixture": "backend-core/evaluation/fixtures/2023962_1000.json",
    "lang": "en",
@@ -723,6 +778,61 @@
    "checks": [
     "V1"
    ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2023962_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2023962_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/2023962_1000.json",
+   "lang": "pt",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2023962_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/2023962_1000.json",
+   "lang": "pt",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
    "detail": "crowded.radius",
    "fixture": "backend-core/evaluation/fixtures/2023962_1000.json",
    "lang": "pt",
@@ -1217,6 +1327,50 @@
    "checks": [
     "V1"
    ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/2038994_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/2038994_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/2038994_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/2038994_1000.json",
+   "lang": "en",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
    "detail": "staff.physicians_unit",
    "fixture": "backend-core/evaluation/fixtures/2038994_1000.json",
    "lang": "en",
@@ -1357,6 +1511,61 @@
    "fixture": "backend-core/evaluation/fixtures/2038994_1000.json",
    "lang": "en",
    "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2038994_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2038994_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/2038994_1000.json",
+   "lang": "en",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2038994_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/2038994_1000.json",
+   "lang": "en",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -1869,6 +2078,50 @@
    "checks": [
     "V1"
    ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/2038994_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/2038994_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/2038994_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/2038994_1000.json",
+   "lang": "pt",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
    "detail": "staff.physicians_unit",
    "fixture": "backend-core/evaluation/fixtures/2038994_1000.json",
    "lang": "pt",
@@ -2009,6 +2262,61 @@
    "fixture": "backend-core/evaluation/fixtures/2038994_1000.json",
    "lang": "pt",
    "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2038994_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2038994_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/2038994_1000.json",
+   "lang": "pt",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2038994_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/2038994_1000.json",
+   "lang": "pt",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -2626,6 +2934,61 @@
    "fixture": "backend-core/evaluation/fixtures/2046628_1000.json",
    "lang": "en",
    "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2046628_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2046628_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/2046628_1000.json",
+   "lang": "en",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2046628_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/2046628_1000.json",
+   "lang": "en",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -3261,6 +3624,61 @@
    "checks": [
     "V1"
    ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2046628_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2046628_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/2046628_1000.json",
+   "lang": "pt",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2046628_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/2046628_1000.json",
+   "lang": "pt",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
    "detail": "crowded.radius",
    "fixture": "backend-core/evaluation/fixtures/2046628_1000.json",
    "lang": "pt",
@@ -3933,6 +4351,61 @@
    "checks": [
     "V1"
    ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2065665_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2065665_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/2065665_1000.json",
+   "lang": "en",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2065665_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/2065665_1000.json",
+   "lang": "en",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
    "detail": "sewage.radius",
    "fixture": "backend-core/evaluation/fixtures/2065665_1000.json",
    "lang": "en",
@@ -4500,6 +4973,61 @@
    "checks": [
     "V1"
    ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2065665_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2065665_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/2065665_1000.json",
+   "lang": "pt",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2065665_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/2065665_1000.json",
+   "lang": "pt",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
    "detail": "sewage.radius",
    "fixture": "backend-core/evaluation/fixtures/2065665_1000.json",
    "lang": "pt",
@@ -4909,6 +5437,50 @@
   {
    "baseline": false,
    "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/2070340_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/2070340_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/2070340_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/2070340_1000.json",
+   "lang": "en",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
     "V1",
     "V3"
    ],
@@ -5007,6 +5579,61 @@
    "fixture": "backend-core/evaluation/fixtures/2070340_1000.json",
    "lang": "en",
    "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2070340_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2070340_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> sewage.precarious_radius",
+   "fixture": "backend-core/evaluation/fixtures/2070340_1000.json",
+   "lang": "en",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2070340_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/2070340_1000.json",
+   "lang": "en",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -5312,6 +5939,50 @@
   {
    "baseline": false,
    "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/2070340_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/2070340_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/2070340_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/2070340_1000.json",
+   "lang": "pt",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
     "V1",
     "V3"
    ],
@@ -5410,6 +6081,61 @@
    "fixture": "backend-core/evaluation/fixtures/2070340_1000.json",
    "lang": "pt",
    "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2070340_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2070340_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> sewage.precarious_radius",
+   "fixture": "backend-core/evaluation/fixtures/2070340_1000.json",
+   "lang": "pt",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2070340_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/2070340_1000.json",
+   "lang": "pt",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -5717,6 +6443,50 @@
    "checks": [
     "V1"
    ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/2078562_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/2078562_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/2078562_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/2078562_1000.json",
+   "lang": "en",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
    "detail": "beds.unit",
    "fixture": "backend-core/evaluation/fixtures/2078562_1000.json",
    "lang": "en",
@@ -5827,7 +6597,7 @@
    "checks": [
     "V2"
    ],
-   "detail": "residents.radius -> sewage.precarious_radius",
+   "detail": "residents.radius -> precarious.radius",
    "fixture": "backend-core/evaluation/fixtures/2078562_1000.json",
    "lang": "en",
    "op": "M2",
@@ -5895,7 +6665,7 @@
    "checks": [
     "V2"
    ],
-   "detail": "crowded.radius -> sewage.precarious_radius",
+   "detail": "crowded.radius -> precarious.radius",
    "fixture": "backend-core/evaluation/fixtures/2078562_1000.json",
    "lang": "en",
    "op": "M2",
@@ -5951,6 +6721,144 @@
    "checks": [
     "V1"
    ],
+   "detail": "sewage.radius",
+   "fixture": "backend-core/evaluation/fixtures/2078562_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "sewage.radius",
+   "fixture": "backend-core/evaluation/fixtures/2078562_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "sewage.radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/2078562_1000.json",
+   "lang": "en",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "sewage.radius",
+   "fixture": "backend-core/evaluation/fixtures/2078562_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "municipality -> radius",
+   "fixture": "backend-core/evaluation/fixtures/2078562_1000.json",
+   "lang": "en",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5",
+    "V5"
+   ],
+   "detail": "radius <-> municipality",
+   "fixture": "backend-core/evaluation/fixtures/2078562_1000.json",
+   "lang": "en",
+   "op": "M3b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V6"
+   ],
+   "detail": "above -> below",
+   "fixture": "backend-core/evaluation/fixtures/2078562_1000.json",
+   "lang": "en",
+   "op": "M4",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1",
+    "V4"
+   ],
+   "detail": "sewage.precarious_radius",
+   "fixture": "backend-core/evaluation/fixtures/2078562_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1",
+    "V4"
+   ],
+   "detail": "sewage.precarious_radius",
+   "fixture": "backend-core/evaluation/fixtures/2078562_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2",
+    "V4"
+   ],
+   "detail": "sewage.precarious_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/2078562_1000.json",
+   "lang": "en",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7",
+    "V4"
+   ],
+   "detail": "sewage.precarious_radius",
+   "fixture": "backend-core/evaluation/fixtures/2078562_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5",
+    "V4"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/2078562_1000.json",
+   "lang": "en",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
    "detail": "access.radius",
    "fixture": "backend-core/evaluation/fixtures/2078562_1000.json",
    "lang": "en",
@@ -5973,7 +6881,7 @@
    "checks": [
     "V2"
    ],
-   "detail": "access.radius -> sewage.precarious_radius",
+   "detail": "access.radius -> precarious.radius",
    "fixture": "backend-core/evaluation/fixtures/2078562_1000.json",
    "lang": "en",
    "op": "M2",
@@ -6177,6 +7085,17 @@
    "checks": [
     "V4"
    ],
+   "detail": "C04",
+   "fixture": "backend-core/evaluation/fixtures/2078562_1000.json",
+   "lang": "en",
+   "op": "M5",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V4"
+   ],
    "detail": "C08",
    "fixture": "backend-core/evaluation/fixtures/2078562_1000.json",
    "lang": "en",
@@ -6236,6 +7155,50 @@
    "fixture": "backend-core/evaluation/fixtures/2078562_1000.json",
    "lang": "en",
    "op": "M5",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/2078562_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/2078562_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/2078562_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/2078562_1000.json",
+   "lang": "pt",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -6353,7 +7316,7 @@
    "checks": [
     "V2"
    ],
-   "detail": "residents.radius -> sewage.precarious_radius",
+   "detail": "residents.radius -> precarious.radius",
    "fixture": "backend-core/evaluation/fixtures/2078562_1000.json",
    "lang": "pt",
    "op": "M2",
@@ -6421,7 +7384,7 @@
    "checks": [
     "V2"
    ],
-   "detail": "crowded.radius -> sewage.precarious_radius",
+   "detail": "crowded.radius -> precarious.radius",
    "fixture": "backend-core/evaluation/fixtures/2078562_1000.json",
    "lang": "pt",
    "op": "M2",
@@ -6477,6 +7440,144 @@
    "checks": [
     "V1"
    ],
+   "detail": "sewage.radius",
+   "fixture": "backend-core/evaluation/fixtures/2078562_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "sewage.radius",
+   "fixture": "backend-core/evaluation/fixtures/2078562_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "sewage.radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/2078562_1000.json",
+   "lang": "pt",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "sewage.radius",
+   "fixture": "backend-core/evaluation/fixtures/2078562_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "municipality -> radius",
+   "fixture": "backend-core/evaluation/fixtures/2078562_1000.json",
+   "lang": "pt",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5",
+    "V5"
+   ],
+   "detail": "radius <-> municipality",
+   "fixture": "backend-core/evaluation/fixtures/2078562_1000.json",
+   "lang": "pt",
+   "op": "M3b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V6"
+   ],
+   "detail": "acima de -> abaixo de",
+   "fixture": "backend-core/evaluation/fixtures/2078562_1000.json",
+   "lang": "pt",
+   "op": "M4",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1",
+    "V4"
+   ],
+   "detail": "sewage.precarious_radius",
+   "fixture": "backend-core/evaluation/fixtures/2078562_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1",
+    "V4"
+   ],
+   "detail": "sewage.precarious_radius",
+   "fixture": "backend-core/evaluation/fixtures/2078562_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2",
+    "V4"
+   ],
+   "detail": "sewage.precarious_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/2078562_1000.json",
+   "lang": "pt",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7",
+    "V4"
+   ],
+   "detail": "sewage.precarious_radius",
+   "fixture": "backend-core/evaluation/fixtures/2078562_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5",
+    "V4"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/2078562_1000.json",
+   "lang": "pt",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
    "detail": "access.radius",
    "fixture": "backend-core/evaluation/fixtures/2078562_1000.json",
    "lang": "pt",
@@ -6499,7 +7600,7 @@
    "checks": [
     "V2"
    ],
-   "detail": "access.radius -> sewage.precarious_radius",
+   "detail": "access.radius -> precarious.radius",
    "fixture": "backend-core/evaluation/fixtures/2078562_1000.json",
    "lang": "pt",
    "op": "M2",
@@ -6703,6 +7804,17 @@
    "checks": [
     "V4"
    ],
+   "detail": "C04",
+   "fixture": "backend-core/evaluation/fixtures/2078562_1000.json",
+   "lang": "pt",
+   "op": "M5",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V4"
+   ],
    "detail": "C08",
    "fixture": "backend-core/evaluation/fixtures/2078562_1000.json",
    "lang": "pt",
@@ -6769,6 +7881,50 @@
    "checks": [
     "V1"
    ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/2748142_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/2748142_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/2748142_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/2748142_1000.json",
+   "lang": "en",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
    "detail": "staff.physicians_unit",
    "fixture": "backend-core/evaluation/fixtures/2748142_1000.json",
    "lang": "en",
@@ -6874,6 +8030,61 @@
    "fixture": "backend-core/evaluation/fixtures/2748142_1000.json",
    "lang": "en",
    "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2748142_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2748142_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/2748142_1000.json",
+   "lang": "en",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2748142_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/2748142_1000.json",
+   "lang": "en",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -7363,6 +8574,50 @@
    "checks": [
     "V1"
    ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/2748142_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/2748142_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/2748142_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/2748142_1000.json",
+   "lang": "pt",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
    "detail": "staff.physicians_unit",
    "fixture": "backend-core/evaluation/fixtures/2748142_1000.json",
    "lang": "pt",
@@ -7468,6 +8723,61 @@
    "fixture": "backend-core/evaluation/fixtures/2748142_1000.json",
    "lang": "pt",
    "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2748142_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2748142_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/2748142_1000.json",
+   "lang": "pt",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2748142_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/2748142_1000.json",
+   "lang": "pt",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -7957,6 +9267,50 @@
    "checks": [
     "V1"
    ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/2751968_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/2751968_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/2751968_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/2751968_1000.json",
+   "lang": "en",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
    "detail": "staff.physicians_unit",
    "fixture": "backend-core/evaluation/fixtures/2751968_1000.json",
    "lang": "en",
@@ -8097,6 +9451,61 @@
    "fixture": "backend-core/evaluation/fixtures/2751968_1000.json",
    "lang": "en",
    "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2751968_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2751968_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/2751968_1000.json",
+   "lang": "en",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2751968_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/2751968_1000.json",
+   "lang": "en",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -8493,6 +9902,50 @@
    "checks": [
     "V1"
    ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/2751968_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/2751968_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/2751968_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/2751968_1000.json",
+   "lang": "pt",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
    "detail": "staff.physicians_unit",
    "fixture": "backend-core/evaluation/fixtures/2751968_1000.json",
    "lang": "pt",
@@ -8633,6 +10086,61 @@
    "fixture": "backend-core/evaluation/fixtures/2751968_1000.json",
    "lang": "pt",
    "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2751968_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2751968_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/2751968_1000.json",
+   "lang": "pt",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2751968_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/2751968_1000.json",
+   "lang": "pt",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -9029,7 +10537,7 @@
    "checks": [
     "V1"
    ],
-   "detail": "staff.physicians_unit",
+   "detail": "peer.count_group",
    "fixture": "backend-core/evaluation/fixtures/2773481_1000.json",
    "lang": "en",
    "op": "M1",
@@ -9037,6 +10545,50 @@
   },
   {
    "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/2773481_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/2773481_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/2773481_1000.json",
+   "lang": "en",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "staff.physicians_unit",
+   "fixture": "backend-core/evaluation/fixtures/2773481_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": false,
    "checks": [
     "V1"
    ],
@@ -9134,6 +10686,61 @@
    "fixture": "backend-core/evaluation/fixtures/2773481_1000.json",
    "lang": "en",
    "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2773481_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2773481_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/2773481_1000.json",
+   "lang": "en",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2773481_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/2773481_1000.json",
+   "lang": "en",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -9623,7 +11230,7 @@
    "checks": [
     "V1"
    ],
-   "detail": "staff.physicians_unit",
+   "detail": "peer.count_group",
    "fixture": "backend-core/evaluation/fixtures/2773481_1000.json",
    "lang": "pt",
    "op": "M1",
@@ -9631,6 +11238,50 @@
   },
   {
    "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/2773481_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/2773481_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/2773481_1000.json",
+   "lang": "pt",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "staff.physicians_unit",
+   "fixture": "backend-core/evaluation/fixtures/2773481_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": false,
    "checks": [
     "V1"
    ],
@@ -9728,6 +11379,61 @@
    "fixture": "backend-core/evaluation/fixtures/2773481_1000.json",
    "lang": "pt",
    "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2773481_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2773481_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/2773481_1000.json",
+   "lang": "pt",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2773481_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/2773481_1000.json",
+   "lang": "pt",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -10322,6 +12028,61 @@
    "fixture": "backend-core/evaluation/fixtures/2773724_1000.json",
    "lang": "en",
    "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2773724_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2773724_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/2773724_1000.json",
+   "lang": "en",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2773724_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/2773724_1000.json",
+   "lang": "en",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -10925,6 +12686,61 @@
    "checks": [
     "V1"
    ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2773724_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2773724_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/2773724_1000.json",
+   "lang": "pt",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2773724_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/2773724_1000.json",
+   "lang": "pt",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
    "detail": "sewage.radius",
    "fixture": "backend-core/evaluation/fixtures/2773724_1000.json",
    "lang": "pt",
@@ -11521,6 +13337,61 @@
    "checks": [
     "V1"
    ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2787881_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2787881_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/2787881_1000.json",
+   "lang": "en",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2787881_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/2787881_1000.json",
+   "lang": "en",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
    "detail": "crowded.radius",
    "fixture": "backend-core/evaluation/fixtures/2787881_1000.json",
    "lang": "en",
@@ -12011,6 +13882,61 @@
    "checks": [
     "V1"
    ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2787881_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2787881_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/2787881_1000.json",
+   "lang": "pt",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2787881_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/2787881_1000.json",
+   "lang": "pt",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
    "detail": "crowded.radius",
    "fixture": "backend-core/evaluation/fixtures/2787881_1000.json",
    "lang": "pt",
@@ -12501,6 +14427,61 @@
    "checks": [
     "V1"
    ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2788225_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2788225_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> sewage.precarious_radius",
+   "fixture": "backend-core/evaluation/fixtures/2788225_1000.json",
+   "lang": "en",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2788225_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/2788225_1000.json",
+   "lang": "en",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
    "detail": "crowded.radius",
    "fixture": "backend-core/evaluation/fixtures/2788225_1000.json",
    "lang": "en",
@@ -12951,6 +14932,61 @@
    "fixture": "backend-core/evaluation/fixtures/2788225_1000.json",
    "lang": "pt",
    "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2788225_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2788225_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> sewage.precarious_radius",
+   "fixture": "backend-core/evaluation/fixtures/2788225_1000.json",
+   "lang": "pt",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2788225_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/2788225_1000.json",
+   "lang": "pt",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -13452,6 +15488,61 @@
    "fixture": "backend-core/evaluation/fixtures/2792168_1000.json",
    "lang": "en",
    "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2792168_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2792168_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/2792168_1000.json",
+   "lang": "en",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2792168_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/2792168_1000.json",
+   "lang": "en",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -14141,6 +16232,61 @@
    "checks": [
     "V1"
    ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2792168_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2792168_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/2792168_1000.json",
+   "lang": "pt",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2792168_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/2792168_1000.json",
+   "lang": "pt",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
    "detail": "crowded.radius",
    "fixture": "backend-core/evaluation/fixtures/2792168_1000.json",
    "lang": "pt",
@@ -14736,6 +16882,61 @@
    "checks": [
     "V1"
    ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2816091_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2816091_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/2816091_1000.json",
+   "lang": "en",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2816091_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/2816091_1000.json",
+   "lang": "en",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
    "detail": "crowded.radius",
    "fixture": "backend-core/evaluation/fixtures/2816091_1000.json",
    "lang": "en",
@@ -15191,6 +17392,61 @@
    "fixture": "backend-core/evaluation/fixtures/2816091_1000.json",
    "lang": "pt",
    "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2816091_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2816091_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/2816091_1000.json",
+   "lang": "pt",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/2816091_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/2816091_1000.json",
+   "lang": "pt",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -15731,6 +17987,61 @@
    "fixture": "backend-core/evaluation/fixtures/3204405_1000.json",
    "lang": "en",
    "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/3204405_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/3204405_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/3204405_1000.json",
+   "lang": "en",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/3204405_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/3204405_1000.json",
+   "lang": "en",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -16400,6 +18711,61 @@
    "checks": [
     "V1"
    ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/3204405_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/3204405_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/3204405_1000.json",
+   "lang": "pt",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/3204405_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/3204405_1000.json",
+   "lang": "pt",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
    "detail": "sewage.radius",
    "fixture": "backend-core/evaluation/fixtures/3204405_1000.json",
    "lang": "pt",
@@ -16915,6 +19281,50 @@
    "checks": [
     "V1"
    ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/3528596_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/3528596_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/3528596_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/3528596_1000.json",
+   "lang": "en",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
    "detail": "beds.unit",
    "fixture": "backend-core/evaluation/fixtures/3528596_1000.json",
    "lang": "en",
@@ -17020,6 +19430,61 @@
    "fixture": "backend-core/evaluation/fixtures/3528596_1000.json",
    "lang": "en",
    "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/3528596_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/3528596_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/3528596_1000.json",
+   "lang": "en",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/3528596_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/3528596_1000.json",
+   "lang": "en",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -17370,121 +19835,6 @@
   {
    "baseline": false,
    "checks": [
-    "V1"
-   ],
-   "detail": "dengue.year",
-   "fixture": "backend-core/evaluation/fixtures/3528596_1000.json",
-   "lang": "en",
-   "op": "M1",
-   "verifier": true
-  },
-  {
-   "baseline": true,
-   "checks": [
-    "V1"
-   ],
-   "detail": "dengue.year",
-   "fixture": "backend-core/evaluation/fixtures/3528596_1000.json",
-   "lang": "en",
-   "op": "M1b",
-   "verifier": true
-  },
-  {
-   "baseline": false,
-   "checks": [
-    "V7"
-   ],
-   "detail": "dengue.year",
-   "fixture": "backend-core/evaluation/fixtures/3528596_1000.json",
-   "lang": "en",
-   "op": "M6",
-   "verifier": true
-  },
-  {
-   "baseline": false,
-   "checks": [
-    "V5"
-   ],
-   "detail": "municipality -> radius",
-   "fixture": "backend-core/evaluation/fixtures/3528596_1000.json",
-   "lang": "en",
-   "op": "M3",
-   "verifier": true
-  },
-  {
-   "baseline": false,
-   "checks": [
-    "V5",
-    "V5"
-   ],
-   "detail": "municipality <-> region",
-   "fixture": "backend-core/evaluation/fixtures/3528596_1000.json",
-   "lang": "en",
-   "op": "M3b",
-   "verifier": true
-  },
-  {
-   "baseline": false,
-   "checks": [
-    "V6"
-   ],
-   "detail": "below -> above",
-   "fixture": "backend-core/evaluation/fixtures/3528596_1000.json",
-   "lang": "en",
-   "op": "M4",
-   "verifier": true
-  },
-  {
-   "baseline": false,
-   "checks": [
-    "V1",
-    "V4"
-   ],
-   "detail": "dengue.peak_year",
-   "fixture": "backend-core/evaluation/fixtures/3528596_1000.json",
-   "lang": "en",
-   "op": "M1",
-   "verifier": true
-  },
-  {
-   "baseline": true,
-   "checks": [
-    "V1",
-    "V4"
-   ],
-   "detail": "dengue.peak_year",
-   "fixture": "backend-core/evaluation/fixtures/3528596_1000.json",
-   "lang": "en",
-   "op": "M1b",
-   "verifier": true
-  },
-  {
-   "baseline": false,
-   "checks": [
-    "V7",
-    "V4"
-   ],
-   "detail": "dengue.peak_year",
-   "fixture": "backend-core/evaluation/fixtures/3528596_1000.json",
-   "lang": "en",
-   "op": "M6",
-   "verifier": true
-  },
-  {
-   "baseline": false,
-   "checks": [
-    "V5",
-    "V4"
-   ],
-   "detail": "municipality -> radius",
-   "fixture": "backend-core/evaluation/fixtures/3528596_1000.json",
-   "lang": "en",
-   "op": "M3",
-   "verifier": true
-  },
-  {
-   "baseline": false,
-   "checks": [
     "V4"
    ],
    "detail": "C03",
@@ -17510,17 +19860,6 @@
     "V4"
    ],
    "detail": "C10",
-   "fixture": "backend-core/evaluation/fixtures/3528596_1000.json",
-   "lang": "en",
-   "op": "M5",
-   "verifier": true
-  },
-  {
-   "baseline": false,
-   "checks": [
-    "V4"
-   ],
-   "detail": "C12",
    "fixture": "backend-core/evaluation/fixtures/3528596_1000.json",
    "lang": "en",
    "op": "M5",
@@ -17557,6 +19896,50 @@
    "fixture": "backend-core/evaluation/fixtures/3528596_1000.json",
    "lang": "en",
    "op": "M5",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/3528596_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/3528596_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/3528596_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/3528596_1000.json",
+   "lang": "pt",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -17669,6 +20052,61 @@
    "fixture": "backend-core/evaluation/fixtures/3528596_1000.json",
    "lang": "pt",
    "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/3528596_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/3528596_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/3528596_1000.json",
+   "lang": "pt",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/3528596_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/3528596_1000.json",
+   "lang": "pt",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -18019,121 +20457,6 @@
   {
    "baseline": false,
    "checks": [
-    "V1"
-   ],
-   "detail": "dengue.year",
-   "fixture": "backend-core/evaluation/fixtures/3528596_1000.json",
-   "lang": "pt",
-   "op": "M1",
-   "verifier": true
-  },
-  {
-   "baseline": true,
-   "checks": [
-    "V1"
-   ],
-   "detail": "dengue.year",
-   "fixture": "backend-core/evaluation/fixtures/3528596_1000.json",
-   "lang": "pt",
-   "op": "M1b",
-   "verifier": true
-  },
-  {
-   "baseline": false,
-   "checks": [
-    "V7"
-   ],
-   "detail": "dengue.year",
-   "fixture": "backend-core/evaluation/fixtures/3528596_1000.json",
-   "lang": "pt",
-   "op": "M6",
-   "verifier": true
-  },
-  {
-   "baseline": false,
-   "checks": [
-    "V5"
-   ],
-   "detail": "municipality -> radius",
-   "fixture": "backend-core/evaluation/fixtures/3528596_1000.json",
-   "lang": "pt",
-   "op": "M3",
-   "verifier": true
-  },
-  {
-   "baseline": false,
-   "checks": [
-    "V5",
-    "V5"
-   ],
-   "detail": "municipality <-> region",
-   "fixture": "backend-core/evaluation/fixtures/3528596_1000.json",
-   "lang": "pt",
-   "op": "M3b",
-   "verifier": true
-  },
-  {
-   "baseline": false,
-   "checks": [
-    "V6"
-   ],
-   "detail": "abaixo de -> acima de",
-   "fixture": "backend-core/evaluation/fixtures/3528596_1000.json",
-   "lang": "pt",
-   "op": "M4",
-   "verifier": true
-  },
-  {
-   "baseline": false,
-   "checks": [
-    "V1",
-    "V4"
-   ],
-   "detail": "dengue.peak_year",
-   "fixture": "backend-core/evaluation/fixtures/3528596_1000.json",
-   "lang": "pt",
-   "op": "M1",
-   "verifier": true
-  },
-  {
-   "baseline": true,
-   "checks": [
-    "V1",
-    "V4"
-   ],
-   "detail": "dengue.peak_year",
-   "fixture": "backend-core/evaluation/fixtures/3528596_1000.json",
-   "lang": "pt",
-   "op": "M1b",
-   "verifier": true
-  },
-  {
-   "baseline": false,
-   "checks": [
-    "V7",
-    "V4"
-   ],
-   "detail": "dengue.peak_year",
-   "fixture": "backend-core/evaluation/fixtures/3528596_1000.json",
-   "lang": "pt",
-   "op": "M6",
-   "verifier": true
-  },
-  {
-   "baseline": false,
-   "checks": [
-    "V5",
-    "V4"
-   ],
-   "detail": "municipality -> radius",
-   "fixture": "backend-core/evaluation/fixtures/3528596_1000.json",
-   "lang": "pt",
-   "op": "M3",
-   "verifier": true
-  },
-  {
-   "baseline": false,
-   "checks": [
     "V4"
    ],
    "detail": "C03",
@@ -18159,17 +20482,6 @@
     "V4"
    ],
    "detail": "C10",
-   "fixture": "backend-core/evaluation/fixtures/3528596_1000.json",
-   "lang": "pt",
-   "op": "M5",
-   "verifier": true
-  },
-  {
-   "baseline": false,
-   "checks": [
-    "V4"
-   ],
-   "detail": "C12",
    "fixture": "backend-core/evaluation/fixtures/3528596_1000.json",
    "lang": "pt",
    "op": "M5",
@@ -18235,8 +20547,7 @@
   {
    "baseline": false,
    "checks": [
-    "V7",
-    "V8"
+    "V7"
    ],
    "detail": "position.precision",
    "fixture": "backend-core/evaluation/fixtures/3810569_1000.json",
@@ -18280,8 +20591,7 @@
   {
    "baseline": false,
    "checks": [
-    "V7",
-    "V8"
+    "V7"
    ],
    "detail": "residents.radius",
    "fixture": "backend-core/evaluation/fixtures/3810569_1000.json",
@@ -18311,6 +20621,61 @@
    "fixture": "backend-core/evaluation/fixtures/3810569_1000.json",
    "lang": "en",
    "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/3810569_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/3810569_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/3810569_1000.json",
+   "lang": "en",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/3810569_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/3810569_1000.json",
+   "lang": "en",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -18349,8 +20714,7 @@
   {
    "baseline": false,
    "checks": [
-    "V7",
-    "V8"
+    "V7"
    ],
    "detail": "crowded.radius",
    "fixture": "backend-core/evaluation/fixtures/3810569_1000.json",
@@ -18428,8 +20792,7 @@
   {
    "baseline": false,
    "checks": [
-    "V7",
-    "V8"
+    "V7"
    ],
    "detail": "sewage.radius",
    "fixture": "backend-core/evaluation/fixtures/3810569_1000.json",
@@ -18507,8 +20870,7 @@
   {
    "baseline": false,
    "checks": [
-    "V7",
-    "V8"
+    "V7"
    ],
    "detail": "network.count_radius",
    "fixture": "backend-core/evaluation/fixtures/3810569_1000.json",
@@ -18576,8 +20938,7 @@
   {
    "baseline": false,
    "checks": [
-    "V7",
-    "V8"
+    "V7"
    ],
    "detail": "access.radius",
    "fixture": "backend-core/evaluation/fixtures/3810569_1000.json",
@@ -18677,8 +21038,7 @@
   {
    "baseline": false,
    "checks": [
-    "V7",
-    "V8"
+    "V7"
    ],
    "detail": "tb_district.district",
    "fixture": "backend-core/evaluation/fixtures/3810569_1000.json",
@@ -18920,6 +21280,61 @@
    "fixture": "backend-core/evaluation/fixtures/3810569_1000.json",
    "lang": "pt",
    "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/3810569_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/3810569_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/3810569_1000.json",
+   "lang": "pt",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/3810569_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/3810569_1000.json",
+   "lang": "pt",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -19421,6 +21836,75 @@
    "fixture": "backend-core/evaluation/fixtures/3810569_1000.json",
    "lang": "pt",
    "op": "M5",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "surprise_teen.observed_district",
+   "fixture": "backend-core/evaluation/fixtures/3956954_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "surprise_teen.observed_district",
+   "fixture": "backend-core/evaluation/fixtures/3956954_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "surprise_teen.observed_district -> tb_district.count_district",
+   "fixture": "backend-core/evaluation/fixtures/3956954_1000.json",
+   "lang": "en",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "surprise_teen.observed_district",
+   "fixture": "backend-core/evaluation/fixtures/3956954_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5",
+    "V5",
+    "V5",
+    "V5"
+   ],
+   "detail": "district -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/3956954_1000.json",
+   "lang": "en",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "surprise_teen.period -> staff",
+   "fixture": "backend-core/evaluation/fixtures/3956954_1000.json",
+   "lang": "en",
+   "op": "M7",
    "verifier": true
   },
   {
@@ -19533,6 +22017,61 @@
    "fixture": "backend-core/evaluation/fixtures/3956954_1000.json",
    "lang": "en",
    "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/3956954_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/3956954_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/3956954_1000.json",
+   "lang": "en",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/3956954_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/3956954_1000.json",
+   "lang": "en",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -19883,6 +22422,86 @@
   {
    "baseline": false,
    "checks": [
+    "V4"
+   ],
+   "detail": "C19",
+   "fixture": "backend-core/evaluation/fixtures/3956954_1000.json",
+   "lang": "en",
+   "op": "M5",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "surprise_teen.observed_district",
+   "fixture": "backend-core/evaluation/fixtures/3956954_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "surprise_teen.observed_district",
+   "fixture": "backend-core/evaluation/fixtures/3956954_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "surprise_teen.observed_district -> tb_district.count_district",
+   "fixture": "backend-core/evaluation/fixtures/3956954_1000.json",
+   "lang": "pt",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "surprise_teen.observed_district",
+   "fixture": "backend-core/evaluation/fixtures/3956954_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5",
+    "V5",
+    "V5",
+    "V5"
+   ],
+   "detail": "district -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/3956954_1000.json",
+   "lang": "pt",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "surprise_teen.period -> staff",
+   "fixture": "backend-core/evaluation/fixtures/3956954_1000.json",
+   "lang": "pt",
+   "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
     "V1"
    ],
    "detail": "staff.physicians_unit",
@@ -19990,6 +22609,61 @@
    "fixture": "backend-core/evaluation/fixtures/3956954_1000.json",
    "lang": "pt",
    "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/3956954_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/3956954_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/3956954_1000.json",
+   "lang": "pt",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/3956954_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/3956954_1000.json",
+   "lang": "pt",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -20340,6 +23014,61 @@
   {
    "baseline": false,
    "checks": [
+    "V4"
+   ],
+   "detail": "C19",
+   "fixture": "backend-core/evaluation/fixtures/3956954_1000.json",
+   "lang": "pt",
+   "op": "M5",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/4441389_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/4441389_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/4441389_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/4441389_1000.json",
+   "lang": "en",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
     "V1",
     "V3"
    ],
@@ -20438,6 +23167,61 @@
    "fixture": "backend-core/evaluation/fixtures/4441389_1000.json",
    "lang": "en",
    "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/4441389_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/4441389_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/4441389_1000.json",
+   "lang": "en",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/4441389_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/4441389_1000.json",
+   "lang": "en",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -20899,6 +23683,50 @@
   {
    "baseline": false,
    "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/4441389_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/4441389_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/4441389_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/4441389_1000.json",
+   "lang": "pt",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
     "V1",
     "V3"
    ],
@@ -20997,6 +23825,61 @@
    "fixture": "backend-core/evaluation/fixtures/4441389_1000.json",
    "lang": "pt",
    "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/4441389_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/4441389_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/4441389_1000.json",
+   "lang": "pt",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/4441389_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/4441389_1000.json",
+   "lang": "pt",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -21453,6 +24336,50 @@
    "fixture": "backend-core/evaluation/fixtures/4441389_1000.json",
    "lang": "pt",
    "op": "M5",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/4578554_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/4578554_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/4578554_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/4578554_1000.json",
+   "lang": "en",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -21556,6 +24483,61 @@
    "fixture": "backend-core/evaluation/fixtures/4578554_1000.json",
    "lang": "en",
    "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/4578554_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/4578554_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/4578554_1000.json",
+   "lang": "en",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/4578554_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/4578554_1000.json",
+   "lang": "en",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -22076,6 +25058,50 @@
   {
    "baseline": false,
    "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/4578554_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/4578554_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/4578554_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/4578554_1000.json",
+   "lang": "pt",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
     "V1",
     "V3"
    ],
@@ -22174,6 +25200,61 @@
    "fixture": "backend-core/evaluation/fixtures/4578554_1000.json",
    "lang": "pt",
    "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/4578554_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/4578554_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/4578554_1000.json",
+   "lang": "pt",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/4578554_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/4578554_1000.json",
+   "lang": "pt",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -22696,6 +25777,50 @@
    "checks": [
     "V1"
    ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/462993_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/462993_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/462993_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/462993_1000.json",
+   "lang": "en",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
    "detail": "residents.radius",
    "fixture": "backend-core/evaluation/fixtures/462993_1000.json",
    "lang": "en",
@@ -22757,6 +25882,61 @@
    "fixture": "backend-core/evaluation/fixtures/462993_1000.json",
    "lang": "en",
    "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/462993_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/462993_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/462993_1000.json",
+   "lang": "en",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/462993_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/462993_1000.json",
+   "lang": "en",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -23268,6 +26448,50 @@
    "checks": [
     "V1"
    ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/462993_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/462993_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/462993_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/462993_1000.json",
+   "lang": "pt",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
    "detail": "residents.radius",
    "fixture": "backend-core/evaluation/fixtures/462993_1000.json",
    "lang": "pt",
@@ -23329,6 +26553,61 @@
    "fixture": "backend-core/evaluation/fixtures/462993_1000.json",
    "lang": "pt",
    "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/462993_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/462993_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/462993_1000.json",
+   "lang": "pt",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/462993_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/462993_1000.json",
+   "lang": "pt",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -23945,6 +27224,61 @@
    "fixture": "backend-core/evaluation/fixtures/4771311_1000.json",
    "lang": "en",
    "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/4771311_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/4771311_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/4771311_1000.json",
+   "lang": "en",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/4771311_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/4771311_1000.json",
+   "lang": "en",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -24409,6 +27743,61 @@
    "checks": [
     "V1"
    ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/4771311_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/4771311_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/4771311_1000.json",
+   "lang": "pt",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/4771311_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/4771311_1000.json",
+   "lang": "pt",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
    "detail": "crowded.radius",
    "fixture": "backend-core/evaluation/fixtures/4771311_1000.json",
    "lang": "pt",
@@ -24752,6 +28141,50 @@
   {
    "baseline": false,
    "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/491381_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/491381_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/491381_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/491381_1000.json",
+   "lang": "en",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
     "V1",
     "V3"
    ],
@@ -24850,6 +28283,61 @@
    "fixture": "backend-core/evaluation/fixtures/491381_1000.json",
    "lang": "en",
    "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/491381_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/491381_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/491381_1000.json",
+   "lang": "en",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/491381_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/491381_1000.json",
+   "lang": "en",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -25404,6 +28892,50 @@
   {
    "baseline": false,
    "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/491381_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/491381_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/491381_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/491381_1000.json",
+   "lang": "pt",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
     "V1",
     "V3"
    ],
@@ -25502,6 +29034,61 @@
    "fixture": "backend-core/evaluation/fixtures/491381_1000.json",
    "lang": "pt",
    "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/491381_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/491381_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/491381_1000.json",
+   "lang": "pt",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/491381_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/491381_1000.json",
+   "lang": "pt",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -26058,6 +29645,50 @@
    "checks": [
     "V1"
    ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/4930002_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/4930002_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/4930002_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/4930002_1000.json",
+   "lang": "en",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
    "detail": "residents.radius",
    "fixture": "backend-core/evaluation/fixtures/4930002_1000.json",
    "lang": "en",
@@ -26119,6 +29750,61 @@
    "fixture": "backend-core/evaluation/fixtures/4930002_1000.json",
    "lang": "en",
    "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/4930002_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/4930002_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/4930002_1000.json",
+   "lang": "en",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/4930002_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/4930002_1000.json",
+   "lang": "en",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -26650,12 +30336,14 @@
   },
   {
    "baseline": false,
-   "checks": [],
+   "checks": [
+    "V4"
+   ],
    "detail": "C18",
    "fixture": "backend-core/evaluation/fixtures/4930002_1000.json",
    "lang": "en",
    "op": "M5",
-   "verifier": false
+   "verifier": true
   },
   {
    "baseline": false,
@@ -26666,6 +30354,50 @@
    "fixture": "backend-core/evaluation/fixtures/4930002_1000.json",
    "lang": "en",
    "op": "M5",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/4930002_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/4930002_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/4930002_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/4930002_1000.json",
+   "lang": "pt",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -26734,6 +30466,61 @@
    "fixture": "backend-core/evaluation/fixtures/4930002_1000.json",
    "lang": "pt",
    "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/4930002_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/4930002_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/4930002_1000.json",
+   "lang": "pt",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/4930002_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/4930002_1000.json",
+   "lang": "pt",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -27265,12 +31052,14 @@
   },
   {
    "baseline": false,
-   "checks": [],
+   "checks": [
+    "V4"
+   ],
    "detail": "C18",
    "fixture": "backend-core/evaluation/fixtures/4930002_1000.json",
    "lang": "pt",
    "op": "M5",
-   "verifier": false
+   "verifier": true
   },
   {
    "baseline": false,
@@ -27281,6 +31070,50 @@
    "fixture": "backend-core/evaluation/fixtures/4930002_1000.json",
    "lang": "pt",
    "op": "M5",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/5937914_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/5937914_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/5937914_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/5937914_1000.json",
+   "lang": "en",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -27349,6 +31182,61 @@
    "fixture": "backend-core/evaluation/fixtures/5937914_1000.json",
    "lang": "en",
    "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/5937914_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/5937914_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/5937914_1000.json",
+   "lang": "en",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/5937914_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/5937914_1000.json",
+   "lang": "en",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -27860,6 +31748,50 @@
    "checks": [
     "V1"
    ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/5937914_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/5937914_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/5937914_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/5937914_1000.json",
+   "lang": "pt",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
    "detail": "residents.radius",
    "fixture": "backend-core/evaluation/fixtures/5937914_1000.json",
    "lang": "pt",
@@ -27921,6 +31853,61 @@
    "fixture": "backend-core/evaluation/fixtures/5937914_1000.json",
    "lang": "pt",
    "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/5937914_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/5937914_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/5937914_1000.json",
+   "lang": "pt",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/5937914_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/5937914_1000.json",
+   "lang": "pt",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -28537,6 +32524,61 @@
    "fixture": "backend-core/evaluation/fixtures/6016081_1000.json",
    "lang": "en",
    "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/6016081_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/6016081_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/6016081_1000.json",
+   "lang": "en",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/6016081_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/6016081_1000.json",
+   "lang": "en",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -29131,6 +33173,61 @@
    "fixture": "backend-core/evaluation/fixtures/6016081_1000.json",
    "lang": "pt",
    "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/6016081_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/6016081_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/6016081_1000.json",
+   "lang": "pt",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/6016081_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/6016081_1000.json",
+   "lang": "pt",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -29769,6 +33866,61 @@
    "fixture": "backend-core/evaluation/fixtures/6020917_1000.json",
    "lang": "en",
    "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/6020917_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/6020917_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/6020917_1000.json",
+   "lang": "en",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/6020917_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/6020917_1000.json",
+   "lang": "en",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -30458,6 +34610,61 @@
    "checks": [
     "V1"
    ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/6020917_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/6020917_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/6020917_1000.json",
+   "lang": "pt",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/6020917_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/6020917_1000.json",
+   "lang": "pt",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
    "detail": "crowded.radius",
    "fixture": "backend-core/evaluation/fixtures/6020917_1000.json",
    "lang": "pt",
@@ -31087,6 +35294,61 @@
    "checks": [
     "V1"
    ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/6157025_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/6157025_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/6157025_1000.json",
+   "lang": "en",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/6157025_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/6157025_1000.json",
+   "lang": "en",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
    "detail": "sewage.radius",
    "fixture": "backend-core/evaluation/fixtures/6157025_1000.json",
    "lang": "en",
@@ -31459,6 +35721,61 @@
    "checks": [
     "V1"
    ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/6157025_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/6157025_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/6157025_1000.json",
+   "lang": "pt",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/6157025_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/6157025_1000.json",
+   "lang": "pt",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
    "detail": "sewage.radius",
    "fixture": "backend-core/evaluation/fixtures/6157025_1000.json",
    "lang": "pt",
@@ -31728,6 +36045,50 @@
    "checks": [
     "V1"
    ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/6302483_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/6302483_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/6302483_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/6302483_1000.json",
+   "lang": "en",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
    "detail": "staff.physicians_unit",
    "fixture": "backend-core/evaluation/fixtures/6302483_1000.json",
    "lang": "en",
@@ -31839,6 +36200,61 @@
    "baseline": false,
    "checks": [
     "V4"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/6302483_1000.json",
+   "lang": "en",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/6302483_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/6302483_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/6302483_1000.json",
+   "lang": "en",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/6302483_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
    ],
    "detail": "radius -> municipality",
    "fixture": "backend-core/evaluation/fixtures/6302483_1000.json",
@@ -32422,6 +36838,50 @@
    "checks": [
     "V1"
    ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/6302483_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/6302483_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/6302483_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/6302483_1000.json",
+   "lang": "pt",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
    "detail": "staff.physicians_unit",
    "fixture": "backend-core/evaluation/fixtures/6302483_1000.json",
    "lang": "pt",
@@ -32533,6 +36993,61 @@
    "baseline": false,
    "checks": [
     "V4"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/6302483_1000.json",
+   "lang": "pt",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/6302483_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/6302483_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/6302483_1000.json",
+   "lang": "pt",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/6302483_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
    ],
    "detail": "radius -> municipality",
    "fixture": "backend-core/evaluation/fixtures/6302483_1000.json",
@@ -33184,6 +37699,61 @@
    "checks": [
     "V1"
    ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/6438431_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/6438431_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> sewage.precarious_radius",
+   "fixture": "backend-core/evaluation/fixtures/6438431_1000.json",
+   "lang": "en",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/6438431_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/6438431_1000.json",
+   "lang": "en",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
    "detail": "crowded.radius",
    "fixture": "backend-core/evaluation/fixtures/6438431_1000.json",
    "lang": "en",
@@ -33567,6 +38137,61 @@
    "fixture": "backend-core/evaluation/fixtures/6438431_1000.json",
    "lang": "pt",
    "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/6438431_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/6438431_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> sewage.precarious_radius",
+   "fixture": "backend-core/evaluation/fixtures/6438431_1000.json",
+   "lang": "pt",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/6438431_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/6438431_1000.json",
+   "lang": "pt",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -33999,6 +38624,61 @@
    "checks": [
     "V1"
    ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/7377045_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/7377045_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/7377045_1000.json",
+   "lang": "en",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/7377045_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/7377045_1000.json",
+   "lang": "en",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
    "detail": "crowded.radius",
    "fixture": "backend-core/evaluation/fixtures/7377045_1000.json",
    "lang": "en",
@@ -34470,6 +39150,61 @@
    "checks": [
     "V1"
    ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/7377045_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/7377045_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/7377045_1000.json",
+   "lang": "pt",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/7377045_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/7377045_1000.json",
+   "lang": "pt",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
    "detail": "crowded.radius",
    "fixture": "backend-core/evaluation/fixtures/7377045_1000.json",
    "lang": "pt",
@@ -34838,6 +39573,50 @@
    "checks": [
     "V1"
    ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/7428219_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/7428219_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/7428219_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/7428219_1000.json",
+   "lang": "en",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
    "detail": "residents.radius",
    "fixture": "backend-core/evaluation/fixtures/7428219_1000.json",
    "lang": "en",
@@ -34899,6 +39678,61 @@
    "fixture": "backend-core/evaluation/fixtures/7428219_1000.json",
    "lang": "en",
    "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/7428219_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/7428219_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/7428219_1000.json",
+   "lang": "en",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/7428219_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/7428219_1000.json",
+   "lang": "en",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -35410,6 +40244,50 @@
    "checks": [
     "V1"
    ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/7428219_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/7428219_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/7428219_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/7428219_1000.json",
+   "lang": "pt",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
    "detail": "residents.radius",
    "fixture": "backend-core/evaluation/fixtures/7428219_1000.json",
    "lang": "pt",
@@ -35471,6 +40349,61 @@
    "fixture": "backend-core/evaluation/fixtures/7428219_1000.json",
    "lang": "pt",
    "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/7428219_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/7428219_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/7428219_1000.json",
+   "lang": "pt",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/7428219_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/7428219_1000.json",
+   "lang": "pt",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -35980,6 +40913,50 @@
   {
    "baseline": false,
    "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/7509243_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/7509243_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/7509243_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/7509243_1000.json",
+   "lang": "en",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
     "V1",
     "V3"
    ],
@@ -36085,6 +41062,61 @@
    "checks": [
     "V1"
    ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/7509243_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/7509243_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> sewage.precarious_radius",
+   "fixture": "backend-core/evaluation/fixtures/7509243_1000.json",
+   "lang": "en",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/7509243_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/7509243_1000.json",
+   "lang": "en",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
    "detail": "crowded.radius",
    "fixture": "backend-core/evaluation/fixtures/7509243_1000.json",
    "lang": "en",
@@ -36119,84 +41151,6 @@
     "V7"
    ],
    "detail": "crowded.radius",
-   "fixture": "backend-core/evaluation/fixtures/7509243_1000.json",
-   "lang": "en",
-   "op": "M6",
-   "verifier": true
-  },
-  {
-   "baseline": false,
-   "checks": [
-    "V5"
-   ],
-   "detail": "municipality -> radius",
-   "fixture": "backend-core/evaluation/fixtures/7509243_1000.json",
-   "lang": "en",
-   "op": "M3",
-   "verifier": true
-  },
-  {
-   "baseline": false,
-   "checks": [
-    "V5",
-    "V5"
-   ],
-   "detail": "radius <-> municipality",
-   "fixture": "backend-core/evaluation/fixtures/7509243_1000.json",
-   "lang": "en",
-   "op": "M3b",
-   "verifier": true
-  },
-  {
-   "baseline": false,
-   "checks": [
-    "V6"
-   ],
-   "detail": "above -> below",
-   "fixture": "backend-core/evaluation/fixtures/7509243_1000.json",
-   "lang": "en",
-   "op": "M4",
-   "verifier": true
-  },
-  {
-   "baseline": false,
-   "checks": [
-    "V1"
-   ],
-   "detail": "precarious.radius",
-   "fixture": "backend-core/evaluation/fixtures/7509243_1000.json",
-   "lang": "en",
-   "op": "M1",
-   "verifier": true
-  },
-  {
-   "baseline": true,
-   "checks": [
-    "V1"
-   ],
-   "detail": "precarious.radius",
-   "fixture": "backend-core/evaluation/fixtures/7509243_1000.json",
-   "lang": "en",
-   "op": "M1b",
-   "verifier": true
-  },
-  {
-   "baseline": false,
-   "checks": [
-    "V2"
-   ],
-   "detail": "precarious.radius -> sewage.precarious_radius",
-   "fixture": "backend-core/evaluation/fixtures/7509243_1000.json",
-   "lang": "en",
-   "op": "M2",
-   "verifier": true
-  },
-  {
-   "baseline": false,
-   "checks": [
-    "V7"
-   ],
-   "detail": "precarious.radius",
    "fixture": "backend-core/evaluation/fixtures/7509243_1000.json",
    "lang": "en",
    "op": "M6",
@@ -36629,6 +41583,50 @@
   {
    "baseline": false,
    "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/7509243_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/7509243_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/7509243_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/7509243_1000.json",
+   "lang": "pt",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
     "V1",
     "V3"
    ],
@@ -36734,6 +41732,61 @@
    "checks": [
     "V1"
    ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/7509243_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/7509243_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> sewage.precarious_radius",
+   "fixture": "backend-core/evaluation/fixtures/7509243_1000.json",
+   "lang": "pt",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/7509243_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/7509243_1000.json",
+   "lang": "pt",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
    "detail": "crowded.radius",
    "fixture": "backend-core/evaluation/fixtures/7509243_1000.json",
    "lang": "pt",
@@ -36768,84 +41821,6 @@
     "V7"
    ],
    "detail": "crowded.radius",
-   "fixture": "backend-core/evaluation/fixtures/7509243_1000.json",
-   "lang": "pt",
-   "op": "M6",
-   "verifier": true
-  },
-  {
-   "baseline": false,
-   "checks": [
-    "V5"
-   ],
-   "detail": "municipality -> radius",
-   "fixture": "backend-core/evaluation/fixtures/7509243_1000.json",
-   "lang": "pt",
-   "op": "M3",
-   "verifier": true
-  },
-  {
-   "baseline": false,
-   "checks": [
-    "V5",
-    "V5"
-   ],
-   "detail": "radius <-> municipality",
-   "fixture": "backend-core/evaluation/fixtures/7509243_1000.json",
-   "lang": "pt",
-   "op": "M3b",
-   "verifier": true
-  },
-  {
-   "baseline": false,
-   "checks": [
-    "V6"
-   ],
-   "detail": "acima de -> abaixo de",
-   "fixture": "backend-core/evaluation/fixtures/7509243_1000.json",
-   "lang": "pt",
-   "op": "M4",
-   "verifier": true
-  },
-  {
-   "baseline": false,
-   "checks": [
-    "V1"
-   ],
-   "detail": "precarious.radius",
-   "fixture": "backend-core/evaluation/fixtures/7509243_1000.json",
-   "lang": "pt",
-   "op": "M1",
-   "verifier": true
-  },
-  {
-   "baseline": true,
-   "checks": [
-    "V1"
-   ],
-   "detail": "precarious.radius",
-   "fixture": "backend-core/evaluation/fixtures/7509243_1000.json",
-   "lang": "pt",
-   "op": "M1b",
-   "verifier": true
-  },
-  {
-   "baseline": false,
-   "checks": [
-    "V2"
-   ],
-   "detail": "precarious.radius -> sewage.precarious_radius",
-   "fixture": "backend-core/evaluation/fixtures/7509243_1000.json",
-   "lang": "pt",
-   "op": "M2",
-   "verifier": true
-  },
-  {
-   "baseline": false,
-   "checks": [
-    "V7"
-   ],
-   "detail": "precarious.radius",
    "fixture": "backend-core/evaluation/fixtures/7509243_1000.json",
    "lang": "pt",
    "op": "M6",
@@ -37280,6 +42255,50 @@
    "checks": [
     "V1"
    ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/772739_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/772739_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/772739_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/772739_1000.json",
+   "lang": "en",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
    "detail": "residents.radius",
    "fixture": "backend-core/evaluation/fixtures/772739_1000.json",
    "lang": "en",
@@ -37341,6 +42360,61 @@
    "fixture": "backend-core/evaluation/fixtures/772739_1000.json",
    "lang": "en",
    "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/772739_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/772739_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/772739_1000.json",
+   "lang": "en",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/772739_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/772739_1000.json",
+   "lang": "en",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -37894,12 +42968,14 @@
   },
   {
    "baseline": false,
-   "checks": [],
+   "checks": [
+    "V4"
+   ],
    "detail": "C18",
    "fixture": "backend-core/evaluation/fixtures/772739_1000.json",
    "lang": "en",
    "op": "M5",
-   "verifier": false
+   "verifier": true
   },
   {
    "baseline": false,
@@ -37910,6 +42986,50 @@
    "fixture": "backend-core/evaluation/fixtures/772739_1000.json",
    "lang": "en",
    "op": "M5",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/772739_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/772739_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/772739_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/772739_1000.json",
+   "lang": "pt",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -37978,6 +43098,61 @@
    "fixture": "backend-core/evaluation/fixtures/772739_1000.json",
    "lang": "pt",
    "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/772739_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/772739_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/772739_1000.json",
+   "lang": "pt",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/772739_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/772739_1000.json",
+   "lang": "pt",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -38531,12 +43706,14 @@
   },
   {
    "baseline": false,
-   "checks": [],
+   "checks": [
+    "V4"
+   ],
    "detail": "C18",
    "fixture": "backend-core/evaluation/fixtures/772739_1000.json",
    "lang": "pt",
    "op": "M5",
-   "verifier": false
+   "verifier": true
   },
   {
    "baseline": false,
@@ -38554,6 +43731,50 @@
    "checks": [
     "V1"
    ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/7823304_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/7823304_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/7823304_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/7823304_1000.json",
+   "lang": "en",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
    "detail": "staff.physicians_unit",
    "fixture": "backend-core/evaluation/fixtures/7823304_1000.json",
    "lang": "en",
@@ -38659,6 +43880,61 @@
    "fixture": "backend-core/evaluation/fixtures/7823304_1000.json",
    "lang": "en",
    "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/7823304_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/7823304_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/7823304_1000.json",
+   "lang": "en",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/7823304_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/7823304_1000.json",
+   "lang": "en",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -39145,6 +44421,50 @@
    "checks": [
     "V1"
    ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/7823304_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/7823304_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/7823304_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/7823304_1000.json",
+   "lang": "pt",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
    "detail": "staff.physicians_unit",
    "fixture": "backend-core/evaluation/fixtures/7823304_1000.json",
    "lang": "pt",
@@ -39250,6 +44570,61 @@
    "fixture": "backend-core/evaluation/fixtures/7823304_1000.json",
    "lang": "pt",
    "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/7823304_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/7823304_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/7823304_1000.json",
+   "lang": "pt",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/7823304_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/7823304_1000.json",
+   "lang": "pt",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -39841,6 +45216,61 @@
    "fixture": "backend-core/evaluation/fixtures/8047790_1000.json",
    "lang": "en",
    "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/8047790_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/8047790_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/8047790_1000.json",
+   "lang": "en",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/8047790_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/8047790_1000.json",
+   "lang": "en",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -40339,6 +45769,61 @@
    "checks": [
     "V1"
    ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/8047790_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/8047790_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/8047790_1000.json",
+   "lang": "pt",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/8047790_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/8047790_1000.json",
+   "lang": "pt",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
    "detail": "crowded.radius",
    "fixture": "backend-core/evaluation/fixtures/8047790_1000.json",
    "lang": "pt",
@@ -40830,6 +46315,61 @@
    "checks": [
     "V1"
    ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/872172_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/872172_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> sewage.precarious_radius",
+   "fixture": "backend-core/evaluation/fixtures/872172_1000.json",
+   "lang": "en",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/872172_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/872172_1000.json",
+   "lang": "en",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
    "detail": "crowded.radius",
    "fixture": "backend-core/evaluation/fixtures/872172_1000.json",
    "lang": "en",
@@ -41189,6 +46729,95 @@
   {
    "baseline": false,
    "checks": [
+    "V1"
+   ],
+   "detail": "mortality.municipality",
+   "fixture": "backend-core/evaluation/fixtures/872172_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "mortality.municipality",
+   "fixture": "backend-core/evaluation/fixtures/872172_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "mortality.municipality -> sewage.municipality",
+   "fixture": "backend-core/evaluation/fixtures/872172_1000.json",
+   "lang": "en",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "mortality.municipality",
+   "fixture": "backend-core/evaluation/fixtures/872172_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "municipality -> radius",
+   "fixture": "backend-core/evaluation/fixtures/872172_1000.json",
+   "lang": "en",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5",
+    "V5"
+   ],
+   "detail": "municipality <-> region",
+   "fixture": "backend-core/evaluation/fixtures/872172_1000.json",
+   "lang": "en",
+   "op": "M3b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V6"
+   ],
+   "detail": "above -> below",
+   "fixture": "backend-core/evaluation/fixtures/872172_1000.json",
+   "lang": "en",
+   "op": "M4",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "mortality.period -> staff",
+   "fixture": "backend-core/evaluation/fixtures/872172_1000.json",
+   "lang": "en",
+   "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
     "V4"
    ],
    "detail": "C03",
@@ -41258,6 +46887,17 @@
     "V4"
    ],
    "detail": "C14b",
+   "fixture": "backend-core/evaluation/fixtures/872172_1000.json",
+   "lang": "en",
+   "op": "M5",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V4"
+   ],
+   "detail": "C18",
    "fixture": "backend-core/evaluation/fixtures/872172_1000.json",
    "lang": "en",
    "op": "M5",
@@ -41384,6 +47024,61 @@
    "fixture": "backend-core/evaluation/fixtures/872172_1000.json",
    "lang": "pt",
    "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/872172_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/872172_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> sewage.precarious_radius",
+   "fixture": "backend-core/evaluation/fixtures/872172_1000.json",
+   "lang": "pt",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/872172_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/872172_1000.json",
+   "lang": "pt",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -41750,6 +47445,95 @@
   {
    "baseline": false,
    "checks": [
+    "V1"
+   ],
+   "detail": "mortality.municipality",
+   "fixture": "backend-core/evaluation/fixtures/872172_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "mortality.municipality",
+   "fixture": "backend-core/evaluation/fixtures/872172_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "mortality.municipality -> sewage.municipality",
+   "fixture": "backend-core/evaluation/fixtures/872172_1000.json",
+   "lang": "pt",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "mortality.municipality",
+   "fixture": "backend-core/evaluation/fixtures/872172_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "municipality -> radius",
+   "fixture": "backend-core/evaluation/fixtures/872172_1000.json",
+   "lang": "pt",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5",
+    "V5"
+   ],
+   "detail": "municipality <-> region",
+   "fixture": "backend-core/evaluation/fixtures/872172_1000.json",
+   "lang": "pt",
+   "op": "M3b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V6"
+   ],
+   "detail": "acima de -> abaixo de",
+   "fixture": "backend-core/evaluation/fixtures/872172_1000.json",
+   "lang": "pt",
+   "op": "M4",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "mortality.period -> staff",
+   "fixture": "backend-core/evaluation/fixtures/872172_1000.json",
+   "lang": "pt",
+   "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
     "V4"
    ],
    "detail": "C03",
@@ -41829,10 +47613,65 @@
    "checks": [
     "V4"
    ],
+   "detail": "C18",
+   "fixture": "backend-core/evaluation/fixtures/872172_1000.json",
+   "lang": "pt",
+   "op": "M5",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V4"
+   ],
    "detail": "C01",
    "fixture": "backend-core/evaluation/fixtures/872172_1000.json",
    "lang": "pt",
    "op": "M5",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/876577_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/876577_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/876577_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/876577_1000.json",
+   "lang": "en",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -41936,6 +47775,61 @@
    "fixture": "backend-core/evaluation/fixtures/876577_1000.json",
    "lang": "en",
    "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/876577_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/876577_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/876577_1000.json",
+   "lang": "en",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/876577_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/876577_1000.json",
+   "lang": "en",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -42319,6 +48213,50 @@
   {
    "baseline": false,
    "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/876577_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/876577_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/876577_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/876577_1000.json",
+   "lang": "pt",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
     "V1",
     "V3"
    ],
@@ -42417,6 +48355,61 @@
    "fixture": "backend-core/evaluation/fixtures/876577_1000.json",
    "lang": "pt",
    "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/876577_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/876577_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/876577_1000.json",
+   "lang": "pt",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/876577_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/876577_1000.json",
+   "lang": "pt",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -42800,6 +48793,50 @@
   {
    "baseline": false,
    "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/9152660_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/9152660_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/9152660_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/9152660_1000.json",
+   "lang": "en",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
     "V1",
     "V3"
    ],
@@ -42898,6 +48935,61 @@
    "fixture": "backend-core/evaluation/fixtures/9152660_1000.json",
    "lang": "en",
    "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/9152660_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/9152660_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/9152660_1000.json",
+   "lang": "en",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/9152660_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/9152660_1000.json",
+   "lang": "en",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -43381,6 +49473,50 @@
   {
    "baseline": false,
    "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/9152660_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/9152660_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/9152660_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/9152660_1000.json",
+   "lang": "pt",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
     "V1",
     "V3"
    ],
@@ -43479,6 +49615,61 @@
    "fixture": "backend-core/evaluation/fixtures/9152660_1000.json",
    "lang": "pt",
    "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/9152660_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/9152660_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/9152660_1000.json",
+   "lang": "pt",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/9152660_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/9152660_1000.json",
+   "lang": "pt",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -43964,6 +50155,76 @@
    "checks": [
     "V1"
    ],
+   "detail": "surprise_teen.observed_district",
+   "fixture": "backend-core/evaluation/fixtures/9613919_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "surprise_teen.observed_district",
+   "fixture": "backend-core/evaluation/fixtures/9613919_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "surprise_teen.observed_district -> teen_district.count_district",
+   "fixture": "backend-core/evaluation/fixtures/9613919_1000.json",
+   "lang": "en",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7",
+    "V8"
+   ],
+   "detail": "surprise_teen.observed_district",
+   "fixture": "backend-core/evaluation/fixtures/9613919_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5",
+    "V5",
+    "V5",
+    "V5"
+   ],
+   "detail": "district -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/9613919_1000.json",
+   "lang": "en",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "surprise_teen.period -> staff",
+   "fixture": "backend-core/evaluation/fixtures/9613919_1000.json",
+   "lang": "en",
+   "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
    "detail": "staff.physicians_unit",
    "fixture": "backend-core/evaluation/fixtures/9613919_1000.json",
    "lang": "en",
@@ -43984,7 +50245,8 @@
   {
    "baseline": false,
    "checks": [
-    "V7"
+    "V7",
+    "V8"
    ],
    "detail": "staff.physicians_unit",
    "fixture": "backend-core/evaluation/fixtures/9613919_1000.json",
@@ -44039,7 +50301,8 @@
   {
    "baseline": false,
    "checks": [
-    "V7"
+    "V7",
+    "V8"
    ],
    "detail": "residents.radius",
    "fixture": "backend-core/evaluation/fixtures/9613919_1000.json",
@@ -44069,6 +50332,62 @@
    "fixture": "backend-core/evaluation/fixtures/9613919_1000.json",
    "lang": "en",
    "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/9613919_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/9613919_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/9613919_1000.json",
+   "lang": "en",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7",
+    "V8"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/9613919_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/9613919_1000.json",
+   "lang": "en",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -44107,7 +50426,8 @@
   {
    "baseline": false,
    "checks": [
-    "V7"
+    "V7",
+    "V8"
    ],
    "detail": "crowded.radius",
    "fixture": "backend-core/evaluation/fixtures/9613919_1000.json",
@@ -44185,7 +50505,8 @@
   {
    "baseline": false,
    "checks": [
-    "V7"
+    "V7",
+    "V8"
    ],
    "detail": "sewage.radius",
    "fixture": "backend-core/evaluation/fixtures/9613919_1000.json",
@@ -44232,6 +50553,51 @@
    "checks": [
     "V1"
    ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/9613919_1000.json",
+   "lang": "en",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/9613919_1000.json",
+   "lang": "en",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7",
+    "V8"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/9613919_1000.json",
+   "lang": "en",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/9613919_1000.json",
+   "lang": "en",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
    "detail": "access.radius",
    "fixture": "backend-core/evaluation/fixtures/9613919_1000.json",
    "lang": "en",
@@ -44263,7 +50629,8 @@
   {
    "baseline": false,
    "checks": [
-    "V7"
+    "V7",
+    "V8"
    ],
    "detail": "access.radius",
    "fixture": "backend-core/evaluation/fixtures/9613919_1000.json",
@@ -44352,7 +50719,8 @@
   {
    "baseline": false,
    "checks": [
-    "V7"
+    "V7",
+    "V8"
    ],
    "detail": "tb_district.district",
    "fixture": "backend-core/evaluation/fixtures/9613919_1000.json",
@@ -44463,6 +50831,86 @@
   {
    "baseline": false,
    "checks": [
+    "V4"
+   ],
+   "detail": "C19",
+   "fixture": "backend-core/evaluation/fixtures/9613919_1000.json",
+   "lang": "en",
+   "op": "M5",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "surprise_teen.observed_district",
+   "fixture": "backend-core/evaluation/fixtures/9613919_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "surprise_teen.observed_district",
+   "fixture": "backend-core/evaluation/fixtures/9613919_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "surprise_teen.observed_district -> teen_district.count_district",
+   "fixture": "backend-core/evaluation/fixtures/9613919_1000.json",
+   "lang": "pt",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "surprise_teen.observed_district",
+   "fixture": "backend-core/evaluation/fixtures/9613919_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5",
+    "V5",
+    "V5",
+    "V5"
+   ],
+   "detail": "district -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/9613919_1000.json",
+   "lang": "pt",
+   "op": "M3",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "surprise_teen.period -> staff",
+   "fixture": "backend-core/evaluation/fixtures/9613919_1000.json",
+   "lang": "pt",
+   "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
     "V1"
    ],
    "detail": "staff.physicians_unit",
@@ -44570,6 +51018,61 @@
    "fixture": "backend-core/evaluation/fixtures/9613919_1000.json",
    "lang": "pt",
    "op": "M7",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/9613919_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/9613919_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V2"
+   ],
+   "detail": "territory.extent_radius -> precarious.radius",
+   "fixture": "backend-core/evaluation/fixtures/9613919_1000.json",
+   "lang": "pt",
+   "op": "M2",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "territory.extent_radius",
+   "fixture": "backend-core/evaluation/fixtures/9613919_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/9613919_1000.json",
+   "lang": "pt",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -44726,6 +51229,50 @@
    "fixture": "backend-core/evaluation/fixtures/9613919_1000.json",
    "lang": "pt",
    "op": "M4",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/9613919_1000.json",
+   "lang": "pt",
+   "op": "M1",
+   "verifier": true
+  },
+  {
+   "baseline": true,
+   "checks": [
+    "V1"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/9613919_1000.json",
+   "lang": "pt",
+   "op": "M1b",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V7"
+   ],
+   "detail": "peer.count_group",
+   "fixture": "backend-core/evaluation/fixtures/9613919_1000.json",
+   "lang": "pt",
+   "op": "M6",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V5"
+   ],
+   "detail": "radius -> municipality",
+   "fixture": "backend-core/evaluation/fixtures/9613919_1000.json",
+   "lang": "pt",
+   "op": "M3",
    "verifier": true
   },
   {
@@ -44956,6 +51503,17 @@
     "V4"
    ],
    "detail": "C16",
+   "fixture": "backend-core/evaluation/fixtures/9613919_1000.json",
+   "lang": "pt",
+   "op": "M5",
+   "verifier": true
+  },
+  {
+   "baseline": false,
+   "checks": [
+    "V4"
+   ],
+   "detail": "C19",
    "fixture": "backend-core/evaluation/fixtures/9613919_1000.json",
    "lang": "pt",
    "op": "M5",
@@ -44965,23 +51523,23 @@
  "operators": {
   "M1": {
    "baseline": 0,
-   "mutants": 566,
-   "verifier": 566
+   "mutants": 690,
+   "verifier": 690
   },
   "M1b": {
-   "baseline": 520,
-   "mutants": 566,
-   "verifier": 566
+   "baseline": 630,
+   "mutants": 690,
+   "verifier": 690
   },
   "M2": {
    "baseline": 0,
-   "mutants": 398,
-   "verifier": 398
+   "mutants": 484,
+   "verifier": 484
   },
   "M3": {
    "baseline": 0,
-   "mutants": 604,
-   "verifier": 604
+   "mutants": 728,
+   "verifier": 728
   },
   "M3b": {
    "baseline": 0,
@@ -44995,18 +51553,18 @@
   },
   "M5": {
    "baseline": 0,
-   "mutants": 452,
-   "verifier": 448
+   "mutants": 458,
+   "verifier": 458
   },
   "M6": {
    "baseline": 0,
-   "mutants": 566,
-   "verifier": 566
+   "mutants": 690,
+   "verifier": 690
   },
   "M7": {
    "baseline": 0,
-   "mutants": 224,
-   "verifier": 224
+   "mutants": 230,
+   "verifier": 230
   }
  },
  "originals": 80,

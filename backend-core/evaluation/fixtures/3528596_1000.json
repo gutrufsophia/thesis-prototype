@@ -1,7 +1,57 @@
 {
  "city": null,
+ "context": {
+  "facilities": 6687,
+  "group": "hospital",
+  "group_size": 499,
+  "percentiles": {
+   "crowded": 0.06412825651302605,
+   "deprived": 0.04008016032064128,
+   "far_primary": 0.6402805611222445,
+   "income": 0.5681362725450901,
+   "no_garbage": 0.21442885771543085,
+   "off_network": 0.1432865731462926,
+   "precarious": 0.1492985971943888
+  },
+  "radius": 1000,
+  "territory_type": 3,
+  "type_size": 3582,
+  "values": {
+   "crowded": 0.0,
+   "deprived": 0.0,
+   "far_primary": 25.8,
+   "income": 6978.0,
+   "no_garbage": 0.0,
+   "off_network": 0.09999999999999432,
+   "precarious": 0.1
+  }
+ },
  "district": null,
  "districts": null,
+ "expected": [
+  {
+   "code": "354780",
+   "expected": 2147.1,
+   "flag": null,
+   "lower": 1239.1,
+   "name": "Santo André",
+   "observed": 1030.0,
+   "outcome": "tb",
+   "scale": "municipality",
+   "upper": 3055.1
+  },
+  {
+   "code": "354780",
+   "expected": 33264.5,
+   "flag": null,
+   "lower": 11545.4,
+   "name": "Santo André",
+   "observed": 14569.0,
+   "outcome": "dengue_2024",
+   "scale": "municipality",
+   "upper": 54983.6
+  }
+ ],
  "facility": {
   "CO_CEP": 9015410,
   "CO_CLIENTELA": 3,
@@ -365,6 +415,7 @@
     "far_primary_pct": 10.1,
     "garbage_pct": 99.9,
     "households": 280600,
+    "income": 4387,
     "population": 748919,
     "precarious_pct": 2.4,
     "residents_per_household": 2.66,
@@ -377,6 +428,7 @@
     "far_primary_pct": 25.8,
     "garbage_pct": 100.0,
     "households": 12042,
+    "income": 6978,
     "population": 29342,
     "precarious_pct": 0.1,
     "residents_per_household": 2.42,
@@ -389,6 +441,7 @@
     "far_primary_pct": 13.0,
     "garbage_pct": 99.6,
     "households": 7615622,
+    "income": 4199,
     "population": 20731920,
     "precarious_pct": 5.7,
     "residents_per_household": 2.71,
@@ -902,6 +955,10 @@
   "radius_m": 1000,
   "tracts": [
    {
+    "population": 0.0,
+    "share_inside": 0.635
+   },
+   {
     "population": 430.0,
     "share_inside": 0.494
    },
@@ -1044,10 +1101,6 @@
    {
     "population": 613.0,
     "share_inside": 1.0
-   },
-   {
-    "population": 0.0,
-    "share_inside": 0.635
    },
    {
     "population": 219.0,

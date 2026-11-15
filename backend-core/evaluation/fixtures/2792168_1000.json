@@ -1,7 +1,57 @@
 {
  "city": null,
+ "context": {
+  "facilities": 6687,
+  "group": "hospital",
+  "group_size": 499,
+  "percentiles": {
+   "crowded": 0.750501002004008,
+   "deprived": 0.7144288577154309,
+   "far_primary": 0.3456913827655311,
+   "income": 0.11923847695390781,
+   "no_garbage": 0.5891783567134269,
+   "off_network": 0.8066132264529058,
+   "precarious": 0.8236472945891784
+  },
+  "radius": 1000,
+  "territory_type": 2,
+  "type_size": 2966,
+  "values": {
+   "crowded": 8.6,
+   "deprived": 13.077378968033486,
+   "far_primary": 4.4,
+   "income": 2711.0,
+   "no_garbage": 0.09999999999999432,
+   "off_network": 5.200000000000003,
+   "precarious": 4.2
+  }
+ },
  "district": null,
  "districts": null,
+ "expected": [
+  {
+   "code": "351060",
+   "expected": 852.1,
+   "flag": null,
+   "lower": 285.4,
+   "name": "Carapicuíba",
+   "observed": 1295.0,
+   "outcome": "tb",
+   "scale": "municipality",
+   "upper": 1418.7
+  },
+  {
+   "code": "351060",
+   "expected": 11536.4,
+   "flag": null,
+   "lower": 0.0,
+   "name": "Carapicuíba",
+   "observed": 6013.0,
+   "outcome": "dengue_2024",
+   "scale": "municipality",
+   "upper": 24444.5
+  }
+ ],
  "facility": {
   "CO_CEP": 6321665,
   "CO_CLIENTELA": 3,
@@ -365,6 +415,7 @@
     "far_primary_pct": 6.7,
     "garbage_pct": 99.9,
     "households": 136868,
+    "income": 2693,
     "population": 386984,
     "precarious_pct": 8.6,
     "residents_per_household": 2.83,
@@ -377,6 +428,7 @@
     "far_primary_pct": 4.4,
     "garbage_pct": 99.9,
     "households": 19879,
+    "income": 2711,
     "population": 53994,
     "precarious_pct": 4.2,
     "residents_per_household": 2.72,
@@ -389,6 +441,7 @@
     "far_primary_pct": 13.0,
     "garbage_pct": 99.6,
     "households": 7615622,
+    "income": 4199,
     "population": 20731920,
     "precarious_pct": 5.7,
     "residents_per_household": 2.71,
@@ -470,6 +523,14 @@
   "radius_m": 1000,
   "tracts": [
    {
+    "population": 0.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 0.0,
+    "share_inside": 0.192
+   },
+   {
     "population": 369.0,
     "share_inside": 1.0
    },
@@ -487,10 +548,6 @@
    },
    {
     "population": 410.0,
-    "share_inside": 1.0
-   },
-   {
-    "population": 0.0,
     "share_inside": 1.0
    },
    {
@@ -896,10 +953,6 @@
    {
     "population": 425.0,
     "share_inside": 0.315
-   },
-   {
-    "population": 0.0,
-    "share_inside": 0.192
    },
    {
     "population": 808.0,

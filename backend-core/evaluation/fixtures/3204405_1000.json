@@ -1,7 +1,67 @@
 {
  "city": null,
+ "context": {
+  "edge_m": 22308.0,
+  "facilities": 6687,
+  "group": "primary",
+  "group_size": 1388,
+  "load_percentile": 0.36740121580547114,
+  "mean_catchment_m": 2013.0,
+  "near_edge": false,
+  "need_percentile": 0.6344984802431611,
+  "percentiles": {
+   "crowded": 0.4942363112391931,
+   "deprived": 0.5810518731988472,
+   "far_primary": 0.13085796683489545,
+   "income": 0.14445244956772335,
+   "no_garbage": 0.37103746397694526,
+   "off_network": 0.6718299711815562,
+   "precarious": 0.7298270893371758
+  },
+  "public_primary_size": 1316,
+  "radius": 1000,
+  "supply_measure": "catchment",
+  "territory_type": 2,
+  "type_size": 2966,
+  "values": {
+   "crowded": 9.8,
+   "deprived": 25.936374872373584,
+   "far_primary": 0.0,
+   "income": 2047.0,
+   "no_garbage": 0.09999999999999432,
+   "off_network": 8.799999999999997,
+   "population": 37218.0,
+   "precarious": 8.1,
+   "served": 13709.0,
+   "served_deprived": 32.0
+  }
+ },
  "district": null,
  "districts": null,
+ "expected": [
+  {
+   "code": "351500",
+   "expected": 527.4,
+   "flag": null,
+   "lower": 76.0,
+   "name": "Embu das Artes",
+   "observed": 603.0,
+   "outcome": "tb",
+   "scale": "municipality",
+   "upper": 978.8
+  },
+  {
+   "code": "351500",
+   "expected": 7376.5,
+   "flag": null,
+   "lower": 0.0,
+   "name": "Embu das Artes",
+   "observed": 5475.0,
+   "outcome": "dengue_2024",
+   "scale": "municipality",
+   "upper": 17674.3
+  }
+ ],
  "facility": {
   "CO_CEP": 6816550,
   "CO_CLIENTELA": 1,
@@ -365,6 +425,7 @@
     "far_primary_pct": 9.1,
     "garbage_pct": 99.0,
     "households": 88081,
+    "income": 2163,
     "population": 250691,
     "precarious_pct": 15.1,
     "residents_per_household": 2.84,
@@ -377,6 +438,7 @@
     "far_primary_pct": 0.0,
     "garbage_pct": 99.9,
     "households": 13364,
+    "income": 2047,
     "population": 37218,
     "precarious_pct": 8.1,
     "residents_per_household": 2.79,
@@ -389,6 +451,7 @@
     "far_primary_pct": 13.0,
     "garbage_pct": 99.6,
     "households": 7615622,
+    "income": 4199,
     "population": 20731920,
     "precarious_pct": 5.7,
     "residents_per_household": 2.71,
@@ -559,6 +622,14 @@
   "radius_m": 1000,
   "tracts": [
    {
+    "population": 0.0,
+    "share_inside": 0.689
+   },
+   {
+    "population": 0.0,
+    "share_inside": 0.873
+   },
+   {
     "population": 738.0,
     "share_inside": 0.895
    },
@@ -645,10 +716,6 @@
    {
     "population": 416.0,
     "share_inside": 0.945
-   },
-   {
-    "population": 0.0,
-    "share_inside": 0.689
    },
    {
     "population": 145.0,
@@ -749,10 +816,6 @@
    {
     "population": 434.0,
     "share_inside": 1.0
-   },
-   {
-    "population": 0.0,
-    "share_inside": 0.873
    },
    {
     "population": 226.0,

@@ -1,7 +1,57 @@
 {
  "city": null,
+ "context": {
+  "facilities": 6687,
+  "group": "diagnostic",
+  "group_size": 2488,
+  "percentiles": {
+   "crowded": 0.9007234726688103,
+   "deprived": 0.8920819935691319,
+   "far_primary": 0.6171623794212219,
+   "income": 0.029139871382636656,
+   "no_garbage": 0.6607717041800643,
+   "off_network": 0.9290594855305466,
+   "precarious": 0.9280546623794212
+  },
+  "radius": 1000,
+  "territory_type": 2,
+  "type_size": 2966,
+  "values": {
+   "crowded": 12.2,
+   "deprived": 18.616135173726796,
+   "far_primary": 29.4,
+   "income": 2486.0,
+   "no_garbage": 0.09999999999999432,
+   "off_network": 6.5,
+   "precarious": 4.7
+  }
+ },
  "district": null,
  "districts": null,
+ "expected": [
+  {
+   "code": "352310",
+   "expected": 639.9,
+   "flag": null,
+   "lower": 108.4,
+   "name": "Itaquaquecetuba",
+   "observed": 657.0,
+   "outcome": "tb",
+   "scale": "municipality",
+   "upper": 1171.3
+  },
+  {
+   "code": "352310",
+   "expected": 10269.1,
+   "flag": null,
+   "lower": 0.0,
+   "name": "Itaquaquecetuba",
+   "observed": 6519.0,
+   "outcome": "dengue_2024",
+   "scale": "municipality",
+   "upper": 22885.4
+  }
+ ],
  "facility": {
   "CO_CEP": 8598000,
   "CO_CLIENTELA": 3,
@@ -365,6 +415,7 @@
     "far_primary_pct": 21.4,
     "garbage_pct": 99.6,
     "households": 122210,
+    "income": 2212,
     "population": 369275,
     "precarious_pct": 17.2,
     "residents_per_household": 3.02,
@@ -377,6 +428,7 @@
     "far_primary_pct": 29.4,
     "garbage_pct": 99.9,
     "households": 5831,
+    "income": 2486,
     "population": 16808,
     "precarious_pct": 4.7,
     "residents_per_household": 2.88,
@@ -389,6 +441,7 @@
     "far_primary_pct": 13.0,
     "garbage_pct": 99.6,
     "households": 7615622,
+    "income": 4199,
     "population": 20731920,
     "precarious_pct": 5.7,
     "residents_per_household": 2.71,

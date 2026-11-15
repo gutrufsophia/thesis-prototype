@@ -7,13 +7,14 @@
 namespace story {
 
 namespace {
-const std::array<std::pair<Scope, const char*>, 6> kScopes{{
+const std::array<std::pair<Scope, const char*>, 7> kScopes{{
     {Scope::Unit, "unit"},
     {Scope::Radius, "radius"},
     {Scope::District, "district"},
     {Scope::City, "city"},
     {Scope::Municipality, "municipality"},
     {Scope::Region, "region"},
+    {Scope::Catchment, "catchment"},
 }};
 }  // namespace
 

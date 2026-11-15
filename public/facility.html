@@ -8,10 +8,23 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="facility-page">
-  <nav class="topbar">
-    <a id="back" href="index.html" data-i18n="page.back">← Voltar ao mapa</a>
-    <div class="topbar-right">
-      <span class="brand" data-i18n="brand">CulturaEduca · Camada de saúde</span>
+  <nav class="band">
+    <ol class="crumbs" data-i18n-aria="crumb.label">
+      <li><a id="back" href="index.html" data-i18n="crumb.region" data-i18n-title="page.back">RMSP</a></li>
+      <li id="crumb-municipality" hidden></li>
+      <li id="crumb-district" hidden></li>
+      <li id="crumb-radius" class="crumb-radius" hidden>
+        <label for="radius" data-i18n="crumb.surroundings">Entorno</label>
+        <input id="radius" type="range" min="250" max="5000" step="250" value="1000">
+        <output id="radius-value" for="radius">1,0 km</output>
+      </li>
+    </ol>
+    <div class="band-right">
+      <label id="public-only-control" class="band-option" data-i18n-title="sur.publicOnly" hidden>
+        <input id="public-only" type="checkbox">
+        <span data-i18n="sur.publicOnlyShort">Só rede pública ou SUS</span>
+      </label>
+      <a href="relations.html" data-i18n="page.relationsLink">Condições de vida e doenças</a>
       <div class="lang-switch" role="group" data-i18n-aria="lang.label">
         <button type="button" data-lang="pt">PT</button>
         <button type="button" data-lang="en">EN</button>
@@ -19,58 +32,75 @@
     </div>
   </nav>
 
-  <main class="page">
-    <div id="facility-root"><p class="hint" data-i18n="page.loading">Carregando unidade…</p></div>
-
-    <section id="surroundings" class="surroundings" hidden>
-      <h2 data-i18n="sur.title">Entorno</h2>
-      <p id="location-line" class="hint"></p>
-
-      <div class="controls">
-        <label for="radius" data-i18n="sur.radius">Raio ao redor da unidade</label>
-        <input id="radius" type="range" min="250" max="5000" step="250" value="1000">
-        <output id="radius-value" for="radius">1,0 km</output>
-        <label class="control-option">
-          <input id="public-only" type="checkbox">
-          <span data-i18n="sur.publicOnly">Considerar apenas unidades públicas ou com vínculo com o SUS</span>
-        </label>
+  <header id="hero" class="hero is-static">
+    <div class="hero-map-wrap">
+      <div id="mini-map" class="hero-map"></div>
+      <div id="map-panel" class="map-panel" hidden>
+        <label for="indicator" data-i18n="sur.indicator">Indicador exibido no mapa</label>
+        <select id="indicator"></select>
+        <div id="map-legend" class="ramp-legend"></div>
+        <p id="map-hint" class="hint"></p>
       </div>
+    </div>
+    <div class="hero-head">
+      <div id="facility-head" class="facility-head"><p class="hint" data-i18n="page.loading">Carregando unidade…</p></div>
+      <button id="expand-map" type="button" class="button hero-button" aria-expanded="false" aria-controls="mini-map" hidden data-i18n="hero.expand">Expandir mapa</button>
+    </div>
+  </header>
 
-      <section id="narrative" class="card narrative" aria-live="polite" hidden></section>
+  <div class="tabs-bar">
+    <div id="tabs" class="tabs" role="tablist" data-i18n-aria="tabs.label">
+      <button type="button" role="tab" id="tab-story" aria-controls="panel-story" data-tab="story" data-i18n="tab.story" hidden>Leitura do território</button>
+      <button type="button" role="tab" id="tab-record" aria-controls="panel-record" data-tab="record" data-i18n="tab.record">Ficha</button>
+      <button type="button" role="tab" id="tab-surroundings" aria-controls="panel-surroundings" data-tab="surroundings" data-i18n="tab.surroundings" hidden>Dados do entorno</button>
+      <button type="button" role="tab" id="tab-health" aria-controls="panel-health" data-tab="health" data-i18n="tab.health" hidden>Indicadores de saúde</button>
+      <button type="button" role="tab" id="tab-network" aria-controls="panel-network" data-tab="network" data-i18n="tab.network" hidden>Equipamentos do entorno</button>
+    </div>
+  </div>
 
-      <div id="surroundings-body" class="surroundings-body">
-        <div id="tiles"></div>
+  <main class="page tab-page">
+    <p id="load-error" class="notice is-error" hidden></p>
+    <section id="panel-story" role="tabpanel" aria-labelledby="tab-story" class="tab-panel" hidden>
+      <section id="narrative" class="card narrative" aria-live="polite"></section>
+    </section>
 
-        <div class="split">
-          <div class="card">
-            <div class="card-head">
-              <h3 data-i18n="sur.mapTitle">Setores censitários dentro do raio</h3>
-              <label class="visually-hidden" for="indicator" data-i18n="sur.indicator">Indicador exibido no mapa</label>
-              <select id="indicator"></select>
-            </div>
-            <div id="mini-map" class="mini-map"></div>
-            <div id="map-legend" class="ramp-legend"></div>
-            <p id="map-hint" class="hint"></p>
-          </div>
+    <section id="panel-record" role="tabpanel" aria-labelledby="tab-record" class="tab-panel" hidden>
+      <div id="facility-root"></div>
+    </section>
 
-          <div class="card" id="t-environment"></div>
-        </div>
-
-        <div class="split">
-          <div class="card" id="t-respiratory"></div>
-          <div class="card" id="t-access"></div>
-        </div>
-
-        <div class="split">
-          <div class="card" id="t-maternal"></div>
-          <div class="card" id="t-mortality"></div>
-        </div>
-
-        <div class="split">
-          <div class="card" id="nearby-types"></div>
-          <div class="card" id="nearby-list"></div>
-        </div>
+    <section id="panel-surroundings" role="tabpanel" aria-labelledby="tab-surroundings" class="tab-panel live-panel" hidden>
+      <div class="panel-intro">
+        <p id="surroundings-scope" class="scope scope-radius"></p>
+        <p class="hint" data-i18n="sur.intro">Estimativas para os setores censitários dentro do raio, comparadas com o município e a região metropolitana.</p>
       </div>
+      <div class="split">
+        <div class="card" id="s-summary"></div>
+        <div class="card" id="s-housing"></div>
+      </div>
+      <div class="split">
+        <div class="card" id="s-sanitation"></div>
+        <div class="card" id="s-access"></div>
+      </div>
+      <div class="card" id="s-peers" hidden></div>
+    </section>
+
+    <section id="panel-health" role="tabpanel" aria-labelledby="tab-health" class="tab-panel live-panel" hidden>
+      <div class="panel-intro">
+        <p id="health-intro" class="notice"></p>
+      </div>
+      <div class="split">
+        <div class="card" id="h-tb"></div>
+        <div class="card" id="h-environment"></div>
+      </div>
+      <div class="split">
+        <div class="card" id="h-maternal"></div>
+        <div class="card" id="h-mortality"></div>
+      </div>
+    </section>
+
+    <section id="panel-network" role="tabpanel" aria-labelledby="tab-network" class="tab-panel live-panel" hidden>
+      <div id="n-summary"></div>
+      <div class="card" id="n-groups"></div>
     </section>
   </main>
 

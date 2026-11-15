@@ -1,7 +1,57 @@
 {
  "city": null,
+ "context": {
+  "facilities": 6687,
+  "group": "specialised",
+  "group_size": 2070,
+  "percentiles": {
+   "crowded": 0.3323671497584541,
+   "deprived": 0.3398550724637681,
+   "far_primary": 0.610681488641856,
+   "income": 0.4958937198067633,
+   "no_garbage": 0.21690821256038648,
+   "off_network": 0.4900966183574879,
+   "precarious": 0.5036231884057971
+  },
+  "radius": 1000,
+  "territory_type": 3,
+  "type_size": 3582,
+  "values": {
+   "crowded": 2.0,
+   "deprived": 3.196978383300172,
+   "far_primary": 17.1,
+   "income": 5068.0,
+   "no_garbage": 0.0,
+   "off_network": 0.7000000000000028,
+   "precarious": 0.6
+  }
+ },
  "district": null,
  "districts": null,
+ "expected": [
+  {
+   "code": "355280",
+   "expected": 660.1,
+   "flag": null,
+   "lower": 159.6,
+   "name": "Taboão da Serra",
+   "observed": 626.0,
+   "outcome": "tb",
+   "scale": "municipality",
+   "upper": 1160.6
+  },
+  {
+   "code": "355280",
+   "expected": 9617.4,
+   "flag": null,
+   "lower": 0.0,
+   "name": "Taboão da Serra",
+   "observed": 5924.0,
+   "outcome": "dengue_2024",
+   "scale": "municipality",
+   "upper": 21354.3
+  }
+ ],
  "facility": {
   "CO_CEP": 6763460,
   "CO_CLIENTELA": 1,
@@ -365,6 +415,7 @@
     "far_primary_pct": 4.2,
     "garbage_pct": 99.4,
     "households": 99452,
+    "income": 3072,
     "population": 273542,
     "precarious_pct": 2.5,
     "residents_per_household": 2.75,
@@ -377,6 +428,7 @@
     "far_primary_pct": 17.1,
     "garbage_pct": 100.0,
     "households": 11428,
+    "income": 5068,
     "population": 29653,
     "precarious_pct": 0.6,
     "residents_per_household": 2.59,
@@ -389,6 +441,7 @@
     "far_primary_pct": 13.0,
     "garbage_pct": 99.6,
     "households": 7615622,
+    "income": 4199,
     "population": 20731920,
     "precarious_pct": 5.7,
     "residents_per_household": 2.71,
@@ -847,6 +900,22 @@
   "radius_m": 1000,
   "tracts": [
    {
+    "population": 0.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 5.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 0.0,
+    "share_inside": 1.0
+   },
+   {
+    "population": 0.0,
+    "share_inside": 1.0
+   },
+   {
     "population": 573.0,
     "share_inside": 1.0
    },
@@ -935,10 +1004,6 @@
     "share_inside": 0.111
    },
    {
-    "population": 0.0,
-    "share_inside": 1.0
-   },
-   {
     "population": 712.0,
     "share_inside": 0.805
    },
@@ -976,10 +1041,6 @@
    },
    {
     "population": 224.0,
-    "share_inside": 1.0
-   },
-   {
-    "population": 5.0,
     "share_inside": 1.0
    },
    {
@@ -1123,10 +1184,6 @@
     "share_inside": 1.0
    },
    {
-    "population": 0.0,
-    "share_inside": 1.0
-   },
-   {
     "population": 295.0,
     "share_inside": 1.0
    },
@@ -1152,10 +1209,6 @@
    },
    {
     "population": 149.0,
-    "share_inside": 1.0
-   },
-   {
-    "population": 0.0,
     "share_inside": 1.0
    },
    {
