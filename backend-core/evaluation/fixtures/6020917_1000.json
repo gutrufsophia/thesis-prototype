@@ -1,7 +1,57 @@
 {
  "city": null,
+ "context": {
+  "facilities": 6687,
+  "group": "hospital",
+  "group_size": 499,
+  "percentiles": {
+   "crowded": 0.5571142284569138,
+   "deprived": 0.48396793587174347,
+   "far_primary": 0.280561122244489,
+   "income": 0.3156312625250501,
+   "no_garbage": 0.21442885771543085,
+   "off_network": 0.32965931863727455,
+   "precarious": 0.3627254509018036
+  },
+  "radius": 1000,
+  "territory_type": 2,
+  "type_size": 2966,
+  "values": {
+   "crowded": 4.4,
+   "deprived": 4.445425774637521,
+   "far_primary": 2.0,
+   "income": 4069.0,
+   "no_garbage": 0.0,
+   "off_network": 0.20000000000000284,
+   "precarious": 0.2
+  }
+ },
  "district": null,
  "districts": null,
+ "expected": [
+  {
+   "code": "354780",
+   "expected": 2147.1,
+   "flag": null,
+   "lower": 1239.1,
+   "name": "Santo André",
+   "observed": 1030.0,
+   "outcome": "tb",
+   "scale": "municipality",
+   "upper": 3055.1
+  },
+  {
+   "code": "354780",
+   "expected": 33264.5,
+   "flag": null,
+   "lower": 11545.4,
+   "name": "Santo André",
+   "observed": 14569.0,
+   "outcome": "dengue_2024",
+   "scale": "municipality",
+   "upper": 54983.6
+  }
+ ],
  "facility": {
   "CO_CEP": 9270410,
   "CO_CLIENTELA": 3,
@@ -365,6 +415,7 @@
     "far_primary_pct": 10.1,
     "garbage_pct": 99.9,
     "households": 280600,
+    "income": 4387,
     "population": 748919,
     "precarious_pct": 2.4,
     "residents_per_household": 2.66,
@@ -377,6 +428,7 @@
     "far_primary_pct": 2.0,
     "garbage_pct": 100.0,
     "households": 15377,
+    "income": 4069,
     "population": 40761,
     "precarious_pct": 0.2,
     "residents_per_household": 2.65,
@@ -389,6 +441,7 @@
     "far_primary_pct": 13.0,
     "garbage_pct": 99.6,
     "households": 7615622,
+    "income": 4199,
     "population": 20731920,
     "precarious_pct": 5.7,
     "residents_per_household": 2.71,
@@ -505,6 +558,10 @@
   ],
   "radius_m": 1000,
   "tracts": [
+   {
+    "population": 0.0,
+    "share_inside": 0.868
+   },
    {
     "population": 403.0,
     "share_inside": 1.0
@@ -904,10 +961,6 @@
    {
     "population": 115.0,
     "share_inside": 1.0
-   },
-   {
-    "population": 0.0,
-    "share_inside": 0.868
    },
    {
     "population": 507.0,

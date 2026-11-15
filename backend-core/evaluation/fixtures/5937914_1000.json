@@ -1,7 +1,57 @@
 {
  "city": null,
+ "context": {
+  "facilities": 6687,
+  "group": "specialised",
+  "group_size": 2070,
+  "percentiles": {
+   "crowded": 0.7958937198067633,
+   "deprived": 0.6471014492753623,
+   "far_primary": 0.07346544224262928,
+   "income": 0.15966183574879228,
+   "no_garbage": 0.5818840579710145,
+   "off_network": 0.6657004830917874,
+   "precarious": 0.6806763285024154
+  },
+  "radius": 1000,
+  "territory_type": 2,
+  "type_size": 2966,
+  "values": {
+   "crowded": 11.5,
+   "deprived": 11.602058049566002,
+   "far_primary": 0.0,
+   "income": 2691.0,
+   "no_garbage": 0.09999999999999432,
+   "off_network": 2.200000000000003,
+   "precarious": 2.0
+  }
+ },
  "district": null,
  "districts": null,
+ "expected": [
+  {
+   "code": "353980",
+   "expected": 211.1,
+   "flag": null,
+   "lower": 0.0,
+   "name": "Poá",
+   "observed": 204.0,
+   "outcome": "tb",
+   "scale": "municipality",
+   "upper": 491.1
+  },
+  {
+   "code": "353980",
+   "expected": 3068.4,
+   "flag": null,
+   "lower": 0.0,
+   "name": "Poá",
+   "observed": 6049.0,
+   "outcome": "dengue_2024",
+   "scale": "municipality",
+   "upper": 9580.7
+  }
+ ],
  "facility": {
   "CO_CEP": 8550450,
   "CO_CLIENTELA": 2,
@@ -365,6 +415,7 @@
     "far_primary_pct": 0.6,
     "garbage_pct": 99.6,
     "households": 35383,
+    "income": 2652,
     "population": 103765,
     "precarious_pct": 2.8,
     "residents_per_household": 2.93,
@@ -377,6 +428,7 @@
     "far_primary_pct": 0.0,
     "garbage_pct": 99.9,
     "households": 8930,
+    "income": 2691,
     "population": 25461,
     "precarious_pct": 2.0,
     "residents_per_household": 2.84,
@@ -389,6 +441,7 @@
     "far_primary_pct": 13.0,
     "garbage_pct": 99.6,
     "households": 7615622,
+    "income": 4199,
     "population": 20731920,
     "precarious_pct": 5.7,
     "residents_per_household": 2.71,

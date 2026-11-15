@@ -1,7 +1,67 @@
 {
  "city": null,
+ "context": {
+  "edge_m": 18337.0,
+  "facilities": 6687,
+  "group": "primary",
+  "group_size": 1388,
+  "load_percentile": 0.6056231003039514,
+  "mean_catchment_m": 2486.0,
+  "near_edge": false,
+  "need_percentile": 0.672112462006079,
+  "percentiles": {
+   "crowded": 0.5554755043227666,
+   "deprived": 0.3015129682997118,
+   "far_primary": 0.7674837779379957,
+   "income": 0.8108789625360231,
+   "no_garbage": 0.659221902017291,
+   "off_network": 0.6415706051873199,
+   "precarious": 0.23811239193083575
+  },
+  "public_primary_size": 1316,
+  "radius": 1000,
+  "supply_measure": "catchment",
+  "territory_type": 2,
+  "type_size": 2966,
+  "values": {
+   "crowded": 11.6,
+   "deprived": 12.530899410534323,
+   "far_primary": 2.6,
+   "income": 4453.0,
+   "no_garbage": 0.29999999999999716,
+   "off_network": 7.900000000000006,
+   "population": 10518.0,
+   "precarious": 1.0,
+   "served": 17004.0,
+   "served_deprived": 33.9
+  }
+ },
  "district": null,
  "districts": null,
+ "expected": [
+  {
+   "code": "353060",
+   "expected": 1028.7,
+   "flag": null,
+   "lower": 394.5,
+   "name": "Mogi das Cruzes",
+   "observed": 843.0,
+   "outcome": "tb",
+   "scale": "municipality",
+   "upper": 1662.8
+  },
+  {
+   "code": "353060",
+   "expected": 19971.4,
+   "flag": null,
+   "lower": 3246.9,
+   "name": "Mogi das Cruzes",
+   "observed": 19414.0,
+   "outcome": "dengue_2024",
+   "scale": "municipality",
+   "upper": 36695.8
+  }
+ ],
  "facility": {
   "CO_CEP": 8725440,
   "CO_CLIENTELA": 1,
@@ -365,6 +425,7 @@
     "far_primary_pct": 26.0,
     "garbage_pct": 98.9,
     "households": 158772,
+    "income": 3468,
     "population": 451505,
     "precarious_pct": 9.2,
     "residents_per_household": 2.84,
@@ -377,6 +438,7 @@
     "far_primary_pct": 2.6,
     "garbage_pct": 99.7,
     "households": 3749,
+    "income": 4453,
     "population": 10518,
     "precarious_pct": 1.0,
     "residents_per_household": 2.81,
@@ -389,6 +451,7 @@
     "far_primary_pct": 13.0,
     "garbage_pct": 99.6,
     "households": 7615622,
+    "income": 4199,
     "population": 20731920,
     "precarious_pct": 5.7,
     "residents_per_household": 2.71,
@@ -433,6 +496,10 @@
   ],
   "radius_m": 1000,
   "tracts": [
+   {
+    "population": 0.0,
+    "share_inside": 0.062
+   },
    {
     "population": 716.0,
     "share_inside": 0.149
@@ -556,10 +623,6 @@
    {
     "population": 1314.0,
     "share_inside": 0.007
-   },
-   {
-    "population": 0.0,
-    "share_inside": 0.062
    }
   ]
  }

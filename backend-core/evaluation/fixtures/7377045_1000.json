@@ -39,6 +39,32 @@
   "total_lixo_coletado": 4295958.0,
   "tracts": 27301.0
  },
+ "context": {
+  "facilities": 6687,
+  "group": "specialised",
+  "group_size": 2070,
+  "percentiles": {
+   "crowded": 0.18792270531400967,
+   "deprived": 0.12729468599033816,
+   "far_primary": 0.596906718221363,
+   "income": 0.8731884057971014,
+   "no_garbage": 0.5818840579710145,
+   "off_network": 0.2599033816425121,
+   "precarious": 0.30096618357487925
+  },
+  "radius": 1000,
+  "territory_type": 3,
+  "type_size": 3582,
+  "values": {
+   "crowded": 0.7,
+   "deprived": 0.6537378792618079,
+   "far_primary": 15.7,
+   "income": 11615.0,
+   "no_garbage": 0.09999999999999432,
+   "off_network": 0.20000000000000284,
+   "precarious": 0.2
+  }
+ },
  "district": {
   "cd_dist": "355030802",
   "domicilios_esgoto_informado": 15794.0,
@@ -4115,6 +4141,52 @@
    "tracts": 308
   }
  ],
+ "expected": [
+  {
+   "code": "355030802",
+   "expected": 56.1,
+   "flag": null,
+   "lower": 0.0,
+   "name": "Alto de Pinheiros",
+   "observed": 29.0,
+   "outcome": "tb",
+   "scale": "district",
+   "upper": 148.6
+  },
+  {
+   "code": "355030",
+   "expected": 33485.1,
+   "flag": null,
+   "lower": 28809.9,
+   "name": "São Paulo",
+   "observed": 36946.0,
+   "outcome": "tb",
+   "scale": "municipality",
+   "upper": 38160.3
+  },
+  {
+   "code": "355030",
+   "expected": 583110.4,
+   "flag": null,
+   "lower": 463754.3,
+   "name": "São Paulo",
+   "observed": 633243.0,
+   "outcome": "dengue_2024",
+   "scale": "municipality",
+   "upper": 702466.6
+  },
+  {
+   "code": "355030802",
+   "expected": 17.8,
+   "flag": null,
+   "lower": 0.0,
+   "name": "Alto de Pinheiros",
+   "observed": 1.0,
+   "outcome": "teen",
+   "scale": "district",
+   "upper": 43.4
+  }
+ ],
  "facility": {
   "CO_CEP": 5455010,
   "CO_CLIENTELA": 3,
@@ -4478,6 +4550,7 @@
     "far_primary_pct": 12.9,
     "garbage_pct": 99.7,
     "households": 4316336,
+    "income": 4869,
     "population": 11451999,
     "precarious_pct": 4.0,
     "residents_per_household": 2.65,
@@ -4490,6 +4563,7 @@
     "far_primary_pct": 15.7,
     "garbage_pct": 99.9,
     "households": 13800,
+    "income": 11615,
     "population": 31970,
     "precarious_pct": 0.2,
     "residents_per_household": 2.29,
@@ -4502,6 +4576,7 @@
     "far_primary_pct": 13.0,
     "garbage_pct": 99.6,
     "households": 7615622,
+    "income": 4199,
     "population": 20731920,
     "precarious_pct": 5.7,
     "residents_per_household": 2.71,

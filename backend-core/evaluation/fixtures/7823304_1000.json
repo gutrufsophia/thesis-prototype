@@ -39,6 +39,32 @@
   "total_lixo_coletado": 4295958.0,
   "tracts": 27301.0
  },
+ "context": {
+  "facilities": 6687,
+  "group": "specialised",
+  "group_size": 2070,
+  "percentiles": {
+   "crowded": 0.40942028985507245,
+   "deprived": 0.3219806763285024,
+   "far_primary": 0.49105848235862737,
+   "income": 0.998792270531401,
+   "no_garbage": 0.21690821256038648,
+   "off_network": 0.10748792270531402,
+   "precarious": 0.12367149758454106
+  },
+  "radius": 1000,
+  "territory_type": 3,
+  "type_size": 3582,
+  "values": {
+   "crowded": 2.9,
+   "deprived": 2.948771345272803,
+   "far_primary": 8.2,
+   "income": 20212.0,
+   "no_garbage": 0.0,
+   "off_network": 0.09999999999999432,
+   "precarious": 0.1
+  }
+ },
  "district": {
   "cd_dist": "355030832",
   "domicilios_esgoto_informado": 37549.0,
@@ -4115,6 +4141,52 @@
    "tracts": 308
   }
  ],
+ "expected": [
+  {
+   "code": "355030832",
+   "expected": 115.3,
+   "flag": null,
+   "lower": 0.0,
+   "name": "Moema",
+   "observed": 63.0,
+   "outcome": "tb",
+   "scale": "district",
+   "upper": 249.6
+  },
+  {
+   "code": "355030",
+   "expected": 33485.1,
+   "flag": null,
+   "lower": 28809.9,
+   "name": "São Paulo",
+   "observed": 36946.0,
+   "outcome": "tb",
+   "scale": "municipality",
+   "upper": 38160.3
+  },
+  {
+   "code": "355030",
+   "expected": 583110.4,
+   "flag": null,
+   "lower": 463754.3,
+   "name": "São Paulo",
+   "observed": 633243.0,
+   "outcome": "dengue_2024",
+   "scale": "municipality",
+   "upper": 702466.6
+  },
+  {
+   "code": "355030832",
+   "expected": 49.8,
+   "flag": null,
+   "lower": 6.5,
+   "name": "Moema",
+   "observed": 10.0,
+   "outcome": "teen",
+   "scale": "district",
+   "upper": 93.0
+  }
+ ],
  "facility": {
   "CO_CEP": 4508030,
   "CO_CLIENTELA": 3,
@@ -4478,6 +4550,7 @@
     "far_primary_pct": 12.9,
     "garbage_pct": 99.7,
     "households": 4316336,
+    "income": 4869,
     "population": 11451999,
     "precarious_pct": 4.0,
     "residents_per_household": 2.65,
@@ -4490,6 +4563,7 @@
     "far_primary_pct": 8.2,
     "garbage_pct": 100.0,
     "households": 10971,
+    "income": 20212,
     "population": 24010,
     "precarious_pct": 0.1,
     "residents_per_household": 2.18,
@@ -4502,6 +4576,7 @@
     "far_primary_pct": 13.0,
     "garbage_pct": 99.6,
     "households": 7615622,
+    "income": 4199,
     "population": 20731920,
     "precarious_pct": 5.7,
     "residents_per_household": 2.71,
