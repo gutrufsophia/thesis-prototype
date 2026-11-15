@@ -6,7 +6,8 @@ standardised variables. k is chosen by the mean silhouette (Rousseeuw 1987) on a
 Clusters are numbered by mean income, poorest first, so the numbering is stable.
 
 Usage: python3 -I analysis/typology.py [k]   (without k: report silhouettes and use the best)
-Writes data/surroundings_types.csv and prints each type's profile.
+Writes data/surroundings_types.csv, and each type's mean profile to public/data/typology.json for
+the facility page.
 """
 import csv
 import json
@@ -105,6 +106,7 @@ def main():
             print(f'k={k}: mean silhouette {scores[k]:.3f}')
         k = max(scores, key=scores.get)
     labels, centres, _ = best_of(z, k)
+    quality = silhouette(z, labels, sample)
 
     names = list(VARIABLES)
     income = names.index('log_income')
@@ -128,6 +130,8 @@ def main():
                             'density_per_km2': round(math.exp(mean['log_density']))}}
         profiles.append(profile)
         print(json.dumps(profile, ensure_ascii=False))
+    out = {'k': k, 'silhouette': round(quality, 3), 'facilities': len(rows), 'variables': names, 'types': profiles}
+    (ROOT / 'public' / 'data' / 'typology.json').write_text(json.dumps(out, ensure_ascii=False, indent=1) + '\n')
 
 
 if __name__ == '__main__':

@@ -1,0 +1,82 @@
+{
+ "k": 3,
+ "silhouette": 0.323,
+ "facilities": 6685,
+ "variables": [
+  "precarious",
+  "off_network",
+  "no_garbage",
+  "crowded",
+  "far_primary",
+  "log_income",
+  "log_density"
+ ],
+ "types": [
+  {
+   "type": 1,
+   "facilities": 137,
+   "z": {
+    "precarious": 5.09,
+    "off_network": 5.73,
+    "no_garbage": 3.3,
+    "crowded": 1.88,
+    "far_primary": 0.6,
+    "log_income": -1.27,
+    "log_density": -3.88
+   },
+   "mean": {
+    "precarious": 39.3,
+    "off_network": 78.5,
+    "no_garbage": 3.5,
+    "crowded": 28.1,
+    "far_primary": 35.2,
+    "income": 2364,
+    "density_per_km2": 288
+   }
+  },
+  {
+   "type": 2,
+   "facilities": 2966,
+   "z": {
+    "precarious": 0.25,
+    "off_network": 0.17,
+    "no_garbage": 0.04,
+    "crowded": 0.46,
+    "far_primary": -0.58,
+    "log_income": -0.88,
+    "log_density": -0.06
+   },
+   "mean": {
+    "precarious": 5.0,
+    "off_network": 7.3,
+    "no_garbage": 0.3,
+    "crowded": 12.9,
+    "far_primary": 4.9,
+    "income": 3044,
+    "density_per_km2": 7781
+   }
+  },
+  {
+   "type": 3,
+   "facilities": 3582,
+   "z": {
+    "precarious": -0.4,
+    "off_network": -0.36,
+    "no_garbage": -0.16,
+    "crowded": -0.45,
+    "far_primary": 0.46,
+    "log_income": 0.78,
+    "log_density": 0.19
+   },
+   "mean": {
+    "precarious": 0.4,
+    "off_network": 0.6,
+    "no_garbage": 0.1,
+    "crowded": 3.1,
+    "far_primary": 31.6,
+    "income": 8897,
+    "density_per_km2": 9655
+   }
+  }
+ ]
+}
