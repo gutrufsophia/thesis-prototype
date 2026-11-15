@@ -5,10 +5,10 @@
   "facilities": 6687,
   "group": "primary",
   "group_size": 1388,
-  "load_percentile": 0.18275075987841946,
-  "mean_catchment_m": 2037.0,
+  "load_percentile": 0.15159574468085107,
+  "mean_catchment_m": 2031.0,
   "near_edge": false,
-  "need_percentile": 0.7298632218844985,
+  "need_percentile": 0.7154255319148937,
   "percentiles": {
    "crowded": 0.9135446685878963,
    "deprived": 0.8382564841498559,
@@ -21,6 +21,7 @@
   "public_primary_size": 1316,
   "radius": 1000,
   "supply_measure": "catchment",
+  "team_equivalents": 0.75,
   "territory_type": 2,
   "type_size": 2966,
   "values": {
@@ -32,8 +33,11 @@
    "off_network": 4.299999999999997,
    "population": 26038.0,
    "precarious": 3.9,
-   "served": 8715.0,
-   "served_deprived": 38.1
+   "served": 4349.0,
+   "served_deprived": 36.8,
+   "served_far": 3.9,
+   "served_mean_distance": 1112.0,
+   "served_per_team": 5799.0
   }
  },
  "district": null,
