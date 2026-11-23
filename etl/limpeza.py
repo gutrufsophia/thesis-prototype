@@ -1,9 +1,34 @@
+"""ETL da infraestrutura de saúde (CNES, leitos e SIH) para os estabelecimentos da RMSP.
+
+Uso:
+    python3 etl/limpeza.py --cnes-dir ~/Downloads/BASE_DE_DADOS_CNES_202608 \\
+        --leitos ~/Downloads/Leitos_csv_2026/Leitos_2026.csv \\
+        --sih-morbidade sih_morbidade.csv --sih-permanencia sih_permanencia.csv
+
+A competência do CNES (AAAAMM) sai do nome de tbEstabelecimento<AAAAMM>.csv na pasta.
+"""
+import argparse
 import re
 from pathlib import Path
 
 import pandas as pd
 
 RAIZ = Path(__file__).resolve().parents[1]
+
+parser = argparse.ArgumentParser(description="ETL da infraestrutura de saúde da RMSP")
+parser.add_argument("--cnes-dir", type=Path, required=True, help="pasta da base de dados mensal do CNES")
+parser.add_argument("--leitos", type=Path, required=True, help="CSV de leitos do CNES do ano")
+parser.add_argument("--sih-morbidade", type=Path, required=True, help="exportação do TabNet: internações por capítulo")
+parser.add_argument("--sih-permanencia", type=Path, required=True, help="exportação do TabNet: média de permanência")
+args = parser.parse_args()
+estab = sorted(args.cnes_dir.expanduser().glob("tbEstabelecimento*.csv"))
+if len(estab) != 1:
+    raise SystemExit(f"esperava um tbEstabelecimento<AAAAMM>.csv em {args.cnes_dir}, achei {len(estab)}")
+COMPETENCIA = estab[0].stem.removeprefix("tbEstabelecimento")
+
+
+def cnes(tabela):
+    return args.cnes_dir.expanduser() / f"{tabela}{COMPETENCIA}.csv"
 
 print("Iniciando o ETL da Infraestrutura de Saúde (CulturaEduca) - RMSP...")
 
@@ -19,8 +44,8 @@ rmsp_ibge6 = [
     '355030', '355250', '355280', '355645'
 ]
 
-ARQUIVO_SIH_MORBIDADE = '/home/sophia/Downloads/sih_cnv_nisp154808191_181_56_142.csv' 
-ARQUIVO_SIH_PERMANENCIA = '/home/sophia/Downloads/sih_cnv_nisp154949191_181_56_142.csv'
+ARQUIVO_SIH_MORBIDADE = args.sih_morbidade.expanduser()
+ARQUIVO_SIH_PERMANENCIA = args.sih_permanencia.expanduser()
 
 # =====================================================================
 # 1. A ESPINHA DORSAL: Estabelecimentos, Filtros e Front-end
@@ -46,7 +71,7 @@ colunas_estab = [
     'NU_CNPJ_MANTENEDORA'
 ]
 
-df_estab = pd.read_csv('/home/sophia/Downloads/BASE_DE_DADOS_CNES_202608/tbEstabelecimento202608.csv', 
+df_estab = pd.read_csv(cnes('tbEstabelecimento'), 
                        sep=';', encoding='latin-1', usecols=colunas_estab, dtype=str)
 
 df_rmsp = df_estab[df_estab['CO_MUNICIPIO_GESTOR'].isin(rmsp_ibge6)].copy()
@@ -91,7 +116,7 @@ df_rmsp['esfera_juridica'] = df_rmsp['CO_NATUREZA_JUR'].astype(str).str[0].map({
 }).fillna('Não Informado')
 
 # Convênio '01' = SUS na tabela de atendimentos prestados por convênio
-df_conv = pd.read_csv('/home/sophia/Downloads/BASE_DE_DADOS_CNES_202608/rlEstabAtendPrestConv202608.csv',
+df_conv = pd.read_csv(cnes('rlEstabAtendPrestConv'),
                       sep=';', encoding='latin-1', usecols=['CO_UNIDADE', 'CO_CONVENIO'], dtype=str)
 cnes_sus = set(df_conv.loc[df_conv['CO_CONVENIO'] == '01', 'CO_UNIDADE'].str[-7:])
 df_rmsp['atende_sus'] = df_rmsp['CO_CNES'].isin(cnes_sus)
@@ -124,7 +149,7 @@ colunas_leitos = [
     'UTI_NEONATAL_EXIST', 'UTI_NEONATAL_SUS', 'UTI_QUEIMADO_EXIST', 'UTI_QUEIMADO_SUS', 
     'UTI_CORONARIANA_EXIST', 'UTI_CORONARIANA_SUS'
 ]
-df_leitos = pd.read_csv('/home/sophia/Downloads/Leitos_csv_2026/Leitos_2026.csv', sep=';', encoding='latin-1', dtype=str)
+df_leitos = pd.read_csv(args.leitos.expanduser(), sep=';', encoding='latin-1', dtype=str)
 df_leitos = df_leitos[df_leitos['CNES'].isin(cnes_validos_rmsp)]
 # O arquivo traz uma linha por competência mensal: usar só a mais recente, senão a soma multiplica os leitos
 df_leitos = df_leitos[df_leitos['COMP'] == df_leitos['COMP'].max()]
@@ -136,8 +161,8 @@ leitos_agrupado = df_leitos.groupby('CNES')[colunas_para_somar].sum().reset_inde
 # 3. INFRAESTRUTURA DE DIAGNÓSTICO: Equipamentos 
 # =====================================================================
 print("Processando Equipamentos...")
-df_tipo_equip = pd.read_csv('/home/sophia/Downloads/BASE_DE_DADOS_CNES_202608/tbTipoEquipamento202608.csv', sep=';', encoding='latin-1', dtype=str)
-df_equip = pd.read_csv('/home/sophia/Downloads/BASE_DE_DADOS_CNES_202608/rlEstabEquipamento202608.csv', sep=';', encoding='latin-1', dtype=str)
+df_tipo_equip = pd.read_csv(cnes('tbTipoEquipamento'), sep=';', encoding='latin-1', dtype=str)
+df_equip = pd.read_csv(cnes('rlEstabEquipamento'), sep=';', encoding='latin-1', dtype=str)
 
 df_equip['CO_CNES'] = df_equip['CO_UNIDADE'].astype(str).str[-7:]
 df_equip = df_equip[df_equip['CO_CNES'].isin(cnes_validos_rmsp)]
@@ -159,7 +184,7 @@ print("Processando Profissionais...")
 # rlEstabEquipeProf só lista quem integra equipes (ESF etc.). O vínculo de TODOS os
 # profissionais com cada estabelecimento está em tbCargaHorariaSus.
 colunas_prof = ['CO_UNIDADE', 'CO_PROFISSIONAL_SUS', 'CO_CBO']
-df_prof = pd.read_csv('/home/sophia/Downloads/BASE_DE_DADOS_CNES_202608/tbCargaHorariaSus202608.csv', sep=';', encoding='latin-1', usecols=colunas_prof, dtype=str)
+df_prof = pd.read_csv(cnes('tbCargaHorariaSus'), sep=';', encoding='latin-1', usecols=colunas_prof, dtype=str)
 
 df_prof['CO_CNES'] = df_prof['CO_UNIDADE'].astype(str).str[-7:]
 df_prof = df_prof[df_prof['CO_CNES'].isin(cnes_validos_rmsp)].copy()

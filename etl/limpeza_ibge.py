@@ -1,8 +1,19 @@
+"""Indicadores do Censo 2022 por setor censitário da RMSP (agregados básico e de domicílios).
+
+Uso:
+    python3 etl/limpeza_ibge.py --basico ~/Downloads/basico.csv --domicilio ~/Downloads/domicilio2.csv
+"""
+import argparse
 from pathlib import Path
 
 import pandas as pd
 
 RAIZ = Path(__file__).resolve().parents[1]
+
+parser = argparse.ArgumentParser(description="Indicadores do Censo 2022 por setor da RMSP")
+parser.add_argument("--basico", type=Path, required=True, help="agregado básico por setor (nacional)")
+parser.add_argument("--domicilio", type=Path, required=True, help="agregado de domicílios 2 por setor (nacional)")
+args = parser.parse_args()
 
 municipios_rmsp = [
     '3550308', '3503901', '3505708', '3506607', '3509007', '3509205', '3510609', '3513009', 
@@ -22,7 +33,7 @@ colunas_domicilio = ['setor'] + colunas_esgoto + colunas_lixo
 
 print("Lendo arquivo do Básico...")
 df_basico = pd.read_csv(
-    "/home/sophia/Downloads/basico.csv", 
+    args.basico.expanduser(), 
     sep=";", 
     encoding="latin1", # CORREÇÃO 2: Aplicado na leitura real
     usecols=colunas_basico,
@@ -32,7 +43,7 @@ df_basico = pd.read_csv(
 
 print("Lendo arquivo de Domicílios...")
 df_domicilio = pd.read_csv(
-    "/home/sophia/Downloads/domicilio2.csv", 
+    args.domicilio.expanduser(), 
     sep=";", 
     encoding="latin1", # CORREÇÃO 2: Aplicado na leitura real
     usecols=colunas_domicilio,
