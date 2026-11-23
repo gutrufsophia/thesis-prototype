@@ -1,0 +1,14 @@
+"Lista Morb  CID-10";"30 a 39 anos";"70 a 79 anos";"80 anos e mais";"Total"
+"02 Neoplasias (tumores)";-;1;-;1
+".. Neoplasia maligna do esôfago";-;1;-;1
+"09 Doenças do aparelho circulatório";-;1;-;1
+".. Outras doenças das artérias arteríolas e capil";-;1;-;1
+"10 Doenças do aparelho respiratório";-;-;1;1
+".. Outras doenças do aparelho respiratório";-;-;1;1
+"11 Doenças do aparelho digestivo";1;1;-;2
+".. Úlcera gástrica e duodenal";1;-;-;1
+".. Ileo paralítico e obstrução intestinal s/hérnia";-;1;-;1
+"19 Lesões enven e alg out conseq causas externas";-;1;-;1
+".. Fratura do pescoço tórax ou pelve";-;1;-;1
+"Total";1;4;1;6
+&

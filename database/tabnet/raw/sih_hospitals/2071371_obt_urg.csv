@@ -1,0 +1,30 @@
+"Lista Morb  CID-10";"Menor 1 ano";"1 a 4 anos";"5 a 9 anos";"10 a 14 anos";"15 a 19 anos";"20 a 29 anos";"Total"
+"01 Algumas doenças infecciosas e parasitárias";2;2;-;3;-;1;8
+".. Septicemia";2;2;-;3;-;1;8
+"02 Neoplasias (tumores)";-;-;1;4;3;-;8
+".. Neopl malig do tecido mesotelial e tec moles";-;-;-;1;-;-;1
+".. Neopl malig outr local mal def secun e não esp";-;-;-;1;-;-;1
+".. Linfoma não-Hodgkin";-;-;-;-;2;-;2
+".. Leucemia";-;-;1;2;1;-;4
+"03 Doenças sangue órgãos hemat e transt imunitár";1;-;1;-;-;-;2
+".. Outras anemias";1;-;1;-;-;-;2
+"09 Doenças do aparelho circulatório";2;1;-;-;-;-;3
+".. Insuficiência cardíaca";-;1;-;-;-;-;1
+".. Outras doenças do aparelho circulatório";2;-;-;-;-;-;2
+"10 Doenças do aparelho respiratório";6;1;-;2;-;-;9
+".. Pneumonia";-;-;-;1;-;-;1
+".. Bronquite aguda e bronquiolite aguda";1;-;-;-;-;-;1
+".. Asma";-;1;-;-;-;-;1
+".. Outras doenças do aparelho respiratório";5;-;-;1;-;-;6
+"11 Doenças do aparelho digestivo";5;-;-;-;-;-;5
+".. Ileo paralítico e obstrução intestinal s/hérnia";1;-;-;-;-;-;1
+".. Outras doenças dos intestinos e peritônio";3;-;-;-;-;-;3
+".. Outras doenças do aparelho digestivo";1;-;-;-;-;-;1
+"13 Doenças sist osteomuscular e tec conjuntivo";1;-;-;-;-;-;1
+".. Transtornos do tecido mole";1;-;-;-;-;-;1
+"17 Malf cong deformid e anomalias cromossômicas";1;-;-;-;-;-;1
+".. Outr malform e deform congên aparelho osteomusc";1;-;-;-;-;-;1
+"19 Lesões enven e alg out conseq causas externas";1;-;-;-;-;-;1
+".. Cert compl prec traum compl cirúrg ass méd NCOP";1;-;-;-;-;-;1
+"Total";19;4;2;9;3;1;38
+&

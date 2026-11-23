@@ -1,0 +1,12 @@
+"Lista Morb  CID-10";"Menor 1 ano";"60 a 69 anos";"80 anos e mais";"Total"
+"10 Doenças do aparelho respiratório";1;-;-;1
+".. Pneumonia";1;-;-;1
+"11 Doenças do aparelho digestivo";-;1;1;2
+".. Ileo paralítico e obstrução intestinal s/hérnia";-;1;-;1
+".. Colelitíase e colecistite";-;-;1;1
+"13 Doenças sist osteomuscular e tec conjuntivo";-;1;-;1
+".. Outras doenças sist osteomuscular e tec conjunt";-;1;-;1
+"19 Lesões enven e alg out conseq causas externas";-;1;-;1
+".. Fratura do fêmur";-;1;-;1
+"Total";1;3;1;5
+&

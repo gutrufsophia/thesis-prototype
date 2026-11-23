@@ -1,0 +1,95 @@
+"Lista Morb  CID-10";"10 a 14 anos";"15 a 19 anos";"20 a 29 anos";"30 a 39 anos";"40 a 49 anos";"50 a 59 anos";"60 a 69 anos";"70 a 79 anos";"80 anos e mais";"Total"
+"01 Algumas doenças infecciosas e parasitárias";-;-;3;1;-;2;-;2;-;8
+".. Outras doenças bacterianas";-;-;3;1;-;1;-;2;-;7
+".... Restante de outras doenças bacterianas";-;-;3;1;-;1;-;2;-;7
+".. Outras doenças infecciosas e parasitárias";-;-;-;-;-;1;-;-;-;1
+"02 Neoplasias (tumores)";-;-;4;19;32;63;116;77;22;333
+".. Neoplasia maligna do esôfago";-;-;1;-;-;-;-;-;-;1
+".. Neoplasia maligna do estômago";-;-;-;-;3;5;6;5;-;19
+".. Neoplasia maligna do cólon";-;-;-;3;6;10;11;15;3;48
+".. Neopl malig junção retoss reto ânus canal anal";-;-;1;3;9;18;38;16;12;97
+".. Neopl malig fígado e vias biliares intra-hepát";-;-;-;-;-;-;1;-;-;1
+".. Neoplasia maligna do pâncreas";-;-;-;-;-;1;-;1;-;2
+".. Outras neoplasias malignas de órgãos digestivos";-;-;1;1;-;-;-;-;-;2
+".. Outras neoplasias malignas da pele";-;-;-;-;-;-;-;1;-;1
+".. Neoplasia maligna da mama";-;-;-;5;5;9;9;7;3;38
+".. Neoplasia maligna do colo do útero";-;-;-;1;1;-;1;1;-;4
+".. Neopl malig outr porções e porç não espec útero";-;-;-;-;1;3;1;-;1;6
+".. Outras neopl malignas órgãos genitais femininos";-;-;-;-;1;1;1;5;-;8
+".. Neoplasia maligna da próstata";-;-;-;-;1;11;38;22;-;72
+".. Outras neopl malignas órgãos genit masculinos";-;-;-;-;-;-;-;1;-;1
+".. Neopl malig outras partes sistema nerv central";-;-;1;-;-;-;-;-;-;1
+".. Neopl malig outr local mal def secun e não esp";-;-;-;1;-;1;1;2;-;5
+".. Neoplasia benigna do ovário";-;-;-;1;-;1;-;-;-;2
+".. Outr neopl in situ benigs e comport incert desc";-;-;-;4;5;3;9;1;3;25
+"03 Doenças sangue órgãos hemat e transt imunitár";-;-;-;-;1;-;-;-;-;1
+".. Afecç hemorrág e outr doenç sang e órg hematop";-;-;-;-;1;-;-;-;-;1
+"04 Doenças endócrinas nutricionais e metabólicas";-;-;-;-;-;3;1;1;-;5
+".. Diabetes mellitus";-;-;-;-;-;2;-;1;-;3
+".. Outros transt endócrinos nutricionais metabólic";-;-;-;-;-;1;1;-;-;2
+"06 Doenças do sistema nervoso";-;-;-;2;4;9;1;1;-;17
+".. Transtornos dos nervos raízes e plexos nervosos";-;-;-;2;3;9;1;1;-;16
+".. Outras doenças do sistema nervoso";-;-;-;-;1;-;-;-;-;1
+"07 Doenças do olho e anexos";-;-;5;6;18;92;468;673;216;1478
+".. Inflamação da pálpebra";-;-;1;-;2;1;1;1;-;6
+".. Catarata e outros transtornos do cristalino";-;-;4;6;11;84;441;651;208;1405
+".. Outras doenças do olho e anexos";-;-;-;-;5;7;26;21;8;67
+"09 Doenças do aparelho circulatório";-;2;6;43;69;85;37;21;3;266
+".. Insuficiência cardíaca";-;-;-;-;-;1;-;-;-;1
+".. Acid vascular cerebr não espec hemorrág ou isq";-;-;-;-;-;-;1;-;-;1
+".. Outras doenças cerebrovasculares";-;-;-;-;-;-;1;-;-;1
+".. Arteroesclerose";-;-;-;-;-;3;1;5;-;9
+".. Outras doenças vasculares periféricas";-;-;-;-;-;2;5;3;2;12
+".. Flebite tromboflebite embolia e trombose venosa";-;-;-;-;-;3;1;-;-;4
+".. Veias varicosas das extremidades inferiores";-;-;2;18;31;36;19;8;-;114
+".. Hemorróidas";-;2;3;22;32;26;8;5;1;99
+".. Outras doenças do aparelho circulatório";-;-;1;3;6;14;1;-;-;25
+"10 Doenças do aparelho respiratório";-;-;-;-;1;-;1;-;-;2
+".. Bronquiectasia";-;-;-;-;-;-;1;-;-;1
+".. Outras doenças do aparelho respiratório";-;-;-;-;1;-;-;-;-;1
+"11 Doenças do aparelho digestivo";4;19;92;234;305;350;355;235;41;1635
+".. Hérnia inguinal";-;4;13;15;36;50;84;82;22;306
+".. Outras hérnias";2;2;9;41;63;84;61;47;5;314
+".. Ileo paralítico e obstrução intestinal s/hérnia";-;-;1;-;-;-;-;-;-;1
+".. Doença diverticular do intestino";-;-;-;1;-;-;-;1;-;2
+".. Outras doenças dos intestinos e peritônio";-;-;-;4;16;7;8;4;-;39
+".. Colelitíase e colecistite";2;13;69;169;185;205;196;99;12;950
+".. Pancreatite aguda e outras doenças do pâncreas";-;-;-;1;2;2;1;-;-;6
+".. Outras doenças do aparelho digestivo";-;-;-;3;3;2;5;2;2;17
+"12 Doenças da pele e do tecido subcutâneo";-;1;1;1;4;-;1;-;-;8
+".. Infecções da pele e do tecido subcutâneo";-;-;1;1;3;-;1;-;-;6
+".. Outras doenças da pele e do tecido subcutâneo";-;1;-;-;1;-;-;-;-;2
+"13 Doenças sist osteomuscular e tec conjuntivo";-;14;33;27;57;45;38;9;-;223
+".. Artrose";-;-;1;-;-;5;2;1;-;9
+".. Outros transtronos articulares";-;11;20;15;27;14;6;-;-;93
+".. Transt discais cervic e outr transt disc interv";-;-;-;-;2;-;-;-;-;2
+".. Transtornos do tecido mole";-;1;1;2;17;15;20;5;-;61
+".. Transtornos da densidade e da estrutura ósseas";-;1;5;3;4;1;2;2;-;18
+".. Osteomielite";-;-;5;5;5;9;6;1;-;31
+".. Outras doenças sist osteomuscular e tec conjunt";-;1;1;2;2;1;2;-;-;9
+"14 Doenças do aparelho geniturinário";-;-;-;-;2;3;3;-;1;9
+".. Doenças renais túbulo-intersticiais";-;-;-;-;1;1;-;-;-;2
+".. Outras doenças do aparelho urinário";-;-;-;-;-;2;2;-;1;5
+".. Hidrocele e espermatocele";-;-;-;-;-;-;1;-;-;1
+".. Transtornos da mama";-;-;-;-;1;-;-;-;-;1
+"17 Malf cong deformid e anomalias cromossômicas";-;-;-;1;-;-;-;-;-;1
+".. Malformações congênitas do aparelho circulat";-;-;-;1;-;-;-;-;-;1
+"18 Sint sinais e achad anorm ex clín e laborat";-;1;2;1;2;-;3;5;-;14
+".. Dor abdominal e pélvica";-;1;-;1;1;-;-;2;-;5
+".. Outr sist sinais achad anorm ex clín labor NCOP";-;-;2;-;1;-;3;3;-;9
+"19 Lesões enven e alg out conseq causas externas";7;38;152;100;103;86;39;19;5;549
+".. Fratura do fêmur";-;3;5;1;1;-;-;-;1;11
+".. Fratura de outros ossos dos membros";7;32;108;68;69;63;31;16;-;394
+".. Luxações entorse distensão reg esp e múlt corpo";-;-;26;14;19;4;4;-;1;68
+".. Traumatismo intracraniano";-;-;-;1;-;-;-;-;-;1
+".. Lesões esmag amput traumát reg esp e múlt corpo";-;-;-;-;2;1;-;1;-;4
+".. Outr traum reg espec não espec e múltipl corpo";-;2;7;6;4;6;1;-;-;26
+".. Efeitos corpo estranho através de orifício nat";-;-;-;1;-;-;-;-;-;1
+".. Cert compl prec traum compl cirúrg ass méd NCOP";-;1;5;7;6;12;2;2;2;37
+".. Seqüel traum enven e outr conseq causas extern";-;-;1;2;2;-;1;-;1;7
+"21 Contatos com serviços de saúde";-;2;10;12;9;16;10;3;-;62
+".. Pessoas em contato com serv saúde exame invest";-;-;-;1;-;-;-;-;-;1
+".. Pessoas contato serv saúde cuidados proc espec";-;-;4;4;4;3;3;-;-;18
+".. Pessoas contato serv saúde por outras razões";-;2;6;7;5;13;7;3;-;43
+"Total";11;77;308;447;607;754;1073;1046;288;4611
+&

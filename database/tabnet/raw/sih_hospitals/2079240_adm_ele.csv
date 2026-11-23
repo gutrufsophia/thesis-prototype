@@ -1,0 +1,27 @@
+"Lista Morb  CID-10";"Menor 1 ano";"10 a 14 anos";"15 a 19 anos";"20 a 29 anos";"30 a 39 anos";"40 a 49 anos";"50 a 59 anos";"60 a 69 anos";"70 a 79 anos";"Total"
+"02 Neoplasias (tumores)";-;-;-;-;-;1;-;-;1;2
+".. Outr neopl in situ benigs e comport incert desc";-;-;-;-;-;1;-;-;1;2
+"06 Doenças do sistema nervoso";-;-;-;-;-;1;-;-;-;1
+".. Paralisia cerebral e outras síndromes paralít";-;-;-;-;-;1;-;-;-;1
+"11 Doenças do aparelho digestivo";1;5;10;61;141;207;228;109;16;778
+".. Outras doenças do esôfago estômago e duodeno";-;-;-;-;1;-;-;-;-;1
+".. Doenças do apêndice";-;-;1;1;-;-;-;-;-;2
+".. Hérnia inguinal";-;3;7;30;54;81;115;54;9;353
+".. Outras hérnias";1;2;1;18;69;92;86;36;4;309
+".. Outras doenças dos intestinos e peritônio";-;-;-;-;-;-;1;-;-;1
+".. Colelitíase e colecistite";-;-;1;12;17;34;26;19;3;112
+"12 Doenças da pele e do tecido subcutâneo";-;3;7;12;30;25;35;10;-;122
+".. Infecções da pele e do tecido subcutâneo";-;-;4;6;3;-;-;-;-;13
+".. Outras doenças da pele e do tecido subcutâneo";-;3;3;6;27;25;35;10;-;109
+"14 Doenças do aparelho geniturinário";-;-;3;2;1;5;5;5;4;25
+".. Urolitíase";-;-;2;2;1;5;3;4;4;21
+".. Hidrocele e espermatocele";-;-;1;-;-;-;2;1;-;4
+"15 Gravidez parto e puerpério";-;-;-;4;4;-;-;-;-;8
+".. Outras gravidezes que terminam em aborto";-;-;-;-;1;-;-;-;-;1
+".. Outras complicações da gravidez e do parto";-;-;-;4;3;-;-;-;-;7
+"18 Sint sinais e achad anorm ex clín e laborat";-;-;-;-;1;-;-;-;-;1
+".. Dor abdominal e pélvica";-;-;-;-;1;-;-;-;-;1
+"19 Lesões enven e alg out conseq causas externas";-;-;-;-;-;-;-;-;1;1
+".. Fratura do fêmur";-;-;-;-;-;-;-;-;1;1
+"Total";1;8;20;79;177;239;268;124;22;938
+&

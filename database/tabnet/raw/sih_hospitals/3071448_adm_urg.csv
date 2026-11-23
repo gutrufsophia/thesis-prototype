@@ -1,0 +1,55 @@
+"Lista Morb  CID-10";"15 a 19 anos";"20 a 29 anos";"30 a 39 anos";"40 a 49 anos";"50 a 59 anos";"60 a 69 anos";"70 a 79 anos";"80 anos e mais";"Total"
+"01 Algumas doenças infecciosas e parasitárias";-;-;3;3;1;6;2;5;20
+".. Diarréia e gastroenterite origem infecc presum";-;-;1;-;-;-;-;-;1
+".. Septicemia";-;-;2;1;1;6;1;5;16
+".. Outras febre p/arbovírus e febr hemorr p/vírus";-;-;-;1;-;-;1;-;2
+".... Dengue [dengue clásssico]";-;-;-;1;-;-;1;-;2
+".. Doença pelo vírus da imunodefic humana [HIV]";-;-;-;1;-;-;-;-;1
+"02 Neoplasias (tumores)";-;-;-;-;1;1;-;-;2
+".. Neopl malig outr local mal def secun e não esp";-;-;-;-;1;1;-;-;2
+"04 Doenças endócrinas nutricionais e metabólicas";3;4;-;2;-;-;2;-;11
+".. Diabetes mellitus";3;4;-;2;-;-;2;-;11
+"05 Transtornos mentais e comportamentais";-;1;-;2;-;-;-;-;3
+".. Transt mentais e comportamentais dev uso álcool";-;-;-;1;-;-;-;-;1
+".. Esquizofrenia transt esquizotípicos e delirant";-;-;-;1;-;-;-;-;1
+".. Transtornos de humor [afetivos]";-;1;-;-;-;-;-;-;1
+"06 Doenças do sistema nervoso";-;-;1;1;-;-;-;-;2
+".. Epilepsia";-;-;1;1;-;-;-;-;2
+"09 Doenças do aparelho circulatório";-;5;6;19;46;53;57;30;216
+".. Outras doenças hipertensivas";-;-;-;1;-;-;-;-;1
+".. Infarto agudo do miocárdio";-;2;1;8;15;24;9;8;67
+".. Outras doenças isquêmicas do coração";-;-;-;-;-;1;-;2;3
+".. Embolia pulmonar";-;1;-;2;3;4;2;-;12
+".. Transtornos de condução e arritmias cardíacas";-;2;2;2;3;1;7;-;17
+".. Insuficiência cardíaca";-;-;2;4;12;11;21;13;63
+".. Outras doenças do coração";-;-;-;-;-;-;-;1;1
+".. Acid vascular cerebr não espec hemorrág ou isq";-;-;1;2;13;11;17;6;50
+".. Flebite tromboflebite embolia e trombose venosa";-;-;-;-;-;1;1;-;2
+"10 Doenças do aparelho respiratório";3;4;3;7;23;22;34;25;121
+".. Pneumonia";2;3;1;6;11;9;20;17;69
+".. Bronquite enfisema e outr doenç pulm obstr crôn";-;-;-;-;11;9;13;8;41
+".. Asma";1;-;2;-;-;1;-;-;4
+".. Outras doenças do aparelho respiratório";-;1;-;1;1;3;1;-;7
+"11 Doenças do aparelho digestivo";-;-;-;2;3;1;1;-;7
+".. Doença alcoólica do fígado";-;-;-;1;1;-;1;-;3
+".. Outras doenças do fígado";-;-;-;1;2;1;-;-;4
+"12 Doenças da pele e do tecido subcutâneo";1;-;-;2;-;-;-;-;3
+".. Infecções da pele e do tecido subcutâneo";-;-;-;2;-;-;-;-;2
+".. Outras doenças da pele e do tecido subcutâneo";1;-;-;-;-;-;-;-;1
+"13 Doenças sist osteomuscular e tec conjuntivo";-;1;-;-;-;-;-;-;1
+".. Transtornos do tecido mole";-;1;-;-;-;-;-;-;1
+"14 Doenças do aparelho geniturinário";-;4;-;3;10;10;12;9;48
+".. Insuficiência renal";-;3;-;2;7;9;12;3;36
+".. Cistite";-;-;-;-;3;1;-;6;10
+".. Outras doenças do aparelho urinário";-;1;-;-;-;-;-;-;1
+".. Salpingite e ooforite";-;-;-;1;-;-;-;-;1
+"18 Sint sinais e achad anorm ex clín e laborat";-;-;-;1;-;-;1;-;2
+".. Dor abdominal e pélvica";-;-;-;-;-;-;1;-;1
+".. Outr sist sinais achad anorm ex clín labor NCOP";-;-;-;1;-;-;-;-;1
+"19 Lesões enven e alg out conseq causas externas";1;1;2;-;1;-;-;-;5
+".. Traumatismo intracraniano";-;-;1;-;-;-;-;-;1
+".. Outr traum reg espec não espec e múltipl corpo";-;-;1;-;-;-;-;-;1
+".. Envenenamento por drogas e substâncias biológ";1;1;-;-;-;-;-;-;2
+".. Outros efeitos e não espec de causas externas";-;-;-;-;1;-;-;-;1
+"Total";8;20;15;42;85;93;109;69;441
+&

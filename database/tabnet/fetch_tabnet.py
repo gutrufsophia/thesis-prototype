@@ -19,6 +19,7 @@ DATASUS = 'http://tabnet.datasus.gov.br/cgi/deftohtm.exe?'
 DATASUS_TB = DATASUS + 'sinannet/cnv/tubercsp.def'
 DATASUS_SINASC = DATASUS + 'sinasc/cnv/nvsp.def'
 DATASUS_SIM = DATASUS + 'sim/cnv/obt10sp.def'
+DATASUS_SIH = DATASUS + 'sih/cnv/nisp.def'
 SMS = 'https://tabnet.saude.prefeitura.sp.gov.br/cgi/deftohtm3.exe?secretarias/saude/TABNET/'
 SMS_TB = SMS + 'TBWEB/TBWEB.def'
 SMS_SIM = SMS + 'sim/obito.def'
@@ -27,6 +28,9 @@ SMS_SINASC = SMS + 'sinasc/nascido.def'
 YEARS_22_24 = ['2024', '2023', '2022']
 AGES_30_69 = ['30 a 39 anos', '40 a 49 anos', '50 a 59 anos', '60 a 69 anos']
 SMS_AGES_30_69 = ['30 - 39', '40 - 49', '50 - 59', '60 - 69']
+# SIH by month of processing, the period of the admissions already in the database
+SIH_MONTHS = [f'{m}/{y}' for y in ('2025', '2026')
+              for m in ('Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez')][:19]
 
 # name: (form, row, column, files, {filter: [labels]}, increment or None for the form's default).
 # Everything is matched by the label shown on the form, ignoring accents and case.
@@ -52,6 +56,11 @@ QUERIES = {
                               {}, 'NV parturientes residentes MSP'),
     'sp_obitos_30a69_dist': (SMS_SIM, 'Distrito Admin residência', 'Causa(Cap CID10)', YEARS_22_24,
                              {'Faixa Etária (13)': SMS_AGES_30_69}, 'Óbitos Residentes MSP'),
+
+    # In-hospital deaths and admissions (SUS, by place of admission) per establishment and ICD-10 chapter,
+    # for the deaths expected from each hospital's case mix.
+    'sih_internacoes_cap': (DATASUS_SIH, 'Estabelecimento', 'Capítulo CID-10', SIH_MONTHS, {}, 'Internações'),
+    'sih_obitos_cap': (DATASUS_SIH, 'Estabelecimento', 'Capítulo CID-10', SIH_MONTHS, {}, 'Óbitos'),
 
     # Cross-checks between the city and the national systems.
     'sp_nasc_ano': (SMS_SINASC, 'Ano nascimento', 'Não ativa', ['2026', '2025'] + YEARS_22_24,

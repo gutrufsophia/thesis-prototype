@@ -1,0 +1,15 @@
+"Lista Morb  CID-10";"50 a 59 anos";"60 a 69 anos";"70 a 79 anos";"80 anos e mais";"Total"
+"04 Doenças endócrinas nutricionais e metabólicas";-;-;-;1;1
+".. Diabetes mellitus";-;-;-;1;1
+"09 Doenças do aparelho circulatório";-;1;-;1;2
+".. Outras doenças hipertensivas";-;-;-;1;1
+".. Insuficiência cardíaca";-;1;-;-;1
+"10 Doenças do aparelho respiratório";1;1;1;1;4
+".. Outras doenças do aparelho respiratório";1;1;1;1;4
+"11 Doenças do aparelho digestivo";-;-;1;1;2
+".. Colelitíase e colecistite";-;-;-;1;1
+".. Outras doenças do aparelho digestivo";-;-;1;-;1
+"18 Sint sinais e achad anorm ex clín e laborat";-;-;1;-;1
+".. Outr sist sinais achad anorm ex clín labor NCOP";-;-;1;-;1
+"Total";1;2;3;4;10
+&

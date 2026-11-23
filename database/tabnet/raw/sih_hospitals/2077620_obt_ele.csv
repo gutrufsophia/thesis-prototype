@@ -1,0 +1,19 @@
+"Lista Morb  CID-10";"30 a 39 anos";"60 a 69 anos";"70 a 79 anos";"80 anos e mais";"Total"
+"01 Algumas doenças infecciosas e parasitárias";-;-;1;-;1
+".. Septicemia";-;-;1;-;1
+"02 Neoplasias (tumores)";-;1;-;-;1
+".. Outras neoplasias malignas de órgãos digestivos";-;1;-;-;1
+"09 Doenças do aparelho circulatório";-;-;1;1;2
+".. Insuficiência cardíaca";-;-;1;-;1
+".. Acid vascular cerebr não espec hemorrág ou isq";-;-;-;1;1
+"11 Doenças do aparelho digestivo";-;-;2;-;2
+".. Outras doenças dos intestinos e peritônio";-;-;1;-;1
+".. Pancreatite aguda e outras doenças do pâncreas";-;-;1;-;1
+"14 Doenças do aparelho geniturinário";-;1;1;1;3
+".. Insuficiência renal";-;1;-;-;1
+".. Hiperplasia da próstata";-;-;1;1;2
+"19 Lesões enven e alg out conseq causas externas";1;-;-;1;2
+".. Fratura do fêmur";-;-;-;1;1
+".. Cert compl prec traum compl cirúrg ass méd NCOP";1;-;-;-;1
+"Total";1;2;5;3;11
+&

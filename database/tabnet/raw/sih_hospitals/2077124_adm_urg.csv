@@ -1,0 +1,84 @@
+"Lista Morb  CID-10";"Menor 1 ano";"1 a 4 anos";"5 a 9 anos";"10 a 14 anos";"Total"
+"01 Algumas doenças infecciosas e parasitárias";20;36;16;6;78
+".. Diarréia e gastroenterite origem infecc presum";11;29;11;5;56
+".. Outras doenças infecciosas intestinais";2;2;2;-;6
+".. Outras doenças bacterianas";2;1;-;-;3
+".... Restante de outras doenças bacterianas";2;1;-;-;3
+".. Outras febre p/arbovírus e febr hemorr p/vírus";1;2;-;1;4
+".... Dengue [dengue clásssico]";1;2;-;1;4
+".. Infecções pelo vírus do herpes";-;1;-;-;1
+".. Outras hepatites virais";-;-;1;-;1
+".. Caxumba [parotidite epidêmica]";-;-;1;-;1
+".. Outras doenças virais";3;1;1;-;5
+".... Restante de outras doenças virais";3;1;1;-;5
+".. Outras doenças infecciosas e parasitárias";1;-;-;-;1
+"02 Neoplasias (tumores)";-;-;1;-;1
+".. Outr neopl in situ benigs e comport incert desc";-;-;1;-;1
+"03 Doenças sangue órgãos hemat e transt imunitár";1;4;3;1;9
+".. Outras anemias";-;2;1;-;3
+".. Afecç hemorrág e outr doenç sang e órg hematop";1;2;2;1;6
+"04 Doenças endócrinas nutricionais e metabólicas";2;1;2;2;7
+".. Diabetes mellitus";-;1;2;2;5
+".. Desnutrição";1;-;-;-;1
+".. Outros transt endócrinos nutricionais metabólic";1;-;-;-;1
+"05 Transtornos mentais e comportamentais";-;-;1;2;3
+".. Esquizofrenia transt esquizotípicos e delirant";-;-;1;1;2
+".. Outros transtornos mentais e comportamentais";-;-;-;1;1
+"06 Doenças do sistema nervoso";2;45;16;10;73
+".. Epilepsia";2;45;16;10;73
+"07 Doenças do olho e anexos";4;-;-;-;4
+".. Conjuntivite e outros transtornos da conjuntiva";2;-;-;-;2
+".. Outras doenças do olho e anexos";2;-;-;-;2
+"08 Doenças do ouvido e da apófise mastóide";1;11;1;2;15
+".. Otite média e outr transt ouvid médio apóf mast";1;11;1;2;15
+"09 Doenças do aparelho circulatório";-;1;-;-;1
+".. Outras doenças do coração";-;1;-;-;1
+"10 Doenças do aparelho respiratório";209;240;128;24;601
+".. Faringite aguda e amigdalite aguda";3;3;2;-;8
+".. Outras infecções agudas das vias aéreas super";-;3;1;-;4
+".. Pneumonia";121;150;68;11;350
+".. Bronquite aguda e bronquiolite aguda";21;17;1;1;40
+".. Outras doenças do trato respiratório superior";-;-;1;-;1
+".. Bronquite enfisema e outr doenç pulm obstr crôn";63;60;42;9;174
+".. Asma";1;5;12;3;21
+".. Outras doenças do aparelho respiratório";-;2;1;-;3
+"11 Doenças do aparelho digestivo";6;5;10;7;28
+".. Outros transtornos dentes e estruturas suporte";-;1;-;-;1
+".. Outr doenç cavidade oral glând saliv e maxilar";-;-;2;1;3
+".. Gastrite e duodenite";-;-;-;2;2
+".. Outras doenças do esôfago estômago e duodeno";-;2;-;1;3
+".. Outras hérnias";1;-;-;-;1
+".. Ileo paralítico e obstrução intestinal s/hérnia";-;-;2;1;3
+".. Outras doenças dos intestinos e peritônio";4;-;4;1;9
+".. Outras doenças do aparelho digestivo";1;2;2;1;6
+"12 Doenças da pele e do tecido subcutâneo";7;27;19;5;58
+".. Infecções da pele e do tecido subcutâneo";5;25;14;5;49
+".. Outras doenças da pele e do tecido subcutâneo";2;2;5;-;9
+"13 Doenças sist osteomuscular e tec conjuntivo";-;1;3;3;7
+".. Transtornos do tecido mole";-;1;3;2;6
+".. Osteomielite";-;-;-;1;1
+"14 Doenças do aparelho geniturinário";14;25;15;9;63
+".. Síndrome nefríticas aguda e rapidamente progres";-;-;2;-;2
+".. Outras doenças glomerulares";-;-;1;-;1
+".. Doenças renais túbulo-intersticiais";-;-;-;1;1
+".. Cistite";-;-;1;-;1
+".. Outras doenças do aparelho urinário";14;25;11;8;58
+"16 Algumas afec originadas no período perinatal";3;-;-;-;3
+".. Outras afecções originadas no período perinatal";3;-;-;-;3
+"18 Sint sinais e achad anorm ex clín e laborat";8;14;13;8;43
+".. Dor abdominal e pélvica";1;2;3;2;8
+".. Febre de origem desconhecida";5;5;1;2;13
+".. Outr sist sinais achad anorm ex clín labor NCOP";2;7;9;4;22
+"19 Lesões enven e alg out conseq causas externas";13;38;18;6;75
+".. Fraturas envolvendo múltiplas regiões do corpo";-;1;-;-;1
+".. Traumatismo de outros órgãos internos";-;-;-;1;1
+".. Outr traum reg espec não espec e múltipl corpo";13;24;14;4;55
+".. Efeitos corpo estranho através de orifício nat";-;4;2;-;6
+".. Queimadura e corrosões";-;1;-;-;1
+".. Envenenamento por drogas e substâncias biológ";-;4;-;-;4
+".. Efeitos tóxicos subst origem princ não-medicin";-;2;-;-;2
+".. Outros efeitos e não espec de causas externas";-;2;2;1;5
+"21 Contatos com serviços de saúde";-;1;-;-;1
+".. Pessoas em contato com serv saúde exame invest";-;1;-;-;1
+"Total";290;449;246;85;1070
+&

@@ -1,0 +1,68 @@
+"Lista Morb  CID-10";"Menor 1 ano";"1 a 4 anos";"5 a 9 anos";"10 a 14 anos";"15 a 19 anos";"20 a 29 anos";"Total"
+"02 Neoplasias (tumores)";-;1;1;6;6;-;14
+".. Neoplasia benigna da pele";-;1;-;5;2;-;8
+".. Outr neopl in situ benigs e comport incert desc";-;-;1;1;4;-;6
+"05 Transtornos mentais e comportamentais";-;-;-;1;-;-;1
+".. Transtornos de humor [afetivos]";-;-;-;1;-;-;1
+"06 Doenças do sistema nervoso";1;3;7;3;2;-;16
+".. Epilepsia";1;-;-;1;-;-;2
+".. Paralisia cerebral e outras síndromes paralít";-;3;7;2;2;-;14
+"08 Doenças do ouvido e da apófise mastóide";-;1;-;-;-;-;1
+".. Otite média e outr transt ouvid médio apóf mast";-;1;-;-;-;-;1
+"09 Doenças do aparelho circulatório";-;-;-;1;-;-;1
+".. Outras doenças do aparelho circulatório";-;-;-;1;-;-;1
+"10 Doenças do aparelho respiratório";6;38;205;90;13;-;352
+".. Pneumonia";1;2;1;-;-;-;4
+".. Bronquite aguda e bronquiolite aguda";5;-;1;-;-;-;6
+".. Outras doenças do nariz e dos seios paranasais";-;-;1;1;-;-;2
+".. Doenças crônicas das amígdalas e das adenóides";-;30;202;88;12;-;332
+".. Outras doenças do trato respiratório superior";-;-;-;1;-;-;1
+".. Outras doenças do aparelho respiratório";-;6;-;-;1;-;7
+"11 Doenças do aparelho digestivo";31;192;161;35;3;-;422
+".. Outr doenç cavidade oral glând saliv e maxilar";1;1;-;1;-;-;3
+".. Outras doenças do esôfago estômago e duodeno";-;-;1;-;-;-;1
+".. Hérnia inguinal";28;58;54;16;-;-;156
+".. Outras hérnias";1;133;105;18;3;-;260
+".. Outras doenças dos intestinos e peritônio";1;-;1;-;-;-;2
+"12 Doenças da pele e do tecido subcutâneo";-;2;4;15;18;-;39
+".. Infecções da pele e do tecido subcutâneo";-;-;-;2;10;-;12
+".. Outras doenças da pele e do tecido subcutâneo";-;2;4;13;8;-;27
+"13 Doenças sist osteomuscular e tec conjuntivo";-;5;16;25;10;-;56
+".. Deformidades adquiridas das articulações";-;2;5;5;6;-;18
+".. Outros transtronos articulares";-;1;3;4;1;-;9
+".. Transtornos do tecido mole";-;1;7;11;2;-;21
+".. Transtornos da densidade e da estrutura ósseas";-;1;-;2;-;-;3
+".. Outras doenças sist osteomuscular e tec conjunt";-;-;1;3;1;-;5
+"14 Doenças do aparelho geniturinário";1;84;193;114;20;-;412
+".. Urolitíase";-;-;-;-;1;-;1
+".. Outras doenças do aparelho urinário";-;2;2;2;1;-;7
+".. Hidrocele e espermatocele";-;4;6;3;-;-;13
+".. Preprúcio redundante fimose e parafimose";1;78;185;106;18;-;388
+".. Outras doenças dos órgãos genitais masculinos";-;-;-;3;-;-;3
+"16 Algumas afec originadas no período perinatal";-;1;-;-;-;-;1
+".. Outras afecções originadas no período perinatal";-;1;-;-;-;-;1
+"17 Malf cong deformid e anomalias cromossômicas";37;73;88;41;15;3;257
+".. Fenda labial e fenda palatina";8;13;11;5;3;2;42
+".. Outras malformações congênitas aparelho digest";-;-;1;-;-;-;1
+".. Testiculo não-descido";1;38;35;11;3;-;88
+".. Outras malformações do aparelho geniturinário";1;6;12;3;2;-;24
+".. Deformidades congênitas do quadril";-;-;1;1;-;-;2
+".. Deformidades congênitas dos pés";22;5;13;7;3;-;50
+".. Outr malform e deform congên aparelho osteomusc";3;8;5;6;3;-;25
+".. Outras malformações congênitas";2;3;10;8;1;1;25
+"18 Sint sinais e achad anorm ex clín e laborat";-;-;2;-;-;-;2
+".. Outr sist sinais achad anorm ex clín labor NCOP";-;-;2;-;-;-;2
+"19 Lesões enven e alg out conseq causas externas";1;8;13;14;18;-;54
+".. Fratura do crânio e dos ossos da face";-;-;-;2;5;-;7
+".. Fratura do fêmur";-;-;-;1;-;-;1
+".. Fratura de outros ossos dos membros";-;4;8;8;12;-;32
+".. Fraturas envolvendo múltiplas regiões do corpo";1;-;-;-;-;-;1
+".. Luxações entorse distensão reg esp e múlt corpo";-;-;-;-;1;-;1
+".. Outr traum reg espec não espec e múltipl corpo";-;-;1;1;-;-;2
+".. Efeitos corpo estranho através de orifício nat";-;4;4;1;-;-;9
+".. Seqüel traum enven e outr conseq causas extern";-;-;-;1;-;-;1
+"21 Contatos com serviços de saúde";-;46;144;57;19;-;266
+".. Pessoas contato serv saúde cuidados proc espec";-;7;17;12;10;-;46
+".. Pessoas contato serv saúde por outras razões";-;39;127;45;9;-;220
+"Total";77;454;834;402;124;3;1894
+&

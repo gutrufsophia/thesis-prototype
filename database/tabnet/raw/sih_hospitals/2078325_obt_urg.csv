@@ -1,0 +1,16 @@
+"Lista Morb  CID-10";"Menor 1 ano";"1 a 4 anos";"5 a 9 anos";"10 a 14 anos";"15 a 19 anos";"Total"
+"01 Algumas doenças infecciosas e parasitárias";2;-;2;1;-;5
+".. Outras doenças infecciosas intestinais";1;-;-;-;-;1
+".. Septicemia";1;-;2;1;-;4
+"06 Doenças do sistema nervoso";-;1;1;-;-;2
+".. Epilepsia";-;1;1;-;-;2
+"10 Doenças do aparelho respiratório";2;-;-;-;1;3
+".. Outras doenças do aparelho respiratório";2;-;-;-;1;3
+"11 Doenças do aparelho digestivo";2;-;-;-;1;3
+".. Ileo paralítico e obstrução intestinal s/hérnia";1;-;-;-;-;1
+".. Doença diverticular do intestino";1;-;-;-;-;1
+".. Outras doenças do fígado";-;-;-;-;1;1
+"17 Malf cong deformid e anomalias cromossômicas";1;-;-;-;-;1
+".. Outr malform e deform congên aparelho osteomusc";1;-;-;-;-;1
+"Total";7;1;3;1;2;14
+&

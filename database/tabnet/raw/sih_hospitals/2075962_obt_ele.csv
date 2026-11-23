@@ -1,0 +1,14 @@
+"Lista Morb  CID-10";"60 a 69 anos";"70 a 79 anos";"80 anos e mais";"Total"
+"01 Algumas doenças infecciosas e parasitárias";1;-;-;1
+".. Septicemia";1;-;-;1
+"10 Doenças do aparelho respiratório";1;-;2;3
+".. Pneumonia";-;-;2;2
+".. Outras doenças do aparelho respiratório";1;-;-;1
+"12 Doenças da pele e do tecido subcutâneo";-;-;1;1
+".. Infecções da pele e do tecido subcutâneo";-;-;1;1
+"14 Doenças do aparelho geniturinário";-;1;-;1
+".. Outras doenças do aparelho urinário";-;1;-;1
+"19 Lesões enven e alg out conseq causas externas";-;1;-;1
+".. Cert compl prec traum compl cirúrg ass méd NCOP";-;1;-;1
+"Total";2;2;3;7
+&

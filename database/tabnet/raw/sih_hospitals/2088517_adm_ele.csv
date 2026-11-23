@@ -1,0 +1,49 @@
+"Lista Morb  CID-10";"Menor 1 ano";"1 a 4 anos";"5 a 9 anos";"10 a 14 anos";"15 a 19 anos";"20 a 29 anos";"Total"
+"02 Neoplasias (tumores)";-;-;-;1;1;-;2
+".. Outr neopl in situ benigs e comport incert desc";-;-;-;1;1;-;2
+"03 Doenças sangue órgãos hemat e transt imunitár";-;-;-;1;-;-;1
+".. Outras anemias";-;-;-;1;-;-;1
+"06 Doenças do sistema nervoso";-;-;1;-;-;-;1
+".. Epilepsia";-;-;1;-;-;-;1
+"09 Doenças do aparelho circulatório";-;-;-;-;3;-;3
+".. Outras doenças do aparelho circulatório";-;-;-;-;3;-;3
+"10 Doenças do aparelho respiratório";-;2;3;2;1;-;8
+".. Laringite e traqueíte agudas";-;-;-;1;-;-;1
+".. Doenças crônicas das amígdalas e das adenóides";-;-;1;-;-;-;1
+".. Outras doenças do trato respiratório superior";-;-;1;-;-;-;1
+".. Outras doenças do aparelho respiratório";-;2;1;1;1;-;5
+"11 Doenças do aparelho digestivo";23;109;72;30;8;-;242
+".. Outros transtornos dentes e estruturas suporte";-;-;1;1;-;-;2
+".. Outr doenç cavidade oral glând saliv e maxilar";-;-;1;3;-;-;4
+".. Outras doenças do esôfago estômago e duodeno";1;-;-;-;-;-;1
+".. Doenças do apêndice";-;-;-;2;1;-;3
+".. Hérnia inguinal";20;39;25;9;-;-;93
+".. Outras hérnias";2;66;45;10;2;-;125
+".. Outras doenças dos intestinos e peritônio";-;2;-;1;-;-;3
+".. Colelitíase e colecistite";-;-;-;3;5;-;8
+".. Outras doenças do aparelho digestivo";-;2;-;1;-;-;3
+"12 Doenças da pele e do tecido subcutâneo";20;29;21;26;6;-;102
+".. Infecções da pele e do tecido subcutâneo";-;1;1;4;2;-;8
+".. Outras doenças da pele e do tecido subcutâneo";20;28;20;22;4;-;94
+"13 Doenças sist osteomuscular e tec conjuntivo";-;1;-;-;-;-;1
+".. Transtornos do tecido mole";-;1;-;-;-;-;1
+"14 Doenças do aparelho geniturinário";2;67;78;42;14;1;204
+".. Outras doenças do aparelho urinário";-;2;-;1;2;-;5
+".. Hidrocele e espermatocele";-;2;-;-;-;-;2
+".. Preprúcio redundante fimose e parafimose";2;62;78;40;12;1;195
+".. Outras doenças dos órgãos genitais masculinos";-;1;-;1;-;-;2
+"16 Algumas afec originadas no período perinatal";1;7;4;1;-;-;13
+".. Outras afecções originadas no período perinatal";1;7;4;1;-;-;13
+"17 Malf cong deformid e anomalias cromossômicas";9;62;23;11;1;-;106
+".. Outras malformações congênitas aparelho digest";9;8;6;4;1;-;28
+".. Testiculo não-descido";-;37;12;6;-;-;55
+".. Outras malformações do aparelho geniturinário";-;3;3;-;-;-;6
+".. Outr malform e deform congên aparelho osteomusc";-;1;-;-;-;-;1
+".. Outras malformações congênitas";-;13;2;1;-;-;16
+"18 Sint sinais e achad anorm ex clín e laborat";-;1;-;-;-;-;1
+".. Dor abdominal e pélvica";-;1;-;-;-;-;1
+"21 Contatos com serviços de saúde";-;2;1;2;2;-;7
+".. Pessoas contato serv saúde cuidados proc espec";-;1;-;1;-;-;2
+".. Pessoas contato serv saúde por outras razões";-;1;1;1;2;-;5
+"Total";55;280;203;116;36;1;691
+&

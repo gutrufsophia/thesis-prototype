@@ -1,0 +1,16 @@
+"Lista Morb  CID-10";"1 a 4 anos";"5 a 9 anos";"15 a 19 anos";"Total"
+"01 Algumas doenças infecciosas e parasitárias";1;1;-;2
+".. Septicemia";-;1;-;1
+".. Outras doenças bacterianas";1;-;-;1
+".... Restante de outras doenças bacterianas";1;-;-;1
+"02 Neoplasias (tumores)";2;-;1;3
+".. Neoplasia maligna do encéfalo";1;-;1;2
+".. Neopl malig outras partes sistema nerv central";1;-;-;1
+"03 Doenças sangue órgãos hemat e transt imunitár";-;1;-;1
+".. Outras anemias";-;1;-;1
+"06 Doenças do sistema nervoso";1;-;-;1
+".. Outras doenças do sistema nervoso";1;-;-;1
+"10 Doenças do aparelho respiratório";1;-;-;1
+".. Outras doenças do aparelho respiratório";1;-;-;1
+"Total";5;2;1;8
+&

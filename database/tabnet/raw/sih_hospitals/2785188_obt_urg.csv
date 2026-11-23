@@ -1,0 +1,76 @@
+"Lista Morb  CID-10";"Menor 1 ano";"15 a 19 anos";"20 a 29 anos";"30 a 39 anos";"40 a 49 anos";"50 a 59 anos";"60 a 69 anos";"70 a 79 anos";"80 anos e mais";"Total"
+"01 Algumas doenças infecciosas e parasitárias";-;-;4;2;7;9;28;31;49;130
+".. Diarréia e gastroenterite origem infecc presum";-;-;-;-;-;-;2;-;-;2
+".. Septicemia";-;-;4;1;6;7;24;30;48;120
+".. Outras doenças bacterianas";-;-;-;1;-;1;2;1;1;6
+".... Restante de outras doenças bacterianas";-;-;-;1;-;1;2;1;1;6
+".. Outras febre p/arbovírus e febr hemorr p/vírus";-;-;-;-;-;1;-;-;-;1
+".... Dengue [dengue clásssico]";-;-;-;-;-;1;-;-;-;1
+".. Outras doenças infecciosas e parasitárias";-;-;-;-;1;-;-;-;-;1
+"02 Neoplasias (tumores)";-;-;-;-;2;1;10;11;8;32
+".. Neoplasia maligna do esôfago";-;-;-;-;-;-;-;2;-;2
+".. Neoplasia maligna do estômago";-;-;-;-;1;-;1;2;2;6
+".. Neoplasia maligna do cólon";-;-;-;-;-;-;1;2;-;3
+".. Neopl malig junção retoss reto ânus canal anal";-;-;-;-;-;-;1;2;-;3
+".. Neoplasia maligna do pâncreas";-;-;-;-;-;-;-;1;-;1
+".. Neoplasia maligna de traquéia brônquios e pulm";-;-;-;-;-;-;5;-;3;8
+".. Outras neoplasias malignas da pele";-;-;-;-;-;-;1;-;-;1
+".. Neoplasia maligna da mama";-;-;-;-;1;1;1;-;-;3
+".. Neopl malig outr porções e porç não espec útero";-;-;-;-;-;-;-;1;-;1
+".. Neoplasia maligna da próstata";-;-;-;-;-;-;-;-;1;1
+".. Neopl malig outr local mal def secun e não esp";-;-;-;-;-;-;-;1;-;1
+".. Leucemia";-;-;-;-;-;-;-;-;1;1
+".. Outr neopl in situ benigs e comport incert desc";-;-;-;-;-;-;-;-;1;1
+"03 Doenças sangue órgãos hemat e transt imunitár";-;-;-;-;-;3;1;-;1;5
+".. Outras anemias";-;-;-;-;-;2;1;-;1;4
+".. Afecç hemorrág e outr doenç sang e órg hematop";-;-;-;-;-;1;-;-;-;1
+"04 Doenças endócrinas nutricionais e metabólicas";-;-;-;-;-;-;2;1;4;7
+".. Diabetes mellitus";-;-;-;-;-;-;-;-;2;2
+".. Desnutrição";-;-;-;-;-;-;1;-;-;1
+".. Depleção de volume";-;-;-;-;-;-;1;-;1;2
+".. Outros transt endócrinos nutricionais metabólic";-;-;-;-;-;-;-;1;1;2
+"06 Doenças do sistema nervoso";-;-;-;-;-;-;-;1;-;1
+".. Outras doenças do sistema nervoso";-;-;-;-;-;-;-;1;-;1
+"09 Doenças do aparelho circulatório";-;-;-;2;2;6;13;23;37;83
+".. Infarto agudo do miocárdio";-;-;-;-;-;-;1;1;-;2
+".. Embolia pulmonar";-;-;-;-;-;-;1;1;1;3
+".. Transtornos de condução e arritmias cardíacas";-;-;-;-;-;-;-;2;1;3
+".. Insuficiência cardíaca";-;-;-;1;2;5;4;8;19;39
+".. Outras doenças do coração";-;-;-;1;-;1;1;1;-;4
+".. Hemorragia intracraniana";-;-;-;-;-;-;2;1;2;5
+".. Infarto cerebral";-;-;-;-;-;-;4;7;12;23
+".. Acid vascular cerebr não espec hemorrág ou isq";-;-;-;-;-;-;-;1;-;1
+".. Outras doenças cerebrovasculares";-;-;-;-;-;-;-;1;-;1
+".. Outras doenças das artérias arteríolas e capil";-;-;-;-;-;-;-;-;1;1
+".. Flebite tromboflebite embolia e trombose venosa";-;-;-;-;-;-;-;-;1;1
+"10 Doenças do aparelho respiratório";-;-;2;1;5;7;15;17;26;73
+".. Pneumonia";-;-;1;1;2;5;8;7;20;44
+".. Bronquite enfisema e outr doenç pulm obstr crôn";-;-;-;-;-;-;3;5;1;9
+".. Outras doenças do aparelho respiratório";-;-;1;-;3;2;4;5;5;20
+"11 Doenças do aparelho digestivo";-;-;-;1;1;4;2;1;1;10
+".. Ileo paralítico e obstrução intestinal s/hérnia";-;-;-;-;-;-;-;-;1;1
+".. Doença alcoólica do fígado";-;-;-;1;1;1;-;1;-;4
+".. Outras doenças do fígado";-;-;-;-;-;2;2;-;-;4
+".. Outras doenças do aparelho digestivo";-;-;-;-;-;1;-;-;-;1
+"14 Doenças do aparelho geniturinário";-;-;1;1;1;2;2;6;2;15
+".. Doenças renais túbulo-intersticiais";-;-;-;-;-;-;-;1;-;1
+".. Insuficiência renal";-;-;1;1;1;2;2;3;2;12
+".. Outras doenças do aparelho urinário";-;-;-;-;-;-;-;2;-;2
+"15 Gravidez parto e puerpério";-;1;1;1;-;-;-;-;-;3
+".. Outr mot ass mãe rel cav fet amn pos prob part";-;-;1;-;-;-;-;-;-;1
+".. Trabalho de parto obstruído";-;1;-;-;-;-;-;-;-;1
+".. Parto único espontâneo";-;-;-;1;-;-;-;-;-;1
+"16 Algumas afec originadas no período perinatal";1;-;-;-;-;-;-;-;-;1
+".. Outros transt respiratórios orig per perinatal";1;-;-;-;-;-;-;-;-;1
+"18 Sint sinais e achad anorm ex clín e laborat";-;-;-;-;-;-;1;1;1;3
+".. Dor abdominal e pélvica";-;-;-;-;-;-;-;1;-;1
+".. Outr sist sinais achad anorm ex clín labor NCOP";-;-;-;-;-;-;1;-;1;2
+"19 Lesões enven e alg out conseq causas externas";-;-;-;1;-;3;-;-;-;4
+".. Traumatismo intracraniano";-;-;-;-;-;1;-;-;-;1
+".. Outr traum reg espec não espec e múltipl corpo";-;-;-;1;-;-;-;-;-;1
+".. Efeitos tóxicos subst origem princ não-medicin";-;-;-;-;-;1;-;-;-;1
+".. Outros efeitos e não espec de causas externas";-;-;-;-;-;1;-;-;-;1
+"21 Contatos com serviços de saúde";-;-;-;-;-;-;-;-;1;1
+".. Pessoas contato serv saúde cuidados proc espec";-;-;-;-;-;-;-;-;1;1
+"Total";1;1;8;9;18;35;74;92;130;368
+&
