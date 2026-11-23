@@ -38,6 +38,7 @@ The RMSP is the development example; the integration into CulturaEduca will use 
 | `analysis/` | Statistical analyses: territorial typology, outcome relations, scale decomposition |
 | `data/` | Cleaned and computed CSVs loaded into the database |
 | `deploy/` | Files used by the frontend's Docker image |
+| `update.sh` | Rebuilds and reloads all the data from new source files, step by step |
 
 ## Running locally
 
@@ -105,45 +106,29 @@ Migration 017 keeps the cost of a page visit independent of the size of the trac
 
 ## Updating the data
 
-The update is manual. Nothing in the repository downloads or recomputes the data on a schedule. When a source publishes a new version, download it and run the steps below in order; each step reads the outputs of the previous ones.
+The update is run by hand: nothing downloads or recomputes the data on a schedule. When a source publishes a new version, download it and run `update.sh`. It runs every step in order, each reading the outputs of the previous ones, and loads the results into the database.
 
 | Source | Where | Pace |
 |---|---|---|
 | CNES (establishments, beds, teams) | DATASUS, national monthly base | monthly |
-| SIH, SINAN, SINASC, SIM | DATASUS and SMS-SP TabNet (downloaded by the scripts) | during the year |
+| SIH, SINAN, SINASC, SIM | DATASUS and SMS-SP TabNet (mostly downloaded by the scripts) | during the year |
 | Census 2022 aggregates and income | IBGE, national files | once a decade |
 | CNEFE 2022 addresses | IBGE, one file per municipality (the 39 of the RMSP) | once a decade |
 
-1. **TabNet:**
+```bash
+export CNES_DIR=~/Downloads/BASE_DE_DADOS_CNES_202608 LEITOS=~/Downloads/Leitos_csv_2026/Leitos_2026.csv \
+       SIH_MORBIDADE=... SIH_PERMANENCIA=... DENGUE=... LEPTO=... \
+       CENSO_BASICO=~/Downloads/basico.csv CENSO_DOMICILIO=~/Downloads/domicilio2.csv \
+       RENDA_ZIP=... CNEFE_DIR=~/Downloads/cnefe_rmsp
+./update.sh --dry-run          # print every command and the SQL of the loads
+./update.sh                    # tabnet → etl → geocoding → seed → batch → load
+./update.sh --from batch       # resume from a step; --only STEP runs one
+```
 
-   ```bash
-   python3 -I database/tabnet/fetch_tabnet.py
-   python3 database/tabnet/fetch_sih_hospitals.py
-   python3 database/tabnet/build_district_indicators.py
-   ```
-
-   `fetch_sih_hospitals.py` makes four queries per hospital, about an hour for the RMSP.
-2. **Cleaning:** `etl/limpeza.py` (CNES and SIH), `etl/limpeza_ibge.py` (Census), `etl/limpeza_datasus.py` (municipal indicators) and `python3 -I etl/limpeza_renda.py <income zip>`. The first three read their input paths from constants at the top of each file.
-3. **Geocoding and access:**
-
-   ```bash
-   python3 database/geocoding/geocode_cnefe.py --cnefe-dir ~/Downloads/cnefe_rmsp
-   python3 database/geocoding/compute_access.py --cnefe-dir ~/Downloads/cnefe_rmsp
-   ```
-
-   Then `python3 database/seeders/seed.py --replace`.
-4. **Batch computations:**
-
-   ```bash
-   database/reference/build_surroundings.sh 3        # 1 km surroundings of every facility (~30 min)
-   python3 -I analysis/typology.py                   # territorial types
-   python3 -I analysis/outcome_relations.py          # relations page and district models
-   python3 database/reference/compute_catchment.py --cnefe-dir ~/Downloads/cnefe_rmsp \
-           --cnes-dir ~/Downloads/BASE_DE_DADOS_CNES_202608
-   python3 database/reference/compute_hospital_mortality.py
-   ```
-
-5. **Load:** load the computed CSVs with the `\copy` commands in migrations 012 to 015, 019 and 020. The triggers of 017 rebuild the precomputed tables.
+- Each step asks only for the files it uses. A monthly CNES update still goes through the steps after `etl`, because the surroundings, catchments and mortality depend on the facility table.
+- The whole run takes a couple of hours, most of it the per-hospital TabNet queries (about an hour) and the surroundings of every facility (about 30 minutes).
+- Reference periods are constants: SIH months and TabNet years in `database/tabnet/fetch_tabnet.py`, SINAN years in `backend-core/config/rules.json`. For a new SIH period, also empty `database/tabnet/raw/sih_hospitals/`, since `fetch_sih_hospitals.py` skips the files it already has.
+- After a load, restart the storytelling service so it reloads its in-memory reference.
 
 ## How the text is made
 
