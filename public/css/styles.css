@@ -469,6 +469,22 @@ details.about .hint { font-size: inherit; }
 .relation-pair { display: grid; gap: 16px; }
 .relations-source { margin-top: 8px; }
 
+/* Overview first: the findings, each a link to its topic */
+.relations-summary ul { margin: 4px 0 0; padding-left: 20px; display: grid; gap: 6px; line-height: 1.45; }
+.relations-summary a { color: var(--ink); text-decoration-color: var(--hairline); text-underline-offset: 3px; }
+.relations-summary a:hover { color: var(--accent-ink); text-decoration-color: currentColor; }
+.relations-topic { display: grid; gap: 12px; scroll-margin-top: 56px; }
+.relation-card .relation-caption { font-size: 14px; color: var(--ink); }
+.relation-details { display: flex; flex-wrap: wrap; gap: 4px 20px; align-items: start; }
+.relation-details > * { flex: 0 1 auto; }
+.relation-details > details[open] { flex-basis: 100%; }
+
+/* Secondary analyses of a topic, collapsed */
+.relation-more > summary { cursor: pointer; width: fit-content; padding: 8px 14px; border: 1px solid var(--hairline);
+  border-radius: var(--radius); background: var(--surface); color: var(--accent-ink); font-size: 14px; font-weight: 600; }
+.relation-more[open] > summary { margin-bottom: 12px; }
+.relation-more-body { display: grid; gap: 16px; }
+
 /* SVG plots (public/js/plots.js) */
 .plot { position: relative; }
 .plot-svg { display: block; width: 100%; height: auto; overflow: visible; }
