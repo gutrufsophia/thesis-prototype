@@ -1,7 +1,7 @@
 // Relations page: disease outcomes against census living conditions, at the scales where
 // outcomes exist. Data come from analysis/outcome_relations.py (public/data/relations.json).
 
-import { barList, el, section } from './charts.js';
+import { about, barList, el, section } from './charts.js';
 import { formatCount, formatNumber } from './fields.js';
 import { applyStaticTranslations, t } from './i18n.js';
 import { dataTable, intervals, legend, scatter } from './plots.js';
@@ -42,13 +42,40 @@ function pairText(pair) {
   });
 }
 
+// The title states the finding and the caption reads it; the statistics behind it (correlation,
+// interval, model fit) are one click away, with the data table.
 function card(title, subtitle, body, caption, table) {
   return el('section', { class: 'card relation-card' },
     el('h2', { class: 'relation-title', text: title }),
-    subtitle ? el('p', { class: 'hint', text: subtitle }) : null,
     body,
     caption ? el('p', { class: 'relation-caption', text: caption }) : null,
-    table);
+    el('div', { class: 'relation-details' }, about(subtitle), table));
+}
+
+/** A topic: its heading, the main card, and the secondary analyses collapsed under it. */
+function topic(id, title, main, more = []) {
+  return el('section', { class: 'relations-topic', id },
+    el('h2', { class: 'relations-section', text: title }),
+    main,
+    more.length ? el('details', { class: 'relation-more' },
+      el('summary', { text: t('rel.more', { count: more.length }) }),
+      el('div', { class: 'relation-more-body' }, more)) : null);
+}
+
+/** Overview first: the findings, each linking to its topic. */
+function summary(topics) {
+  return el('nav', { class: 'card relations-summary', 'aria-label': t('rel.summary') },
+    el('h2', { class: 'relation-title', text: t('rel.summary') }),
+    el('ul', {}, topics.map(([id, finding]) => el('li', {}, el('a', { href: `#${id}`, text: finding })))));
+}
+
+/** A link to a card inside a collapsed block (relations.html#surpresas) opens the block first. */
+function revealHash() {
+  const target = location.hash && document.getElementById(location.hash.slice(1));
+  const block = target?.closest('details');
+  if (!block) return;
+  block.open = true;
+  target.scrollIntoView();
 }
 
 function flagsFor(data, scale, outcome) {
@@ -226,20 +253,26 @@ async function init() {
     return;
   }
   root.replaceChildren(
-    forestCard(data),
-    el('h2', { class: 'relations-section', text: t('rel.section.tb') }),
-    relationCard(data, { scale: 'district', outcome: 'tb', determinant: 'income', log: true, title: t('rel.tb.income.title'), caption: t('rel.tb.income.caption') }),
-    relationCard(data, { scale: 'district', outcome: 'tb', determinant: 'crowded', title: t('rel.tb.crowded.title'), caption: t('rel.tb.crowded.caption') }),
-    surpriseCard(data),
-    transferCard(data),
-    el('h2', { class: 'relations-section', text: t('rel.section.vector') }),
-    relationCard(data, { scale: 'municipality', outcome: 'dengue_2024', determinant: 'no_garbage', digits: 0, title: t('rel.dengue.title'), caption: t('rel.dengue.caption') }),
-    funnelCard(data),
-    el('h2', { class: 'relations-section', text: t('rel.section.teen') }),
-    relationCard(data, { scale: 'district', outcome: 'teen', determinant: 'income', log: true, title: t('rel.teen.title'), caption: t('rel.teen.caption') }),
-    el('h2', { class: 'relations-section', text: t('rel.section.care') }),
-    inverseCareCard(data),
+    summary([
+      ['visao-geral', t('rel.forest.title')],
+      ['tuberculose', t('rel.tb.income.title')],
+      ['dengue-leptospirose', t('rel.dengue.title')],
+      ['gravidez', t('rel.teen.title')],
+      ['acesso', t('rel.care.title')],
+    ]),
+    topic('visao-geral', t('rel.section.overview'), forestCard(data)),
+    topic('tuberculose', t('rel.section.tb'),
+      relationCard(data, { scale: 'district', outcome: 'tb', determinant: 'income', log: true, title: t('rel.tb.income.title'), caption: t('rel.tb.income.caption') }),
+      [relationCard(data, { scale: 'district', outcome: 'tb', determinant: 'crowded', title: t('rel.tb.crowded.title'), caption: t('rel.tb.crowded.caption') }),
+        surpriseCard(data), transferCard(data)]),
+    topic('dengue-leptospirose', t('rel.section.vector'),
+      relationCard(data, { scale: 'municipality', outcome: 'dengue_2024', determinant: 'no_garbage', digits: 0, title: t('rel.dengue.title'), caption: t('rel.dengue.caption') }),
+      [funnelCard(data)]),
+    topic('gravidez', t('rel.section.teen'),
+      relationCard(data, { scale: 'district', outcome: 'teen', determinant: 'income', log: true, title: t('rel.teen.title'), caption: t('rel.teen.caption') })),
+    topic('acesso', t('rel.section.care'), inverseCareCard(data)),
     el('p', { class: 'hint relations-source', text: t('rel.source') }));
+  revealHash();
 }
 
 init();

@@ -44,6 +44,8 @@ export function pick(entry) {
 }
 
 const STRINGS = {
+  'data.link': { pt: 'Dados abertos: as tabelas e o dicionário de dados ↗', en: 'Open data: the tables and the data dictionary ↗' },
+  'data.linkShort': { pt: 'Dados abertos', en: 'Open data' },
   'brand': { pt: 'CulturaEduca · Camada de saúde', en: 'CulturaEduca · Health layer' },
   'lang.label': { pt: 'Idioma', en: 'Language' },
 
@@ -277,6 +279,9 @@ const STRINGS = {
   'rel.forest.subtitle': { pt: 'Correlação de Spearman entre cada doença e cada condição de vida, com intervalo de confiança de 95%. Pares definidos antes da análise, a partir da literatura.', en: 'Spearman\'s correlation between each disease and each living condition, with a 95% confidence interval. Pairs fixed before the analysis, from the literature.' },
   'rel.forest.axis': { pt: 'ρ de Spearman', en: 'Spearman\'s ρ' },
   'rel.forest.caption': { pt: 'Intervalos que cruzam o zero não permitem afirmar relação. Entre os 96 distritos as relações aparecem com clareza; entre os 39 municípios, só a da gravidez na adolescência com a renda. Leptospirose ficou de fora: com tão poucos casos, a suavização deixa todos os municípios iguais.', en: 'Intervals that cross zero do not support a relationship. Across the 96 districts the relationships are clear; across the 39 municipalities, only teenage pregnancy against income. Leptospirosis is left out: with so few cases, smoothing leaves every municipality the same.' },
+  'rel.section.overview': { pt: 'Visão geral', en: 'Overview' },
+  'rel.summary': { pt: 'Em resumo', en: 'In short' },
+  'rel.more': { pt: 'Mais análises sobre este tema ({count})', en: 'More analyses on this topic ({count})' },
   'rel.section.tb': { pt: 'Tuberculose', en: 'Tuberculosis' },
   'rel.section.vector': { pt: 'Dengue e leptospirose', en: 'Dengue and leptospirosis' },
   'rel.section.teen': { pt: 'Gravidez na adolescência', en: 'Teenage pregnancy' },
