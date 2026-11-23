@@ -3,7 +3,7 @@
 // (district and municipality) and the other facilities in the radius.
 
 import { getFacility, getHospitalStays, getNarrative, getSurroundings, hasNarrative } from './api.js';
-import { el, keyValues, section, statTiles } from './charts.js';
+import { about, el, keyValues, moreRows, section, statTiles } from './charts.js';
 import { deathFigures, renderFacility } from './facility-view.js';
 import { dataTable, legend, scatter } from './plots.js';
 import { renderNarrative, renderNarrativeState } from './narrative.js';
@@ -298,20 +298,30 @@ function cnesLink() {
   return el('a', { href, target: '_blank', rel: 'noopener', text: t('record.cnesLink') });
 }
 
+/** Positioned by street or postcode only, with a margin of error (the hollow dots on the map). */
+function approximatePosition(row) {
+  return row.coord_source === 'cnefe_street' || row.coord_source === 'cnefe_cep';
+}
+
 function renderLocation() {
   const place = surroundings?.location;
   const entries = [
     [t('record.address'), facilityAddress(row)],
     [t('record.municipality'), place?.municipality],
     [t('record.district'), place?.district && place.district !== place.municipality ? place.district : null],
-    [t('record.tract'), place?.tract],
-    [t('record.position'), row.coord ? positionNote(row) || t('record.positionRegistry') : coordStatusNote(row.coord_status)],
   ].filter(([, value]) => value);
   const link = cnesLink();
-  $('record-location').replaceChildren(
+  $('record-location').replaceChildren(...[
     el('h3', { text: t('record.location') }),
     keyValues(entries),
-    link ? el('p', { class: 'hint' }, link) : null);
+    // Only an approximate position changes how the page reads; where it came from is a detail
+    approximatePosition(row) ? el('p', { class: 'notice', text: positionNote(row) }) : null,
+    moreRows([
+      [t('record.tract'), place?.tract],
+      [t('record.position'), row.coord ? positionNote(row) || t('record.positionRegistry') : coordStatusNote(row.coord_status)],
+    ]),
+    link ? el('p', { class: 'hint' }, link) : null,
+  ].filter(Boolean));
 }
 
 // ---------- Network tab ----------
@@ -336,8 +346,8 @@ function renderNetworkSummary() {
       { label: t('tile.beds'), value: formatCount(beds), note: per10k(beds) },
       { label: t('tile.physicians'), value: formatCount(physicians), note: per10k(physicians) },
     ]),
-    el('p', { class: 'hint', text: [t('net.summaryHint'), hidden ? t('sur.hiddenPrivate', { count: formatCount(hidden) }) : null]
-      .filter(Boolean).join(' ') }));
+    ...[hidden ? el('p', { class: 'hint', text: t('sur.hiddenPrivate', { count: formatCount(hidden) }) }) : null,
+      about(t('net.summaryHint'))].filter(Boolean));
 }
 
 function facilityTable(facilities) {
@@ -360,7 +370,7 @@ function renderNetworkGroups() {
   const facilities = countedFacilities();
   dom.netGroups.replaceChildren(
     el('h3', { class: 'card-title', text: t('net.title', { radius: formatDistance(surroundings.radius_m) }) }),
-    el('p', { class: 'hint', text: t('sur.nearestHint', { cnes: t('period.cnes') }) }),
+    about(t('sur.nearestHint', { cnes: t('period.cnes') })),
     ...TYPE_GROUPS.map((group) => {
       const members = facilities.filter((other) => typeInfo(other.type).group === group.id);
       return el('details', { class: 'accordion', dataset: { group: group.id }, open: open.has(group.id) ? '' : null },
@@ -583,7 +593,7 @@ async function init() {
   dom.radius.min = minRadius;
   dom.radius.value = Math.max(Number(dom.radius.value), minRadius);
   dom.radiusValue.textContent = formatDistance(Number(dom.radius.value));
-  const note = positionNote(row);
+  const note = approximatePosition(row) ? positionNote(row) : null;
   if (note) {
     const limit = minRadius > step ? ` ${t('sur.radiusLimit', { radius: formatDistance(minRadius) })}` : '';
     $('surroundings-scope').after(el('p', { class: 'notice', text: note + limit }));

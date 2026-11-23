@@ -1,7 +1,7 @@
 // Renders one facility record. Used by the map's side panel (compact) and by the
 // facility page (full).
 
-import { barList, el, keyValues, section, statTiles } from './charts.js';
+import { about, barList, el, keyValues, moreRows, section, statTiles } from './charts.js';
 import {
   ADMISSIONS, EQUIPMENT, ICU_BEDS, SPECIALTIES,
   facilityAddress, facilityName, flowLabel, formatCnes, formatCount, formatNumber,
@@ -20,11 +20,24 @@ function rankedItems(row, labels) {
     .sort((a, b) => b.value - a.value);
 }
 
-function rankedSection(title, items, { limit, hint, emptyText } = {}) {
-  if (!items.length) return section(title, null, { emptyText });
-  const shown = limit && items.length > limit ? items.slice(0, limit) : items;
-  const more = shown.length < items.length ? t('topShown', { shown: shown.length, total: items.length }) : null;
-  return section(title, barList(shown), { hint: [hint, more].filter(Boolean).join(' ') });
+// A card without data is left out: the headline numbers already show the absence.
+// On the full page, the longest lists show their largest entries and keep the rest one click away.
+const FULL_LIST = 8;
+
+function rankedSection(title, items, { limit, note } = {}) {
+  if (!items.length) return null;
+  if (limit) {
+    const shown = items.length > limit ? items.slice(0, limit) : items;
+    const more = shown.length < items.length ? t('topShown', { shown: shown.length, total: items.length }) : null;
+    return section(title, barList(shown), { hint: more, note });
+  }
+  const max = items[0].value;
+  const body = items.length > FULL_LIST + 2
+    ? el('div', {}, barList(items.slice(0, FULL_LIST), { max }),
+      el('details', { class: 'about' }, el('summary', { text: t('details.all', { count: items.length }) }),
+        barList(items.slice(FULL_LIST), { max })))
+    : barList(items);
+  return section(title, body, { note });
 }
 
 export function typeChip(type) {
@@ -42,17 +55,20 @@ export function facilityHeader(row, headingTag = 'h2') {
 }
 
 function profile(row) {
-  const entries = [
-    [t('profile.cnes'), formatCnes(row.CO_CNES)],
-    [t('profile.legalName'), row.NO_RAZAO_SOCIAL],
-    [t('profile.type'), typeInfo(row.tipo_equipamento).label],
-    [t('profile.sector'), legalSphereLabel(row.esfera_juridica)],
-    [t('profile.sus'), row.atende_sus ? t('yes') : t('no')],
-    [t('profile.management'), managementLabel(row.TP_GESTAO)],
-    [t('profile.flow'), flowLabel(row.Fluxo_Clientela)],
-    [t('profile.hours'), shiftLabel(row.CO_TURNO_ATENDIMENTO)],
+  return [
+    keyValues([
+      [t('profile.type'), typeInfo(row.tipo_equipamento).label],
+      [t('profile.sus'), row.atende_sus ? t('yes') : t('no')],
+      [t('profile.flow'), flowLabel(row.Fluxo_Clientela)],
+      [t('profile.hours'), shiftLabel(row.CO_TURNO_ATENDIMENTO)],
+    ]),
+    moreRows([
+      [t('profile.cnes'), formatCnes(row.CO_CNES)],
+      [t('profile.legalName'), row.NO_RAZAO_SOCIAL],
+      [t('profile.sector'), legalSphereLabel(row.esfera_juridica)],
+      [t('profile.management'), managementLabel(row.TP_GESTAO)],
+    ]),
   ];
-  return keyValues(entries);
 }
 
 const HOSPITAL_TYPES = ['Hospital Geral', 'Hospital Especializado', 'Unidade Mista'];
@@ -111,21 +127,23 @@ function keyFigures(row, stays) {
   const sus = (column) => t('tile.susNote', { count: formatCount(row[column]) });
   // SIH covers SUS admissions only: a private hospital without SUS would otherwise show 0
   const sih = row.atende_sus || admissions > 0;
+  // Only the figures that apply: no bed or admission tiles for a unit without beds or admissions
+  const beds = Number(row.LEITOS_EXISTENTES) > 0;
   return statTiles([
-    { label: t('tile.beds'), value: formatCount(row.LEITOS_EXISTENTES), note: sus('LEITOS_SUS') },
-    {
+    beds ? { label: t('tile.beds'), value: formatCount(row.LEITOS_EXISTENTES), note: sus('LEITOS_SUS') } : null,
+    Number(row.UTI_TOTAL_EXIST) > 0 ? {
       label: t('tile.icu'), value: formatCount(row.UTI_TOTAL_EXIST),
       // CNES counts ICU beds inside the existing beds
-      note: Number(row.UTI_TOTAL_EXIST) > 0 ? `${sus('UTI_TOTAL_SUS')} · ${t('tile.icuIncluded')}` : sus('UTI_TOTAL_SUS'),
-    },
+      note: `${sus('UTI_TOTAL_SUS')} · ${t('tile.icuIncluded')}`,
+    } : null,
     { label: t('tile.physicians'), value: formatCount(row.total_medicos) },
     { label: t('tile.nurses'), value: formatCount(row.total_enfermeiros) },
-    { label: t('tile.admissions'), value: sih ? formatCount(admissions) : '–', note: sih ? t('period.sihShort') : t('tile.notSus') },
-    {
+    beds || admissions ? { label: t('tile.admissions'), value: sih ? formatCount(admissions) : '–', note: sih ? t('period.sihShort') : t('tile.notSus') } : null,
+    admissions ? {
       label: t('tile.stay'),
       value: admissions ? t('tile.days', { value: formatNumber(row.media_dias_permanencia, 1) }) : '–',
       note: !sih ? t('tile.notSus') : [stayRank(row, stays), t('period.sihShort')].filter(Boolean).join(' · '),
-    },
+    } : null,
     deaths ? {
       label: t('tile.deaths'), value: `${formatNumber(deaths.rate, 1)}%`,
       note: t('tile.deathsNote', { expected: formatNumber(deaths.expectedRate, 1) }),
@@ -157,11 +175,13 @@ function deathsSection(row, compact) {
       el('div', { class: 'deaths-plot' }))
     : null;
   const compared = d && !d.few;
-  const notes = d ? [t('deaths.method'), compared && electiveCoding(row, d.profile) ? t('deaths.coding') : null,
+  // The caveats that change the reading stay in view; the method goes into the collapsed note
+  const caveats = d ? [compared && electiveCoding(row, d.profile) ? t('deaths.coding') : null,
     compared && d.band === 'below' ? t('deaths.below') : null,
-    compared && d.band === 'above' ? t('deaths.above') : null] : [];
+    compared && d.band === 'above' ? t('deaths.above') : null].filter(Boolean) : [];
   const node = section(t('deaths.title'), block, {
-    hint: d ? notes.filter(Boolean).join(' ') : null,
+    hint: caveats.join(' ') || null,
+    note: d ? t('deaths.method') : null,
     emptyText: HOSPITAL_TYPES.includes(row.tipo_equipamento) ? t('deaths.noExpected') : t('deaths.notHospital'),
   });
   node.id = 'record-deaths';
@@ -177,9 +197,8 @@ function icuSection(row) {
       note: t('tile.susNote', { count: formatCount(row[sus]) }),
     }))
     .filter((item) => item.value > 0);
-  return section(t('icu.title'), items.length ? barList(items) : null, {
-    hint: items.length ? t('icu.hint', sources()) : null, emptyText: t('icu.empty'),
-  });
+  if (!items.length) return null;
+  return section(t('icu.title'), barList(items), { note: t('icu.hint', sources()) });
 }
 
 /** Where the facility's mean stay falls among hospitals with SUS admissions, as the narrative compares it. */
@@ -198,18 +217,12 @@ export function renderFacility(row, { compact = false, stays = null } = {}) {
   const limit = compact ? 5 : 0;
   return el('div', { class: `facility${compact ? ' is-compact' : ''}` },
     keyFigures(row, stays),
-    el('p', { class: 'hint', text: t('figures.sources', sources()) }),
+    about(t('figures.sources', sources())),
     el('div', { class: 'facility-sections' },
       section(t('profile.title'), profile(row)),
       icuSection(row),
-      rankedSection(t('workforce.title'), rankedItems(row, SPECIALTIES), {
-        limit, hint: t('workforce.hint', sources()), emptyText: t('workforce.empty'),
-      }),
-      rankedSection(t('equipment.title'), rankedItems(row, EQUIPMENT), {
-        limit, hint: t('equipment.hint', sources()), emptyText: t('equipment.empty'),
-      }),
-      rankedSection(t('admissions.title'), rankedItems(row, ADMISSIONS), {
-        limit, hint: t('admissions.hint', sources()), emptyText: t('admissions.empty'),
-      }),
+      rankedSection(t('workforce.title'), rankedItems(row, SPECIALTIES), { limit, note: t('workforce.hint', sources()) }),
+      rankedSection(t('equipment.title'), rankedItems(row, EQUIPMENT), { limit, note: t('equipment.hint', sources()) }),
+      rankedSection(t('admissions.title'), rankedItems(row, ADMISSIONS), { limit, note: t('admissions.hint', sources()) }),
       deathsSection(row, compact)));
 }

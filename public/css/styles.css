@@ -258,7 +258,7 @@ a { color: var(--accent-ink); }
 
 .tiles {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
   gap: 8px;
 }
 .tile {
@@ -272,6 +272,16 @@ a { color: var(--accent-ink); }
 .tile-note { color: var(--ink-muted); font-size: 12px; }
 
 .block { display: grid; gap: 8px; align-content: start; }
+
+/* Sources, definitions and method, one click away */
+details.about { font-size: 12px; color: var(--ink-secondary); }
+details.about > summary { width: fit-content; cursor: pointer; color: var(--accent-ink); list-style: none; }
+details.about > summary::-webkit-details-marker { display: none; }
+details.about > summary::before { content: '+ '; }
+details.about[open] > summary::before { content: '– '; }
+details.about[open] > summary { margin-bottom: 6px; }
+details.about > p, details.about > .profile { margin: 0 0 6px; padding-left: 10px; border-left: 2px solid var(--hairline); }
+details.about .hint { font-size: inherit; }
 
 .profile {
   display: grid;

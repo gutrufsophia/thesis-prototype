@@ -4,7 +4,7 @@
 // peer, need_supply and territory sentences cite. Peer ranks exist only for the 1 km reference
 // radius (rule C20); the catchment figures do not depend on the radius.
 
-import { el } from './charts.js';
+import { about, el } from './charts.js';
 import { TYPE_GROUPS, formatCount, formatDistance, formatNumber } from './fields.js';
 import { pick, t } from './i18n.js';
 
@@ -101,13 +101,12 @@ function needBlock(reference) {
         rankRow(t('peers.servedDeprived'), percent(v.served_deprived), reference.need_percentile, count),
         rankRow(t('peers.served'), formatCount(v.served), reference.load_percentile, count),
         teams ? pnabRow(v.served_per_team) : null),
-      el('p', { class: 'hint', text: teams
-        ? t('peers.teamsHint', { teams: formatNumber(reference.team_equivalents, reference.team_equivalents % 1 ? 2 : 0) })
-        : t('peers.noTeams') }),
+      teams ? null : el('p', { class: 'hint', text: t('peers.noTeams') }),
       v.served_mean_distance !== undefined ? el('p', { class: 'hint', text: t('peers.reach', {
         distance: formatDistance(v.served_mean_distance), far: percent(v.served_far || 0),
       }) }) : null,
-      el('p', { class: 'hint', text: t('peers.catchmentHint', { distance: formatDistance(reference.mean_catchment_m || 0) }) }),
+      about(teams ? t('peers.teamsHint', { teams: formatNumber(reference.team_equivalents, reference.team_equivalents % 1 ? 2 : 0) }) : null,
+        t('peers.catchmentHint', { distance: formatDistance(reference.mean_catchment_m || 0) })),
       reference.near_edge ? el('p', { class: 'notice', text: t('peers.nearEdge', { distance: formatDistance(reference.edge_m || 0) }) }) : null,
     ];
   }
@@ -137,9 +136,9 @@ export function renderPeers(container, reference, facts, radius) {
   // The catchment does not depend on the radius on screen; everything else here does (rule C20)
   const catchment = reference.supply_measure === 'catchment' ? needBlock(reference) : [];
   if (!atReference) {
-    container.replaceChildren(title, ...catchment,
+    container.replaceChildren(...[title, ...catchment,
       el('p', { class: 'hint', text: t('peers.onlyReference', { radius: formatDistance(reference.radius) }) }),
-      catchment.length ? legend() : null);
+      catchment.length ? legend() : null].filter(Boolean));
     return;
   }
   const group = TYPE_GROUPS.find((g) => g.id === reference.group);
@@ -148,7 +147,7 @@ export function renderPeers(container, reference, facts, radius) {
     .map(({ key, label, format }) => rankRow(label(), format(reference.values[key]), reference.percentiles[key], reference.group_size));
   const territory = facts.find((f) => f.id === 'territory')?.slots.type?.text;
 
-  container.replaceChildren(
+  container.replaceChildren(...[
     title,
     el('p', { class: 'scope scope-radius', text: t('peers.scope', {
       radius: formatDistance(reference.radius), count: formatCount(reference.group_size),
@@ -157,9 +156,9 @@ export function renderPeers(container, reference, facts, radius) {
     territory ? el('p', { text: t('peers.type', {
       type: territory, count: formatCount(reference.type_size), total: formatCount(reference.facilities),
     }) }) : null,
-    territory ? typeExplanation(reference.territory_type) : null,
     el('div', { class: 'ranks', role: 'list' }, scaleHeader(), rows),
     ...needBlock(reference),
     legend(),
-    el('p', { class: 'hint', text: t('peers.deprivedHint') }));
+    about(territory ? typeExplanation(reference.territory_type) : null, t('peers.deprivedHint')),
+  ].filter(Boolean));
 }

@@ -3,7 +3,7 @@
 // they live in a tab of their own and every block names the scale it refers to.
 
 import { getDistrictIndicators, getMunicipalIndicators } from './api.js';
-import { barList, el, keyValues, section } from './charts.js';
+import { about, barList, el, keyValues, moreRows, section } from './charts.js';
 import { formatCount, formatDistance, formatNumber } from './fields.js';
 import { t } from './i18n.js';
 
@@ -89,7 +89,7 @@ function contextChart(title, surroundings, value, options, hint) {
     { label: t('sur.region'), data: census.region, muted: true },
   ].filter((scope) => scope.data);
   return section(title, barList(
-    scopes.map((scope) => ({ label: scope.label, value: value(scope.data), muted: scope.muted })), options), { hint });
+    scopes.map((scope) => ({ label: scope.label, value: value(scope.data), muted: scope.muted })), options), { note: hint });
 }
 
 /** Municipality against the metropolitan region for one municipal indicator. */
@@ -97,7 +97,7 @@ function municipalChart(title, home, region, value, options, hint) {
   return section(title, barList([
     { label: home.nome, value: value(home) },
     { label: t('sur.region'), value: value(region), muted: true },
-  ], options), { hint });
+  ], options), { note: hint });
 }
 
 /** District against the whole city, both from the SMS-SP systems. */
@@ -105,7 +105,7 @@ function districtChart(title, district, city, value, options, hint) {
   return section(title, barList([
     { label: district.nm_dist, value: value(district) },
     { label: t('ter.cityWithDistricts'), value: value(city), muted: true },
-  ], options), { hint });
+  ], options), { note: hint });
 }
 
 /** Observed count against the district model's expected count and 95% prediction interval. */
@@ -132,8 +132,8 @@ function modelBlock(models, district, outcome) {
       el('span', { class: 'model-key-dot' }), t('model.legendObserved'),
       el('span', { class: 'model-key-tick' }), t('model.legendExpected'),
       el('span', { class: 'model-key-band' }), t('model.legendBand')),
-    el('p', { class: 'hint' }, t('model.hint', { share: formatNumber(100 * (models.explained[outcome] || 0), 0) }), ' ',
-      el('a', { href: 'relations.html#surpresas', text: t('model.link') })));
+    about(el('p', {}, t('model.hint', { share: formatNumber(100 * (models.explained[outcome] || 0), 0) }), ' ',
+      el('a', { href: 'relations.html#surpresas', text: t('model.link') }))));
 }
 
 /** The district's place among the city's districts for one rate, as the narrative ranks it. */
@@ -172,17 +172,18 @@ function summaryCard(surroundings) {
   }
   return [
     cardTitle('sur.summary'),
+    // Income and residents per household are in the housing card
     keyValues([
+      [t('sur.residents'), formatCount(radius.population)],
+      [t('sur.households'), formatCount(radius.households)],
+      [t('sur.density'), area ? formatCount(Math.round((radius.population || 0) / area)) : '–'],
+    ], { numeric: true }),
+    moreRows([
       [t('sur.area'), formatNumber(area, 2)],
       [t('sur.tractsLabel'), formatCount(radius.tracts)],
       [t('sur.coverage'), total ? `${formatNumber((100 * inside) / total, 0)}%` : '–'],
-      [t('sur.residents'), formatCount(radius.population)],
-      [t('sur.households'), formatCount(radius.households)],
-      [t('ind.crowding'), formatNumber(radius.residents_per_household, 2)],
-      [t('sur.density'), area ? formatCount(Math.round((radius.population || 0) / area)) : '–'],
-      [t('ind.income'), radius.income ? `R$ ${formatCount(radius.income)}` : '–'],
-    ], { numeric: true }),
-    el('p', { class: 'hint', text: t('sur.summaryHint') }),
+    ]),
+    about(t('sur.summaryHint')),
   ];
 }
 
@@ -216,7 +217,7 @@ function accessCard(surroundings) {
       { label: t('ter.access.upto1000'), value: bands.upto_1000 },
       { label: t('ter.access.upto2000'), value: bands.upto_2000 },
       { label: t('ter.access.over2000'), value: bands.over_2000 },
-    ]), { hint: t('ter.access.bandsHint', { cnes: t('period.cnes') }) }),
+    ]), { note: t('ter.access.bandsHint', { cnes: t('period.cnes') }) }),
     contextChart(t('ter.access.far'), surroundings, (d) => d.far_primary_pct, { digits: 1, suffix: '%' }),
   ];
 }
@@ -260,7 +261,7 @@ function environmentCard(home, region) {
   return [
     cardTitle('health.env.title'),
     municipalScope(home),
-    section(t('ter.env.dengue'), dengue, { hint: t('ter.env.dengueHint') }),
+    section(t('ter.env.dengue'), dengue, { note: t('ter.env.dengueHint') }),
     referenceLegend(),
     municipalChart(t('ter.env.lepto'), home, region,
       (row) => per100k(sumYears(row, 'lepto') / years, row.populacao), { digits: 2 },
@@ -284,7 +285,7 @@ function maternalCard(home, region, district, models) {
     municipalScope(home),
     municipalChart(t('ter.mat.teen'), home, region, teen, pct),
     municipalChart(t('ter.mat.preterm'), home, region, preterm, pct),
-    el('p', { class: 'hint', text: t('ter.mat.hint', { count: formatCount(home.nasc_total) }) }),
+    about(t('ter.mat.hint', { count: formatCount(home.nasc_total) })),
   ];
 }
 
@@ -312,7 +313,7 @@ function mortalityCard(home, region, district) {
     ...(district ? [
       districtScope(district),
       section(t('ter.mort.causes'), causeShares(district.row, district.city), {
-        hint: t('ter.mort.districtHint', { count: formatCount(definedDeaths(district.row)), name: district.row.nm_dist }),
+        note: t('ter.mort.districtHint', { count: formatCount(definedDeaths(district.row)), name: district.row.nm_dist }),
       }),
       referenceLegend('ter.cityReferenceLegend'),
     ] : []),
@@ -322,7 +323,7 @@ function mortalityCard(home, region, district) {
         share: formatNumber(homeIllDefined, 1), name: home.nome }) })
       : null,
     section(t('ter.mort.causes'), causeShares(home, region),
-      { hint: t('ter.mort.hint', { count: formatCount(definedDeaths(home)), total: formatCount(home.obitos_total) }) }),
+      { note: t('ter.mort.hint', { count: formatCount(definedDeaths(home)), total: formatCount(home.obitos_total) }) }),
     municipalChart(t('ter.mort.illDefined'), home, region, illDefined, { digits: 1, suffix: '%' },
       t('ter.mort.illDefinedHint')),
     referenceLegend(),
