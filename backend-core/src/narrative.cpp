@@ -162,4 +162,11 @@ nlohmann::json narrate(const Payload& payload, const Config& config, const std::
             {"reference", payload.context}};
 }
 
+nlohmann::json servable(nlohmann::json body) {
+    if (body.at("verified").get<bool>()) return body;
+    for (const char* key : {"paragraphs", "text", "slotted"}) body.erase(key);
+    body["withheld"] = true;
+    return body;
+}
+
 }  // namespace story

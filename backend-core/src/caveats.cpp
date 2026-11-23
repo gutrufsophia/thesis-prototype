@@ -73,6 +73,19 @@ std::vector<Caveat> access_self(const Payload& p, const Rule& rule, std::vector<
     return {caveat(rule, "access")};
 }
 
+// Note 27: with few admissions or few expected deaths, a death rate is mostly chance.
+std::vector<Caveat> few_deaths(const Payload& p, const Rule& rule, std::vector<Fact>& facts) {
+    auto it = std::find_if(facts.begin(), facts.end(), [](const Fact& f) { return f.id == "deaths"; });
+    if (it == facts.end()) return {};
+    const bool few_admissions = number_or(p.facility, "internacoes_total") < rule.params.at("min_admissions").get<double>();
+    const bool few_expected = number_or(p.facility, "obitos_esperados") < rule.params.at("min_expected").get<double>();
+    if (!few_admissions && !few_expected) return {};
+    facts.erase(it);
+    facts.erase(std::remove_if(facts.begin(), facts.end(), [](const Fact& f) { return f.id == "casemix"; }), facts.end());
+    if (Fact* admissions = find_fact(facts, "admissions")) admissions->mandatory = false;
+    return {caveat(rule, "deaths", few_admissions ? "admissions" : "expected")};
+}
+
 // Note 15: a few cases move a rate a lot; give the count and drop the comparison.
 std::vector<Caveat> small_counts(const Payload&, const Rule& rule, std::vector<Fact>& facts) {
     const double limit = rule.params.at("small_count").get<double>();
@@ -257,6 +270,28 @@ PostRule always(const std::string& fact) {
     };
 }
 
+// Note 27: deaths far below what the case mix predicts usually mean that the sickest patients are
+// transferred elsewhere; far above, that the hospital takes the gravest cases within a diagnosis.
+// An empty band is every band. The caveats follow the explanation of the expected rate when it is told.
+PostRule deaths_band(std::string band) {
+    return [band](const Payload&, const Rule& rule, const std::vector<Fact>& facts, const Plan& plan) {
+        const Fact* f = find_fact(facts, "deaths");
+        if (!f || (!band.empty() && f->variant != band)) return std::vector<Caveat>{};
+        return when_planned(rule, plan, planned(plan, "casemix") ? "casemix" : "deaths");
+    };
+}
+
+// Note 28: a hospital that takes only referred patients but records nearly every admission as
+// elective gets the low death rate of planned admissions as its expected; the difference in coding
+// between hospitals biases the standardised ratio (Mohammed et al. 2009).
+std::vector<Caveat> elective_coding(const Payload& p, const Rule& rule, const std::vector<Fact>& facts, const Plan& plan) {
+    const Fact* f = find_fact(facts, "casemix");
+    if (!f || f->tier != Tier::Lower || f->variant.find("urgency") == std::string::npos) return {};
+    if (slot_number(*f, "elective_unit") < rule.params.at("min_elective_share").get<double>()) return {};
+    if (text(p.facility, "Fluxo_Clientela") != rule.params.at("flow").get<std::string>()) return {};
+    return when_planned(rule, plan, "casemix");
+}
+
 const std::map<std::string, PreRule>& pre_rules() {
     static const std::map<std::string, PreRule> rules{
         {"C01", hub},
@@ -264,6 +299,7 @@ const std::map<std::string, PreRule>& pre_rules() {
         {"C15", small_counts},
         {"C20", reference_radius},
         {"C21", sparse_supply},
+        {"C24", few_deaths},
     };
     return rules;
 }
@@ -290,6 +326,10 @@ const std::map<std::string, PostRule>& post_rules() {
         {"C19", model_surprise},
         {"C21b", catchment_edge},
         {"C22", catchment_distance},
+        {"C23", deaths_band("")},
+        {"C23b", deaths_band("below")},
+        {"C23c", deaths_band("above")},
+        {"C23d", elective_coding},
     };
     return rules;
 }

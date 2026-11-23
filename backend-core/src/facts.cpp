@@ -132,6 +132,62 @@ std::string network_class(const json& facility) {
     return text(facility, "esfera_juridica") == "Administração Pública" ? "public" : "sus_partner";
 }
 
+// What moves a hospital's expected death rate away from the regional one: the Shapley split among
+// diagnosis, age and admission type (database/reference/compute_hospital_mortality.py; Kitagawa
+// 1955, Shorrocks 2013). Told when one factor alone moves the expected rate by casemix_min_shift
+// of the regional rate; a second one joins when it weighs casemix_second of the first. It
+// describes the model's expected rate, not the deaths.
+std::optional<Fact> case_mix(const json& row, double expected, double admissions, const json& params) {
+    const json mix = row.value("mortalidade_perfil", json());
+    if (!mix.is_object() || admissions <= 0) return std::nullopt;
+    const double regional = number_or(mix, "taxa_regiao");
+    if (regional <= 0) return std::nullopt;
+    const double sign = percent(expected, admissions) >= regional ? 1 : -1;
+    const json shapley = mix.value("shapley_pp", json::object());
+    const std::vector<std::pair<std::string, std::string>> factors{
+        {"diagnosis", "diagnostico"}, {"age", "idade"}, {"urgency", "carater"}};
+    std::vector<std::pair<double, std::size_t>> shift;
+    for (std::size_t i = 0; i < factors.size(); ++i) shift.emplace_back(sign * number_or(shapley, factors[i].second), i);
+    std::stable_sort(shift.begin(), shift.end(), [](const auto& a, const auto& b) { return a.first > b.first; });
+    if (shift[0].first < param(params, "casemix_min_shift") * regional) return std::nullopt;
+    std::vector<std::size_t> named{shift[0].second};
+    if (shift[1].first >= param(params, "casemix_second") * shift[0].first) named.push_back(shift[1].second);
+    std::sort(named.begin(), named.end());
+
+    Fact f;
+    f.id = "casemix";
+    f.kind = "contrast";
+    f.theme = "unit";
+    f.mandatory = true;  // the context the death rate needs to be read
+    f.salience = 1;
+    f.tier = sign > 0 ? Tier::Higher : Tier::Lower;
+    f.valence = 0;
+    // No admission at 70 or more (children's hospitals, maternities) is said in words, not as 0.0%.
+    const bool no_old = number_or(mix, "idosos_pct") == 0;
+    for (std::size_t i : named) {
+        f.variant += (f.variant.empty() ? "" : "_") + factors[i].first + (factors[i].first == "age" && no_old ? "0" : "");
+    }
+    f.variant += sign > 0 ? ".up" : ".down";
+    f.slots["rate_region"] = Slot::percent(regional);
+    f.slots["elective_unit"] = Slot::percent(100 - number_or(mix, "urgencia_pct"));
+    for (std::size_t i : named) {
+        if (factors[i].first == "diagnosis") {
+            const double rate = number_or(mix, "capitulo_taxa_regiao");
+            f.slots["chapter"] = Slot::label("chapter:" + text(mix, "capitulo"));
+            f.slots["chapter_share_unit"] = Slot::percent(number_or(mix, "capitulo_pct"));
+            f.slots["chapter_share_region"] = Slot::percent(number_or(mix, "capitulo_regiao_pct"));
+            f.slots["chapter_rate_region"] = Slot::percent(rate, rate < 1 ? 2 : 1);
+        } else if (factors[i].first == "age") {
+            if (!no_old) f.slots["old_share_unit"] = Slot::percent(number_or(mix, "idosos_pct"));
+            f.slots["old_share_region"] = Slot::percent(number_or(mix, "idosos_regiao_pct"));
+        } else {
+            f.slots["urgent_share_unit"] = Slot::percent(number_or(mix, "urgencia_pct"));
+            f.slots["urgent_share_region"] = Slot::percent(number_or(mix, "urgencia_regiao_pct"));
+        }
+    }
+    return f;
+}
+
 void add_unit_facts(const Payload& p, const json& params, std::vector<Fact>& facts) {
     const auto& row = p.facility;
     const std::string type = text(row, "tipo_equipamento");
@@ -200,16 +256,42 @@ void add_unit_facts(const Payload& p, const json& params, std::vector<Fact>& fac
                 top_count = value.get<double>();
             }
         }
+        // In-hospital deaths against those the case mix predicts (database/reference/compute_hospital_mortality.py):
+        // diagnosis group x age group x admission type, read on a funnel plot among the region's hospitals.
+        const double expected = number_or(row, "obitos_esperados");
+        const std::string band = text(row, "mortalidade_faixa");
+        const bool has_deaths = row.contains("obitos_sus") && row.at("obitos_sus").is_number() && expected > 0 &&
+                                (band == "within" || band == "above" || band == "below");
+
         Fact f;
         f.id = "admissions";
         f.kind = "composition";
         f.theme = "unit";
         f.salience = 0.8;
+        f.mandatory = has_deaths;  // the case mix is what makes the death rate readable
         f.slots["total_unit"] = Slot::count(admissions);
         f.slots["share_unit"] = Slot::percent(percent(top_count, admissions));
         f.slots["chapter"] = Slot::label("chapter:" + top);
         f.slots["period"] = Slot::label("period:sih");
         facts.push_back(f);
+
+        if (has_deaths) {
+            const double deaths = number_or(row, "obitos_sus");
+            Fact d;
+            d.id = "deaths";
+            d.kind = "contrast";
+            d.theme = "unit";
+            d.mandatory = true;
+            d.salience = 1;
+            d.variant = band;
+            d.tier = band == "above" ? Tier::Higher : band == "below" ? Tier::Lower : Tier::Similar;
+            d.valence = band == "above" ? 1 : band == "below" ? -1 : 0;
+            d.slots["rate_unit"] = Slot::percent(percent(deaths, admissions));
+            d.slots["deaths_unit"] = Slot::count(deaths);
+            d.slots["expected_unit"] = Slot::percent(percent(expected, admissions));
+            facts.push_back(d);
+            if (auto mix = case_mix(row, expected, admissions, params)) facts.push_back(*mix);
+        }
 
         const double stay = number_or(row, "media_dias_permanencia");
         if (stay > 0 && !p.hospital_stays.empty()) {

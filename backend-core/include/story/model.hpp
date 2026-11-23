@@ -28,6 +28,7 @@ struct Slot {
     static Slot count(double n) { return {Kind::Count, n, 0, {}}; }
     static Slot estimate(double n) { return {Kind::Estimate, n, 0, {}}; }
     static Slot percent(double n) { return {Kind::Percent, n, 1, {}}; }
+    static Slot percent(double n, int digits) { return {Kind::Percent, n, digits, {}}; }
     static Slot rate(double n, int digits) { return {Kind::Rate, n, digits, {}}; }
     static Slot decimal(double n, int digits) { return {Kind::Decimal, n, digits, {}}; }
     static Slot ratio(double n) { return {Kind::Ratio, n, 1, {}}; }

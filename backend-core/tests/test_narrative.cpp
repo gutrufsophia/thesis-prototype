@@ -92,6 +92,20 @@ TEST_CASE("neighbouring facts are joined by the relation between them") {
     CHECK(text.find("Além disso, 0,6% dos domicílios") != std::string::npos);  // two indicators better than the city
 }
 
+TEST_CASE("a text that fails verification is not served") {
+    auto strict = test::config();
+    strict.languages.at("pt").max_words = 5;
+    const auto withheld = story::servable(story::narrate(test::fixture("padeiros_1000"), strict, "pt"));
+    CHECK(withheld.at("withheld").get<bool>());
+    CHECK_FALSE(withheld.contains("paragraphs"));
+    CHECK_FALSE(withheld.contains("text"));
+    CHECK(withheld.contains("facts"));
+
+    const auto served = story::servable(story::narrate(test::fixture("padeiros_1000"), test::config(), "pt"));
+    CHECK_FALSE(served.contains("withheld"));
+    CHECK(served.contains("paragraphs"));
+}
+
 TEST_CASE("the response carries the peer comparison the text cites") {
     const auto body = story::narrate(test::fixture("padeiros_1000"), test::config(), "pt");
     const auto& reference = body.at("reference");
@@ -99,4 +113,13 @@ TEST_CASE("the response carries the peer comparison the text cites") {
     CHECK(reference.at("radius").get<int>() == 1000);
     CHECK(reference.at("percentiles").contains("deprived"));
     CHECK(reference.contains("need_percentile"));
+}
+
+TEST_CASE("the territorial type stays on its card, out of the text") {
+    for (const char* name : test::kFixtures) {
+        const auto s = story::tell(test::fixture(name), test::config(), "pt");
+        for (const auto& paragraph : s.plan.paragraphs) {
+            CHECK(std::find(paragraph.begin(), paragraph.end(), "territory") == paragraph.end());
+        }
+    }
 }

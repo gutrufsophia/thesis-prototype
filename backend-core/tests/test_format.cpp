@@ -30,6 +30,10 @@ TEST_CASE("ratios are rounded to the nearest half") {
     CHECK(story::format_ratio(3.1, pt) == "3");
     CHECK(story::format_ratio(2.3, pt) == "2,5");
     CHECK(story::format_ratio(2.74, en) == "2.5");
+    // a tie goes down, so the word never overstates the figures beside it
+    CHECK(story::format_ratio(4.25, pt) == "4");
+    CHECK(story::format_ratio(2.75, pt) == "2,5");
+    CHECK(story::format_ratio(4.26, pt) == "4,5");
 }
 
 TEST_CASE("distances follow the frontend's formatDistance") {

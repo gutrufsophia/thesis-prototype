@@ -7,7 +7,7 @@ namespace story {
 
 namespace {
 
-const std::vector<std::string> kUnitOrder{"profile", "beds", "staff", "admissions", "stay", "position"};
+const std::vector<std::string> kUnitOrder{"profile", "beds", "staff", "admissions", "deaths", "casemix", "stay", "position"};
 const std::vector<std::string> kLiving{"sewage", "precarious", "garbage", "crowding", "crowded"};
 const std::vector<std::string> kPrimaryCareLeads{"surprise_tb", "surprise_teen", "need_supply", "peer"};
 const std::vector<std::string> kHospitals{"Hospital Geral", "Hospital Especializado", "Unidade Mista"};
@@ -68,8 +68,9 @@ Plan plan_document(std::vector<Fact>& facts, const nlohmann::json& params,
     }
 
     auto& surroundings = plan.paragraphs[kSurroundings];
+    // The territorial type stays on its card: a label from a weak clustering (silhouette 0.32)
+    // that summarises the living conditions the text already tells with numbers.
     if (find_fact(facts, "residents")) surroundings.push_back("residents");
-    if (find_fact(facts, "territory")) surroundings.push_back("territory");
     std::vector<std::string> living;
     for (Fact* f : by_importance(facts, kLiving)) {
         if (living.size() == max_living || f->importance() < min_importance) break;
