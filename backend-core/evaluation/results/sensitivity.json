@@ -1,0 +1,352 @@
+{
+ "facilities": 50,
+ "joint": {
+  "draws": 500,
+  "jaccard_caveats": {
+   "mean": 0.9004244444444436,
+   "median": 0.9015634920634923,
+   "p05": 0.8313333333333334,
+   "p95": 0.9545000000000001
+  },
+  "jaccard_facts": {
+   "mean": 0.8153089875679872,
+   "median": 0.8150238095238096,
+   "p05": 0.7418189033189034,
+   "p95": 0.8851507936507937
+  },
+  "same_facts_share": {
+   "mean": 0.21747999999999984,
+   "median": 0.2,
+   "p05": 0.06,
+   "p95": 0.42
+  },
+  "same_lead_share": {
+   "mean": 0.6495999999999977,
+   "median": 0.64,
+   "p05": 0.44,
+   "p95": 0.84
+  }
+ },
+ "one_at_a_time": {
+  "/casemix_min_shift": {
+   "x0.5": {
+    "jaccard_caveats": 1.0,
+    "jaccard_facts": 0.9940000000000001,
+    "min_jaccard_facts": 0.7,
+    "same_facts_share": 0.98,
+    "same_lead_share": 1.0
+   },
+   "x1.5": {
+    "jaccard_caveats": 1.0,
+    "jaccard_facts": 0.9955555555555555,
+    "min_jaccard_facts": 0.7777777777777778,
+    "same_facts_share": 0.98,
+    "same_lead_share": 1.0
+   }
+  },
+  "/casemix_second": {
+   "x0.5": {
+    "jaccard_caveats": 1.0,
+    "jaccard_facts": 1.0,
+    "min_jaccard_facts": 1.0,
+    "same_facts_share": 1.0,
+    "same_lead_share": 1.0
+   },
+   "x1.5": {
+    "jaccard_caveats": 1.0,
+    "jaccard_facts": 1.0,
+    "min_jaccard_facts": 1.0,
+    "same_facts_share": 1.0,
+    "same_lead_share": 1.0
+   }
+  },
+  "/district_boost": {
+   "x0.5": {
+    "jaccard_caveats": 0.991,
+    "jaccard_facts": 0.9604018759018761,
+    "min_jaccard_facts": 0.6,
+    "same_facts_share": 0.84,
+    "same_lead_share": 1.0
+   },
+   "x1.5": {
+    "jaccard_caveats": 0.9938095238095238,
+    "jaccard_facts": 0.9791666666666667,
+    "min_jaccard_facts": 0.75,
+    "same_facts_share": 0.9,
+    "same_lead_share": 1.0
+   }
+  },
+  "/min_importance": {
+   "x0.5": {
+    "jaccard_caveats": 0.9221825396825397,
+    "jaccard_facts": 0.8794170274170271,
+    "min_jaccard_facts": 0.42857142857142855,
+    "same_facts_share": 0.38,
+    "same_lead_share": 1.0
+   },
+   "x1.5": {
+    "jaccard_caveats": 0.9296587301587302,
+    "jaccard_facts": 0.9150714285714286,
+    "min_jaccard_facts": 0.625,
+    "same_facts_share": 0.52,
+    "same_lead_share": 1.0
+   }
+  },
+  "/need_high": {
+   "x0.5": {
+    "jaccard_caveats": 0.9942857142857143,
+    "jaccard_facts": 0.9701111111111111,
+    "min_jaccard_facts": 0.75,
+    "same_facts_share": 0.8,
+    "same_lead_share": 0.8
+   },
+   "x1.5": {
+    "jaccard_caveats": 0.9916666666666667,
+    "jaccard_facts": 0.9728412698412696,
+    "min_jaccard_facts": 0.7,
+    "same_facts_share": 0.8,
+    "same_lead_share": 0.84
+   }
+  },
+  "/pair_boost": {
+   "x0.5": {
+    "jaccard_caveats": 0.9105238095238096,
+    "jaccard_facts": 0.9165634920634922,
+    "min_jaccard_facts": 0.6666666666666666,
+    "same_facts_share": 0.6,
+    "same_lead_share": 1.0
+   },
+   "x1.5": {
+    "jaccard_caveats": 0.9458333333333335,
+    "jaccard_facts": 0.954838383838384,
+    "min_jaccard_facts": 0.6666666666666666,
+    "same_facts_share": 0.78,
+    "same_lead_share": 1.0
+   }
+  },
+  "/peer_extreme": {
+   "x0.5": {
+    "jaccard_caveats": 0.9971428571428572,
+    "jaccard_facts": 0.9493650793650792,
+    "min_jaccard_facts": 0.8,
+    "same_facts_share": 0.62,
+    "same_lead_share": 0.72
+   },
+   "x1.5": {
+    "jaccard_caveats": 0.9925,
+    "jaccard_facts": 0.9305396825396823,
+    "min_jaccard_facts": 0.7,
+    "same_facts_share": 0.48,
+    "same_lead_share": 0.6
+   }
+  },
+  "/rank_extreme": {
+   "x0.5": {
+    "jaccard_caveats": 1.0,
+    "jaccard_facts": 1.0,
+    "min_jaccard_facts": 1.0,
+    "same_facts_share": 1.0,
+    "same_lead_share": 1.0
+   },
+   "x1.5": {
+    "jaccard_caveats": 0.9971428571428572,
+    "jaccard_facts": 0.9940000000000001,
+    "min_jaccard_facts": 0.8,
+    "same_facts_share": 0.96,
+    "same_lead_share": 1.0
+   }
+  },
+  "/region_weight": {
+   "x0.5": {
+    "jaccard_caveats": 0.9861666666666667,
+    "jaccard_facts": 0.9717777777777777,
+    "min_jaccard_facts": 0.7,
+    "same_facts_share": 0.84,
+    "same_lead_share": 1.0
+   },
+   "x1.5": {
+    "jaccard_caveats": 0.995,
+    "jaccard_facts": 0.9643650793650792,
+    "min_jaccard_facts": 0.5555555555555556,
+    "same_facts_share": 0.82,
+    "same_lead_share": 1.0
+   }
+  },
+  "/reliability/approximate_position": {
+   "x0.5": {
+    "jaccard_caveats": 0.98,
+    "jaccard_facts": 0.9792142857142858,
+    "min_jaccard_facts": 0.7142857142857143,
+    "same_facts_share": 0.9,
+    "same_lead_share": 1.0
+   },
+   "x1.5": {
+    "jaccard_caveats": 0.9921428571428571,
+    "jaccard_facts": 0.9739444444444445,
+    "min_jaccard_facts": 0.5,
+    "same_facts_share": 0.9,
+    "same_lead_share": 1.0
+   }
+  },
+  "/reliability/few_tracts": {
+   "x0.5": {
+    "jaccard_caveats": 1.0,
+    "jaccard_facts": 1.0,
+    "min_jaccard_facts": 1.0,
+    "same_facts_share": 1.0,
+    "same_lead_share": 1.0
+   },
+   "x1.5": {
+    "jaccard_caveats": 1.0,
+    "jaccard_facts": 1.0,
+    "min_jaccard_facts": 1.0,
+    "same_facts_share": 1.0,
+    "same_lead_share": 1.0
+   }
+  },
+  "/reliability/low_coverage": {
+   "x0.5": {
+    "jaccard_caveats": 0.995,
+    "jaccard_facts": 0.9897777777777778,
+    "min_jaccard_facts": 0.6,
+    "same_facts_share": 0.96,
+    "same_lead_share": 1.0
+   },
+   "x1.5": {
+    "jaccard_caveats": 0.995,
+    "jaccard_facts": 0.9955555555555555,
+    "min_jaccard_facts": 0.7777777777777778,
+    "same_facts_share": 0.98,
+    "same_lead_share": 1.0
+   }
+  },
+  "/saturation_pp": {
+   "x0.5": {
+    "jaccard_caveats": 0.9085000000000002,
+    "jaccard_facts": 0.8789603174603176,
+    "min_jaccard_facts": 0.5,
+    "same_facts_share": 0.46,
+    "same_lead_share": 1.0
+   },
+   "x1.5": {
+    "jaccard_caveats": 0.9475000000000001,
+    "jaccard_facts": 0.9031709956709958,
+    "min_jaccard_facts": 0.625,
+    "same_facts_share": 0.48,
+    "same_lead_share": 1.0
+   }
+  },
+  "/saturation_ratio": {
+   "x0.5": {
+    "jaccard_caveats": 0.9205952380952382,
+    "jaccard_facts": 0.9233477633477634,
+    "min_jaccard_facts": 0.6666666666666666,
+    "same_facts_share": 0.62,
+    "same_lead_share": 1.0
+   },
+   "x1.5": {
+    "jaccard_caveats": 0.9460952380952381,
+    "jaccard_facts": 0.9557301587301589,
+    "min_jaccard_facts": 0.6,
+    "same_facts_share": 0.78,
+    "same_lead_share": 1.0
+   }
+  },
+  "/theme_weights/access": {
+   "x0.5": {
+    "jaccard_caveats": 0.9490238095238094,
+    "jaccard_facts": 0.968095238095238,
+    "min_jaccard_facts": 0.7777777777777778,
+    "same_facts_share": 0.76,
+    "same_lead_share": 1.0
+   },
+   "x1.5": {
+    "jaccard_caveats": 0.986,
+    "jaccard_facts": 0.9893333333333334,
+    "min_jaccard_facts": 0.7777777777777778,
+    "same_facts_share": 0.94,
+    "same_lead_share": 1.0
+   }
+  },
+  "/theme_weights/comparison": {
+   "x0.5": {
+    "jaccard_caveats": 0.9925,
+    "jaccard_facts": 0.9911111111111112,
+    "min_jaccard_facts": 0.7777777777777778,
+    "same_facts_share": 0.96,
+    "same_lead_share": 0.96
+   },
+   "x1.5": {
+    "jaccard_caveats": 1.0,
+    "jaccard_facts": 1.0,
+    "min_jaccard_facts": 1.0,
+    "same_facts_share": 1.0,
+    "same_lead_share": 0.9
+   }
+  },
+  "/theme_weights/living": {
+   "x0.5": {
+    "jaccard_caveats": 0.9766666666666667,
+    "jaccard_facts": 0.8971825396825395,
+    "min_jaccard_facts": 0.5,
+    "same_facts_share": 0.46,
+    "same_lead_share": 1.0
+   },
+   "x1.5": {
+    "jaccard_caveats": 0.9842857142857143,
+    "jaccard_facts": 0.9436984126984127,
+    "min_jaccard_facts": 0.5,
+    "same_facts_share": 0.76,
+    "same_lead_share": 1.0
+   }
+  },
+  "/theme_weights/network": {
+   "x0.5": {
+    "jaccard_caveats": 1.0,
+    "jaccard_facts": 0.9939999999999999,
+    "min_jaccard_facts": 0.9,
+    "same_facts_share": 0.94,
+    "same_lead_share": 1.0
+   },
+   "x1.5": {
+    "jaccard_caveats": 0.9824761904761905,
+    "jaccard_facts": 0.9513888888888886,
+    "min_jaccard_facts": 0.8,
+    "same_facts_share": 0.62,
+    "same_lead_share": 1.0
+   }
+  },
+  "/theme_weights/outcome": {
+   "x0.5": {
+    "jaccard_caveats": 0.9320396825396826,
+    "jaccard_facts": 0.9503174603174602,
+    "min_jaccard_facts": 0.7,
+    "same_facts_share": 0.64,
+    "same_lead_share": 1.0
+   },
+   "x1.5": {
+    "jaccard_caveats": 0.9942857142857143,
+    "jaccard_facts": 0.9897222222222223,
+    "min_jaccard_facts": 0.8333333333333334,
+    "same_facts_share": 0.92,
+    "same_lead_share": 1.0
+   }
+  },
+  "/theme_weights/tension": {
+   "x0.5": {
+    "jaccard_caveats": 0.995,
+    "jaccard_facts": 0.9940000000000001,
+    "min_jaccard_facts": 0.7,
+    "same_facts_share": 0.98,
+    "same_lead_share": 0.9
+   },
+   "x1.5": {
+    "jaccard_caveats": 1.0,
+    "jaccard_facts": 1.0,
+    "min_jaccard_facts": 1.0,
+    "same_facts_share": 1.0,
+    "same_lead_share": 0.96
+   }
+  }
+ }
+}

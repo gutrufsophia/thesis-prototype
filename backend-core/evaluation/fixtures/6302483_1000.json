@@ -145,7 +145,11 @@
   "tipo_equipamento": "Clínica/Centro de Especialidade",
   "total_enfermeiros": 0,
   "total_medicos": 6,
-  "total_saude_mental": 3
+  "total_saude_mental": 3,
+  "obitos_sus": null,
+  "obitos_esperados": null,
+  "mortalidade_faixa": null,
+  "mortalidade_perfil": null
  },
  "hospital_stays": [
   0.0,

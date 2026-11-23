@@ -1,0 +1,29 @@
+{
+ "cnes": "9152660",
+ "condition": "free",
+ "seed": 3,
+ "provider": "ollama",
+ "model": "gemma4:e4b",
+ "digest": "dc35e8d9c6061baa6f0fa870975ab6932e2542b579b13ea0f199fa4bb7300c9c",
+ "options": {
+  "seed": 3,
+  "temperature": 1.0,
+  "num_ctx": 6144,
+  "num_predict": 900,
+  "num_thread": 4,
+  "top_p": 0.95,
+  "top_k": 64
+ },
+ "storyteller_version": "0.3.4",
+ "created_at": "2026-11-23T03:39:54+00:00",
+ "stats": {
+  "prompt_tokens": 1073,
+  "output_tokens": 581,
+  "prompt_s": 0.4,
+  "output_s": 138.0,
+  "total_s": 138.4
+ },
+ "system": "Você escreve a seção “Leitura do território” da página de uma unidade de saúde no CulturaEduca, uma plataforma pública de mapas. O leitor é alguém da comunidade, da educação ou da gestão, sem formação em estatística.\n\nEscreva em português, usando só os dados fornecidos:\n- Siga a ordem dos parágrafos dados e escreva um parágrafo para cada um.\n- Conte todos os dados listados, e nenhum outro. Não invente números; você pode arredondar.\n- Todo número deve dizer, na mesma frase, a que área se refere: o raio em volta da unidade, a área de atendimento, o distrito, a cidade, o município ou a região metropolitana.\n- Inclua cada aviso obrigatório junto do dado a que ele se refere.\n- Não diga que um fator causa, explica ou contribui para outro: os dados mostram só que as coisas aparecem juntas.\n- No máximo 340 palavras.\n- Responda só com o texto, sem título, sem listas e sem formatação.",
+ "user": "Unidade: MAXILABOR BUTANTA (Unidade de Apoio Diagnose e Terapia (SADT Isolado))\n\nParágrafo 1\nDado: Comparação com unidades do mesmo grupo (raio de 1 km)\n- Moradores em setores com alguma privação: 0,0%; maior que em 5,0% e menor que em 95,0% das 2.488 unidades de diagnose e terapia\n\nParágrafo 2\nDado: Perfil da unidade\n- Tipo (CNES): Unidade de Apoio Diagnose e Terapia (SADT Isolado)\n- Rede pública ou com vínculo SUS: não\n- Fluxo de clientela: demanda espontânea e referenciada\nDado: Posição da unidade\n- Posição no mapa: centro da rua no CNEFE (aproximada)\n- Incerteza da posição: 103 m\n- Aviso obrigatório: a posição da unidade no mapa é aproximada ou foi substituída pela do endereço: diga isso.\n\nParágrafo 3\nDado: Moradores do raio (Censo 2022)\n- Moradores: 8.611\n- Domicílios: 3.845\n- Setores tocados pelo raio: 44\n- Parte da população desses setores dentro do raio: 72%\n- Aviso obrigatório: os números de moradores e domicílios são estimativas a partir do Censo: use “cerca de” ou “estimativa”.\nDado: Moradores em setores entre os 10% mais adensados (3,1 ou mais por domicílio)\n- Raio de 1,0 km: 0,0%\n- município de São Paulo: 10,1%\n- região metropolitana: 13,7%\nDado: Moradores a mais de 1 km de UBS pública (em linha reta)\n- Raio de 1,0 km: 33,1%\n- município de São Paulo: 12,9%\n- região metropolitana: 13,0%\n- Aviso obrigatório: as distâncias são em linha reta: diga “em linha reta”.\n- Aviso obrigatório: inclua junto deste dado o aviso a seguir, com estas ou outras palavras, mantendo a expressão “planos de saúde”: “Com tantos serviços privados no raio, estar longe da rede básica pública não indica, sozinho, falta de atendimento: parte dos moradores usa planos de saúde.”\n\nParágrafo 4\nDado: Tuberculose no distrito Butantã (SMS-SP, 2022–2025)\n- Casos por 100 mil hab. por ano: 52,7\n- Casos no período: 109\n- Cidade de São Paulo: 72,6\n- Posição entre os distritos: 27ª menor e 70ª maior taxa entre 96\n- Aviso obrigatório: inclua antes deste dado o aviso a seguir, com estas ou outras palavras, mantendo a expressão “Não há dados de doença”: “Não há dados de doença para áreas do tamanho do raio: os números a seguir são do distrito.”\n- Aviso obrigatório: a taxa do distrito conta só moradores com endereço; pessoas sem residência fixa ficam de fora: diga isso.\nDado: Nascimentos no distrito Butantã (SMS-SP, 2022–2024)\n- Mães com menos de 20 anos: 3,2% (45 nascimentos)\n- Cidade de São Paulo: mães com menos de 20 anos: 7,4%\n- Prematuros (menos de 37 semanas): 10,0%\n- Cidade de São Paulo: prematuros: 11,1%",
+ "response": "Moradores em setores com alguma privação no raio de 1 km em volta da Unidade MAXILABOR BUTANTA apresentam 0,0%, um percentual maior que em 5,0% e menor que em 95,0% das 2.488 unidades de diagnose e terapia. A Unidade MAXILABOR BUTANTA é uma Unidade de Apoio Diagnose e Terapia (SADT Isolado) e não pertence à rede pública ou com vínculo SUS. Ela atende por demanda espontânea e referenciada, e sua posição no mapa é aproximada ou foi substituída pela do endereço, sendo localizada no centro da rua no CNEFE (aproximada) com 103 m de incerteza.\n\nEstima-se que no raio de 1 km em volta da unidade, há cerca de 8.611 moradores em 3.845 domicílios, abrangendo 44 setores, dos quais 72% da população está dentro do raio. No raio de 1,0 km, o percentual de moradores em setores entre os 10% mais adensados (3,1 ou mais por domicílio) é de 0,0%, enquanto no município de São Paulo é de 10,1% e na região metropolitana é de 13,7%. Além disso, em linha reta, 33,1% dos moradores no raio de 1,0 km estão a mais de 1 km de UBS pública, comparado a 12,9% no município de São Paulo e 13,0% na região metropolitana; com tantos serviços privados no raio, estar longe da rede básica pública não indica, sozinho, falta de atendimento: parte dos moradores usa planos de saúde.\n\nNão há dados de doença para áreas do tamanho do raio: os números a seguir são do distrito, onde a taxa de tuberculose no distrito Butantã (SMS-SP, 2022–2025) é de 52,7 casos por 100 mil hab. por ano e 109 casos no período; essa taxa no distrito conta só moradores com endereço, e a posição do distrito Butantã se encontra entre a 27ª menor e 70ª maior taxa entre 96. Em relação a nascimentos no distrito Butantã (SMS-SP, 2022–2024), 3,2% das mães em idade fértil tinham menos de 20 anos, enquanto no município de São Paulo esse percentual é de 7,4%, e 10,0% dos nascimentos foram prematuros, comparado a 11,1% no município de São Paulo."
+}

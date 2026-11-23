@@ -1,0 +1,27 @@
+{
+ "cnes": "3956954",
+ "condition": "free",
+ "seed": 0,
+ "provider": "ollama",
+ "model": "gemma4:e4b",
+ "digest": "dc35e8d9c6061baa6f0fa870975ab6932e2542b579b13ea0f199fa4bb7300c9c",
+ "options": {
+  "seed": 0,
+  "temperature": 0.0,
+  "num_ctx": 6144,
+  "num_predict": 900,
+  "num_thread": 4
+ },
+ "storyteller_version": "0.3.4",
+ "created_at": "2026-11-23T02:45:57+00:00",
+ "stats": {
+  "prompt_tokens": 903,
+  "output_tokens": 503,
+  "prompt_s": 76.0,
+  "output_s": 111.3,
+  "total_s": 187.4
+ },
+ "system": "Você escreve a seção “Leitura do território” da página de uma unidade de saúde no CulturaEduca, uma plataforma pública de mapas. O leitor é alguém da comunidade, da educação ou da gestão, sem formação em estatística.\n\nEscreva em português, usando só os dados fornecidos:\n- Siga a ordem dos parágrafos dados e escreva um parágrafo para cada um.\n- Conte todos os dados listados, e nenhum outro. Não invente números; você pode arredondar.\n- Todo número deve dizer, na mesma frase, a que área se refere: o raio em volta da unidade, a área de atendimento, o distrito, a cidade, o município ou a região metropolitana.\n- Inclua cada aviso obrigatório junto do dado a que ele se refere.\n- Não diga que um fator causa, explica ou contribui para outro: os dados mostram só que as coisas aparecem juntas.\n- No máximo 340 palavras.\n- Responda só com o texto, sem título, sem listas e sem formatação.",
+ "user": "Unidade: UBS PARAISOPOLIS II (Centro de Saúde/UBS)\n\nParágrafo 1\nDado: Nascimentos de mães com menos de 20 anos no distrito Vila Andrade: observado e esperado pelo modelo (2022–2024)\n- Observados: 407\n- Esperados pelo modelo: 225,1\n- Faixa de previsão de 95%: 131,7 a 318,6\n- Aviso obrigatório: inclua junto deste dado o aviso a seguir, com estas ou outras palavras, mantendo a expressão “não mede”: “O modelo usa só renda, moradia e saneamento do Censo: a diferença aponta fatores que ele não mede, sem dizer quais.”\n\nParágrafo 2\nDado: Perfil da unidade\n- Tipo (CNES): Centro de Saúde/UBS\n- Rede pública ou com vínculo SUS: sim\n- Fluxo de clientela: demanda espontânea e referenciada\nDado: Profissionais da unidade\n- Vínculos de médicos: 13\n- Vínculos de enfermeiros: 8\n- Aviso obrigatório: os números de médicos e enfermeiros contam vínculos registrados no CNES, não pessoas: use a palavra “vínculos”.\n\nParágrafo 3\nDado: Moradores do raio (Censo 2022)\n- Moradores: 87.347\n- Domicílios: 32.608\n- Setores tocados pelo raio: 172\n- Parte da população desses setores dentro do raio: 90%\n- Aviso obrigatório: os números de moradores e domicílios são estimativas a partir do Censo: use “cerca de” ou “estimativa”.\nDado: Domicílios fora da rede de esgoto\n- Raio de 1,0 km: 9,6%\n- município de São Paulo: 4,8%\n- região metropolitana: 8,3%\n- Raio: com esgoto precário (fossa rudimentar, vala, rio…): 6,2%\nDado: Moradores em setores entre os 10% mais adensados (3,1 ou mais por domicílio)\n- Raio de 1,0 km: 5,6%\n- município de São Paulo: 10,1%\n- região metropolitana: 13,7%\n\nParágrafo 4\nDado: Leptospirose no município de São Paulo (2022–2025)\n- Casos por 100 mil hab. por ano: 1,29\n- Casos no período: 590\n- Região metropolitana: 1,13\n- Aviso obrigatório: inclua antes deste dado o aviso a seguir, com estas ou outras palavras, mantendo a expressão “Não há dados de doença”: “Não há dados de doença para áreas do tamanho do raio: os números a seguir são do município inteiro.”",
+ "response": "No distrito Vila Andrade, observou-se 407 nascimentos de mães com menos de 20 anos entre 2022 e 2024, enquanto o modelo esperava 225,1. A faixa de previsão de 95% para este dado é de 131,7 a 318,6. O modelo usa só renda, moradia e saneamento do Censo: a diferença aponta fatores que ele não mede, sem dizer quais.\n\nA UBS PARAISOPOLIS II é um Centro de Saúde/UBS que faz parte da rede pública ou com vínculo SUS, e seu fluxo de clientela é demanda espontânea e referenciada. A unidade possui 13 vínculos de médicos e 8 vínculos de enfermeiros, sendo que os números de médicos e enfermeiros contam vínculos registrados no CNES, não pessoas.\n\nNo raio da unidade, a estimativa do Censo 2022 indica cerca de 87.347 moradores e 32.608 domicílios, abrangendo 172 setores tocados pelo raio, com cerca de 90% da população desses setores dentro do raio. No raio de 1,0 km, 9,6% dos domicílios não têm rede de esgoto, comparado a 4,8% no município de São Paulo e 8,3% na região metropolitana. No raio, 6,2% dos domicílios têm esgoto precário (fossa rudimentar, vala, rio…). No raio de 1,0 km, 5,6% dos moradores estão em setores entre os 10% mais adensados (3,1 ou mais por domicílio), enquanto 10,1% estão no município de São Paulo e 13,7% na região metropolitana.\n\nNão há dados de doença para áreas do tamanho do raio: os números a seguir são do município inteiro. Em relação à Leptospirose no município de São Paulo entre 2022 e 2025, o número de casos por 100 mil hab. por ano é de 1,29, totalizando 590 casos no período. Na região metropolitana, o número de casos por 100 mil hab. por ano é de 1,13."
+}

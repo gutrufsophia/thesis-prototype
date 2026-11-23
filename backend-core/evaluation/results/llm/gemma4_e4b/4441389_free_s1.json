@@ -1,0 +1,29 @@
+{
+ "cnes": "4441389",
+ "condition": "free",
+ "seed": 1,
+ "provider": "ollama",
+ "model": "gemma4:e4b",
+ "digest": "dc35e8d9c6061baa6f0fa870975ab6932e2542b579b13ea0f199fa4bb7300c9c",
+ "options": {
+  "seed": 1,
+  "temperature": 1.0,
+  "num_ctx": 6144,
+  "num_predict": 900,
+  "num_thread": 4,
+  "top_p": 0.95,
+  "top_k": 64
+ },
+ "storyteller_version": "0.3.4",
+ "created_at": "2026-11-23T03:55:22+00:00",
+ "stats": {
+  "prompt_tokens": 1014,
+  "output_tokens": 586,
+  "prompt_s": 0.9,
+  "output_s": 134.0,
+  "total_s": 135.1
+ },
+ "system": "Você escreve a seção “Leitura do território” da página de uma unidade de saúde no CulturaEduca, uma plataforma pública de mapas. O leitor é alguém da comunidade, da educação ou da gestão, sem formação em estatística.\n\nEscreva em português, usando só os dados fornecidos:\n- Siga a ordem dos parágrafos dados e escreva um parágrafo para cada um.\n- Conte todos os dados listados, e nenhum outro. Não invente números; você pode arredondar.\n- Todo número deve dizer, na mesma frase, a que área se refere: o raio em volta da unidade, a área de atendimento, o distrito, a cidade, o município ou a região metropolitana.\n- Inclua cada aviso obrigatório junto do dado a que ele se refere.\n- Não diga que um fator causa, explica ou contribui para outro: os dados mostram só que as coisas aparecem juntas.\n- No máximo 340 palavras.\n- Responda só com o texto, sem título, sem listas e sem formatação.",
+ "user": "Unidade: AUTOLOGUS (Unidade de Apoio Diagnose e Terapia (SADT Isolado))\n\nParágrafo 1\nDado: Comparação com unidades do mesmo grupo (raio de 1 km)\n- Domicílios com esgoto precário: 0,0%; maior que em 1,7% e menor que em 98,3% das 2.488 unidades de diagnose e terapia\n\nParágrafo 2\nDado: Perfil da unidade\n- Tipo (CNES): Unidade de Apoio Diagnose e Terapia (SADT Isolado)\n- Rede pública ou com vínculo SUS: não\n- Fluxo de clientela: demanda espontânea e referenciada\nDado: Posição da unidade\n- Posição no mapa: coordenada do CNES substituída pelo endereço no CNEFE\n- Distância entre a coordenada do CNES e o endereço: 14,5 km\n- Aviso obrigatório: a posição da unidade no mapa é aproximada ou foi substituída pela do endereço: diga isso.\n\nParágrafo 3\nDado: Moradores do raio (Censo 2022)\n- Moradores: 20.609\n- Domicílios: 8.681\n- Setores tocados pelo raio: 77\n- Parte da população desses setores dentro do raio: 79%\n- Aviso obrigatório: os números de moradores e domicílios são estimativas a partir do Censo: use “cerca de” ou “estimativa”.\nDado: Moradores em setores entre os 10% mais adensados (3,1 ou mais por domicílio)\n- Raio de 1,0 km: 3,9%\n- município de São Paulo: 10,1%\n- região metropolitana: 13,7%\nDado: Domicílios fora da rede de esgoto\n- Raio de 1,0 km: 0,1%\n- município de São Paulo: 4,8%\n- região metropolitana: 8,3%\n- Raio: com esgoto precário (fossa rudimentar, vala, rio…): 0,0%\n\nParágrafo 4\nDado: Tuberculose no distrito Santo Amaro (SMS-SP, 2022–2025)\n- Casos por 100 mil hab. por ano: 35,1\n- Casos no período: 120\n- Cidade de São Paulo: 72,6\n- Posição entre os distritos: 12ª menor e 85ª maior taxa entre 96\n- Aviso obrigatório: inclua antes deste dado o aviso a seguir, com estas ou outras palavras, mantendo a expressão “Não há dados de doença”: “Não há dados de doença para áreas do tamanho do raio: os números a seguir são do distrito.”\n- Aviso obrigatório: a taxa do distrito conta só moradores com endereço; pessoas sem residência fixa ficam de fora: diga isso.\nDado: Nascimentos no distrito Santo Amaro (SMS-SP, 2022–2024)\n- Mães com menos de 20 anos: 1,0% (24 nascimentos)\n- Cidade de São Paulo: mães com menos de 20 anos: 7,4%\n- Prematuros (menos de 37 semanas): 11,2%\n- Cidade de São Paulo: prematuros: 11,1%",
+ "response": "Domicílios com esgoto precário na comparação com unidades do mesmo grupo, em um raio de 1 km, apresentam 0,0%, um valor maior que em 1,7% e menor que em 98,3% das 2.488 unidades de diagnose e terapia. A unidade AUTOLOGUS é do tipo Unidade de Apoio Diagnose e Terapia (SADT Isolado), não possui rede pública ou vínculo SUS, e seu fluxo de clientela é demanda espontânea e referenciada. A posição da unidade no mapa utiliza o endereço no CNEFE em vez da coordenada do CNES, com uma distância de 14,5 km entre a coordenada do CNES e o endereço; a posição da unidade no mapa é aproximada ou foi substituída pela do endereço. A estimativa de moradores no raio de 1 km é de 20.609, distribuídos em 8.681 domicílios que abrangem 77 setores, sendo que cerca de 79% da população desses setores está dentro do raio. No raio de 1,0 km, a porcentagem de moradores nos 10% mais adensados é de 3,9%, enquanto no município de São Paulo é de 10,1% e na região metropolitana é de 13,7%. Em domicílios fora da rede de esgoto, o raio de 1,0 km apresenta 0,1%, o município de São Paulo apresenta 4,8% e a região metropolitana apresenta 8,3%; o raio com esgoto precário (fossa rudimentar, vala, rio…) mostra 0,0%. Não há dados de doença para áreas do tamanho do raio: os números a seguir são do distrito, referente ao distrito Santo Amaro (SMS-SP, 2022–2025), onde os casos de tuberculose por 100 mil hab. por ano são 35,1, totalizando 120 casos no período, sendo a taxa na cidade de São Paulo de 72,6; este dado está na 12ª menor e 85ª maior posição entre os 96 distritos; a taxa do distrito conta só moradores com endereço; pessoas sem residência fixa ficam de fora. Nos nascimentos no distrito Santo Amaro (SMS-SP, 2022–2024), as mães com menos de 20 anos representam 1,0% (24 nascimentos), comparado a 7,4% na cidade de São Paulo; a taxa de prematuros (menos de 37 semanas) no distrito é de 11,2%, enquanto na cidade de São Paulo é de 11,1%."
+}

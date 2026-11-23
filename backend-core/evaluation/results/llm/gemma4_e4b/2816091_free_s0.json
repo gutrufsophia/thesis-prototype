@@ -1,0 +1,27 @@
+{
+ "cnes": "2816091",
+ "condition": "free",
+ "seed": 0,
+ "provider": "ollama",
+ "model": "gemma4:e4b",
+ "digest": "dc35e8d9c6061baa6f0fa870975ab6932e2542b579b13ea0f199fa4bb7300c9c",
+ "options": {
+  "seed": 0,
+  "temperature": 0.0,
+  "num_ctx": 6144,
+  "num_predict": 900,
+  "num_thread": 4
+ },
+ "storyteller_version": "0.3.4",
+ "created_at": "2026-11-23T02:37:37+00:00",
+ "stats": {
+  "prompt_tokens": 943,
+  "output_tokens": 493,
+  "prompt_s": 75.2,
+  "output_s": 111.3,
+  "total_s": 186.7
+ },
+ "system": "Você escreve a seção “Leitura do território” da página de uma unidade de saúde no CulturaEduca, uma plataforma pública de mapas. O leitor é alguém da comunidade, da educação ou da gestão, sem formação em estatística.\n\nEscreva em português, usando só os dados fornecidos:\n- Siga a ordem dos parágrafos dados e escreva um parágrafo para cada um.\n- Conte todos os dados listados, e nenhum outro. Não invente números; você pode arredondar.\n- Todo número deve dizer, na mesma frase, a que área se refere: o raio em volta da unidade, a área de atendimento, o distrito, a cidade, o município ou a região metropolitana.\n- Inclua cada aviso obrigatório junto do dado a que ele se refere.\n- Não diga que um fator causa, explica ou contribui para outro: os dados mostram só que as coisas aparecem juntas.\n- No máximo 340 palavras.\n- Responda só com o texto, sem título, sem listas e sem formatação.",
+ "user": "Unidade: UNIDADE DE ATENDIMENTO A DENGUE UAD PARAVENTI (Posto de Saúde)\n\nParágrafo 1\nDado: Perfil da unidade\n- Tipo (CNES): Posto de Saúde\n- Rede pública ou com vínculo SUS: sim\n- Fluxo de clientela: demanda espontânea e referenciada\n\nParágrafo 2\nDado: Moradores do raio (Censo 2022)\n- Moradores: 36.457\n- Domicílios: 13.314\n- Setores tocados pelo raio: 93\n- Parte da população desses setores dentro do raio: 77%\n- Aviso obrigatório: os números de moradores e domicílios são estimativas a partir do Censo: use “cerca de” ou “estimativa”.\nDado: Moradores em setores entre os 10% mais adensados (3,1 ou mais por domicílio)\n- Raio de 1,0 km: 14,5%\n- município de Guarulhos: 23,3%\n- região metropolitana: 13,7%\nDado: Domicílios fora da rede de esgoto\n- Raio de 1,0 km: 1,6%\n- município de Guarulhos: 8,0%\n- região metropolitana: 8,3%\n- Raio: com esgoto precário (fossa rudimentar, vala, rio…): 1,4%\nDado: Outras unidades de saúde no raio\n- Total: 10\n- Públicas ou com vínculo SUS: 7\n- Privadas sem vínculo SUS: 3\n- Hospitais com 50 leitos ou mais: 1\n- Aviso obrigatório: inclua junto deste dado o aviso a seguir, com estas ou outras palavras, mantendo a expressão “toda a região”: “Há hospital de grande porte no raio, que atende pacientes de toda a região: taxas por morador do entorno não descrevem o alcance dessa capacidade.”\n\nParágrafo 3\nDado: Dengue no município de Guarulhos, casos prováveis por 100 mil hab.\n- 2025: 427 (5.522 casos; região: 566)\n- 2024: 6.272 (81.017 casos; região: 4.533)\n- 2023: 146 (1.882 casos; região: 107)\n- 2022: 83 (1.066 casos; região: 88)\n- Aviso obrigatório: inclua antes deste dado o aviso a seguir, com estas ou outras palavras, mantendo a expressão “Não há dados de doença”: “Não há dados de doença para áreas do tamanho do raio: os números a seguir são do município inteiro.”\n- Aviso obrigatório: inclua junto deste dado o aviso a seguir, com estas ou outras palavras, mantendo a expressão “epidemia”: “Em 2024, ano de epidemia, a taxa do município chegou a 6.272.”",
+ "response": "A UNIDADE DE ATENDIMENTO A DENGUE UAD PARAVENTI é um Posto de Saúde que faz parte da rede pública do SUS, e seu fluxo de clientela é composto por demanda espontânea e referenciada.\n\nCerca de 36.457 moradores e 13.314 domicílios estão no raio da unidade, abrangendo 93 setores, dos quais 77% da população desses setores está dentro do raio. No raio de 1,0 km, 14,5% dos moradores estão em setores entre os 10% mais adensados, enquanto no município de Guarulhos, esse percentual é de 23,3%, e na região metropolitana, é de 13,7%. No raio de 1,0 km, 1,6% dos domicílios não possuem rede de esgoto, sendo que no município de Guarulhos esse valor é de 8,0%, e na região metropolitana é de 8,3%. No raio, 1,4% dos domicílios têm esgoto precário (fossa rudimentar, vala, rio…). Há 10 outras unidades de saúde no raio: 7 são públicas ou com vínculo SUS, 3 são privadas sem vínculo SUS, e há 1 hospital com 50 leitos ou mais. Há hospital de grande porte no raio, que atende pacientes de toda a região: taxas por morador do entorno não descrevem o alcance dessa capacidade.\n\nNão há dados de doença para áreas do tamanho do raio: os números a seguir são do município inteiro. Em 2024, ano de epidemia, a taxa do município chegou a 6.272. Os casos prováveis de dengue no município de Guarulhos por 100 mil habitantes foram: 427 em 2025 (5.522 casos; região: 566), 6.272 em 2024 (81.017 casos; região: 4.533), 146 em 2023 (1.882 casos; região: 107) e 83 em 2022 (1.066 casos; região: 88)."
+}

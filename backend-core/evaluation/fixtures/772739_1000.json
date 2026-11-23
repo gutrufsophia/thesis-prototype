@@ -145,7 +145,11 @@
   "tipo_equipamento": "Hospital Geral",
   "total_enfermeiros": 0,
   "total_medicos": 0,
-  "total_saude_mental": 0
+  "total_saude_mental": 0,
+  "obitos_sus": null,
+  "obitos_esperados": null,
+  "mortalidade_faixa": null,
+  "mortalidade_perfil": null
  },
  "hospital_stays": [
   0.0,
@@ -517,7 +521,7 @@
     "cnes": 2094703,
     "distance_m": 779,
     "lat": -23.57325,
-    "lon": -46.037547000000004,
+    "lon": -46.037547,
     "name": "CLINICA SAO BENEDITO",
     "nurses": 0,
     "physicians": 17,

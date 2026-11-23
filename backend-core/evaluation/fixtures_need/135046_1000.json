@@ -159,7 +159,11 @@
   "tipo_equipamento": "Centro de Saúde/UBS",
   "total_enfermeiros": 3,
   "total_medicos": 3,
-  "total_saude_mental": 1
+  "total_saude_mental": 1,
+  "obitos_sus": null,
+  "obitos_esperados": null,
+  "mortalidade_faixa": null,
+  "mortalidade_perfil": null
  },
  "hospital_stays": [
   0.0,

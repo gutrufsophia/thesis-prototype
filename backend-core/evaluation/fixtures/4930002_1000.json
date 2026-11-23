@@ -145,7 +145,11 @@
   "tipo_equipamento": "Clínica/Centro de Especialidade",
   "total_enfermeiros": 0,
   "total_medicos": 0,
-  "total_saude_mental": 1
+  "total_saude_mental": 1,
+  "obitos_sus": null,
+  "obitos_esperados": null,
+  "mortalidade_faixa": null,
+  "mortalidade_perfil": null
  },
  "hospital_stays": [
   0.0,
@@ -529,7 +533,7 @@
     "cnes": 2094703,
     "distance_m": 649,
     "lat": -23.57325,
-    "lon": -46.037547000000004,
+    "lon": -46.037547,
     "name": "CLINICA SAO BENEDITO",
     "nurses": 0,
     "physicians": 17,

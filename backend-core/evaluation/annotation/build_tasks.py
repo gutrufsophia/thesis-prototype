@@ -1,15 +1,26 @@
 """Build the annotation tasks for E2 (content selection) and E4 (text accuracy).
 
-20 of the 40 held-out facilities (sample.csv), drawn with a fixed seed, 2 or 3 per stratum. For each:
-- 10 candidate statements, one per extracted fact, drawn at random when there are more, each with
-  its figures; the annotator picks the 3 a reader most needs (E2);
-- the Portuguese text, split into sentences, shown only after E2 is locked. Next to each sentence, the
+10 of the 40 held-out facilities (sample.csv), drawn with fixed seeds: first 20, 2 or 3 per stratum,
+on which the LLM comparison runs (../llm); then the 10 annotated, one per stratum and 2 more, so that
+the annotation takes about 45 minutes. For each:
+- the Portuguese text, split into sentences; for every sentence the annotator also chooses "relevant"
+  or "could be left out" (E2b, the precision of the selection);
+- after the text, up to 6 facts the text left out, drawn at random when there are more, each with
+  its figures; the annotator ticks those that should have been told, or "none" (E2, the recall of the
+  selection). It replaces a blind choice of the 3 most important facts among 10, made before the
+  text, which the author found too hard to answer when every fact seems important.
+Next to each sentence, the
   data it uses, recomputed here from the frozen payload and the reference files with the definitions
   of public/js/territory.js and backend-core/src/payload.cpp, independently of the C++ code, and
-  written the way the text expresses them (E4).
+  written the way the text expresses them (E4). The data of every planned fact are also shown
+  together, for the whole unit.
 
-The system's answers go to system.json, which the annotation page never loads: the planned facts and
-the lead, by statement id.
+For 2 of the 10, from 2 strata, the E4 text is the free LLM text of ../llm (run_llm.py, greedy
+decoding) instead of the template's; it tells the same planned facts, and each of its sentences gets
+the data of the facts its numbers align with (score_llm.py). The page does not say which is which.
+
+The system's answers go to system.json, which the annotation page never loads: the planned facts, the
+fact behind each left-out statement, and the facts and caveats each sentence tells.
 
     STORYTELLER=path/to/storyteller python3 backend-core/evaluation/annotation/build_tasks.py
 """
@@ -30,8 +41,12 @@ EVAL = HERE.parent
 BACKEND = EVAL.parent
 ROOT = BACKEND.parent
 SEED = 20261116
-UNITS = 20
-STATEMENTS = 10
+LLM_TEXTS = EVAL / "results" / "llm" / "gemma4_e4b"
+UNITS = 20  # the LLM comparison (../llm)
+LLM_UNITS = 4
+ANNOTATED = 10  # the human annotation: a subset of the 20, about 45 minutes per annotator
+ANNOTATED_LLM = 2
+OMITTED = 6  # facts left out of the text, shown for E2 (all of them when there are fewer)
 SINAN_YEARS = ["2022", "2023", "2024", "2025"]
 CAUSES = {"ix": "aparelho circulatório", "ii": "neoplasias (câncer)", "x": "aparelho respiratório",
           "xx": "causas externas", "xi": "aparelho digestivo", "i": "infecciosas e parasitárias"}
@@ -167,6 +182,41 @@ class Evidence:
         top = max(self.adm, key=lambda c: self.f.get(c) or 0)
         return ("Internações SUS, jan/2025 a jul/2026",
                 [("Total", br(total)), ("Causa mais frequente", f"{self.adm[top]}: {pct(self.f.get(top) or 0, total)}")])
+
+    def e_deaths(self):
+        f = self.f
+        admissions, deaths, expected = f.get("internacoes_total") or 0, f.get("obitos_sus"), f.get("obitos_esperados")
+        if not admissions or deaths is None or not expected:
+            return None
+        band = {"within": "dentro da variação observada (limites de 99,8%)",
+                "above": "acima da variação observada (limites de 99,8%)",
+                "below": "abaixo da variação observada (limites de 99,8%)"}.get(f.get("mortalidade_faixa"), "–")
+        return ("Óbitos nas internações pelo SUS, jan/2025 a jul/2026",
+                [("Internações", br(admissions)), ("Óbitos", f"{br(deaths)} ({pct(deaths, admissions)})"),
+                 ("Esperados pelo perfil dos pacientes (diagnóstico, idade, caráter)", f"{br(expected)} ({pct(expected, admissions)})"),
+                 ("Entre os hospitais da região", band)])
+
+    def e_casemix(self):
+        mix = self.f.get("mortalidade_perfil")
+        if not isinstance(mix, dict):
+            return None
+        parts = mix.get("shapley_pp") or {}
+        signed = {k: ("+" if (parts.get(k) or 0) > 0 else "") + br(parts.get(k), 1) for k in ("diagnostico", "idade", "carater")}
+        rate = mix.get("capitulo_taxa_regiao") or 0
+        chapter = self.adm.get(mix.get("capitulo"), mix.get("capitulo") or "–")
+        return ("Perfil dos pacientes contra os hospitais da região metropolitana",
+                [("Mortalidade média dos hospitais da região", br(mix.get("taxa_regiao"), 1) + "%"),
+                 ("Quanto cada fator afasta o esperado da média (pontos percentuais)",
+                  f"diagnósticos {signed['diagnostico']}; idade {signed['idade']}; caráter {signed['carater']}"),
+                 (f"Internações por {chapter.lower()}",
+                  f"{br(mix.get('capitulo_pct'), 1)}% (região: {br(mix.get('capitulo_regiao_pct'), 1)}%, "
+                  f"mortalidade de {br(rate, 2 if rate < 1 else 1)}%)"),
+                 ("Internações de pessoas com 70 anos ou mais",
+                  f"{br(mix.get('idosos_pct'), 1)}% (região: {br(mix.get('idosos_regiao_pct'), 1)}%)"),
+                 ("Internações de urgência",
+                  f"{br(mix.get('urgencia_pct'), 1)}% (região: {br(mix.get('urgencia_regiao_pct'), 1)}%)"),
+                 ("Eletivas", f"{br(100 - (mix.get('urgencia_pct') or 0), 1)}%"),
+                 ("Fluxo de clientela", FLOW.get(self.f.get("Fluxo_Clientela"), "não informado"))])
 
     def e_stay(self):
         stays = self.p.get("hospital_stays") or []
@@ -359,6 +409,39 @@ def storyteller(*args):
     return json.loads(subprocess.run([exe, *args], check=True, capture_output=True, text=True, env=env).stdout)
 
 
+# What to check in a sentence that is a caveat, not a fact: whether the warning holds for this unit
+CAVEAT_CHECK = {
+    "C10": "Esta frase é um aviso sobre a escala, sem valor para conferir. Confira se os números das frases "
+           "seguintes são mesmo da escala que ela anuncia (distrito ou município): o título dos dados abaixo diz de onde eles são.",
+    "C01": "Esta frase é um aviso, sem números. Confira se ele vale para esta unidade: ela é um hospital de grande "
+           "porte, ou há um no raio? Os dados abaixo ajudam a conferir.",
+    "C14b": "Esta frase é um aviso, sem números. Confira se ele vale: os dados abaixo mostram muitos serviços "
+            "privados no raio?",
+    "C23": "Esta frase explica como o esperado foi calculado e o que ele deixa de fora, sem números. Confira se ela "
+           "é coerente com os dados de óbitos abaixo; os valores são conferidos na frase dos óbitos.",
+}
+CAVEAT_WITHOUT_NUMBERS = ("Esta frase é um aviso, sem números para conferir. Confira se ele vale para esta unidade e "
+                          "para os dados abaixo; os valores são conferidos nas outras frases.")
+CAVEAT_WITH_NUMBERS = "Esta frase é um aviso com números: confira os números e se o aviso vale para esta unidade."
+
+
+# Scale of each left-out fact, shown next to it in step 2
+FACT_SCALE = {
+    **dict.fromkeys(["profile", "beds", "staff", "admissions", "deaths", "casemix", "stay", "position"], "Unidade"),
+    **dict.fromkeys(["residents", "territory", "sewage", "precarious", "garbage", "crowding", "crowded",
+                     "access", "network", "peer"], "Raio de 1 km"),
+    "need_supply": "Área de atendimento",
+    **dict.fromkeys(["tb_district", "teen_district", "surprise_tb", "surprise_teen"], "Distrito"),
+    **dict.fromkeys(["tb", "dengue", "lepto", "mortality", "teen", "preterm"], "Município"),
+}
+
+
+def caveat_check(rule, has_numbers):
+    if has_numbers:
+        return CAVEAT_WITH_NUMBERS
+    return CAVEAT_CHECK.get(rule.split(".")[0], CAVEAT_WITHOUT_NUMBERS)
+
+
 def draw_units():
     """20 of the 40, 2 or 3 per stratum, the strata that get a third one drawn at random."""
     rows = list(csv.DictReader(open(EVAL / "sample.csv")))
@@ -374,11 +457,66 @@ def draw_units():
     return chosen
 
 
+def draw_llm_units(rows):
+    """4 of the 20, from 4 different strata, with a free LLM text (../llm)."""
+    rng = random.Random(f"{SEED}:llm")
+    by_stratum = defaultdict(list)
+    for row in rows:
+        by_stratum[row["stratum"]].append(row["cnes"])
+    return [rng.choice(sorted(by_stratum[s])) for s in rng.sample(sorted(by_stratum), LLM_UNITS)]
+
+
+def draw_annotated(rows, llm_units):
+    """The 10 annotated units, a subset of the 20: 2 of the LLM units, whose text in E4 is the LLM's,
+    then one unit for every other stratum and 2 more from 2 strata drawn at random."""
+    rng = random.Random(f"{SEED}:annotated")
+    by_cnes = {r["cnes"]: r for r in rows}
+    llm = rng.sample(sorted(llm_units), ANNOTATED_LLM)
+    chosen = [by_cnes[c] for c in llm]
+    covered = {r["stratum"] for r in chosen}
+    rest = sorted((r for r in rows if r["cnes"] not in llm_units), key=lambda r: r["cnes"])
+    for stratum in sorted({r["stratum"] for r in rows} - covered):
+        chosen.append(rng.choice([r for r in rest if r["stratum"] == stratum]))
+    left = [r for r in rest if r not in chosen]
+    for stratum in rng.sample(sorted({r["stratum"] for r in left}), ANNOTATED - len(chosen)):
+        chosen.append(rng.choice([r for r in left if r["stratum"] == stratum]))
+    return chosen, set(llm)
+
+
+def claims(text):
+    """Every number written in the sentence, years and percentages included."""
+    return len(re.findall(r"\d[\d.]*(?:,\d+)?", text))
+
+
+def llm_sentences(cnes, body, for_fact):
+    import sys  # noqa: PLC0415
+
+    sys.path.insert(0, str(EVAL / "llm"))
+    from score_llm import Catalog, align, clean  # noqa: PLC0415 (score_llm imports this module)
+
+    path = LLM_TEXTS / f"{cnes}_free_s0.json"
+    if not path.exists():
+        raise SystemExit(f"{path.name} is missing: run ../llm/run_llm.py --jobs annotation first")
+    record = json.loads(path.read_text())
+    catalog = Catalog(body, record["user"], blocks={fid: block for p in body["plan"] for fid in p if (block := for_fact(fid))})
+    sentences, told = [], {}
+    for pi, paragraph in enumerate(clean(record["response"])):
+        for si, text in enumerate(paragraph):
+            aligned = align(text, catalog)[0]
+            fids = [f for f in dict.fromkeys(re.findall(r"\{(\w+)\.", aligned)) if f != "k"]
+            data = [{"title": t, "rows": r} for t, r in filter(None, map(for_fact, fids))]
+            sentences.append({"id": f"p{pi}s{si}", "text": text, "data": data, "claims": claims(text)})
+            told[f"p{pi}s{si}"] = {"facts": fids, "caveats": []}
+    meta = {"model": record["model"], "digest": record["digest"], "llm_file": path.name}
+    return sentences, meta, told
+
+
 def main():
     reference = load_reference()
     adm = admissions_labels()
     units, system = [], {}
-    for row in draw_units():
+    rows, llm_units = draw_annotated(draw_units(), draw_llm_units(draw_units()))
+    for row in rows:
         path = EVAL / "fixtures" / f"{row['cnes']}_1000.json"
         payload = json.loads(path.read_text())
         body = storyteller("narrate", str(path), "pt")
@@ -390,35 +528,51 @@ def main():
         def for_fact(fid):
             return evidence.e_peer(peer_key) if fid == "peer" else evidence.get(fid)
 
-        rng = random.Random(f"statements:{uid}")
-        candidates = [fid for fid in facts if for_fact(fid)]
-        shown = rng.sample(candidates, min(STATEMENTS, len(candidates)))
-        statements = [{"id": f"f{n}", "text": statement(*for_fact(fid))} for n, fid in enumerate(shown)]
-        fact_of = {f"f{n}": fid for n, fid in enumerate(shown)}
+        planned_ids = [fid for para in body["plan"] for fid in para]
+        rng = random.Random(f"omitted:{uid}")
+        # facts that share one data box (births: mothers under 20 and preterm) are one statement
+        left_out, blocks = defaultdict(list), {}
+        for fid in facts:
+            if fid not in planned_ids and for_fact(fid):
+                text = statement(*for_fact(fid))
+                left_out[text].append(fid)
+                blocks[text] = for_fact(fid)
+        shown = rng.sample(sorted(left_out), min(OMITTED, len(left_out)))
+        omitted = [{"id": f"o{n}", "title": blocks[text][0], "rows": blocks[text][1],
+                    "scale": FACT_SCALE.get(left_out[text][0], "")} for n, text in enumerate(shown)]
+        fact_of = {f"o{n}": "+".join(left_out[text]) for n, text in enumerate(shown)}
 
         caveat_fact = {c["rule"]: c["fact"] for c in body["caveats"]}
-        sentences = []
-        for pi, paragraph in enumerate(body["paragraphs"]):
-            for si, sentence in enumerate(paragraph):
-                text = "".join(seg["text"] for seg in sentence["segments"]).strip()
-                fids = list(dict.fromkeys(sentence["facts"] + [caveat_fact[r] for r in sentence["caveats"] if r in caveat_fact]))
-                data = [{"title": t, "rows": r} for t, r in filter(None, map(for_fact, fids))]
-                sentences.append({"id": f"p{pi}s{si}", "text": text, "data": data,
-                                  # claims: every number written in the sentence, years and percentages included
-                                  "claims": len(re.findall(r"\d[\d.]*(?:,\d+)?", text))})
+        llm = {}
+        if row["cnes"] in llm_units:
+            sentences, llm, told = llm_sentences(row["cnes"], body, for_fact)
+        else:
+            sentences, told = [], {}
+            for pi, paragraph in enumerate(body["paragraphs"]):
+                for si, sentence in enumerate(paragraph):
+                    text = "".join(seg["text"] for seg in sentence["segments"]).strip()
+                    fids = list(dict.fromkeys(sentence["facts"] + [caveat_fact[r] for r in sentence["caveats"] if r in caveat_fact]))
+                    data = [{"title": t, "rows": r} for t, r in filter(None, map(for_fact, fids))]
+                    item = {"id": f"p{pi}s{si}", "text": text, "data": data, "claims": claims(text)}
+                    if not sentence["facts"] and sentence["caveats"]:
+                        item.update(kind="caveat", check=caveat_check(sentence["caveats"][0], item["claims"] > 0))
+                    sentences.append(item)
+                    told[f"p{pi}s{si}"] = {"facts": sentence["facts"], "caveats": sentence["caveats"]}
         name = (payload["facility"].get("NO_FANTASIA") or payload["facility"].get("NO_RAZAO_SOCIAL") or "").strip()
         units.append({"id": uid, "name": name, "type": payload["facility"].get("tipo_equipamento"),
-                      "statements": statements, "sentences": sentences})
-        planned = {p for para in body["plan"] for p in para}
+                      "sentences": sentences, "omitted": omitted,
+                      "data": [{"title": t, "rows": r} for t, r in filter(None, map(for_fact, planned_ids))]})
         system[uid] = {
             "cnes": row["cnes"], "stratum": row["stratum"],
-            "planned": sorted(s for s, fid in fact_of.items() if fid in planned),
-            "lead": next((s for s, fid in fact_of.items() if body["plan"][0] and fid == body["plan"][0][0]), None),
-            "has_lead": bool(body["plan"][0]),
-            "statement_fact": fact_of,
+            "condition": "llm_free" if llm else "template", **llm,
+            "planned": planned_ids,
+            "omitted_fact": fact_of,
+            "omitted_available": len(left_out),
+            # what each sentence tells, for the relevance judgements (E2b); facts aligned by number in LLM texts
+            "sentences": told,
             "verified": body["verified"],
         }
-    tasks = {"version": body["version"], "units": units}
+    tasks = {"version": body["version"] + "-5", "units": units}
     (HERE / "tasks.js").write_text("window.ANNOTATION_TASKS = " + json.dumps(tasks, ensure_ascii=False) + ";\n")
     (HERE / "system.json").write_text(json.dumps(system, ensure_ascii=False, indent=1) + "\n")
     print(f"{len(units)} units, {sum(len(u['sentences']) for u in units)} sentences, "
