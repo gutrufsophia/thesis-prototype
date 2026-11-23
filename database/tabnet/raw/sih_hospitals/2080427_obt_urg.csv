@@ -1,0 +1,26 @@
+"Lista Morb  CID-10";"Menor 1 ano";"1 a 4 anos";"5 a 9 anos";"10 a 14 anos";"15 a 19 anos";"Total"
+"01 Algumas doenças infecciosas e parasitárias";2;1;-;-;-;3
+".. Infecção meningocócica";1;-;-;-;-;1
+".. Septicemia";1;-;-;-;-;1
+".. Outras doenças virais";-;1;-;-;-;1
+".... Meningite viral";-;1;-;-;-;1
+"04 Doenças endócrinas nutricionais e metabólicas";-;-;-;2;-;2
+".. Outros transt endócrinos nutricionais metabólic";-;-;-;2;-;2
+"06 Doenças do sistema nervoso";2;1;-;-;-;3
+".. Doenças inflamatórias do sistema nervoso centr";1;-;-;-;-;1
+".... Meningite bacteriana não classif outra parte";1;-;-;-;-;1
+".. Epilepsia";1;1;-;-;-;2
+"09 Doenças do aparelho circulatório";-;1;-;-;-;1
+".. Insuficiência cardíaca";-;1;-;-;-;1
+"10 Doenças do aparelho respiratório";8;5;2;1;1;17
+".. Pneumonia";4;4;2;1;1;12
+".. Bronquite aguda e bronquiolite aguda";4;-;-;-;-;4
+".. Outras doenças do aparelho respiratório";-;1;-;-;-;1
+"16 Algumas afec originadas no período perinatal";1;-;-;-;-;1
+".. Outras afecções originadas no período perinatal";1;-;-;-;-;1
+"17 Malf cong deformid e anomalias cromossômicas";1;-;-;-;-;1
+".. Malformações congênitas do aparelho circulat";1;-;-;-;-;1
+"19 Lesões enven e alg out conseq causas externas";-;-;-;1;-;1
+".. Fratura do crânio e dos ossos da face";-;-;-;1;-;1
+"Total";14;8;2;4;1;29
+&

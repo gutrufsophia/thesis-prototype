@@ -1,0 +1,16 @@
+"Lista Morb  CID-10";"Menor 1 ano";"20 a 29 anos";"30 a 39 anos";"40 a 49 anos";"60 a 69 anos";"Total"
+"11 Doenças do aparelho digestivo";-;-;-;-;1;1
+".. Doença alcoólica do fígado";-;-;-;-;1;1
+"14 Doenças do aparelho geniturinário";-;-;-;1;-;1
+".. Transt não-inflam ovário tromp Falópio lig larg";-;-;-;1;-;1
+"15 Gravidez parto e puerpério";-;3;3;-;-;6
+".. Aborto espontâneo";-;1;1;-;-;2
+".. Outras complicações da gravidez e do parto";-;1;2;-;-;3
+".. Parto único espontâneo";-;1;-;-;-;1
+"16 Algumas afec originadas no período perinatal";1;-;-;-;-;1
+".. Outros transt respiratórios orig per perinatal";1;-;-;-;-;1
+"21 Contatos com serviços de saúde";-;21;36;11;-;68
+".. Anticoncepção";-;21;36;10;-;67
+".. Pessoas contato serv saúde cuidados proc espec";-;-;-;1;-;1
+"Total";1;24;39;12;1;77
+&

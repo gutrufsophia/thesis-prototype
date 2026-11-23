@@ -1,0 +1,27 @@
+"Lista Morb  CID-10";"Menor 1 ano";"1 a 4 anos";"5 a 9 anos";"10 a 14 anos";"15 a 19 anos";"20 a 29 anos";"30 a 39 anos";"40 a 49 anos";"50 a 59 anos";"60 a 69 anos";"70 a 79 anos";"80 anos e mais";"Total"
+"01 Algumas doenças infecciosas e parasitárias";-;5;52;124;185;442;771;1116;1039;857;218;3;4812
+".. Septicemia";-;3;32;80;123;295;516;725;675;559;142;-;3150
+".. Outras doenças virais";-;2;20;44;62;147;255;391;364;298;76;3;1662
+".... Restante de outras doenças virais";-;2;20;44;62;147;255;391;364;298;76;3;1662
+"04 Doenças endócrinas nutricionais e metabólicas";-;-;-;-;-;2;6;17;16;4;1;-;46
+".. Diabetes mellitus";-;-;-;-;-;-;-;2;-;-;-;-;2
+".. Outros transt endócrinos nutricionais metabólic";-;-;-;-;-;2;6;15;16;4;1;-;44
+"09 Doenças do aparelho circulatório";-;-;-;2;4;13;50;213;618;848;541;105;2394
+".. Outras doenças hipertensivas";-;-;-;-;-;1;-;-;-;-;-;-;1
+".. Outras doenças isquêmicas do coração";-;-;-;-;-;5;39;192;590;830;534;103;2293
+".. Transtornos de condução e arritmias cardíacas";-;-;-;-;-;-;-;-;-;1;-;-;1
+".. Arteroesclerose";-;-;-;-;-;2;2;2;9;2;1;-;18
+".. Outras doenças vasculares periféricas";-;-;-;-;-;-;2;5;4;8;3;1;23
+".. Embolia e trombose arteriais";-;-;-;-;-;-;-;2;-;-;-;-;2
+".. Outras doenças das artérias arteríolas e capil";-;-;-;2;4;5;7;11;15;7;3;1;55
+".. Outras doenças do aparelho circulatório";-;-;-;-;-;-;-;1;-;-;-;-;1
+"13 Doenças sist osteomuscular e tec conjuntivo";-;-;-;-;-;-;-;6;2;-;1;-;9
+".. Outras dorsopatias";-;-;-;-;-;-;-;6;2;-;1;-;9
+"14 Doenças do aparelho geniturinário";-;-;2;10;30;118;197;155;147;86;58;13;816
+".. Insuficiência renal";-;-;2;10;30;115;194;146;136;83;56;12;784
+".. Outras doenças do aparelho urinário";-;-;-;-;-;3;3;9;11;3;1;1;31
+".. Hiperplasia da próstata";-;-;-;-;-;-;-;-;-;-;1;-;1
+"21 Contatos com serviços de saúde";1;-;-;-;-;8;41;94;91;52;10;3;300
+".. Pessoas contato serv saúde cuidados proc espec";1;-;-;-;-;8;41;94;91;52;10;3;300
+"Total";1;5;54;136;219;583;1065;1601;1913;1847;829;124;8377
+&

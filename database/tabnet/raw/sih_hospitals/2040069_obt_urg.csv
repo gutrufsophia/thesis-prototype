@@ -1,0 +1,25 @@
+"Lista Morb  CID-10";"Menor 1 ano";"15 a 19 anos";"20 a 29 anos";"30 a 39 anos";"40 a 49 anos";"50 a 59 anos";"60 a 69 anos";"Total"
+"01 Algumas doenças infecciosas e parasitárias";1;-;-;1;-;-;-;2
+".. Septicemia";1;-;-;1;-;-;-;2
+"02 Neoplasias (tumores)";-;-;-;-;-;-;2;2
+".. Neoplasia maligna do colo do útero";-;-;-;-;-;-;1;1
+".. Outras neopl malignas órgãos genitais femininos";-;-;-;-;-;-;1;1
+"03 Doenças sangue órgãos hemat e transt imunitár";-;-;-;-;1;1;-;2
+".. Anemia por deficiência de ferro";-;-;-;-;-;1;-;1
+".. Afecç hemorrág e outr doenç sang e órg hematop";-;-;-;-;1;-;-;1
+"10 Doenças do aparelho respiratório";-;-;-;-;-;1;-;1
+".. Outras doenças do aparelho respiratório";-;-;-;-;-;1;-;1
+"15 Gravidez parto e puerpério";1;1;-;-;-;-;-;2
+".. Outras complicações da gravidez e do parto";1;-;-;-;-;-;-;1
+".. Compl pred rel puerpério e outr afecç obst NCOP";-;1;-;-;-;-;-;1
+"16 Algumas afec originadas no período perinatal";48;-;1;-;-;-;-;49
+".. Ret cres fet desn fet tran gest curt baix peso";2;-;-;-;-;-;-;2
+".. Hipóxia intrauterina e asfixia ao nascer";4;-;-;-;-;-;-;4
+".. Outros transt respiratórios orig per perinatal";38;-;-;-;-;-;-;38
+".. Doenças infecciosas e parasitárias congênitas";1;-;-;-;-;-;-;1
+".. Outras afecções originadas no período perinatal";3;-;1;-;-;-;-;4
+"17 Malf cong deformid e anomalias cromossômicas";2;-;-;-;-;-;-;2
+".. Malformações congênitas do aparelho circulat";1;-;-;-;-;-;-;1
+".. Outras malformações do aparelho geniturinário";1;-;-;-;-;-;-;1
+"Total";52;1;1;1;1;2;2;60
+&

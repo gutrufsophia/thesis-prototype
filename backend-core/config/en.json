@@ -61,7 +61,25 @@
     "beds.none": "The unit has {beds.unit} <pl:beds.unit|bed|beds>, none of them for SUS ({beds.period}).",
     "beds.none_icu": "The unit has {beds.unit} <pl:beds.unit|bed|beds>, none of them for SUS; {beds.icu_unit} of these <pl:beds.icu_unit|is an ICU bed|are ICU beds> ({beds.period}).",
     "beds.part": "The unit has {beds.unit} <pl:beds.unit|bed|beds>, {beds.sus_unit} of them for SUS ({beds.period}).",
-    "beds.part_icu": "The unit has {beds.unit} <pl:beds.unit|bed|beds>, {beds.sus_unit} of them for SUS; {beds.icu_unit} of these <pl:beds.icu_unit|is an ICU bed|are ICU beds> ({beds.period})."
+    "beds.part_icu": "The unit has {beds.unit} <pl:beds.unit|bed|beds>, {beds.sus_unit} of them for SUS; {beds.icu_unit} of these <pl:beds.icu_unit|is an ICU bed|are ICU beds> ({beds.period}).",
+    "deaths.within": "Of these admissions, {deaths.rate_unit} ended in death, {deaths.deaths_unit} in total; the patients' profile would predict about {deaths.expected_unit}, within the range seen across the region's hospitals.",
+    "casemix.diagnosis.up": "That expected rate is above the {casemix.rate_region} average death rate of the metropolitan region's hospitals, and what weighs most is the diagnoses: {casemix.chapter_share_unit} of admissions were for {casemix.chapter} (in the region, {casemix.chapter_share_region}, with a death rate of {casemix.chapter_rate_region}).",
+    "casemix.diagnosis.down": "That expected rate is below the {casemix.rate_region} average death rate of the metropolitan region's hospitals, and what weighs most is the diagnoses: {casemix.chapter_share_unit} of admissions were for {casemix.chapter} (in the region, {casemix.chapter_share_region}, with a death rate of {casemix.chapter_rate_region}).",
+    "casemix.age.up": "That expected rate is above the {casemix.rate_region} average death rate of the metropolitan region's hospitals, and what weighs most is the patients' age: {casemix.old_share_unit} of admissions were of people aged {k.age_old} or over (in the region, {casemix.old_share_region}).",
+    "casemix.age.down": "That expected rate is below the {casemix.rate_region} average death rate of the metropolitan region's hospitals, and what weighs most is the patients' age: {casemix.old_share_unit} of admissions were of people aged {k.age_old} or over (in the region, {casemix.old_share_region}).",
+    "casemix.urgency.up": "That expected rate is above the {casemix.rate_region} average death rate of the metropolitan region's hospitals, and what weighs most is the type of admission: {casemix.urgent_share_unit} of admissions were emergencies (in the region, {casemix.urgent_share_region}).",
+    "casemix.urgency.down": "That expected rate is below the {casemix.rate_region} average death rate of the metropolitan region's hospitals, and what weighs most is the type of admission: {casemix.urgent_share_unit} of admissions were emergencies (in the region, {casemix.urgent_share_region}).",
+    "casemix.diagnosis_age.up": "That expected rate is above the {casemix.rate_region} average death rate of the metropolitan region's hospitals, and what weighs most is the diagnoses and the patients' age: {casemix.chapter_share_unit} of admissions were for {casemix.chapter} (in the region, {casemix.chapter_share_region}, with a death rate of {casemix.chapter_rate_region}), and {casemix.old_share_unit} of people aged {k.age_old} or over (in the region, {casemix.old_share_region}).",
+    "casemix.diagnosis_age.down": "That expected rate is below the {casemix.rate_region} average death rate of the metropolitan region's hospitals, and what weighs most is the diagnoses and the patients' age: {casemix.chapter_share_unit} of admissions were for {casemix.chapter} (in the region, {casemix.chapter_share_region}, with a death rate of {casemix.chapter_rate_region}), and {casemix.old_share_unit} of people aged {k.age_old} or over (in the region, {casemix.old_share_region}).",
+    "casemix.diagnosis_urgency.up": "That expected rate is above the {casemix.rate_region} average death rate of the metropolitan region's hospitals, and what weighs most is the diagnoses and the type of admission: {casemix.chapter_share_unit} of admissions were for {casemix.chapter} (in the region, {casemix.chapter_share_region}, with a death rate of {casemix.chapter_rate_region}), and {casemix.urgent_share_unit} emergencies (in the region, {casemix.urgent_share_region}).",
+    "casemix.diagnosis_urgency.down": "That expected rate is below the {casemix.rate_region} average death rate of the metropolitan region's hospitals, and what weighs most is the diagnoses and the type of admission: {casemix.chapter_share_unit} of admissions were for {casemix.chapter} (in the region, {casemix.chapter_share_region}, with a death rate of {casemix.chapter_rate_region}), and {casemix.urgent_share_unit} emergencies (in the region, {casemix.urgent_share_region}).",
+    "casemix.age_urgency.up": "That expected rate is above the {casemix.rate_region} average death rate of the metropolitan region's hospitals, and what weighs most is the patients' age and the type of admission: {casemix.old_share_unit} of admissions were of people aged {k.age_old} or over (in the region, {casemix.old_share_region}), and {casemix.urgent_share_unit} emergencies (in the region, {casemix.urgent_share_region}).",
+    "casemix.age_urgency.down": "That expected rate is below the {casemix.rate_region} average death rate of the metropolitan region's hospitals, and what weighs most is the patients' age and the type of admission: {casemix.old_share_unit} of admissions were of people aged {k.age_old} or over (in the region, {casemix.old_share_region}), and {casemix.urgent_share_unit} emergencies (in the region, {casemix.urgent_share_region}).",
+    "casemix.age0.down": "That expected rate is below the {casemix.rate_region} average death rate of the metropolitan region's hospitals, and what weighs most is the patients' age: no admission was of a person aged {k.age_old} or over (in the region, {casemix.old_share_region}).",
+    "casemix.diagnosis_age0.down": "That expected rate is below the {casemix.rate_region} average death rate of the metropolitan region's hospitals, and what weighs most is the diagnoses and the patients' age: {casemix.chapter_share_unit} of admissions were for {casemix.chapter} (in the region, {casemix.chapter_share_region}, with a death rate of {casemix.chapter_rate_region}), and none of people aged {k.age_old} or over (in the region, {casemix.old_share_region}).",
+    "casemix.age0_urgency.down": "That expected rate is below the {casemix.rate_region} average death rate of the metropolitan region's hospitals, and what weighs most is the patients' age and the type of admission: no admission was of a person aged {k.age_old} or over (in the region, {casemix.old_share_region}), and {casemix.urgent_share_unit} emergencies (in the region, {casemix.urgent_share_region}).",
+    "deaths.above": "Of these admissions, {deaths.rate_unit} ended in death, {deaths.deaths_unit} in total; the patients' profile would predict about {deaths.expected_unit}, above the range seen across the region's hospitals.",
+    "deaths.below": "Of these admissions, {deaths.rate_unit} ended in death, {deaths.deaths_unit} in total; the patients' profile would predict about {deaths.expected_unit}, below the range seen across the region's hospitals."
   },
   "comparatives": {
     "similar": "close to",
@@ -175,7 +193,20 @@
     "C22": {
       "text": "The catchment's residents live on average {%.distance_catchment} from the unit in a straight line; {%.far_catchment} of them, over {k.two_km} away.",
       "marker": "of them, over"
-    }
+    },
+    "C23": {
+      "text": "The expected figure accounts for the diagnosis, age and admission type, elective or emergency, of the patients, at the death rates of the same groups in the metropolitan region's hospitals; it does not account for the severity of each case, transfers between hospitals or palliative care, and mortality alone does not measure the quality of care.",
+      "marker": "does not measure the quality"
+    },
+    "C23b": {
+      "text": "Deaths far below the expected figure usually mean patients less ill than the average for their diagnosis, transfers of the gravest cases to other hospitals, or some cases recorded under another establishment, not better care in itself.",
+      "marker": "transfers"
+    },
+    "C23c": {
+      "text": "Within the same diagnosis and age group, hospitals that take the gravest, palliative or long-stay cases record more deaths, which does not in itself mean worse care.",
+      "marker": "worse care"
+    },
+    "C23d": {"text": "The remaining admissions are recorded as elective, although the hospital only takes referred patients; if some of them were emergencies, the expected rate is underestimated.", "marker": "recorded as elective"}
   },
   "labels": {
     "type:Centro de Saúde/UBS": "a primary care centre (UBS)",
@@ -260,7 +291,8 @@
     "top_decile": "10%",
     "pnab_low": "2,000",
     "pnab_high": "3,500",
-    "two_km": "2 km"
+    "two_km": "2 km",
+    "age_old": "70"
   },
   "scope_markers": {
     "radius": [

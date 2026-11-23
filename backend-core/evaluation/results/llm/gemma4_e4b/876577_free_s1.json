@@ -1,0 +1,29 @@
+{
+ "cnes": "876577",
+ "condition": "free",
+ "seed": 1,
+ "provider": "ollama",
+ "model": "gemma4:e4b",
+ "digest": "dc35e8d9c6061baa6f0fa870975ab6932e2542b579b13ea0f199fa4bb7300c9c",
+ "options": {
+  "seed": 1,
+  "temperature": 1.0,
+  "num_ctx": 6144,
+  "num_predict": 900,
+  "num_thread": 4,
+  "top_p": 0.95,
+  "top_k": 64
+ },
+ "storyteller_version": "0.3.4",
+ "created_at": "2026-11-23T03:42:42+00:00",
+ "stats": {
+  "prompt_tokens": 827,
+  "output_tokens": 446,
+  "prompt_s": 63.7,
+  "output_s": 104.0,
+  "total_s": 167.9
+ },
+ "system": "Você escreve a seção “Leitura do território” da página de uma unidade de saúde no CulturaEduca, uma plataforma pública de mapas. O leitor é alguém da comunidade, da educação ou da gestão, sem formação em estatística.\n\nEscreva em português, usando só os dados fornecidos:\n- Siga a ordem dos parágrafos dados e escreva um parágrafo para cada um.\n- Conte todos os dados listados, e nenhum outro. Não invente números; você pode arredondar.\n- Todo número deve dizer, na mesma frase, a que área se refere: o raio em volta da unidade, a área de atendimento, o distrito, a cidade, o município ou a região metropolitana.\n- Inclua cada aviso obrigatório junto do dado a que ele se refere.\n- Não diga que um fator causa, explica ou contribui para outro: os dados mostram só que as coisas aparecem juntas.\n- No máximo 340 palavras.\n- Responda só com o texto, sem título, sem listas e sem formatação.",
+ "user": "Unidade: TOXICOLOGICO GRIMALDI (Unidade de Apoio Diagnose e Terapia (SADT Isolado))\n\nParágrafo 1\nDado: Comparação com unidades do mesmo grupo (raio de 1 km)\n- Renda média do responsável: R$ 2.893; maior que em 8,7% e menor que em 91,3% das 2.488 unidades de diagnose e terapia\n\nParágrafo 2\nDado: Perfil da unidade\n- Tipo (CNES): Unidade de Apoio Diagnose e Terapia (SADT Isolado)\n- Rede pública ou com vínculo SUS: não\n- Fluxo de clientela: demanda espontânea\nDado: Posição da unidade\n- Posição no mapa: coordenada do CNES substituída pelo endereço no CNEFE\n- Distância entre a coordenada do CNES e o endereço: 36,1 km\n- Aviso obrigatório: a posição da unidade no mapa é aproximada ou foi substituída pela do endereço: diga isso.\n\nParágrafo 3\nDado: Moradores do raio (Censo 2022)\n- Moradores: 55.557\n- Domicílios: 19.992\n- Setores tocados pelo raio: 127\n- Parte da população desses setores dentro do raio: 77%\n- Aviso obrigatório: os números de moradores e domicílios são estimativas a partir do Censo: use “cerca de” ou “estimativa”.\nDado: Moradores a mais de 1 km de UBS pública (em linha reta)\n- Raio de 1,0 km: 0,4%\n- município de São Paulo: 12,9%\n- região metropolitana: 13,0%\n- Aviso obrigatório: as distâncias são em linha reta: diga “em linha reta”.\n\nParágrafo 4\nDado: Nascimentos no distrito Sapopemba (SMS-SP, 2022–2024)\n- Mães com menos de 20 anos: 8,8% (794 nascimentos)\n- Cidade de São Paulo: mães com menos de 20 anos: 7,4%\n- Prematuros (menos de 37 semanas): 11,4%\n- Cidade de São Paulo: prematuros: 11,1%\n- Aviso obrigatório: inclua antes deste dado o aviso a seguir, com estas ou outras palavras, mantendo a expressão “Não há dados de doença”: “Não há dados de doença para áreas do tamanho do raio: os números a seguir são do distrito.”",
+ "response": "A renda média dos responsáveis na TOXICOLOGICO GRIMALDI, ao comparar com outras unidades do mesmo grupo em um raio de 1 km, foi de R$ 2.893, sendo maior que em 8,7% e menor que em 91,3% das 2.488 unidades de diagnose e terapia. A TOXICOLOGICO GRIMALDI é classificada como Unidade de Apoio Diagnose e Terapia (SADT Isolado), não possui rede pública ou vínculo SUS, e seu fluxo de clientela é de demanda espontânea. A posição da unidade no mapa tem a coordenada do CNES substituída pelo endereço no CNEFE, havendo uma distância de 36,1 km entre a coordenada do CNES e o endereço; a posição da unidade no mapa é aproximada ou foi substituída pela do endereço. No raio de 1 km, estima-se que haja cerca de 55.557 moradores e 19.992 domicílios, abrangendo 127 setores tocados pelo raio, com cerca de 77% da população desses setores dentro do raio; quanto aos moradores a mais de 1 km de UBS pública em linha reta, no raio de 1,0 km, o percentual é de 0,4%, no município de São Paulo é de 12,9%, e na região metropolitana é de 13,0%. Não há dados de doença para áreas do tamanho do raio: os números a seguir são do distrito. No distrito Sapopemba (SMS-SP, 2022–2024), os nascimentos mostraram que 8,8% (794 nascimentos) foram de mães com menos de 20 anos, enquanto na cidade de São Paulo, o percentual de mães com menos de 20 anos foi de 7,4%; também, 11,4% dos nascimentos no distrito Sapopemba foram prematuros (menos de 37 semanas), em comparação com 11,1% na cidade de São Paulo."
+}

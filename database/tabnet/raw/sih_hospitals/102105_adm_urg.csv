@@ -1,0 +1,216 @@
+"Lista Morb  CID-10";"Menor 1 ano";"1 a 4 anos";"5 a 9 anos";"10 a 14 anos";"15 a 19 anos";"20 a 29 anos";"30 a 39 anos";"40 a 49 anos";"50 a 59 anos";"60 a 69 anos";"70 a 79 anos";"80 anos e mais";"Total"
+"01 Algumas doenças infecciosas e parasitárias";35;50;28;22;17;30;44;58;61;89;79;91;604
+".. Diarréia e gastroenterite origem infecc presum";16;31;14;8;6;6;6;7;8;14;11;16;143
+".. Outras doenças infecciosas intestinais";4;5;1;-;-;-;2;2;2;1;3;-;20
+".. Tuberculose respiratória";-;-;-;-;1;3;6;3;-;-;-;-;13
+".... Tuberculose pulmonar";-;-;-;-;1;2;2;3;-;-;-;-;8
+".... Outras tuberculoses respiratórias";-;-;-;-;-;1;2;-;-;-;-;-;3
+".... Restante de tuberculose respiratória";-;-;-;-;-;-;2;-;-;-;-;-;2
+".. Outras tuberculoses";-;-;-;-;-;-;3;-;-;-;-;-;3
+".... Tuberculose miliar";-;-;-;-;-;-;3;-;-;-;-;-;3
+".. Coqueluche";1;-;-;-;-;-;-;-;-;-;-;-;1
+".. Septicemia";3;1;1;1;3;9;6;9;15;41;41;62;192
+".. Outras doenças bacterianas";-;1;2;1;-;2;10;27;23;25;15;11;117
+".... Restante de outras doenças bacterianas";-;1;2;1;-;2;10;27;23;25;15;11;117
+".. Outras infecções com transm predominant sexual";-;1;-;-;-;-;-;-;-;-;-;-;1
+".. Encefalite viral";-;1;-;1;-;-;-;1;-;-;-;-;3
+".. Outras febre p/arbovírus e febr hemorr p/vírus";5;3;9;8;5;4;5;5;5;5;4;1;59
+".... Dengue [dengue clásssico]";5;3;8;8;5;4;5;3;5;4;4;1;55
+".... Febre hemorrágica devida ao vírus da dengue";-;-;1;-;-;-;-;2;-;-;-;-;3
+".... Restante outr febr arbovírus febr hemor vírus";-;-;-;-;-;-;-;-;-;1;-;-;1
+".. Infecções pelo vírus do herpes";-;1;-;1;-;-;-;-;-;-;-;-;2
+".. Varicela e herpes zoster";-;-;-;-;-;-;-;-;2;-;1;-;3
+".. Hepatite aguda B";-;-;-;-;-;-;1;-;-;-;-;-;1
+".. Outras hepatites virais";-;-;1;1;1;5;5;3;1;1;1;-;19
+".. Caxumba [parotidite epidêmica]";-;1;-;-;-;-;-;-;1;-;-;-;2
+".. Outras doenças virais";6;5;-;-;1;1;-;-;3;1;-;1;18
+".... Meningite viral";1;-;-;-;-;-;-;-;-;-;-;-;1
+".... Restante de outras doenças virais";5;5;-;-;1;1;-;-;3;1;-;1;17
+".. Micoses";-;-;-;-;-;-;-;-;-;-;1;-;1
+".. Tripanossomíase";-;-;-;-;-;-;-;-;-;-;1;-;1
+".. Outras doenças infecciosas e parasitárias";-;-;-;1;-;-;-;1;1;1;1;-;5
+"02 Neoplasias (tumores)";-;1;1;2;1;2;10;26;33;53;33;23;185
+".. Neoplasia maligna do lábio cavid oral e faringe";-;-;-;-;-;-;1;1;1;1;1;-;5
+".. Neoplasia maligna do esôfago";-;-;-;-;-;-;-;-;1;1;3;1;6
+".. Neoplasia maligna do estômago";-;-;-;-;-;-;-;-;1;7;1;-;9
+".. Neoplasia maligna do cólon";-;-;-;-;-;1;1;2;3;5;5;4;21
+".. Neopl malig junção retoss reto ânus canal anal";-;-;-;-;-;-;-;2;1;2;2;2;9
+".. Neopl malig fígado e vias biliares intra-hepát";-;-;-;-;-;-;-;1;-;1;1;-;3
+".. Neoplasia maligna do pâncreas";-;-;-;-;-;-;1;3;1;2;2;3;12
+".. Outras neoplasias malignas de órgãos digestivos";-;-;-;-;-;-;1;4;1;2;3;2;13
+".. Neoplasias malignas de laringe";-;-;-;-;-;-;-;1;1;1;1;1;5
+".. Neoplasia maligna de traquéia brônquios e pulm";-;-;-;-;-;-;-;1;1;8;1;3;14
+".. Neoplasia maligna do osso e cartilagem articul";-;-;-;-;-;-;1;1;1;-;1;-;4
+".. Neopl malig do tecido mesotelial e tec moles";-;-;-;-;-;-;-;1;-;1;-;3;5
+".. Neoplasia maligna da mama";-;-;-;-;-;-;-;-;2;2;1;-;5
+".. Neopl malig outr porções e porç não espec útero";-;-;-;-;-;-;-;2;-;-;1;-;3
+".. Outras neopl malignas órgãos genitais femininos";-;-;-;-;1;-;-;-;-;-;1;-;2
+".. Neoplasia maligna da próstata";-;-;-;-;-;-;-;-;1;3;2;1;7
+".. Neoplasia maligna da bexiga";-;-;-;-;-;-;-;-;2;-;-;-;2
+".. Outras neoplasias malignas do trato urinário";-;1;-;-;-;-;-;-;-;-;-;-;1
+".. Neoplasia maligna do encéfalo";-;-;-;-;-;-;1;-;1;3;1;-;6
+".. Neopl malig outras partes sistema nerv central";-;-;-;-;-;-;-;-;-;-;-;1;1
+".. Neopl malig outr local mal def secun e não esp";-;-;-;-;-;-;-;-;5;4;3;-;12
+".. Leucemia";-;-;-;-;-;-;-;-;-;1;-;-;1
+".. Outras neopl malig tecidos linfóid hemat e rel";-;-;-;-;-;-;-;-;-;-;2;-;2
+".. Leiomioma do útero";-;-;-;-;-;-;-;1;-;-;-;-;1
+".. Outr neopl in situ benigs e comport incert desc";-;-;1;2;-;1;4;6;10;9;1;2;36
+"03 Doenças sangue órgãos hemat e transt imunitár";2;6;5;1;6;8;11;8;7;11;21;21;107
+".. Anemia por deficiência de ferro";-;-;-;-;-;-;-;-;2;2;2;2;8
+".. Outras anemias";1;2;1;-;6;7;7;7;5;7;18;18;79
+".. Afecç hemorrág e outr doenç sang e órg hematop";1;4;4;1;-;1;4;1;-;2;1;1;20
+"04 Doenças endócrinas nutricionais e metabólicas";3;-;7;11;14;20;25;64;119;160;122;67;612
+".. Tireotoxicose";-;-;-;-;-;-;-;-;1;-;-;-;1
+".. Outros transtornos tireoidianos";-;-;1;-;-;-;-;-;-;-;-;1;2
+".. Diabetes mellitus";-;-;4;11;14;17;24;58;108;136;99;35;506
+".. Desnutrição";-;-;-;-;-;-;-;1;-;-;1;-;2
+".. Depleção de volume";1;-;-;-;-;-;-;-;-;1;1;2;5
+".. Outros transt endócrinos nutricionais metabólic";2;-;2;-;-;3;1;5;10;23;21;29;96
+"05 Transtornos mentais e comportamentais";-;-;-;-;2;14;11;6;4;-;4;3;44
+".. Demência";-;-;-;-;-;-;-;-;-;-;1;-;1
+".. Transt mentais e comportamentais dev uso álcool";-;-;-;-;-;1;1;1;1;-;-;-;4
+".. Transt ment comport dev uso outr subst psicoat";-;-;-;-;-;2;-;-;1;-;-;-;3
+".. Esquizofrenia transt esquizotípicos e delirant";-;-;-;-;-;1;1;1;2;-;-;1;6
+".. Transtornos de humor [afetivos]";-;-;-;-;2;10;7;3;-;-;-;-;22
+".. Transt neurót e relacionados com stress somatof";-;-;-;-;-;-;2;1;-;-;-;-;3
+".. Outros transtornos mentais e comportamentais";-;-;-;-;-;-;-;-;-;-;3;2;5
+"06 Doenças do sistema nervoso";7;8;3;9;4;11;12;22;21;24;20;18;159
+".. Doenças inflamatórias do sistema nervoso centr";4;-;1;-;1;1;1;1;-;3;-;-;12
+".... Meningite bacteriana não classif outra parte";4;-;1;-;-;1;1;-;-;1;-;-;8
+".... Restante doenças inflamat sist nervoso centr";-;-;-;-;1;-;-;1;-;2;-;-;4
+".. Doença de Parkinson";-;-;-;-;-;-;-;-;-;-;-;1;1
+".. Doença de Alzheimer";-;-;-;-;-;-;-;-;-;-;2;4;6
+".. Epilepsia";2;8;2;7;1;6;6;11;7;10;9;11;80
+".. Enxaqueca e outras síndromes de algias cefálic";-;-;-;1;-;1;-;3;-;-;-;1;6
+".. Acid vascular cerebr isquêm transit e síndr cor";-;-;-;-;2;1;1;2;5;2;5;1;19
+".. Transtornos dos nervos raízes e plexos nervosos";-;-;-;-;-;-;2;1;4;3;3;-;13
+".. Outras doenças do sistema nervoso";1;-;-;1;-;2;2;4;5;6;1;-;22
+"07 Doenças do olho e anexos";-;1;3;1;-;-;-;-;-;2;-;-;7
+".. Inflamação da pálpebra";-;-;1;-;-;-;-;-;-;-;-;-;1
+".. Conjuntivite e outros transtornos da conjuntiva";-;-;-;-;-;-;-;-;-;1;-;-;1
+".. Outras doenças do olho e anexos";-;1;2;1;-;-;-;-;-;1;-;-;5
+"08 Doenças do ouvido e da apófise mastóide";6;6;3;1;2;1;2;-;1;1;-;-;23
+".. Otite média e outr transt ouvid médio apóf mast";6;6;3;1;1;1;2;-;1;1;-;-;22
+".. Outras doenças do ouvido e da apófise mastóide";-;-;-;-;1;-;-;-;-;-;-;-;1
+"09 Doenças do aparelho circulatório";2;-;3;1;3;20;60;117;231;421;397;298;1553
+".. Doença reumática crônica do coração";-;-;-;-;-;-;-;-;-;-;1;-;1
+".. Hipertensão essencial (primária)";-;-;-;-;-;-;1;4;3;2;1;2;13
+".. Outras doenças hipertensivas";-;-;-;-;-;1;-;1;3;2;-;2;9
+".. Infarto agudo do miocárdio";-;-;-;-;1;-;6;16;40;55;43;26;187
+".. Outras doenças isquêmicas do coração";-;-;-;-;-;-;2;-;13;14;9;6;44
+".. Embolia pulmonar";-;-;-;-;-;3;4;8;4;3;3;-;25
+".. Transtornos de condução e arritmias cardíacas";-;-;-;-;-;1;3;5;17;20;28;14;88
+".. Insuficiência cardíaca";-;-;-;-;2;1;13;18;49;73;77;95;328
+".. Outras doenças do coração";2;-;-;1;-;2;1;-;2;4;1;2;15
+".. Hemorragia intracraniana";-;-;-;-;-;-;1;4;8;11;7;4;35
+".. Infarto cerebral";-;-;-;-;-;-;1;-;1;2;3;3;10
+".. Acid vascular cerebr não espec hemorrág ou isq";-;-;-;-;-;2;14;24;45;120;141;88;434
+".. Outras doenças cerebrovasculares";-;-;-;-;-;2;-;1;1;6;1;-;11
+".. Arteroesclerose";-;-;-;-;-;-;2;3;4;8;11;12;40
+".. Outras doenças vasculares periféricas";-;-;-;-;-;2;1;11;14;45;29;18;120
+".. Embolia e trombose arteriais";-;-;-;-;-;-;2;6;10;24;22;15;79
+".. Outras doenças das artérias arteríolas e capil";-;-;-;-;-;-;-;-;2;5;5;4;16
+".. Flebite tromboflebite embolia e trombose venosa";-;-;-;-;-;3;5;13;11;13;5;3;53
+".. Veias varicosas das extremidades inferiores";-;-;-;-;-;1;1;2;3;13;9;4;33
+".. Hemorróidas";-;-;-;-;-;2;3;1;1;-;-;-;7
+".. Outras doenças do aparelho circulatório";-;-;3;-;-;-;-;-;-;1;1;-;5
+"10 Doenças do aparelho respiratório";602;487;264;91;19;54;50;75;115;210;224;276;2467
+".. Faringite aguda e amigdalite aguda";-;5;3;1;-;-;-;-;-;-;-;-;9
+".. Laringite e traqueíte agudas";2;4;1;-;-;-;-;-;-;-;-;-;7
+".. Outras infecções agudas das vias aéreas super";6;4;1;1;-;-;-;-;-;-;1;-;13
+".. Influenza [gripe]";12;17;3;3;-;-;-;-;-;1;-;1;37
+".. Pneumonia";77;146;46;14;8;22;23;37;59;114;136;201;883
+".. Bronquite aguda e bronquiolite aguda";482;186;40;5;-;-;1;-;-;-;1;-;715
+".. Outras doenças do trato respiratório superior";-;-;-;-;-;3;1;1;-;-;1;-;6
+".. Bronquite enfisema e outr doenç pulm obstr crôn";5;29;11;7;-;-;1;6;17;38;42;27;183
+".. Asma";4;80;157;56;-;4;3;4;3;8;1;2;322
+".. Pneumoconiose";-;-;-;-;-;-;-;1;-;-;-;-;1
+".. Outras doenças do aparelho respiratório";14;16;2;4;11;25;21;26;36;49;42;45;291
+"11 Doenças do aparelho digestivo";4;11;15;23;56;213;220;260;259;278;243;138;1720
+".. Outros transtornos dentes e estruturas suporte";-;1;1;-;-;1;1;-;-;-;-;-;4
+".. Outr doenç cavidade oral glând saliv e maxilar";-;6;1;1;1;5;4;3;2;-;1;-;24
+".. Úlcera gástrica e duodenal";-;-;-;-;-;-;-;-;2;3;4;1;10
+".. Gastrite e duodenite";-;-;-;-;1;4;4;2;-;1;1;3;16
+".. Outras doenças do esôfago estômago e duodeno";1;-;1;1;1;4;3;2;10;9;3;4;39
+".. Doenças do apêndice";-;-;5;12;23;70;45;29;14;5;5;-;208
+".. Hérnia inguinal";-;-;-;-;2;6;4;12;10;10;6;6;56
+".. Outras hérnias";-;-;-;-;1;3;9;20;8;7;6;2;56
+".. Doença de Crohn e colite ulcerativa";-;-;1;-;1;-;1;2;1;1;1;-;8
+".. Ileo paralítico e obstrução intestinal s/hérnia";-;-;-;-;3;-;2;8;14;17;17;14;75
+".. Doença diverticular do intestino";-;-;-;-;-;1;4;3;4;7;6;1;26
+".. Outras doenças dos intestinos e peritônio";2;2;4;5;4;11;12;18;17;27;21;15;138
+".. Doença alcoólica do fígado";-;-;-;-;-;-;1;3;7;11;2;-;24
+".. Outras doenças do fígado";-;1;1;-;-;5;4;10;30;25;18;7;101
+".. Colelitíase e colecistite";-;-;-;2;6;60;73;82;60;55;39;27;404
+".. Pancreatite aguda e outras doenças do pâncreas";-;-;-;-;7;11;17;21;19;27;11;16;129
+".. Outras doenças do aparelho digestivo";1;1;1;2;6;32;36;45;61;73;102;42;402
+"12 Doenças da pele e do tecido subcutâneo";15;35;30;13;12;40;39;67;87;62;67;42;509
+".. Infecções da pele e do tecido subcutâneo";13;23;23;6;11;25;26;35;42;24;24;12;264
+".. Outras doenças da pele e do tecido subcutâneo";2;12;7;7;1;15;13;32;45;38;43;30;245
+"13 Doenças sist osteomuscular e tec conjuntivo";-;3;8;24;20;41;62;156;372;297;102;18;1103
+".. Artrite reumatóide e outr poliartropatias infl";-;-;-;-;-;-;-;-;3;3;2;1;9
+".. Artrose";-;-;-;-;-;4;3;5;15;13;3;-;43
+".. Deformidades adquiridas das articulações";-;-;-;12;17;22;24;61;125;102;38;6;407
+".. Outros transtronos articulares";-;2;3;1;1;3;3;9;5;4;1;1;33
+".. Transt discais cervic e outr transt disc interv";-;-;-;-;-;-;1;-;2;-;1;-;4
+".. Outras dorsopatias";-;-;1;-;-;-;1;2;1;3;1;-;9
+".. Transtornos do tecido mole";-;1;4;6;1;3;19;68;208;163;52;9;534
+".. Transtornos da densidade e da estrutura ósseas";-;-;-;-;-;4;5;4;5;1;1;-;20
+".. Osteomielite";-;-;-;-;1;3;1;5;2;6;1;-;19
+".. Outras doenças sist osteomuscular e tec conjunt";-;-;-;5;-;2;5;2;6;2;2;1;25
+"14 Doenças do aparelho geniturinário";26;24;9;10;17;48;46;55;74;98;143;199;749
+".. Síndrome nefríticas aguda e rapidamente progres";-;2;-;-;-;-;-;-;-;-;-;-;2
+".. Outras doenças glomerulares";-;2;1;1;-;-;-;-;-;3;-;1;8
+".. Doenças renais túbulo-intersticiais";-;-;-;-;2;6;2;4;6;-;4;4;28
+".. Insuficiência renal";-;-;-;-;2;6;9;17;34;37;51;43;199
+".. Urolitíase";-;-;1;-;4;13;13;11;9;5;1;-;57
+".. Cistite";-;-;-;-;-;1;-;2;-;3;2;13;21
+".. Outras doenças do aparelho urinário";26;20;5;5;3;12;16;13;18;46;83;138;385
+".. Outros transtornos da próstata";-;-;-;-;-;-;-;-;1;-;-;-;1
+".. Hidrocele e espermatocele";-;-;-;-;-;-;-;1;1;1;-;-;3
+".. Preprúcio redundante fimose e parafimose";-;-;1;-;-;-;-;-;-;-;-;-;1
+".. Outras doenças dos órgãos genitais masculinos";-;-;1;3;6;4;5;3;2;3;2;-;29
+".. Outras doenças inflamat órgãos pélvicos femin";-;-;-;-;-;2;1;3;1;-;-;-;7
+".. Transt não-inflam ovário tromp Falópio lig larg";-;-;-;1;-;3;-;1;1;-;-;-;6
+".. Transtornos da menstruação";-;-;-;-;-;-;-;-;1;-;-;-;1
+".. Outros transtornos do aparelho geniturinário";-;-;-;-;-;1;-;-;-;-;-;-;1
+"15 Gravidez parto e puerpério";-;-;-;-;-;-;1;-;-;-;-;-;1
+".. Aborto espontâneo";-;-;-;-;-;-;1;-;-;-;-;-;1
+"16 Algumas afec originadas no período perinatal";3;-;-;-;-;-;-;-;-;-;-;-;3
+".. Outras infecções específicas do período perinat";2;-;-;-;-;-;-;-;-;-;-;-;2
+".. Outras afecções originadas no período perinatal";1;-;-;-;-;-;-;-;-;-;-;-;1
+"17 Malf cong deformid e anomalias cromossômicas";-;-;3;7;4;2;6;6;5;4;3;-;40
+".. Outras malformações congênitas do sistema nerv";-;-;-;-;-;-;-;1;-;-;1;-;2
+".. Outras malformações do aparelho geniturinário";-;-;-;-;-;-;-;-;-;1;-;-;1
+".. Deformidades congênitas dos pés";-;-;3;6;3;2;6;4;5;3;2;-;34
+".. Outr malform e deform congên aparelho osteomusc";-;-;-;1;1;-;-;1;-;-;-;-;3
+"18 Sint sinais e achad anorm ex clín e laborat";10;6;3;4;7;7;13;12;30;27;34;20;173
+".. Dor abdominal e pélvica";-;-;-;1;7;4;8;7;15;9;10;5;66
+".. Febre de origem desconhecida";4;4;-;-;-;-;-;-;-;1;-;-;9
+".. Outr sist sinais achad anorm ex clín labor NCOP";6;2;3;3;-;3;5;5;15;17;24;15;98
+"19 Lesões enven e alg out conseq causas externas";9;51;57;61;135;532;415;322;287;239;189;150;2447
+".. Fratura do crânio e dos ossos da face";-;4;1;-;12;33;29;25;9;5;-;-;118
+".. Fratura do pescoço tórax ou pelve";-;-;-;-;-;3;2;1;3;2;1;1;13
+".. Fratura do fêmur";-;4;1;6;8;41;8;13;18;38;53;91;281
+".. Fratura de outros ossos dos membros";-;16;22;29;63;274;214;142;122;96;43;8;1029
+".. Fraturas envolvendo múltiplas regiões do corpo";1;2;1;3;6;21;14;12;14;10;22;12;118
+".. Luxações entorse distensão reg esp e múlt corpo";-;-;-;-;2;28;28;23;13;7;4;2;107
+".. Traumatismo do olho e da órbita ocular";-;-;-;-;-;-;1;-;-;-;-;-;1
+".. Traumatismo intracraniano";3;5;2;-;8;12;13;16;24;11;29;23;146
+".. Traumatismo de outros órgãos internos";-;-;1;-;2;3;12;4;5;4;2;-;33
+".. Lesões esmag amput traumát reg esp e múlt corpo";-;-;1;1;-;6;2;2;1;-;1;1;15
+".. Outr traum reg espec não espec e múltipl corpo";4;10;20;13;9;51;51;38;38;33;15;7;289
+".. Efeitos corpo estranho através de orifício nat";-;1;3;2;1;2;3;3;1;-;1;-;17
+".. Queimadura e corrosões";-;-;-;-;-;-;-;-;1;-;-;-;1
+".. Envenenamento por drogas e substâncias biológ";1;2;1;5;11;27;18;10;3;1;4;-;83
+".. Efeitos tóxicos subst origem princ não-medicin";-;1;-;1;1;2;2;1;-;1;-;-;9
+".. Síndromes de maus tratos";-;4;1;-;-;1;-;-;-;-;-;-;6
+".. Outros efeitos e não espec de causas externas";-;1;1;-;-;-;-;-;1;1;-;-;4
+".. Cert compl prec traum compl cirúrg ass méd NCOP";-;1;2;1;12;27;17;30;31;28;14;5;168
+".. Seqüel traum enven e outr conseq causas extern";-;-;-;-;-;1;1;2;3;2;-;-;9
+"21 Contatos com serviços de saúde";-;-;1;-;2;1;1;2;3;1;2;-;13
+".. Pessoas em contato com serv saúde exame invest";-;-;1;-;-;-;-;-;-;-;-;-;1
+".. Pessoas contato serv saúde cuidados proc espec";-;-;-;-;2;1;1;2;3;1;1;-;11
+".. Pessoas contato serv saúde por outras razões";-;-;-;-;-;-;-;-;-;-;1;-;1
+"Total";724;689;443;281;321;1044;1028;1256;1709;1977;1683;1364;12519
+&

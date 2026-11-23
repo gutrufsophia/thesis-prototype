@@ -1,0 +1,64 @@
+"Lista Morb  CID-10";"Menor 1 ano";"1 a 4 anos";"15 a 19 anos";"20 a 29 anos";"30 a 39 anos";"40 a 49 anos";"50 a 59 anos";"60 a 69 anos";"70 a 79 anos";"80 anos e mais";"Total"
+"01 Algumas doenças infecciosas e parasitárias";1;1;-;6;5;16;18;58;100;202;407
+".. Diarréia e gastroenterite origem infecc presum";-;-;-;-;-;-;-;1;-;2;3
+".. Tuberculose respiratória";-;-;-;1;1;-;-;-;-;-;2
+".... Tuberculose pulmonar";-;-;-;-;1;-;-;-;-;-;1
+".... Outras tuberculoses respiratórias";-;-;-;1;-;-;-;-;-;-;1
+".. Septicemia";1;1;-;5;4;15;18;56;100;200;400
+".. Outras doenças bacterianas";-;-;-;-;-;-;-;1;-;-;1
+".... Restante de outras doenças bacterianas";-;-;-;-;-;-;-;1;-;-;1
+".. Outras febre p/arbovírus e febr hemorr p/vírus";-;-;-;-;-;1;-;-;-;-;1
+".... Dengue [dengue clásssico]";-;-;-;-;-;1;-;-;-;-;1
+"02 Neoplasias (tumores)";-;-;-;-;-;-;2;1;4;6;13
+".. Neopl malig junção retoss reto ânus canal anal";-;-;-;-;-;-;1;-;-;-;1
+".. Neoplasia maligna do pâncreas";-;-;-;-;-;-;-;-;1;-;1
+".. Outras neoplasias malignas de órgãos digestivos";-;-;-;-;-;-;-;1;-;-;1
+".. Neoplasias malignas de laringe";-;-;-;-;-;-;-;-;-;1;1
+".. Neoplasia maligna de traquéia brônquios e pulm";-;-;-;-;-;-;-;-;2;1;3
+".. Outras neopl malig órg respirat e intratorác";-;-;-;-;-;-;-;-;1;-;1
+".. Neoplasia maligna da mama";-;-;-;-;-;-;-;-;-;2;2
+".. Neoplasia maligna da próstata";-;-;-;-;-;-;-;-;-;1;1
+".. Neopl malig outr local mal def secun e não esp";-;-;-;-;-;-;1;-;-;-;1
+".. Outr neopl in situ benigs e comport incert desc";-;-;-;-;-;-;-;-;-;1;1
+"03 Doenças sangue órgãos hemat e transt imunitár";1;-;-;1;-;-;-;1;1;5;9
+".. Anemia por deficiência de ferro";-;-;-;-;-;-;-;-;1;1;2
+".. Outras anemias";-;-;-;-;-;-;-;1;-;4;5
+".. Afecç hemorrág e outr doenç sang e órg hematop";-;-;-;1;-;-;-;-;-;-;1
+".. Alguns transtornos envolvendo mecanismo imunit";1;-;-;-;-;-;-;-;-;-;1
+"04 Doenças endócrinas nutricionais e metabólicas";-;-;-;-;1;1;4;2;5;3;16
+".. Diabetes mellitus";-;-;-;-;1;1;1;1;2;1;7
+".. Depleção de volume";-;-;-;-;-;-;-;-;1;-;1
+".. Outros transt endócrinos nutricionais metabólic";-;-;-;-;-;-;3;1;2;2;8
+"06 Doenças do sistema nervoso";-;-;-;-;-;-;-;2;-;1;3
+".. Epilepsia";-;-;-;-;-;-;-;2;-;1;3
+"09 Doenças do aparelho circulatório";1;-;-;-;1;2;6;40;34;43;127
+".. Hipertensão essencial (primária)";-;-;-;-;-;-;-;-;1;-;1
+".. Infarto agudo do miocárdio";-;-;-;-;-;-;1;8;10;8;27
+".. Embolia pulmonar";-;-;-;-;-;-;-;1;-;-;1
+".. Transtornos de condução e arritmias cardíacas";-;-;-;-;-;-;1;2;3;1;7
+".. Insuficiência cardíaca";-;-;-;-;-;-;1;12;13;21;47
+".. Outras doenças do coração";-;-;-;-;-;-;-;1;-;-;1
+".. Acid vascular cerebr não espec hemorrág ou isq";1;-;-;-;1;2;3;16;6;12;41
+".. Outras doenças das artérias arteríolas e capil";-;-;-;-;-;-;-;-;1;1;2
+"10 Doenças do aparelho respiratório";1;-;1;3;3;14;18;32;78;114;264
+".. Pneumonia";-;-;1;-;1;6;8;12;32;69;129
+".. Bronquite aguda e bronquiolite aguda";1;-;-;-;-;1;-;-;-;-;2
+".. Bronquite enfisema e outr doenç pulm obstr crôn";-;-;-;-;-;1;1;2;11;3;18
+".. Outras doenças do aparelho respiratório";-;-;-;3;2;6;9;18;35;42;115
+"11 Doenças do aparelho digestivo";-;-;-;-;-;2;3;2;8;2;17
+".. Doença alcoólica do fígado";-;-;-;-;-;1;-;1;-;-;2
+".. Outras doenças do fígado";-;-;-;-;-;-;2;-;3;-;5
+".. Pancreatite aguda e outras doenças do pâncreas";-;-;-;-;-;1;-;-;-;-;1
+".. Outras doenças do aparelho digestivo";-;-;-;-;-;-;1;1;5;2;9
+"14 Doenças do aparelho geniturinário";-;-;-;-;-;1;4;6;14;28;53
+".. Insuficiência renal";-;-;-;-;-;1;1;4;6;13;25
+".. Outras doenças do aparelho urinário";-;-;-;-;-;-;3;2;8;15;28
+"18 Sint sinais e achad anorm ex clín e laborat";1;-;-;-;2;3;2;6;14;10;38
+".. Outr sist sinais achad anorm ex clín labor NCOP";1;-;-;-;2;3;2;6;14;10;38
+"19 Lesões enven e alg out conseq causas externas";-;-;-;2;-;-;1;1;1;2;7
+".. Traumatismo intracraniano";-;-;-;1;-;-;-;1;1;2;5
+".. Efeitos tóxicos subst origem princ não-medicin";-;-;-;1;-;-;1;-;-;-;2
+"21 Contatos com serviços de saúde";-;-;-;-;-;-;-;-;-;2;2
+".. Pessoas contato serv saúde cuidados proc espec";-;-;-;-;-;-;-;-;-;2;2
+"Total";5;1;1;12;12;39;58;151;259;418;956
+&

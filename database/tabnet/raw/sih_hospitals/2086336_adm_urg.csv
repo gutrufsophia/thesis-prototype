@@ -1,0 +1,90 @@
+"Lista Morb  CID-10";"Menor 1 ano";"1 a 4 anos";"5 a 9 anos";"10 a 14 anos";"15 a 19 anos";"Total"
+"01 Algumas doenças infecciosas e parasitárias";13;47;15;8;5;88
+".. Diarréia e gastroenterite origem infecc presum";8;41;9;8;4;70
+".. Septicemia";1;-;-;-;-;1
+".. Outras doenças bacterianas";2;1;2;-;1;6
+".... Restante de outras doenças bacterianas";2;1;2;-;1;6
+".. Encefalite viral";-;1;-;-;-;1
+".. Outras febre p/arbovírus e febr hemorr p/vírus";-;-;2;-;-;2
+".... Dengue [dengue clásssico]";-;-;2;-;-;2
+".. Infecções pelo vírus do herpes";-;-;1;-;-;1
+".. Outras doenças virais";1;4;-;-;-;5
+".... Meningite viral";-;3;-;-;-;3
+".... Restante de outras doenças virais";1;1;-;-;-;2
+".. Micoses";-;-;1;-;-;1
+".. Outras doenças infecciosas e parasitárias";1;-;-;-;-;1
+"03 Doenças sangue órgãos hemat e transt imunitár";7;23;4;3;-;37
+".. Outras anemias";-;3;-;3;-;6
+".. Afecç hemorrág e outr doenç sang e órg hematop";7;20;4;-;-;31
+"04 Doenças endócrinas nutricionais e metabólicas";2;3;2;8;1;16
+".. Diabetes mellitus";-;2;1;8;1;12
+".. Desnutrição";2;1;1;-;-;4
+"05 Transtornos mentais e comportamentais";-;-;1;2;1;4
+".. Transt ment comport dev uso outr subst psicoat";-;-;-;1;-;1
+".. Esquizofrenia transt esquizotípicos e delirant";-;-;1;-;1;2
+".. Transt neurót e relacionados com stress somatof";-;-;-;1;-;1
+"06 Doenças do sistema nervoso";6;3;5;2;-;16
+".. Doenças inflamatórias do sistema nervoso centr";-;1;-;-;-;1
+".... Meningite bacteriana não classif outra parte";-;1;-;-;-;1
+".. Esclerose múltiplas";-;-;-;1;-;1
+".. Epilepsia";5;2;4;1;-;12
+".. Paralisia cerebral e outras síndromes paralít";1;-;1;-;-;2
+"07 Doenças do olho e anexos";1;1;-;1;-;3
+".. Outras doenças do olho e anexos";1;1;-;1;-;3
+"08 Doenças do ouvido e da apófise mastóide";6;12;6;5;-;29
+".. Otite média e outr transt ouvid médio apóf mast";6;9;6;2;-;23
+".. Outras doenças do ouvido e da apófise mastóide";-;3;-;3;-;6
+"09 Doenças do aparelho circulatório";-;2;2;-;-;4
+".. Transtornos de condução e arritmias cardíacas";-;-;1;-;-;1
+".. Flebite tromboflebite embolia e trombose venosa";-;1;-;-;-;1
+".. Outras doenças do aparelho circulatório";-;1;1;-;-;2
+"10 Doenças do aparelho respiratório";137;203;129;52;2;523
+".. Faringite aguda e amigdalite aguda";-;5;5;1;1;12
+".. Laringite e traqueíte agudas";1;-;-;-;-;1
+".. Pneumonia";17;78;25;13;-;133
+".. Bronquite aguda e bronquiolite aguda";1;-;-;-;-;1
+".. Outras doenças do trato respiratório superior";-;-;-;1;1;2
+".. Bronquite enfisema e outr doenç pulm obstr crôn";91;85;33;11;-;220
+".. Asma";27;35;66;26;-;154
+"11 Doenças do aparelho digestivo";-;6;2;5;3;16
+".. Outros transtornos dentes e estruturas suporte";-;-;-;2;1;3
+".. Outr doenç cavidade oral glând saliv e maxilar";-;3;-;1;-;4
+".. Doenças do apêndice";-;-;1;1;-;2
+".. Doença de Crohn e colite ulcerativa";-;-;1;-;-;1
+".. Ileo paralítico e obstrução intestinal s/hérnia";-;1;-;-;-;1
+".. Outras doenças dos intestinos e peritônio";-;1;-;-;1;2
+".. Outras doenças do fígado";-;-;-;-;1;1
+".. Colelitíase e colecistite";-;1;-;-;-;1
+".. Outras doenças do aparelho digestivo";-;-;-;1;-;1
+"12 Doenças da pele e do tecido subcutâneo";9;24;16;18;3;70
+".. Infecções da pele e do tecido subcutâneo";6;17;10;15;3;51
+".. Outras doenças da pele e do tecido subcutâneo";3;7;6;3;-;19
+"13 Doenças sist osteomuscular e tec conjuntivo";-;1;2;2;1;6
+".. Artrite reumatóide e outr poliartropatias infl";-;-;1;-;-;1
+".. Outros transtronos articulares";-;1;-;1;-;2
+".. Outras dorsopatias";-;-;-;1;-;1
+".. Transtornos do tecido mole";-;-;1;-;1;2
+"14 Doenças do aparelho geniturinário";17;18;17;12;3;67
+".. Síndrome nefríticas aguda e rapidamente progres";-;1;-;1;-;2
+".. Outras doenças glomerulares";-;-;1;2;-;3
+".. Urolitíase";-;-;-;1;-;1
+".. Outras doenças do aparelho urinário";17;17;15;8;1;58
+".. Outras doenças dos órgãos genitais masculinos";-;-;1;-;-;1
+".. Transt não-inflam ovário tromp Falópio lig larg";-;-;-;-;2;2
+"16 Algumas afec originadas no período perinatal";6;-;-;-;-;6
+".. Outras infecções específicas do período perinat";1;-;-;-;-;1
+".. Outras afecções originadas no período perinatal";5;-;-;-;-;5
+"18 Sint sinais e achad anorm ex clín e laborat";11;17;15;18;3;64
+".. Dor abdominal e pélvica";1;2;5;6;2;16
+".. Febre de origem desconhecida";7;12;7;3;-;29
+".. Outr sist sinais achad anorm ex clín labor NCOP";3;3;3;9;1;19
+"19 Lesões enven e alg out conseq causas externas";-;11;10;9;7;37
+".. Traumatismo intracraniano";-;1;-;1;1;3
+".. Outr traum reg espec não espec e múltipl corpo";-;3;7;7;5;22
+".. Queimadura e corrosões";-;2;2;-;-;4
+".. Envenenamento por drogas e substâncias biológ";-;2;-;1;1;4
+".. Efeitos tóxicos subst origem princ não-medicin";-;1;-;-;-;1
+".. Síndromes de maus tratos";-;1;-;-;-;1
+".. Outros efeitos e não espec de causas externas";-;1;1;-;-;2
+"Total";215;371;226;145;29;986
+&

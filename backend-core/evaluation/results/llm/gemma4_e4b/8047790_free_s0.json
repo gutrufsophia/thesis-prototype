@@ -1,0 +1,27 @@
+{
+ "cnes": "8047790",
+ "condition": "free",
+ "seed": 0,
+ "provider": "ollama",
+ "model": "gemma4:e4b",
+ "digest": "dc35e8d9c6061baa6f0fa870975ab6932e2542b579b13ea0f199fa4bb7300c9c",
+ "options": {
+  "seed": 0,
+  "temperature": 0.0,
+  "num_ctx": 6144,
+  "num_predict": 900,
+  "num_thread": 4
+ },
+ "storyteller_version": "0.3.4",
+ "created_at": "2026-11-23T01:27:51+00:00",
+ "stats": {
+  "prompt_tokens": 893,
+  "output_tokens": 446,
+  "prompt_s": 70.5,
+  "output_s": 113.7,
+  "total_s": 186.0
+ },
+ "system": "Você escreve a seção “Leitura do território” da página de uma unidade de saúde no CulturaEduca, uma plataforma pública de mapas. O leitor é alguém da comunidade, da educação ou da gestão, sem formação em estatística.\n\nEscreva em português, usando só os dados fornecidos:\n- Siga a ordem dos parágrafos dados e escreva um parágrafo para cada um.\n- Conte todos os dados listados, e nenhum outro. Não invente números; você pode arredondar.\n- Todo número deve dizer, na mesma frase, a que área se refere: o raio em volta da unidade, a área de atendimento, o distrito, a cidade, o município ou a região metropolitana.\n- Inclua cada aviso obrigatório junto do dado a que ele se refere.\n- Não diga que um fator causa, explica ou contribui para outro: os dados mostram só que as coisas aparecem juntas.\n- No máximo 340 palavras.\n- Responda só com o texto, sem título, sem listas e sem formatação.",
+ "user": "Unidade: UBS VILA RUBI (Centro de Saúde/UBS)\n\nParágrafo 1\nDado: Perfil da unidade\n- Tipo (CNES): Centro de Saúde/UBS\n- Rede pública ou com vínculo SUS: sim\n- Fluxo de clientela: demanda espontânea e referenciada\nDado: Profissionais da unidade\n- Vínculos de médicos: 8\n- Vínculos de enfermeiros: 6\n- Aviso obrigatório: os números de médicos e enfermeiros contam vínculos registrados no CNES, não pessoas: use a palavra “vínculos”.\n\nParágrafo 2\nDado: Moradores do raio (Censo 2022)\n- Moradores: 38.668\n- Domicílios: 14.180\n- Setores tocados pelo raio: 107\n- Parte da população desses setores dentro do raio: 70%\n- Aviso obrigatório: os números de moradores e domicílios são estimativas a partir do Censo: use “cerca de” ou “estimativa”.\nDado: Moradores em setores entre os 10% mais adensados (3,1 ou mais por domicílio)\n- Raio de 1,0 km: 2,7%\n- município de São Paulo: 10,1%\n- região metropolitana: 13,7%\nDado: Domicílios fora da rede de esgoto\n- Raio de 1,0 km: 0,9%\n- município de São Paulo: 4,8%\n- região metropolitana: 8,3%\n- Raio: com esgoto precário (fossa rudimentar, vala, rio…): 0,9%\nDado: Outras unidades de saúde no raio\n- Total: 5\n- Públicas ou com vínculo SUS: 1\n- Privadas sem vínculo SUS: 4\n- Hospitais com 50 leitos ou mais: 1\n- Aviso obrigatório: diga, na mesma frase do dado: “4 privadas e sem vínculo com o SUS”\n- Aviso obrigatório: inclua junto deste dado o aviso a seguir, com estas ou outras palavras, mantendo a expressão “toda a região”: “Há hospital de grande porte no raio, que atende pacientes de toda a região: taxas por morador do entorno não descrevem o alcance dessa capacidade.”\n\nParágrafo 3\nDado: Leptospirose no município de São Paulo (2022–2025)\n- Casos por 100 mil hab. por ano: 1,29\n- Casos no período: 590\n- Região metropolitana: 1,13\n- Aviso obrigatório: inclua antes deste dado o aviso a seguir, com estas ou outras palavras, mantendo a expressão “Não há dados de doença”: “Não há dados de doença para áreas do tamanho do raio: os números a seguir são do município inteiro.”",
+ "response": "A UBS Vila Rubi é um Centro de Saúde/UBS que faz parte da rede pública do SUS, e seu fluxo de clientela é de demanda espontânea e referenciada. A unidade conta com 8 vínculos de médicos e 6 vínculos de enfermeiros, sendo que os números de médicos e enfermeiros contam vínculos registrados no CNES, não pessoas.\n\nNo raio da unidade, há cerca de 38.668 moradores e 14.180 domicílios, abrangendo 107 setores, dos quais cerca de 70% da população desses setores está dentro do raio. No raio de 1,0 km, 2,7% dos moradores estão em setores entre os 10% mais adensados (3,1 ou mais por domicílio), enquanto no município de São Paulo, esse percentual é de 10,1%, e na região metropolitana, é de 13,7%. No raio de 1,0 km, 0,9% dos domicílios estão fora da rede de esgoto, e no município de São Paulo, esse valor é de 4,8%, e na região metropolitana, é de 8,3%. No raio, 0,9% dos domicílios possuem esgoto precário (fossa rudimentar, vala, rio…). Além disso, no raio, há um total de 5 outras unidades de saúde, sendo 1 pública ou com vínculo SUS, 4 privadas e sem vínculo com o SUS, e 1 hospital com 50 leitos ou mais. Há hospital de grande porte no raio, que atende pacientes de toda a região: taxas por morador do entorno não descrevem o alcance dessa capacidade.\n\nNão há dados de doença para áreas do tamanho do raio: os números a seguir são do município inteiro. Em relação à Leptospirose no município de São Paulo, os casos por 100 mil hab. por ano são de 1,29, totalizando 590 casos no período, e na região metropolitana, o valor é de 1,13."
+}

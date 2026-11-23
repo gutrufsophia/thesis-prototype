@@ -145,7 +145,26 @@
   "tipo_equipamento": "Hospital Geral",
   "total_enfermeiros": 156,
   "total_medicos": 661,
-  "total_saude_mental": 18
+  "total_saude_mental": 18,
+  "obitos_sus": 895,
+  "obitos_esperados": 816.5,
+  "mortalidade_faixa": "within",
+  "mortalidade_perfil": {
+   "capitulo": "internacoes_gravidez_parto_puerperio",
+   "idosos_pct": 10.6,
+   "shapley_pp": {
+    "idade": -0.62,
+    "carater": -0.32,
+    "diagnostico": -1.13
+   },
+   "taxa_regiao": 5.16,
+   "capitulo_pct": 22.9,
+   "urgencia_pct": 59.9,
+   "idosos_regiao_pct": 16.7,
+   "capitulo_regiao_pct": 14.5,
+   "urgencia_regiao_pct": 68.7,
+   "capitulo_taxa_regiao": 0.04
+  }
  },
  "hospital_stays": [
   0.0,

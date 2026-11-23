@@ -358,6 +358,11 @@ a { color: var(--accent-ink); }
   background: var(--surface);
 }
 
+/* In-hospital deaths: the funnel needs the full row; figures beside it on wide screens */
+.facility-page .facility-sections > .block.is-wide { grid-column: 1 / -1; }
+.deaths-body { display: grid; gap: 16px; grid-template-columns: minmax(260px, 340px) minmax(0, 1fr); align-items: start; }
+@media (max-width: 760px) { .deaths-body { grid-template-columns: minmax(0, 1fr); } }
+
 .split {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));

@@ -1,0 +1,64 @@
+"Lista Morb  CID-10";"Menor 1 ano";"1 a 4 anos";"5 a 9 anos";"10 a 14 anos";"15 a 19 anos";"20 a 29 anos";"30 a 39 anos";"40 a 49 anos";"50 a 59 anos";"60 a 69 anos";"70 a 79 anos";"80 anos e mais";"Total"
+"01 Algumas doenças infecciosas e parasitárias";-;-;-;-;1;1;5;-;1;15;18;15;56
+".. Diarréia e gastroenterite origem infecc presum";-;-;-;-;-;-;-;-;-;1;-;-;1
+".. Outras doenças infecciosas intestinais";-;-;-;-;-;-;-;-;-;-;-;1;1
+".. Outras doenças bacterianas";-;-;-;-;1;1;5;-;1;14;18;14;54
+".... Restante de outras doenças bacterianas";-;-;-;-;1;1;5;-;1;14;18;14;54
+"03 Doenças sangue órgãos hemat e transt imunitár";-;-;-;-;-;-;-;1;1;2;3;3;10
+".. Outras anemias";-;-;-;-;-;-;-;1;1;2;3;3;10
+"04 Doenças endócrinas nutricionais e metabólicas";-;-;-;-;-;-;-;-;1;-;-;-;1
+".. Diabetes mellitus";-;-;-;-;-;-;-;-;1;-;-;-;1
+"05 Transtornos mentais e comportamentais";-;-;-;-;1;1;1;1;-;1;-;-;5
+".. Transt ment comport dev uso outr subst psicoat";-;-;-;-;-;-;1;-;-;-;-;-;1
+".. Esquizofrenia transt esquizotípicos e delirant";-;-;-;-;1;-;-;1;-;-;-;-;2
+".. Transt neurót e relacionados com stress somatof";-;-;-;-;-;1;-;-;-;1;-;-;2
+"06 Doenças do sistema nervoso";-;-;-;-;1;-;2;-;-;-;-;-;3
+".. Transtornos dos nervos raízes e plexos nervosos";-;-;-;-;1;-;2;-;-;-;-;-;3
+"09 Doenças do aparelho circulatório";-;-;-;-;1;-;-;1;5;1;5;-;13
+".. Hipertensão essencial (primária)";-;-;-;-;-;-;-;-;1;-;-;-;1
+".. Outras doenças hipertensivas";-;-;-;-;-;-;-;1;2;-;-;-;3
+".. Infarto agudo do miocárdio";-;-;-;-;-;-;-;-;2;1;1;-;4
+".. Embolia pulmonar";-;-;-;-;-;-;-;-;-;-;1;-;1
+".. Transtornos de condução e arritmias cardíacas";-;-;-;-;1;-;-;-;-;-;2;-;3
+".. Flebite tromboflebite embolia e trombose venosa";-;-;-;-;-;-;-;-;-;-;1;-;1
+"10 Doenças do aparelho respiratório";-;-;-;-;-;-;-;-;1;2;3;1;7
+".. Pneumonia";-;-;-;-;-;-;-;-;-;-;3;1;4
+".. Outras doenças do aparelho respiratório";-;-;-;-;-;-;-;-;1;2;-;-;3
+"11 Doenças do aparelho digestivo";-;-;-;-;-;1;1;-;-;1;-;-;3
+".. Doenças do apêndice";-;-;-;-;-;1;-;-;-;-;-;-;1
+".. Outras doenças dos intestinos e peritônio";-;-;-;-;-;-;-;-;-;1;-;-;1
+".. Colelitíase e colecistite";-;-;-;-;-;-;1;-;-;-;-;-;1
+"12 Doenças da pele e do tecido subcutâneo";-;-;-;-;-;-;4;-;1;-;1;2;8
+".. Outras doenças da pele e do tecido subcutâneo";-;-;-;-;-;-;4;-;1;-;1;2;8
+"13 Doenças sist osteomuscular e tec conjuntivo";-;-;-;1;1;11;29;11;11;25;9;4;102
+".. Artrose";-;-;-;-;-;-;-;-;-;8;1;-;9
+".. Deformidades adquiridas das articulações";-;-;-;-;1;-;-;-;-;-;-;-;1
+".. Outros transtronos articulares";-;-;-;-;-;-;2;2;2;1;1;-;8
+".. Transtornos do tecido mole";-;-;-;-;-;7;18;8;5;5;-;-;43
+".. Transtornos da densidade e da estrutura ósseas";-;-;-;1;-;2;3;1;-;2;1;-;10
+".. Osteomielite";-;-;-;-;-;1;6;-;4;3;1;-;15
+".. Outras doenças sist osteomuscular e tec conjunt";-;-;-;-;-;1;-;-;-;6;5;4;16
+"14 Doenças do aparelho geniturinário";-;-;-;-;-;-;-;-;-;-;-;1;1
+".. Outras doenças do aparelho urinário";-;-;-;-;-;-;-;-;-;-;-;1;1
+"15 Gravidez parto e puerpério";-;-;-;-;-;-;-;1;-;-;-;-;1
+".. Compl pred rel puerpério e outr afecç obst NCOP";-;-;-;-;-;-;-;1;-;-;-;-;1
+"17 Malf cong deformid e anomalias cromossômicas";1;-;-;-;1;-;-;-;-;-;-;-;2
+".. Deformidades congênitas dos pés";1;-;-;-;-;-;-;-;-;-;-;-;1
+".. Outr malform e deform congên aparelho osteomusc";-;-;-;-;1;-;-;-;-;-;-;-;1
+"18 Sint sinais e achad anorm ex clín e laborat";-;-;-;1;-;-;3;1;1;5;2;1;14
+".. Outr sist sinais achad anorm ex clín labor NCOP";-;-;-;1;-;-;3;1;1;5;2;1;14
+"19 Lesões enven e alg out conseq causas externas";-;2;1;45;219;1019;834;716;561;494;481;286;4658
+".. Fratura do fêmur";-;1;-;3;36;109;65;42;62;125;225;201;869
+".. Fratura de outros ossos dos membros";-;1;1;42;181;839;674;602;447;332;190;51;3360
+".. Luxações entorse distensão reg esp e múlt corpo";-;-;-;-;-;9;6;5;5;1;8;4;38
+".. Lesões esmag amput traumát reg esp e múlt corpo";-;-;-;-;-;1;-;-;1;-;-;-;2
+".. Outr traum reg espec não espec e múltipl corpo";-;-;-;-;2;52;82;58;38;15;7;-;254
+".. Efeitos tóxicos subst origem princ não-medicin";-;-;-;-;-;-;1;-;-;-;-;-;1
+".. Outros efeitos e não espec de causas externas";-;-;-;-;-;-;-;1;-;-;-;-;1
+".. Cert compl prec traum compl cirúrg ass méd NCOP";-;-;-;-;-;9;5;7;8;21;51;30;131
+".. Seqüel traum enven e outr conseq causas extern";-;-;-;-;-;-;1;1;-;-;-;-;2
+"21 Contatos com serviços de saúde";-;-;-;-;1;7;11;9;9;7;3;4;51
+".. Pessoas contato serv saúde cuidados proc espec";-;-;-;-;1;7;11;9;8;7;3;4;50
+".. Pessoas contato serv saúde por outras razões";-;-;-;-;-;-;-;-;1;-;-;-;1
+"Total";1;2;1;47;226;1040;890;741;592;553;525;317;4935
+&

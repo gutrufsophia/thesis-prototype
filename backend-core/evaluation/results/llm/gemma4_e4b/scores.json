@@ -1,0 +1,2690 @@
+{
+ "model": "gemma4:e4b",
+ "digest": "dc35e8d9c6061baa6f0fa870975ab6932e2542b579b13ea0f199fa4bb7300c9c",
+ "template": {
+  "texts": 20,
+  "verified": 20,
+  "words_mean": 223.7
+ },
+ "free": {
+  "texts": 20,
+  "verified": 7,
+  "with_markup": 0,
+  "texts_with_issue": {
+   "V3": 2,
+   "V5": 11,
+   "V8": 6
+  },
+  "issues": {
+   "V3": 2,
+   "V5": 30,
+   "V8": 6
+  },
+  "words_mean": 309.4,
+  "over_length": 6,
+  "paragraphs_differ": 6,
+  "seconds_mean": 216.6,
+  "numbers": 638,
+  "untraced": 0,
+  "untraced_per_100_numbers": 0.0,
+  "set_aside": 251,
+  "strict_v5": 123
+ },
+ "rewrite": {
+  "texts": 20,
+  "verified": 3,
+  "with_markup": 15,
+  "texts_with_issue": {
+   "V1": 3,
+   "V3": 4,
+   "V4": 9,
+   "V5": 11
+  },
+  "issues": {
+   "V1": 13,
+   "V3": 15,
+   "V4": 11,
+   "V5": 23
+  },
+  "words_mean": 232.8,
+  "over_length": 0,
+  "paragraphs_differ": 11,
+  "seconds_mean": 201.4,
+  "verified_loose_v5": 5,
+  "unchanged_sentences_mean": 0.453,
+  "texts_with_literal_numbers": 3
+ },
+ "variation": {
+  "2038994": {
+   "runs": 3,
+   "verified": 1,
+   "issues": [
+    2,
+    0,
+    2
+   ],
+   "word_jaccard_mean": 0.643
+  },
+  "4441389": {
+   "runs": 3,
+   "verified": 1,
+   "issues": [
+    0,
+    1,
+    2
+   ],
+   "word_jaccard_mean": 0.724
+  },
+  "7377045": {
+   "runs": 3,
+   "verified": 3,
+   "issues": [
+    0,
+    0,
+    0
+   ],
+   "word_jaccard_mean": 0.696
+  },
+  "876577": {
+   "runs": 3,
+   "verified": 3,
+   "issues": [
+    0,
+    0,
+    0
+   ],
+   "word_jaccard_mean": 0.717
+  },
+  "9152660": {
+   "runs": 3,
+   "verified": 0,
+   "issues": [
+    1,
+    1,
+    1
+   ],
+   "word_jaccard_mean": 0.779
+  }
+ },
+ "texts": [
+  {
+   "cnes": "2038994",
+   "condition": "free",
+   "seed": 0,
+   "stats": {
+    "prompt_tokens": 1096,
+    "output_tokens": 649,
+    "prompt_s": 92.1,
+    "output_s": 149.2,
+    "total_s": 241.4
+   },
+   "paragraphs": 3,
+   "template_paragraphs": 4,
+   "markup": false,
+   "strict_v5": 6,
+   "numbers": 44,
+   "aligned": 24,
+   "set_aside": 20,
+   "untraced": [],
+   "aligned_text": [
+    [
+     "Em comparação com outras unidades do mesmo grupo, no raio de {k.one_km} em volta da {profile.name}, a porcentagem de moradores em setores adensados é de N, o que é maior que em N e menor que em N das {peer.count_group} unidades de {peer.group}.",
+     "A unidade é classificada como {profile.flow}, faz parte {profile.network} com vínculo SUS e seu fluxo de clientela é de {profile.flow}.",
+     "A unidade conta com {staff.physicians_unit} vínculos de médicos e {staff.nurses_unit} vínculos de enfermeiros.",
+     "A posição da unidade no mapa é aproximada ou foi substituída pela do endereço, com uma distância de {position.shift} entre a coordenada do CNES e o endereço."
+    ],
+    [
+     "No raio de {residents.extent_radius} em volta da unidade, a estimativa de moradores é de {residents.radius}, com {residents.households_radius} domicílios, abrangendo N setores tocados pelo raio, dos quais N da população desses setores está dentro do raio.",
+     "No raio de N, a porcentagem de domicílios fora da rede de esgoto é de {sewage.precarious_radius}, enquanto no município de {sewage.municipality_name} é de {sewage.municipality} e na região metropolitana é de {sewage.region}.",
+     "No raio de N, a porcentagem de domicílios com esgoto precário (fossa rudimentar, vala, rio…) é de {sewage.precarious_radius}.",
+     "No raio de N, a porcentagem de moradores em setores entre os {k.top_decile} mais adensados ({crowded.threshold} ou mais por domicílio) é de {crowded.radius}, comparado a {crowded.municipality} no município de {crowded.municipality_name} e {crowded.region} na região metropolitana."
+    ],
+    [
+     "Não há dados de doença para áreas do tamanho do raio: os números a seguir são do município inteiro.",
+     "Em relação à tuberculose no município de {tb.municipality_name} (N–N), há {tb.municipality} casos por {k.per100k} hab. por ano, totalizando {tb.count_municipality} casos no período, e a região metropolitana apresenta {tb.region} casos.",
+     "Os casos de tuberculose são contados entre os moradores do município de residência.",
+     "Em relação à dengue no município de {dengue.municipality_name}, em {dengue.year}, há {dengue.municipality} casos prováveis por {k.per100k} hab.",
+     "({dengue.count_municipality} casos; região: {dengue.region}).",
+     "Em {dengue.peak_year}, ano de epidemia, a taxa do município chegou a {dengue.peak_municipality} (N casos; região: N).",
+     "Em N, há N casos prováveis por {k.per100k} hab.",
+     "(N casos; região: N), e em N, há N casos prováveis por {k.per100k} hab.",
+     "(N casos; região: N)."
+    ]
+   ],
+   "words": 362,
+   "verified": false,
+   "issues": [
+    {
+     "check": "V8",
+     "detail": "362 words",
+     "paragraph": -1,
+     "sentence": -1
+    },
+    {
+     "check": "V5",
+     "paragraph": 2,
+     "sentence": 4,
+     "detail": "{dengue.count_municipality} has no scale word"
+    },
+    {
+     "check": "V5",
+     "paragraph": 2,
+     "sentence": 4,
+     "detail": "{dengue.region} has no scale word"
+    }
+   ]
+  },
+  {
+   "cnes": "2038994",
+   "condition": "free",
+   "seed": 1,
+   "stats": {
+    "prompt_tokens": 1096,
+    "output_tokens": 563,
+    "prompt_s": 0.8,
+    "output_s": 145.1,
+    "total_s": 146.2
+   },
+   "paragraphs": 3,
+   "template_paragraphs": 4,
+   "markup": false,
+   "strict_v5": 6,
+   "numbers": 41,
+   "aligned": 24,
+   "set_aside": 17,
+   "untraced": [],
+   "aligned_text": [
+    [
+     "Os moradores em setores adensados no raio de {k.one_km} em volta da {profile.name} estão em N, o que é maior que em N e menor que em N das {peer.count_group} unidades de {peer.group}.",
+     "Este {profile.flow} pertence à rede pública do SUS e opera com {profile.flow}.",
+     "A unidade conta com {staff.physicians_unit} vínculos de médicos e {staff.nurses_unit} vínculos de enfermeiros.",
+     "A posição da unidade no mapa é aproximada, pois a coordenada do CNES foi substituída pelo endereço no CNEFE, com uma distância de {position.shift} entre a coordenada do CNES e o endereço."
+    ],
+    [
+     "Os moradores no raio de {residents.extent_radius} em volta da unidade são estimados em {residents.radius}, distribuídos em cerca de {residents.households_radius} domicílios, tocando N setores, dos quais N da população nesses setores está dentro do raio.",
+     "No raio de N, {sewage.precarious_radius} dos domicílios não têm rede de esgoto, comparado a {sewage.municipality} no município de {sewage.municipality_name} e {sewage.region} na região metropolitana.",
+     "Além disso, no raio de N, {crowded.radius} dos moradores estão em setores entre os {k.top_decile} mais adensados, enquanto em {crowded.municipality_name} essa taxa é de {crowded.municipality} e na região metropolitana é de {crowded.region}."
+    ],
+    [
+     "Não há dados de doença para áreas do tamanho do raio: os números a seguir são do município inteiro.",
+     "Em {tb.municipality_name}, os casos de tuberculose entre os moradores, segundo o município de residência, foram de {tb.municipality} casos por {k.per100k} hab. por ano, totalizando {tb.count_municipality} casos no período, sendo que na região metropolitana o valor é de {tb.region}.",
+     "Em relação à dengue no município de {dengue.municipality_name}, em {dengue.peak_year}, ano de epidemia, a taxa do município chegou a {dengue.peak_municipality}; os casos prováveis foram de {dengue.peak_municipality} em {dengue.peak_year} (totalizando N casos na região, com N casos na região), N casos em N (totalizando N casos na região, com N), N casos em N (totalizando N casos na região, com N), e {dengue.municipality} casos em {dengue.year} (totalizando {dengue.count_municipality} casos na região, com {dengue.region})."
+    ]
+   ],
+   "words": 319,
+   "verified": false,
+   "issues": [
+    {
+     "check": "V5",
+     "paragraph": 1,
+     "sentence": 2,
+     "detail": "{crowded.municipality} (municipality) between radius/region words"
+    },
+    {
+     "check": "V5",
+     "paragraph": 2,
+     "sentence": 2,
+     "detail": "{dengue.region} (region) between municipality words"
+    }
+   ]
+  },
+  {
+   "cnes": "2038994",
+   "condition": "free",
+   "seed": 2,
+   "stats": {
+    "prompt_tokens": 1096,
+    "output_tokens": 570,
+    "prompt_s": 0.3,
+    "output_s": 139.0,
+    "total_s": 139.3
+   },
+   "paragraphs": 3,
+   "template_paragraphs": 4,
+   "markup": false,
+   "strict_v5": 5,
+   "numbers": 37,
+   "aligned": 19,
+   "set_aside": 18,
+   "untraced": [],
+   "aligned_text": [
+    [
+     "Em comparação com outras unidades do mesmo grupo, o percentual de moradores em setores adensados dentro do raio de {k.one_km} da {profile.name} é de N, um valor que está maior que em N e menor que em N das {peer.count_group} unidades de {peer.group}.",
+     "A {profile.name} é classificada como {profile.flow}, faz parte {profile.network} com vínculo SUS e opera sob {profile.flow}.",
+     "A unidade conta com {staff.physicians_unit} vínculos de médicos e {staff.nurses_unit} vínculos de enfermeiros.",
+     "A posição da unidade no mapa é aproximada, pois a coordenada do CNES foi substituída pelo endereço no CNEFE, apresentando uma distância de {position.shift} entre a coordenada do CNES e o endereço."
+    ],
+    [
+     "Segundo o Censo N, a estimativa de moradores em torno do raio de {k.one_km} é de {residents.radius}, com {residents.households_radius} domicílios, abrangendo N setores tocados pelo raio, e parte da população desses setores dentro do raio corresponde a N.",
+     "No raio de N, {sewage.precarious_radius} dos domicílios não possuem rede de esgoto, enquanto no município de {sewage.municipality_name} esse percentual é de {sewage.municipality}, e na região metropolitana é de {sewage.region}.",
+     "No raio de N, {sewage.precarious_radius} dos domicílios apresentam esgoto precário; nesse mesmo raio, {crowded.radius} dos moradores estão em setores entre os {k.top_decile} mais adensados ({crowded.threshold} ou mais por domicílio), comparado a {crowded.municipality} no município de {sewage.municipality_name} e {crowded.region} na região metropolitana."
+    ],
+    [
+     "Não há dados de doença para áreas do tamanho do raio: os números a seguir são do município inteiro.",
+     "Em relação à tuberculose no município de {tb.municipality_name}, os moradores registraram {tb.count_municipality} casos no período, o que equivale a {tb.municipality} casos por {k.per100k} habitantes por ano, e a região metropolitana apresentou {tb.region} casos.",
+     "Sobre a dengue no município de {dengue.municipality_name}, em {dengue.peak_year}, ano de epidemia, a taxa do município chegou a {dengue.peak_municipality}, com N casos no total, e a região registrou N casos.",
+     "Em N, houve N casos, com N casos no total e N na região.",
+     "Em N, também foram N casos, com N casos no total e N na região."
+    ]
+   ],
+   "words": 334,
+   "verified": true,
+   "issues": []
+  },
+  {
+   "cnes": "2038994",
+   "condition": "free",
+   "seed": 3,
+   "stats": {
+    "prompt_tokens": 1096,
+    "output_tokens": 633,
+    "prompt_s": 0.3,
+    "output_s": 144.0,
+    "total_s": 144.3
+   },
+   "paragraphs": 4,
+   "template_paragraphs": 4,
+   "markup": false,
+   "strict_v5": 6,
+   "numbers": 46,
+   "aligned": 26,
+   "set_aside": 20,
+   "untraced": [],
+   "aligned_text": [
+    [
+     "Em comparação com outras unidades do mesmo grupo, o percentual de moradores em setores adensados no raio de {k.one_km} em volta da {profile.name} é de N, o que é maior que em N e menor que em N das {peer.count_group} unidades de {peer.group}."
+    ],
+    [
+     "A unidade é classificada como {profile.flow} e faz parte {profile.network} do SUS, operando com {profile.flow}.",
+     "A UBS possui {staff.physicians_unit} vínculos de médicos e {staff.nurses_unit} vínculos de enfermeiros; os números de médicos e enfermeiros contam vínculos registrados no CNES, não pessoas.",
+     "A posição da unidade no mapa é aproximada ou foi substituída pela do endereço, apresentando uma distância de {position.shift} entre a coordenada do CNES e o endereço."
+    ],
+    [
+     "Considerando o Censo N, a estimativa de moradores no raio de {residents.extent_radius} é de {residents.radius}, distribuídos em {residents.households_radius} domicílios, que abrangem N setores; N da população desses setores está dentro do raio.",
+     "No raio de N, a taxa de domicílios sem rede de esgoto é de {sewage.precarious_radius}, enquanto no município de {sewage.municipality_name} é de {sewage.municipality}, e na região metropolitana é de {sewage.region}; para o raio, a presença de esgoto precário (fossa rudimentar, vala, rio…) é de {sewage.precarious_radius}.",
+     "O percentual de moradores em setores entre os {k.top_decile} mais adensados ({crowded.threshold} ou mais por domicílio) no raio de N é de {crowded.radius}, comparado a {crowded.municipality} no município de {crowded.municipality_name} e {crowded.region} na região metropolitana."
+    ],
+    [
+     "Não há dados de doença para áreas do tamanho do raio: os números a seguir são do município inteiro.",
+     "Os casos de tuberculose são contados entre os moradores.",
+     "No município de {tb.municipality_name}, o número de casos de tuberculose de N–N é de {tb.count_municipality}, resultando em {tb.municipality} casos por {k.per100k} hab. por ano; na região metropolitana, o índice é de {tb.region}.",
+     "Em {dengue.peak_year}, ano de epidemia, a taxa do município chegou a {dengue.peak_municipality}.",
+     "Os casos prováveis de dengue no município de {dengue.municipality_name} são: em {dengue.year}, {dengue.municipality} ({dengue.count_municipality} casos; região: {dengue.region}); em {dengue.peak_year}, {dengue.peak_municipality} (N casos; região: N); em N, N (N casos; região: N); e em N, N (N casos; região: N)."
+    ]
+   ],
+   "words": 351,
+   "verified": false,
+   "issues": [
+    {
+     "check": "V8",
+     "detail": "351 words",
+     "paragraph": -1,
+     "sentence": -1
+    },
+    {
+     "check": "V5",
+     "paragraph": 3,
+     "sentence": 4,
+     "detail": "{dengue.region} (region) between municipality words"
+    }
+   ]
+  },
+  {
+   "cnes": "2038994",
+   "condition": "rewrite",
+   "seed": 0,
+   "stats": {
+    "prompt_tokens": 1450,
+    "output_tokens": 501,
+    "prompt_s": 119.5,
+    "output_s": 96.0,
+    "total_s": 215.7
+   },
+   "paragraphs": 4,
+   "template_paragraphs": 4,
+   "markup": true,
+   "verified_loose_v5": true,
+   "unchanged_sentences": 0.8,
+   "literal_numbers": 0,
+   "words": 229,
+   "verified": true,
+   "issues": []
+  },
+  {
+   "cnes": "2046628",
+   "condition": "free",
+   "seed": 0,
+   "stats": {
+    "prompt_tokens": 1151,
+    "output_tokens": 666,
+    "prompt_s": 94.0,
+    "output_s": 156.4,
+    "total_s": 250.6
+   },
+   "paragraphs": 3,
+   "template_paragraphs": 3,
+   "markup": false,
+   "strict_v5": 10,
+   "numbers": 45,
+   "aligned": 28,
+   "set_aside": 17,
+   "untraced": [],
+   "aligned_text": [
+    [
+     "A {profile.name} é um {profile.flow} que faz parte {profile.network} do SUS, e seu fluxo de clientela é de {profile.flow}.",
+     "A unidade conta com {staff.physicians_unit} vínculos de médicos e {staff.nurses_unit} vínculos de enfermeiros, sendo que os números de médicos e enfermeiros contam vínculos registrados no CNES, não pessoas."
+    ],
+    [
+     "Cerca de {residents.radius} moradores e {residents.households_radius} domicílios são estimados no raio em volta da unidade, abrangendo N setores, dos quais N da população desses setores está dentro do raio.",
+     "No raio de N, {crowded.radius} dos moradores são de setores entre os {k.top_decile} mais adensados ({crowded.threshold} ou mais por domicílio), enquanto no município de {crowded.municipality_name}, esse percentual é de {crowded.municipality}, e na região metropolitana, é de {crowded.region}.",
+     "No raio de N, {sewage.radius} dos domicílios não possuem rede de esgoto, sendo que no município de {sewage.municipality_name} esse percentual é de {sewage.municipality}, e na região metropolitana, é de {sewage.region}.",
+     "No raio, {sewage.precarious_radius} dos domicílios têm esgoto precário (fossa rudimentar, vala, rio…).",
+     "Além disso, há {network.count_radius} outras unidades de saúde no raio, sendo {network.private_radius} públicas ou com vínculo SUS, {network.private_radius} privadas e sem vínculo com o SUS, e {network.hubs_radius} hospital com N leitos ou mais.",
+     "Há hospital de grande porte no raio, que atende pacientes de toda a região: taxas por morador do entorno não descrevem o alcance dessa capacidade."
+    ],
+    [
+     "Não há dados de doença para áreas do tamanho do raio: os números a seguir são do município inteiro.",
+     "Em {dengue.peak_year}, ano de epidemia, a taxa do município chegou a {dengue.peak_municipality}.",
+     "Os casos prováveis de Dengue no município de {dengue.municipality_name} por {k.per100k} hab. foram de {dengue.municipality} em {dengue.year} (com {dengue.count_municipality} casos e região com {dengue.region}), {dengue.peak_municipality} em {dengue.peak_year} (com N casos e região com N), N em N (com N casos e região com N), e N em N (com N casos e região com N).",
+     "Em relação aos óbitos de N a N anos no município de {mortality.municipality_name} entre {mortality.period}, houve {mortality.count_municipality} óbitos com causa definida, sendo que a causa mais frequente entre os de causa definida foi aparelho circulatório, com {mortality.municipality}, enquanto na região metropolitana, a mesma causa foi responsável por {mortality.region} dos óbitos.",
+     "Os óbitos sem causa definida representaram {mortality.ill_defined_municipality} do total."
+    ]
+   ],
+   "words": 370,
+   "verified": false,
+   "issues": [
+    {
+     "check": "V8",
+     "detail": "370 words",
+     "paragraph": -1,
+     "sentence": -1
+    },
+    {
+     "check": "V5",
+     "paragraph": 2,
+     "sentence": 2,
+     "detail": "{dengue.region} (region) between municipality words"
+    },
+    {
+     "check": "V5",
+     "paragraph": 2,
+     "sentence": 4,
+     "detail": "{mortality.ill_defined_municipality} has no scale word"
+    }
+   ]
+  },
+  {
+   "cnes": "2046628",
+   "condition": "rewrite",
+   "seed": 0,
+   "stats": {
+    "prompt_tokens": 1538,
+    "output_tokens": 532,
+    "prompt_s": 124.0,
+    "output_s": 107.4,
+    "total_s": 231.5
+   },
+   "paragraphs": 4,
+   "template_paragraphs": 3,
+   "markup": false,
+   "verified_loose_v5": false,
+   "unchanged_sentences": 0.182,
+   "literal_numbers": 25,
+   "words": 281,
+   "verified": false,
+   "issues": [
+    {
+     "check": "V1",
+     "detail": "number written outside a slot",
+     "paragraph": 0,
+     "sentence": 1
+    },
+    {
+     "check": "V1",
+     "detail": "number written outside a slot",
+     "paragraph": 1,
+     "sentence": 0
+    },
+    {
+     "check": "V1",
+     "detail": "number written outside a slot",
+     "paragraph": 1,
+     "sentence": 1
+    },
+    {
+     "check": "V1",
+     "detail": "number written outside a slot",
+     "paragraph": 1,
+     "sentence": 2
+    },
+    {
+     "check": "V1",
+     "detail": "number written outside a slot",
+     "paragraph": 2,
+     "sentence": 0
+    },
+    {
+     "check": "V1",
+     "detail": "number written outside a slot",
+     "paragraph": 3,
+     "sentence": 1
+    },
+    {
+     "check": "V1",
+     "detail": "number written outside a slot",
+     "paragraph": 3,
+     "sentence": 2
+    },
+    {
+     "check": "V1",
+     "detail": "number written outside a slot",
+     "paragraph": 3,
+     "sentence": 3
+    },
+    {
+     "check": "V3",
+     "detail": "planned fact not told: profile",
+     "paragraph": 1,
+     "sentence": -1
+    },
+    {
+     "check": "V3",
+     "detail": "planned fact not told: staff",
+     "paragraph": 1,
+     "sentence": -1
+    },
+    {
+     "check": "V3",
+     "detail": "planned fact not told: residents",
+     "paragraph": 2,
+     "sentence": -1
+    },
+    {
+     "check": "V3",
+     "detail": "planned fact not told: crowded",
+     "paragraph": 2,
+     "sentence": -1
+    },
+    {
+     "check": "V3",
+     "detail": "planned fact not told: sewage",
+     "paragraph": 2,
+     "sentence": -1
+    },
+    {
+     "check": "V3",
+     "detail": "planned fact not told: network",
+     "paragraph": 2,
+     "sentence": -1
+    },
+    {
+     "check": "V3",
+     "detail": "planned fact not told: dengue",
+     "paragraph": 3,
+     "sentence": -1
+    },
+    {
+     "check": "V3",
+     "detail": "planned fact not told: mortality",
+     "paragraph": 3,
+     "sentence": -1
+    }
+   ]
+  },
+  {
+   "cnes": "2065665",
+   "condition": "free",
+   "seed": 0,
+   "stats": {
+    "prompt_tokens": 1253,
+    "output_tokens": 588,
+    "prompt_s": 100.5,
+    "output_s": 146.0,
+    "total_s": 246.6
+   },
+   "paragraphs": 3,
+   "template_paragraphs": 3,
+   "markup": false,
+   "strict_v5": 4,
+   "numbers": 28,
+   "aligned": 18,
+   "set_aside": 10,
+   "untraced": [],
+   "aligned_text": [
+    [
+     "Como hospital de referência, o {profile.name}, {profile.type} que faz parte {profile.network} do SUS, atende pacientes de toda a região.",
+     "A unidade possui {beds.sus_unit} leitos SUS, dos quais {beds.icu_unit} são de UTI.",
+     "Entre {admissions.period}, foram registrados {admissions.total_unit} internações pelo SUS, sendo que {admissions.share_unit} delas foram por {admissions.chapter}.",
+     "Dos N internações pelo SUS, {deaths.deaths_unit} resultaram em óbitos, o que representa {deaths.rate_unit}.",
+     "Em comparação com os hospitais da região, o número de óbitos foi de {deaths.deaths_unit}, enquanto o esperado pelo perfil dos pacientes era de N, o que corresponde a {deaths.expected_unit}.",
+     "O perfil dos pacientes da unidade mostra que {casemix.chapter_share_unit} das internações foram por {casemix.chapter}, comparado a {casemix.chapter_share_region} na região, e que N foram de urgência, contra N na região.",
+     "O esperado considera o diagnóstico, a idade e o caráter da internação, eletiva ou de urgência, com a mortalidade desses mesmos grupos nos hospitais da região metropolitana; não considera a gravidade de cada caso, as transferências entre hospitais nem os cuidados paliativos, e a mortalidade, sozinha, não mede a qualidade do cuidado."
+    ],
+    [
+     "No raio da unidade, a estimativa do Censo N indica {residents.radius} moradores e {residents.households_radius} domicílios, abrangendo N setores, dos quais cerca de N da população desses setores está dentro do raio.",
+     "Em relação à acessibilidade, {access.radius} dos moradores estão a mais de N de uma UBS pública em linha reta.",
+     "Dentro do município de {access.municipality_name}, {access.municipality} dos moradores estão a mais de N em linha reta, e na região metropolitana, {access.region} estão a mais de N em linha reta.",
+     "Com tantos serviços privados no raio, estar longe da rede básica pública não indica, sozinho, falta de atendimento: parte dos moradores usa planos de saúde."
+    ],
+    [
+     "Não há dados de doença para áreas do tamanho do raio: os números a seguir são do município inteiro.",
+     "No município de {lepto.municipality_name}, entre {lepto.period}, foram registrados {lepto.count_municipality} casos de Leptospirose, o que equivale a {lepto.municipality} casos por {k.per100k} habitantes por ano.",
+     "Na região metropolitana, a taxa foi de {lepto.region} casos por {k.per100k} habitantes por ano."
+    ]
+   ],
+   "words": 339,
+   "verified": false,
+   "issues": [
+    {
+     "check": "V5",
+     "paragraph": 0,
+     "sentence": 5,
+     "detail": "{casemix.chapter_share_region} has no scale word"
+    },
+    {
+     "check": "V5",
+     "paragraph": 1,
+     "sentence": 1,
+     "detail": "{access.radius} has no scale word"
+    }
+   ]
+  },
+  {
+   "cnes": "2065665",
+   "condition": "rewrite",
+   "seed": 0,
+   "stats": {
+    "prompt_tokens": 1586,
+    "output_tokens": 624,
+    "prompt_s": 129.9,
+    "output_s": 127.4,
+    "total_s": 257.6
+   },
+   "paragraphs": 4,
+   "template_paragraphs": 3,
+   "markup": false,
+   "verified_loose_v5": false,
+   "unchanged_sentences": 0.308,
+   "literal_numbers": 0,
+   "words": 334,
+   "verified": false,
+   "issues": [
+    {
+     "check": "V5",
+     "detail": "casemix.chapter_share_region has no scale marker in its clause",
+     "paragraph": 1,
+     "sentence": 3
+    },
+    {
+     "check": "V5",
+     "detail": "casemix.chapter_rate_region has no scale marker in its clause",
+     "paragraph": 1,
+     "sentence": 3
+    },
+    {
+     "check": "V5",
+     "detail": "casemix.old_share_region has no scale marker in its clause",
+     "paragraph": 1,
+     "sentence": 3
+    }
+   ]
+  },
+  {
+   "cnes": "2078562",
+   "condition": "free",
+   "seed": 0,
+   "stats": {
+    "prompt_tokens": 1193,
+    "output_tokens": 725,
+    "prompt_s": 117.1,
+    "output_s": 205.4,
+    "total_s": 346.0
+   },
+   "paragraphs": 3,
+   "template_paragraphs": 3,
+   "markup": false,
+   "strict_v5": 6,
+   "numbers": 41,
+   "aligned": 21,
+   "set_aside": 20,
+   "untraced": [],
+   "aligned_text": [
+    [
+     "O {profile.name} é {profile.type} que faz parte {profile.network} do SUS, atendendo por {profile.flow}.",
+     "A unidade possui {beds.sus_unit} leitos SUS, incluindo {beds.icu_unit} leitos de UTI, e como hospital de referência, atende pacientes de toda a região: taxas por morador do entorno não descrevem o alcance da sua capacidade.",
+     "Entre {admissions.period}, foram registradas {admissions.total_unit} internações pelo SUS, sendo que a causa mais frequente foi {admissions.chapter}, representando {admissions.share_unit}.",
+     "Dos N internações pelo SUS, ocorreram {deaths.deaths_unit} óbitos ({deaths.rate_unit}), enquanto o esperado pelo perfil dos pacientes (diagnóstico, idade, caráter) era de N ({deaths.expected_unit}), e dentro da variação observada (limites de N) entre os hospitais da região metropolitana; O esperado considera o diagnóstico, a idade e o caráter da internação, eletiva ou de urgência, com a mortalidade desses mesmos grupos nos hospitais da região metropolitana; não considera a gravidade de cada caso, as transferências entre hospitais nem os cuidados paliativos, e a mortalidade, sozinha, não mede a qualidade do cuidado."
+    ],
+    [
+     "Em relação ao raio da unidade, a estimativa de moradores é de {residents.radius}, distribuídos em {residents.households_radius} domicílios, abrangendo N setores, dos quais cerca de N da população desses setores está dentro do raio.",
+     "No município de {crowded.municipality_name}, {crowded.municipality} dos moradores em setores entre os {k.top_decile} mais adensados estão no raio de N, enquanto na região metropolitana, esse percentual é de {crowded.region}, e no raio de N, {crowded.radius} dos moradores estão em setores mais adensados.",
+     "Comparando com outras unidades do mesmo grupo no raio de {k.one_km}, N dos domicílios possuem esgoto precário, o que é maior que em N e menor que em N das {peer.count_group} unidades de {peer.group}."
+    ],
+    [
+     "Não há dados de doença para áreas do tamanho do raio: os números a seguir são do município inteiro.",
+     "Em {dengue.year}, a taxa de Dengue no município de {dengue.municipality_name} foi de {dengue.municipality} casos prováveis por {k.per100k} hab.",
+     "({dengue.count_municipality} casos; região: {dengue.region}), em {dengue.peak_year}, a taxa foi de {dengue.peak_municipality} casos prováveis por {k.per100k} hab.",
+     "(N casos; região: N), em N, a taxa foi de N casos prováveis por {k.per100k} hab.",
+     "(N casos; região: N), e em N, a taxa foi de N casos prováveis por {k.per100k} hab.",
+     "(N casos; região: N).",
+     "Em {dengue.peak_year}, ano de epidemia, a taxa do município chegou a {dengue.peak_municipality}."
+    ]
+   ],
+   "words": 383,
+   "verified": false,
+   "issues": [
+    {
+     "check": "V8",
+     "detail": "383 words",
+     "paragraph": -1,
+     "sentence": -1
+    },
+    {
+     "check": "V5",
+     "paragraph": 2,
+     "sentence": 2,
+     "detail": "{dengue.count_municipality} has no scale word"
+    },
+    {
+     "check": "V5",
+     "paragraph": 2,
+     "sentence": 2,
+     "detail": "{dengue.region} has no scale word"
+    },
+    {
+     "check": "V5",
+     "paragraph": 2,
+     "sentence": 2,
+     "detail": "{dengue.peak_municipality} has no scale word"
+    }
+   ]
+  },
+  {
+   "cnes": "2078562",
+   "condition": "rewrite",
+   "seed": 0,
+   "stats": {
+    "prompt_tokens": 1499,
+    "output_tokens": 538,
+    "prompt_s": 139.5,
+    "output_s": 107.3,
+    "total_s": 247.0
+   },
+   "paragraphs": 4,
+   "template_paragraphs": 3,
+   "markup": false,
+   "verified_loose_v5": false,
+   "unchanged_sentences": 0.818,
+   "literal_numbers": 0,
+   "words": 270,
+   "verified": false,
+   "issues": [
+    {
+     "check": "V3",
+     "detail": "planned fact not told: profile",
+     "paragraph": 1,
+     "sentence": -1
+    },
+    {
+     "check": "V4",
+     "detail": "caveat C10 is missing",
+     "paragraph": 3,
+     "sentence": -1
+    }
+   ]
+  },
+  {
+   "cnes": "2816091",
+   "condition": "free",
+   "seed": 0,
+   "stats": {
+    "prompt_tokens": 943,
+    "output_tokens": 493,
+    "prompt_s": 75.2,
+    "output_s": 111.3,
+    "total_s": 186.7
+   },
+   "paragraphs": 3,
+   "template_paragraphs": 3,
+   "markup": false,
+   "strict_v5": 5,
+   "numbers": 36,
+   "aligned": 21,
+   "set_aside": 15,
+   "untraced": [],
+   "aligned_text": [
+    [
+     "A {profile.name} é {profile.type} que faz parte {profile.network} do SUS, e seu fluxo de clientela é composto por {profile.flow}."
+    ],
+    [
+     "Cerca de {residents.radius} moradores e {residents.households_radius} domicílios estão no raio da unidade, abrangendo N setores, dos quais N da população desses setores está dentro do raio.",
+     "No raio de N, {crowded.radius} dos moradores estão em setores entre os {k.top_decile} mais adensados, enquanto no município de {crowded.municipality_name}, esse percentual é de {crowded.municipality}, e na região metropolitana, é de {crowded.region}.",
+     "No raio de N, {sewage.radius} dos domicílios não possuem rede de esgoto, sendo que no município de {sewage.municipality_name} esse valor é de {sewage.municipality}, e na região metropolitana é de {sewage.region}.",
+     "No raio, {sewage.precarious_radius} dos domicílios têm esgoto precário (fossa rudimentar, vala, rio…).",
+     "Há {network.count_radius} outras unidades de saúde no raio: {network.public_radius} são públicas ou com vínculo SUS, {network.private_radius} são privadas sem vínculo SUS, e há {network.hubs_radius} hospital com N leitos ou mais.",
+     "Há hospital de grande porte no raio, que atende pacientes de toda a região: taxas por morador do entorno não descrevem o alcance dessa capacidade."
+    ],
+    [
+     "Não há dados de doença para áreas do tamanho do raio: os números a seguir são do município inteiro.",
+     "Em {dengue.peak_year}, ano de epidemia, a taxa do município chegou a {dengue.peak_municipality}.",
+     "Os casos prováveis de dengue no município de {dengue.municipality_name} por {k.per100k} habitantes foram: {dengue.municipality} em {dengue.year} ({dengue.count_municipality} casos; região: {dengue.region}), {dengue.peak_municipality} em {dengue.peak_year} (N casos; região: N), N em N (N casos; região: N) e N em N (N casos; região: N)."
+    ]
+   ],
+   "words": 257,
+   "verified": false,
+   "issues": [
+    {
+     "check": "V5",
+     "paragraph": 2,
+     "sentence": 2,
+     "detail": "{dengue.region} (region) between municipality words"
+    }
+   ]
+  },
+  {
+   "cnes": "2816091",
+   "condition": "rewrite",
+   "seed": 0,
+   "stats": {
+    "prompt_tokens": 1225,
+    "output_tokens": 397,
+    "prompt_s": 101.6,
+    "output_s": 72.6,
+    "total_s": 174.3
+   },
+   "paragraphs": 4,
+   "template_paragraphs": 3,
+   "markup": true,
+   "verified_loose_v5": true,
+   "unchanged_sentences": 0.429,
+   "literal_numbers": 0,
+   "words": 195,
+   "verified": true,
+   "issues": []
+  },
+  {
+   "cnes": "3810569",
+   "condition": "free",
+   "seed": 0,
+   "stats": {
+    "prompt_tokens": 1036,
+    "output_tokens": 457,
+    "prompt_s": 83.5,
+    "output_s": 103.7,
+    "total_s": 187.4
+   },
+   "paragraphs": 3,
+   "template_paragraphs": 3,
+   "markup": false,
+   "strict_v5": 3,
+   "numbers": 22,
+   "aligned": 16,
+   "set_aside": 6,
+   "untraced": [],
+   "aligned_text": [
+    [
+     "A unidade {profile.name} é classificada como {profile.flow}, não possui vínculo com a rede pública do SUS e opera com {profile.flow}.",
+     "Sua posição no mapa é aproximada, estando no centro do CEP no CNEFE, com uma incerteza de {position.precision}."
+    ],
+    [
+     "No raio da unidade, há uma estimativa de {residents.radius} moradores e {residents.households_radius} domicílios, abrangendo cerca de N setores, dos quais N da população está dentro do raio.",
+     "Em relação aos setores mais adensados (com {crowded.threshold} ou mais por domicílio), {crowded.radius} dos moradores estão no raio de N, enquanto {crowded.municipality} estão no município de {crowded.municipality_name} e {crowded.region} na região metropolitana.",
+     "No raio, existem {network.count_radius} outras unidades de saúde, sendo {network.public_radius} públicas ou com vínculo SUS e {network.private_radius} privadas e {profile.network}.",
+     "Há hospital de grande porte no raio, que atende pacientes de toda a região: taxas por morador do entorno não descrevem o alcance dessa capacidade.",
+     "Além disso, {access.radius} dos moradores estão a mais de {k.one_km} de uma UBS pública em linha reta, o que corresponde a {access.municipality} no município de {access.municipality_name} e {access.region} na região metropolitana.",
+     "Com tantos serviços privados no raio, estar longe da rede básica pública não indica, sozinho, falta de atendimento: parte dos moradores usa planos de saúde."
+    ],
+    [
+     "Não há dados de doença para áreas do tamanho do raio: os números a seguir são do distrito.",
+     "No distrito {tb_district.district_name}, a taxa de tuberculose é de {tb_district.district} casos por {k.per100k} hab. por ano, totalizando {tb_district.count_district} casos no período, e a cidade de São Paulo apresenta {tb_district.city} casos.",
+     "A taxa do distrito conta só moradores com endereço; pessoas sem residência fixa ficam de fora, e a taxa do distrito se posiciona entre a N posição e a N posição taxa entre N distritos."
+    ]
+   ],
+   "words": 286,
+   "verified": false,
+   "issues": [
+    {
+     "check": "V5",
+     "paragraph": 1,
+     "sentence": 4,
+     "detail": "{access.radius} (radius) between municipality words"
+    }
+   ]
+  },
+  {
+   "cnes": "3810569",
+   "condition": "rewrite",
+   "seed": 0,
+   "stats": {
+    "prompt_tokens": 1235,
+    "output_tokens": 460,
+    "prompt_s": 93.8,
+    "output_s": 81.9,
+    "total_s": 175.9
+   },
+   "paragraphs": 5,
+   "template_paragraphs": 3,
+   "markup": true,
+   "verified_loose_v5": false,
+   "unchanged_sentences": 0.5,
+   "literal_numbers": 0,
+   "words": 256,
+   "verified": false,
+   "issues": [
+    {
+     "check": "V4",
+     "detail": "caveat C06 is missing",
+     "paragraph": 2,
+     "sentence": -1
+    },
+    {
+     "check": "V4",
+     "detail": "caveat C09 is missing",
+     "paragraph": 3,
+     "sentence": -1
+    }
+   ]
+  },
+  {
+   "cnes": "3956954",
+   "condition": "free",
+   "seed": 0,
+   "stats": {
+    "prompt_tokens": 903,
+    "output_tokens": 503,
+    "prompt_s": 76.0,
+    "output_s": 111.3,
+    "total_s": 187.4
+   },
+   "paragraphs": 4,
+   "template_paragraphs": 4,
+   "markup": false,
+   "strict_v5": 2,
+   "numbers": 25,
+   "aligned": 16,
+   "set_aside": 9,
+   "untraced": [],
+   "aligned_text": [
+    [
+     "No distrito {surprise_teen.district_name}, observou-se {surprise_teen.observed_district} nascimentos de mães com menos de {k.twenty} anos entre {surprise_teen.period}, enquanto o modelo esperava N.",
+     "A faixa de previsão de N para este dado é de N a N.",
+     "O modelo usa só renda, moradia e saneamento do Censo: a diferença aponta fatores que ele não mede, sem dizer quais."
+    ],
+    [
+     "A {profile.name} é um {profile.flow} que faz parte {profile.network} ou com vínculo SUS, e seu fluxo de clientela é {profile.flow}.",
+     "A unidade possui {staff.physicians_unit} vínculos de médicos e {staff.nurses_unit} vínculos de enfermeiros, sendo que os números de médicos e enfermeiros contam vínculos registrados no CNES, não pessoas."
+    ],
+    [
+     "No raio da unidade, a estimativa do Censo N indica cerca de {residents.radius} moradores e {residents.households_radius} domicílios, abrangendo N setores tocados pelo raio, com cerca de N da população desses setores dentro do raio.",
+     "No raio de N, {sewage.radius} dos domicílios não têm rede de esgoto, comparado a {sewage.municipality} no município de {sewage.municipality_name} e {sewage.region} na região metropolitana.",
+     "No raio, {sewage.precarious_radius} dos domicílios têm esgoto precário (fossa rudimentar, vala, rio…).",
+     "No raio de N, {crowded.radius} dos moradores estão em setores entre os {k.top_decile} mais adensados ({crowded.threshold} ou mais por domicílio), enquanto {crowded.municipality} estão no município de {crowded.municipality_name} e {crowded.region} na região metropolitana."
+    ],
+    [
+     "Não há dados de doença para áreas do tamanho do raio: os números a seguir são do município inteiro.",
+     "Em relação à Leptospirose no município de {lepto.municipality_name} entre {lepto.period}, o número de casos por {k.per100k} hab. por ano é de {lepto.municipality}, totalizando {lepto.count_municipality} casos no período.",
+     "Na região metropolitana, o número de casos por {k.per100k} hab. por ano é de {lepto.region}."
+    ]
+   ],
+   "words": 272,
+   "verified": true,
+   "issues": []
+  },
+  {
+   "cnes": "3956954",
+   "condition": "rewrite",
+   "seed": 0,
+   "stats": {
+    "prompt_tokens": 1333,
+    "output_tokens": 469,
+    "prompt_s": 107.3,
+    "output_s": 87.7,
+    "total_s": 195.1
+   },
+   "paragraphs": 4,
+   "template_paragraphs": 4,
+   "markup": true,
+   "verified_loose_v5": true,
+   "unchanged_sentences": 0.5,
+   "literal_numbers": 0,
+   "words": 220,
+   "verified": false,
+   "issues": [
+    {
+     "check": "V5",
+     "detail": "lepto.municipality has no scale marker in its clause",
+     "paragraph": 3,
+     "sentence": 1
+    }
+   ]
+  },
+  {
+   "cnes": "4441389",
+   "condition": "free",
+   "seed": 0,
+   "stats": {
+    "prompt_tokens": 1014,
+    "output_tokens": 560,
+    "prompt_s": 78.0,
+    "output_s": 135.7,
+    "total_s": 213.9
+   },
+   "paragraphs": 3,
+   "template_paragraphs": 4,
+   "markup": false,
+   "strict_v5": 7,
+   "numbers": 31,
+   "aligned": 18,
+   "set_aside": 13,
+   "untraced": [],
+   "aligned_text": [
+    [
+     "Em comparação com outras unidades do mesmo grupo em um raio de {k.one_km}, a unidade {profile.name} apresenta N de domicílios com esgoto precário, um valor maior que em N e menor que em N das {peer.count_group} unidades de {peer.group}.",
+     "A unidade é classificada como {profile.flow}, não faz parte da rede pública ou com vínculo SUS, e seu fluxo de clientela é de {profile.flow}.",
+     "A posição da unidade no mapa é aproximada ou foi substituída pela do endereço, com uma distância de {position.shift} entre a coordenada do CNES e o endereço."
+    ],
+    [
+     "No raio de {k.one_km} em volta da unidade, há uma estimativa de {residents.radius} moradores em {residents.households_radius} domicílios, abrangendo N setores, dos quais N da população está dentro do raio.",
+     "No raio de N, {crowded.radius} dos moradores estão em setores entre os {k.top_decile} mais adensados ({crowded.threshold} ou mais por domicílio), enquanto no município de {crowded.municipality_name} esse percentual é de {crowded.municipality} e na região metropolitana é de {crowded.region}.",
+     "Em relação ao saneamento, no raio de N, {sewage.radius} dos domicílios estão fora da rede de esgoto, comparado a {sewage.municipality} no município de {sewage.municipality_name} e {sewage.region} na região metropolitana; no raio, o percentual de esgoto precário (fossa rudimentar, vala, rio…) é de {sewage.precarious_radius}."
+    ],
+    [
+     "Não há dados de doença para áreas do tamanho do raio: os números a seguir são do distrito.",
+     "No distrito {tb_district.district_name}, a taxa de tuberculose é de {tb_district.district} casos por {k.per100k} hab. por ano, totalizando {tb_district.count_district} casos no período, com a cidade de São Paulo apresentando {tb_district.city}.",
+     "A unidade se posiciona como a N posição e N posição taxa entre N distritos.",
+     "Além disso, no distrito {teen_district.district_name}, {teen_district.district} dos nascimentos tiveram mães com menos de {k.twenty} anos ({teen_district.count_district} nascimentos), enquanto na cidade de São Paulo esse percentual é de {teen_district.city}; no distrito {teen_district.district_name}, N dos nascimentos foram prematuros (menos de N semanas), e na cidade de São Paulo esse percentual é de N."
+    ]
+   ],
+   "words": 325,
+   "verified": true,
+   "issues": []
+  },
+  {
+   "cnes": "4441389",
+   "condition": "free",
+   "seed": 1,
+   "stats": {
+    "prompt_tokens": 1014,
+    "output_tokens": 586,
+    "prompt_s": 0.9,
+    "output_s": 134.0,
+    "total_s": 135.1
+   },
+   "paragraphs": 1,
+   "template_paragraphs": 4,
+   "markup": false,
+   "strict_v5": 6,
+   "numbers": 34,
+   "aligned": 17,
+   "set_aside": 17,
+   "untraced": [],
+   "aligned_text": [
+    [
+     "Domicílios com esgoto precário na comparação com unidades do mesmo grupo, em um raio de {k.one_km}, apresentam N, um valor maior que em N e menor que em N das {peer.count_group} unidades de {peer.group}.",
+     "A unidade {profile.name} é do tipo {profile.flow}, não possui rede pública ou vínculo SUS, e seu fluxo de clientela é {profile.flow}.",
+     "A posição da unidade no mapa utiliza o endereço no CNEFE em vez da coordenada do CNES, com uma distância de {position.shift} entre a coordenada do CNES e o endereço; a posição da unidade no mapa é aproximada ou foi substituída pela do endereço.",
+     "A estimativa de moradores no raio de {k.one_km} é de {residents.radius}, distribuídos em {residents.households_radius} domicílios que abrangem N setores, sendo que cerca de N da população desses setores está dentro do raio.",
+     "No raio de N, a porcentagem de moradores nos {k.top_decile} mais adensados é de {crowded.radius}, enquanto no município de {crowded.municipality_name} é de {crowded.municipality} e na região metropolitana é de {crowded.region}.",
+     "Em domicílios fora da rede de esgoto, o raio de N apresenta {sewage.radius}, o município de {sewage.municipality_name} apresenta {sewage.municipality} e a região metropolitana apresenta {sewage.region}; o raio com esgoto precário (fossa rudimentar, vala, rio…) mostra {sewage.precarious_radius}.",
+     "Não há dados de doença para áreas do tamanho do raio: os números a seguir são do distrito, referente ao distrito {tb_district.district_name} (SMS-SP, N–N), onde os casos de tuberculose por {k.per100k} hab. por ano são {tb_district.district}, totalizando {tb_district.count_district} casos no período, sendo a taxa na cidade de São Paulo de {tb_district.city}; este dado está na N posição e N posição posição entre os N distritos; a taxa do distrito conta só moradores com endereço; pessoas sem residência fixa ficam de fora.",
+     "Nos nascimentos no distrito {teen_district.district_name} (SMS-SP, N–N), as mães com menos de {k.twenty} anos representam {teen_district.district} ({teen_district.count_district} nascimentos), comparado a {teen_district.city} na cidade de São Paulo; a taxa de prematuros (menos de N semanas) no distrito é de N, enquanto na cidade de São Paulo é de N."
+    ]
+   ],
+   "words": 339,
+   "verified": true,
+   "issues": []
+  },
+  {
+   "cnes": "4441389",
+   "condition": "free",
+   "seed": 2,
+   "stats": {
+    "prompt_tokens": 1014,
+    "output_tokens": 636,
+    "prompt_s": 0.3,
+    "output_s": 143.1,
+    "total_s": 143.5
+   },
+   "paragraphs": 3,
+   "template_paragraphs": 4,
+   "markup": false,
+   "strict_v5": 5,
+   "numbers": 33,
+   "aligned": 17,
+   "set_aside": 16,
+   "untraced": [],
+   "aligned_text": [
+    [
+     "Em relação à comparação com outras unidades do mesmo grupo no raio de {k.one_km}, o percentual de domicílios com esgoto precário na unidade {profile.name} é de N, o que é maior que em N e menor que em N das {peer.count_group} unidades de {peer.group}.",
+     "A unidade {profile.name} possui o tipo CNES de {profile.flow}, não pertence à rede pública ou com vínculo SUS, e atende por {profile.flow}.",
+     "A posição da unidade no mapa utiliza o endereço no CNEFE em vez da coordenada do CNES, com uma distância de {position.shift} entre a coordenada do CNES e o endereço; aviso obrigatório: a posição da unidade no mapa é aproximada ou foi substituída pela do endereço."
+    ],
+    [
+     "Cerca de {residents.radius} moradores residem em {residents.households_radius} domicílios dentro do raio, abrangendo N setores, dos quais N da população destes setores estão dentro do raio; aviso obrigatório: os números de moradores e domicílios são estimativas a partir do Censo.",
+     "No raio de N, {crowded.radius} dos moradores vivem em setores entre os {k.top_decile} mais adensados ({crowded.threshold} ou mais por domicílio), comparado a {crowded.municipality} no município de {crowded.municipality_name} e {crowded.region} na região metropolitana.",
+     "Dentro do raio de N, {sewage.radius} dos domicílios estão fora da rede de esgoto, enquanto no município de {sewage.municipality_name} esse percentual é de {sewage.municipality} e na região metropolitana é de {sewage.region}; o raio apresenta {sewage.precarious_radius} de domicílios com esgoto precário (fossa rudimentar, vala, rio…)."
+    ],
+    [
+     "Não há dados de doença para áreas do tamanho do raio: os números a seguir são do distrito.",
+     "Em relação à tuberculose no distrito {tb_district.district_name} (SMS-SP, N–N), a taxa é de {tb_district.district} casos por {k.per100k} hab. por ano, totalizando {tb_district.count_district} casos no período, com {tb_district.city} no cidade de São Paulo; a posição entre os distritos é de N posição e N posição taxa entre os N, e aviso obrigatório: a taxa do distrito conta só moradores com endereço; pessoas sem residência fixa ficam de fora.",
+     "Sobre os nascimentos no distrito {teen_district.district_name} (SMS-SP, N–N), {teen_district.district} das mães têm menos de {k.twenty} anos, o que é comparado a {teen_district.city} no cidade de São Paulo, e N dos nascimentos foram prematuros, enquanto no cidade de São Paulo esse percentual é de N."
+    ]
+   ],
+   "words": 362,
+   "verified": false,
+   "issues": [
+    {
+     "check": "V8",
+     "detail": "362 words",
+     "paragraph": -1,
+     "sentence": -1
+    }
+   ]
+  },
+  {
+   "cnes": "4441389",
+   "condition": "free",
+   "seed": 3,
+   "stats": {
+    "prompt_tokens": 1014,
+    "output_tokens": 631,
+    "prompt_s": 0.3,
+    "output_s": 154.8,
+    "total_s": 156.1
+   },
+   "paragraphs": 4,
+   "template_paragraphs": 4,
+   "markup": false,
+   "strict_v5": 6,
+   "numbers": 36,
+   "aligned": 19,
+   "set_aside": 17,
+   "untraced": [],
+   "aligned_text": [
+    [
+     "Em comparação com outras unidades do mesmo grupo em um raio de {k.one_km}, o domicílio com esgoto precário na área em análise foi de N, o que é maior que o percentual encontrado em N e menor que o percentual encontrado em N das {peer.count_group} unidades de {peer.group}."
+    ],
+    [
+     "Esta unidade possui o tipo CNES de {profile.flow}, não tem vínculo com a rede pública ou SUS, e seu fluxo de clientela inclui {profile.flow}.",
+     "A posição da unidade no mapa é aproximada ou foi substituída pela do endereço, visto que a distância entre a coordenada do CNES e o endereço é de {position.shift}."
+    ],
+    [
+     "Em um raio de {residents.extent_radius}, há uma estimativa de cerca de {residents.radius} moradores em {residents.households_radius} domicílios, abrangendo N setores, com N da população desses setores dentro do raio.",
+     "No município de {crowded.municipality_name}, o percentual de moradores em setores entre os {k.top_decile} mais adensados ({crowded.threshold} ou mais por domicílio) no raio de N é de {crowded.radius}, comparado a {crowded.municipality} no município de {crowded.municipality_name} e {crowded.region} na região metropolitana.",
+     "Além disso, em um raio de N, o domicílio sem rede de esgoto é de {sewage.radius}, enquanto no município de {sewage.municipality_name} é de {sewage.municipality} e na região metropolitana é de {sewage.region}.",
+     "Na área em análise, o percentual de domicílios com esgoto precário (fossa rudimentar, vala, rio…) é de {sewage.precarious_radius}."
+    ],
+    [
+     "Não há dados de doença para áreas do tamanho do raio: os números a seguir são do distrito.",
+     "No distrito {tb_district.district_name} (SMS-SP, N–N), a tuberculose foi de {tb_district.count_district} casos no período, o que representa {tb_district.district} casos por {k.per100k} hab. por ano, com a cidade de São Paulo apresentando {tb_district.city} casos, situando este distrito como a N posição e N posição taxa entre N distritos.",
+     "É importante notar que a taxa do distrito conta só moradores com endereço; pessoas sem residência fixa ficam de fora.",
+     "Quanto aos nascimentos no distrito {teen_district.district_name} (SMS-SP, N–N), observou-se que {teen_district.district} das mães tinham menos de {k.twenty} anos ({teen_district.count_district} nascimentos), sendo que na cidade de São Paulo este percentual é de {teen_district.city}, e o percentual de prematuros (menos de N semanas) foi de N na área, contra N na cidade de São Paulo."
+    ]
+   ],
+   "words": 368,
+   "verified": false,
+   "issues": [
+    {
+     "check": "V8",
+     "detail": "368 words",
+     "paragraph": -1,
+     "sentence": -1
+    },
+    {
+     "check": "V5",
+     "paragraph": 2,
+     "sentence": 3,
+     "detail": "{sewage.precarious_radius} has no scale word"
+    }
+   ]
+  },
+  {
+   "cnes": "4441389",
+   "condition": "rewrite",
+   "seed": 0,
+   "stats": {
+    "prompt_tokens": 1306,
+    "output_tokens": 441,
+    "prompt_s": 108.0,
+    "output_s": 91.1,
+    "total_s": 199.1
+   },
+   "paragraphs": 4,
+   "template_paragraphs": 4,
+   "markup": true,
+   "verified_loose_v5": false,
+   "unchanged_sentences": 0.333,
+   "literal_numbers": 0,
+   "words": 213,
+   "verified": false,
+   "issues": [
+    {
+     "check": "V5",
+     "detail": "crowded.radius has no scale marker in its clause",
+     "paragraph": 2,
+     "sentence": 1
+    },
+    {
+     "check": "V5",
+     "detail": "tb_district.district has no scale marker in its clause",
+     "paragraph": 3,
+     "sentence": 1
+    },
+    {
+     "check": "V5",
+     "detail": "teen_district.district has no scale marker in its clause",
+     "paragraph": 3,
+     "sentence": 2
+    }
+   ]
+  },
+  {
+   "cnes": "462993",
+   "condition": "free",
+   "seed": 0,
+   "stats": {
+    "prompt_tokens": 1095,
+    "output_tokens": 635,
+    "prompt_s": 90.9,
+    "output_s": 146.8,
+    "total_s": 237.9
+   },
+   "paragraphs": 3,
+   "template_paragraphs": 4,
+   "markup": false,
+   "strict_v5": 10,
+   "numbers": 43,
+   "aligned": 25,
+   "set_aside": 18,
+   "untraced": [],
+   "aligned_text": [
+    [
+     "Comparando com outras unidades do mesmo grupo em um raio de {k.one_km}, a renda média do responsável é de N, sendo maior que em N e menor que em N das {peer.count_group} unidades de {peer.group}.",
+     "A unidade {profile.name} possui o tipo CNES de {profile.flow}, não está na rede pública ou com vínculo SUS, e seu fluxo de clientela é de {profile.flow}."
+    ],
+    [
+     "No raio de {k.one_km}, a estimativa de moradores é de {residents.radius}, com cerca de {residents.households_radius} domicílios, abrangendo N setores, dos quais N da população desses setores está dentro do raio.",
+     "No raio de N, {sewage.radius} dos domicílios estão fora da rede de esgoto, enquanto no município de {sewage.municipality_name}, esse percentual é de {sewage.municipality}, e na região metropolitana, é de {sewage.region}.",
+     "No raio, {sewage.precarious_radius} dos domicílios têm esgoto precário (fossa rudimentar, vala, rio…).",
+     "No raio de N, {crowded.radius} dos moradores estão em setores entre os {k.top_decile} mais adensados ({crowded.threshold} ou mais por domicílio), comparado a {crowded.municipality} no município de {crowded.municipality_name} e {crowded.region} na região metropolitana.",
+     "Além disso, {access.radius} dos moradores no raio de N estão a mais de {k.one_km} de UBS pública em linha reta, enquanto {access.municipality} no município de {access.municipality_name} e {access.region} na região metropolitana apresentam essa característica."
+    ],
+    [
+     "Não há dados de doença para áreas do tamanho do raio: os números a seguir são do município inteiro.",
+     "Em {dengue.peak_year}, ano de epidemia, a taxa do município chegou a {dengue.peak_municipality}.",
+     "Em {dengue.municipality_name}, os casos prováveis de Dengue por {k.per100k} hab. foram de {dengue.municipality} em {dengue.year} ({dengue.count_municipality} casos; região: {dengue.region}), {dengue.peak_municipality} em {dengue.peak_year} (N casos; região: N), N em N (N casos; região: N) e N em N (N casos; região: N).",
+     "Em relação à Tuberculose no município de {tb.municipality_name}, os casos entre os moradores foram de {tb.municipality} por {k.per100k} hab. por ano, totalizando {tb.count_municipality} casos no período, sendo {tb.region} na região metropolitana."
+    ]
+   ],
+   "words": 318,
+   "verified": false,
+   "issues": [
+    {
+     "check": "V5",
+     "paragraph": 2,
+     "sentence": 2,
+     "detail": "{dengue.municipality} has no scale word"
+    },
+    {
+     "check": "V5",
+     "paragraph": 2,
+     "sentence": 2,
+     "detail": "{dengue.count_municipality} has no scale word"
+    },
+    {
+     "check": "V5",
+     "paragraph": 2,
+     "sentence": 2,
+     "detail": "{dengue.region} has no scale word"
+    },
+    {
+     "check": "V5",
+     "paragraph": 2,
+     "sentence": 2,
+     "detail": "{dengue.peak_municipality} has no scale word"
+    }
+   ]
+  },
+  {
+   "cnes": "462993",
+   "condition": "rewrite",
+   "seed": 0,
+   "stats": {
+    "prompt_tokens": 1495,
+    "output_tokens": 514,
+    "prompt_s": 120.2,
+    "output_s": 101.0,
+    "total_s": 221.4
+   },
+   "paragraphs": 5,
+   "template_paragraphs": 4,
+   "markup": true,
+   "verified_loose_v5": false,
+   "unchanged_sentences": 0.222,
+   "literal_numbers": 0,
+   "words": 233,
+   "verified": false,
+   "issues": [
+    {
+     "check": "V5",
+     "detail": "sewage.radius has no scale marker in its clause",
+     "paragraph": 2,
+     "sentence": 1
+    }
+   ]
+  },
+  {
+   "cnes": "4771311",
+   "condition": "free",
+   "seed": 0,
+   "stats": {
+    "prompt_tokens": 727,
+    "output_tokens": 357,
+    "prompt_s": 58.0,
+    "output_s": 79.0,
+    "total_s": 137.2
+   },
+   "paragraphs": 3,
+   "template_paragraphs": 3,
+   "markup": false,
+   "strict_v5": 3,
+   "numbers": 22,
+   "aligned": 11,
+   "set_aside": 11,
+   "untraced": [],
+   "aligned_text": [
+    [
+     "A {profile.name} é um {profile.flow} que faz parte {profile.network} do SUS, e seu fluxo de clientela é de {profile.flow}.",
+     "A unidade possui {staff.physicians_unit} vínculos de médicos e {staff.nurses_unit} vínculos de enfermeiros, sendo que os números de médicos e enfermeiros contam vínculos registrados no CNES, não pessoas."
+    ],
+    [
+     "No raio em volta da unidade, a estimativa do Censo N indica cerca de {residents.radius} moradores e {residents.households_radius} domicílios, abrangendo N setores tocados pelo raio, com N da população desses setores dentro do raio.",
+     "Em relação aos moradores em setores entre os {k.top_decile} mais adensados ({crowded.threshold} ou mais por domicílio), {crowded.radius} estão no raio de N, {crowded.municipality} no município de {crowded.municipality_name} e {crowded.region} na região metropolitana."
+    ],
+    [
+     "Não há dados de doença para áreas do tamanho do raio: os números a seguir são do distrito.",
+     "No distrito {teen_district.district_name} (SMS-SP, N–N), {teen_district.district} das mães tiveram menos de N anos ({teen_district.count_district} nascimentos), enquanto na cidade de São Paulo, {teen_district.city} das mães tiveram menos de N anos.",
+     "Além disso, N dos nascimentos no distrito Grajaú foram prematuros (menos de N semanas), e na cidade de São Paulo, N dos nascimentos foram prematuros."
+    ]
+   ],
+   "words": 187,
+   "verified": true,
+   "issues": []
+  },
+  {
+   "cnes": "4771311",
+   "condition": "rewrite",
+   "seed": 0,
+   "stats": {
+    "prompt_tokens": 953,
+    "output_tokens": 283,
+    "prompt_s": 75.4,
+    "output_s": 56.3,
+    "total_s": 131.8
+   },
+   "paragraphs": 3,
+   "template_paragraphs": 3,
+   "markup": false,
+   "verified_loose_v5": false,
+   "unchanged_sentences": 0.167,
+   "literal_numbers": 16,
+   "words": 148,
+   "verified": false,
+   "issues": [
+    {
+     "check": "V1",
+     "detail": "number written outside a slot",
+     "paragraph": 0,
+     "sentence": 1
+    },
+    {
+     "check": "V1",
+     "detail": "number written outside a slot",
+     "paragraph": 1,
+     "sentence": 0
+    },
+    {
+     "check": "V1",
+     "detail": "number written outside a slot",
+     "paragraph": 1,
+     "sentence": 1
+    },
+    {
+     "check": "V1",
+     "detail": "number written outside a slot",
+     "paragraph": 2,
+     "sentence": 1
+    },
+    {
+     "check": "V3",
+     "detail": "planned fact not told: profile",
+     "paragraph": 1,
+     "sentence": -1
+    },
+    {
+     "check": "V3",
+     "detail": "planned fact not told: staff",
+     "paragraph": 1,
+     "sentence": -1
+    },
+    {
+     "check": "V3",
+     "detail": "planned fact not told: residents",
+     "paragraph": 2,
+     "sentence": -1
+    },
+    {
+     "check": "V3",
+     "detail": "planned fact not told: crowded",
+     "paragraph": 2,
+     "sentence": -1
+    },
+    {
+     "check": "V3",
+     "detail": "planned fact not told: teen_district",
+     "paragraph": 3,
+     "sentence": -1
+    }
+   ]
+  },
+  {
+   "cnes": "4930002",
+   "condition": "free",
+   "seed": 0,
+   "stats": {
+    "prompt_tokens": 1067,
+    "output_tokens": 567,
+    "prompt_s": 85.8,
+    "output_s": 129.7,
+    "total_s": 215.6
+   },
+   "paragraphs": 4,
+   "template_paragraphs": 4,
+   "markup": false,
+   "strict_v5": 9,
+   "numbers": 30,
+   "aligned": 20,
+   "set_aside": 10,
+   "untraced": [],
+   "aligned_text": [
+    [
+     "Em comparação com outras unidades do mesmo grupo, no raio de {k.one_km} em volta da {profile.name}, N dos moradores estão em setores adensados, um percentual maior que em N e menor que em N das {peer.count_group} unidades de {peer.group}.",
+     "A unidade é classificada como {profile.flow}, não possui vínculo com a rede pública SUS, e seu fluxo de clientela é composto por {profile.flow}."
+    ],
+    [
+     "No raio de {residents.extent_radius} em volta da unidade, a estimativa de moradores é de {residents.radius}, distribuídos em cerca de {residents.households_radius} domicílios, tocando N setores, dos quais cerca de N da população está dentro do raio.",
+     "No raio de N, {sewage.radius} dos domicílios não possuem rede de esgoto, enquanto no município de {sewage.municipality_name}, esse percentual é de {sewage.municipality}, e na região metropolitana, é de {sewage.region}.",
+     "No raio de N, {crowded.radius} dos moradores estão em setores entre os {k.top_decile} mais adensados, comparado a {crowded.municipality} no município de {crowded.municipality_name} e {crowded.region} na região metropolitana.",
+     "Além disso, {access.radius} dos moradores no raio de N estão a mais de {k.one_km} de uma UBS pública em linha reta, enquanto em {access.municipality_name} esse valor é de {access.municipality} e na região metropolitana é de {access.region}."
+    ],
+    [
+     "Não há dados de doença para áreas do tamanho do raio: os números a seguir são do município inteiro.",
+     "Em {tb.municipality_name}, entre {tb.period}, há {tb.count_municipality} casos de tuberculose, o que representa {tb.municipality} casos por {k.per100k} habitantes por ano, e a região metropolitana apresenta {tb.region} casos por {k.per100k} habitantes por ano."
+    ],
+    [
+     "Em {mortality.municipality_name}, entre {mortality.period}, foram registrados {mortality.count_municipality} óbitos de N a N anos com causa definida.",
+     "A causa mais frequente entre os óbitos com causa definida é aparelho circulatório, com {mortality.municipality} em {mortality.municipality_name} e {mortality.region} na região metropolitana.",
+     "{mortality.ill_defined_municipality} dos óbitos no município não têm causa definida, o que torna esse perfil pouco confiável."
+    ]
+   ],
+   "words": 306,
+   "verified": false,
+   "issues": [
+    {
+     "check": "V5",
+     "paragraph": 1,
+     "sentence": 3,
+     "detail": "{access.municipality} (municipality) between radius/region words"
+    },
+    {
+     "check": "V5",
+     "paragraph": 2,
+     "sentence": 1,
+     "detail": "{tb.count_municipality} (municipality) between region words"
+    },
+    {
+     "check": "V5",
+     "paragraph": 2,
+     "sentence": 1,
+     "detail": "{tb.municipality} (municipality) between region words"
+    },
+    {
+     "check": "V5",
+     "paragraph": 3,
+     "sentence": 0,
+     "detail": "{mortality.count_municipality} has no scale word"
+    },
+    {
+     "check": "V5",
+     "paragraph": 3,
+     "sentence": 1,
+     "detail": "{mortality.municipality} (municipality) between region words"
+    }
+   ]
+  },
+  {
+   "cnes": "4930002",
+   "condition": "rewrite",
+   "seed": 0,
+   "stats": {
+    "prompt_tokens": 1488,
+    "output_tokens": 522,
+    "prompt_s": 123.9,
+    "output_s": 109.6,
+    "total_s": 233.7
+   },
+   "paragraphs": 4,
+   "template_paragraphs": 4,
+   "markup": true,
+   "verified_loose_v5": false,
+   "unchanged_sentences": 0.222,
+   "literal_numbers": 0,
+   "words": 254,
+   "verified": false,
+   "issues": [
+    {
+     "check": "V5",
+     "detail": "sewage.radius has no scale marker in its clause",
+     "paragraph": 2,
+     "sentence": 1
+    },
+    {
+     "check": "V5",
+     "detail": "sewage.region has no scale marker in its clause",
+     "paragraph": 2,
+     "sentence": 1
+    },
+    {
+     "check": "V5",
+     "detail": "crowded.region has no scale marker in its clause",
+     "paragraph": 2,
+     "sentence": 2
+    },
+    {
+     "check": "V5",
+     "detail": "access.region has no scale marker in its clause",
+     "paragraph": 2,
+     "sentence": 3
+    },
+    {
+     "check": "V5",
+     "detail": "tb.municipality has no scale marker in its clause",
+     "paragraph": 3,
+     "sentence": 1
+    },
+    {
+     "check": "V5",
+     "detail": "mortality.ill_defined_municipality is attributed to the region scale",
+     "paragraph": 3,
+     "sentence": 2
+    },
+    {
+     "check": "V4",
+     "detail": "caveat C18 is missing",
+     "paragraph": 3,
+     "sentence": -1
+    }
+   ]
+  },
+  {
+   "cnes": "5937914",
+   "condition": "free",
+   "seed": 0,
+   "stats": {
+    "prompt_tokens": 1064,
+    "output_tokens": 640,
+    "prompt_s": 84.8,
+    "output_s": 156.1,
+    "total_s": 241.1
+   },
+   "paragraphs": 3,
+   "template_paragraphs": 4,
+   "markup": false,
+   "strict_v5": 9,
+   "numbers": 42,
+   "aligned": 23,
+   "set_aside": 19,
+   "untraced": [],
+   "aligned_text": [
+    [
+     "Comparando com outras unidades do mesmo grupo, o percentual de moradores a mais de {k.one_km} de uma unidade básica de saúde pública no raio em volta do {profile.name} é de N, o que é maior que em N e menor que em N das N unidades de atenção especializada e saúde mental.",
+     "A unidade possui o tipo {profile.flow}, está na rede pública com vínculo SUS e seu fluxo de clientela é por {profile.flow}."
+    ],
+    [
+     "No raio de {residents.extent_radius} em volta da unidade, a estimativa de moradores é de {residents.radius}, com cerca de {residents.households_radius} domicílios, abrangendo N setores, dos quais cerca de N da população desses setores está dentro do raio.",
+     "No raio de N, {crowded.radius} dos moradores estão em setores entre os {k.top_decile} mais adensados ({crowded.threshold} ou mais por domicílio), enquanto no município de Poá, esse percentual é de {crowded.municipality}, e na região metropolitana, é de {crowded.region}.",
+     "Em relação ao saneamento, no raio de N, {sewage.radius} dos domicílios estão fora da rede de esgoto, sendo que no município de Poá esse valor é de {sewage.municipality}, e na região metropolitana, é de {sewage.region}.",
+     "Além disso, no raio, {sewage.precarious_radius} dos domicílios apresentam esgoto precário (fossa rudimentar, vala, rio…).",
+     "Em linha reta, {access.radius} dos moradores no raio de N estão a mais de {k.one_km} de uma UBS pública, comparado a {access.municipality} no município de Poá e {access.region} na região metropolitana."
+    ],
+    [
+     "Não há dados de doença para áreas do tamanho do raio: os números a seguir são do município inteiro.",
+     "Em {dengue.year}, o número de casos prováveis de Dengue no município de Poá foi de {dengue.municipality} ({dengue.count_municipality} casos; região: {dengue.region}).",
+     "Em {dengue.peak_year}, ano de epidemia, a taxa do município chegou a {dengue.peak_municipality}, com N casos na região.",
+     "Em N, foram registrados {k.age_old} casos (N casos; região: N), e em N, foram N casos (N casos; região: N).",
+     "Os casos de tuberculose são contados pelo município de residência: no município de Poá, os casos entre os moradores foram {tb.count_municipality} no período de N–N, com uma taxa de {tb.municipality} casos por {k.per100k} hab. por ano, e na região metropolitana, a taxa foi de {tb.region}."
+    ]
+   ],
+   "words": 361,
+   "verified": false,
+   "issues": [
+    {
+     "check": "V3",
+     "detail": "planned fact not told: peer",
+     "paragraph": 0,
+     "sentence": -1
+    },
+    {
+     "check": "V8",
+     "detail": "361 words",
+     "paragraph": -1,
+     "sentence": -1
+    },
+    {
+     "check": "V5",
+     "paragraph": 2,
+     "sentence": 1,
+     "detail": "{dengue.region} (region) between municipality words"
+    }
+   ]
+  },
+  {
+   "cnes": "5937914",
+   "condition": "rewrite",
+   "seed": 0,
+   "stats": {
+    "prompt_tokens": 1465,
+    "output_tokens": 498,
+    "prompt_s": 82.3,
+    "output_s": 96.4,
+    "total_s": 178.9
+   },
+   "paragraphs": 5,
+   "template_paragraphs": 4,
+   "markup": true,
+   "verified_loose_v5": false,
+   "unchanged_sentences": 0.222,
+   "literal_numbers": 0,
+   "words": 221,
+   "verified": false,
+   "issues": [
+    {
+     "check": "V5",
+     "detail": "crowded.radius has no scale marker in its clause",
+     "paragraph": 2,
+     "sentence": 1
+    },
+    {
+     "check": "V5",
+     "detail": "tb.municipality has no scale marker in its clause",
+     "paragraph": 4,
+     "sentence": 2
+    },
+    {
+     "check": "V4",
+     "detail": "caveat C09 is missing",
+     "paragraph": 3,
+     "sentence": -1
+    }
+   ]
+  },
+  {
+   "cnes": "6302483",
+   "condition": "free",
+   "seed": 0,
+   "stats": {
+    "prompt_tokens": 1194,
+    "output_tokens": 613,
+    "prompt_s": 99.0,
+    "output_s": 141.3,
+    "total_s": 240.6
+   },
+   "paragraphs": 4,
+   "template_paragraphs": 4,
+   "markup": false,
+   "strict_v5": 9,
+   "numbers": 33,
+   "aligned": 23,
+   "set_aside": 10,
+   "untraced": [],
+   "aligned_text": [
+    [
+     "Comparando com outras unidades do mesmo grupo em um raio de {k.one_km}, o percentual de domicílios com esgoto precário é de N no raio, o que é maior que em N e menor que em N das {peer.count_group} unidades de {peer.group}."
+    ],
+    [
+     "A {profile.name} é uma {profile.flow} que faz parte {profile.network} com vínculo SUS, e seu fluxo de clientela é de {profile.flow}.",
+     "A unidade possui {staff.physicians_unit} vínculos de médicos e {staff.nurses_unit} vínculos de enfermeiros, sendo que os números de médicos e enfermeiros contam vínculos registrados no CNES, não pessoas."
+    ],
+    [
+     "Em um raio de {residents.extent_radius}, há cerca de {residents.radius} moradores e {residents.households_radius} domicílios, abrangendo N setores.",
+     "A estimativa é imprecisa: os setores censitários aqui são grandes e o raio cobre só uma parte deles.",
+     "Desses setores, N da população está dentro do raio.",
+     "No raio, {sewage.precarious_radius} dos domicílios despejam o esgoto em fossa rudimentar, vala ou rio.",
+     "Em um raio de N, {sewage.radius} dos domicílios fora da rede de esgoto, e no município de {sewage.municipality_name}, {sewage.municipality}, e na região metropolitana, {sewage.region}.",
+     "Em um raio de N, {crowded.radius} dos moradores estão em setores entre os {k.top_decile} mais adensados, enquanto no município de {crowded.municipality_name} são {crowded.municipality} e na região metropolitana são {crowded.region}.",
+     "Além disso, {access.radius} dos moradores em um raio de N estão a mais de {k.one_km} de UBS pública em linha reta, comparado a {access.municipality} no município de {access.municipality_name} e {access.region} na região metropolitana."
+    ],
+    [
+     "Não há dados de doença para áreas do tamanho do raio: os números a seguir são do município inteiro.",
+     "Em {mortality.municipality_name}, entre N–N, houve {mortality.count_municipality} óbitos com causa definida, sendo a causa mais frequente entre os de causa definida o aparelho circulatório, com {mortality.municipality}.",
+     "Na região metropolitana, a mesma causa foi responsável por {mortality.region} dos óbitos.",
+     "Houve {mortality.ill_defined_municipality} de óbitos sem causa definida.",
+     "Quanto à tuberculose em {tb.municipality_name}, os casos entre os moradores são de {tb.municipality} por {k.per100k} hab. por ano, totalizando {tb.count_municipality} casos no período, enquanto na região metropolitana o índice é de {tb.region}."
+    ]
+   ],
+   "words": 338,
+   "verified": false,
+   "issues": [
+    {
+     "check": "V5",
+     "paragraph": 3,
+     "sentence": 1,
+     "detail": "{mortality.count_municipality} has no scale word"
+    },
+    {
+     "check": "V5",
+     "paragraph": 3,
+     "sentence": 1,
+     "detail": "{mortality.municipality} has no scale word"
+    },
+    {
+     "check": "V5",
+     "paragraph": 3,
+     "sentence": 3,
+     "detail": "{mortality.ill_defined_municipality} has no scale word"
+    },
+    {
+     "check": "V5",
+     "paragraph": 3,
+     "sentence": 4,
+     "detail": "{tb.municipality} (municipality) between region words"
+    },
+    {
+     "check": "V5",
+     "paragraph": 3,
+     "sentence": 4,
+     "detail": "{tb.count_municipality} (municipality) between region words"
+    }
+   ]
+  },
+  {
+   "cnes": "6302483",
+   "condition": "rewrite",
+   "seed": 0,
+   "stats": {
+    "prompt_tokens": 1606,
+    "output_tokens": 575,
+    "prompt_s": 133.7,
+    "output_s": 107.8,
+    "total_s": 241.6
+   },
+   "paragraphs": 3,
+   "template_paragraphs": 4,
+   "markup": true,
+   "verified_loose_v5": false,
+   "unchanged_sentences": 0.7,
+   "literal_numbers": 0,
+   "words": 271,
+   "verified": false,
+   "issues": [
+    {
+     "check": "V5",
+     "detail": "sewage.precarious_radius has no scale marker in its clause",
+     "paragraph": 1,
+     "sentence": 1
+    },
+    {
+     "check": "V4",
+     "detail": "caveat C03 is missing",
+     "paragraph": 1,
+     "sentence": -1
+    }
+   ]
+  },
+  {
+   "cnes": "7377045",
+   "condition": "free",
+   "seed": 0,
+   "stats": {
+    "prompt_tokens": 735,
+    "output_tokens": 338,
+    "prompt_s": 55.4,
+    "output_s": 76.6,
+    "total_s": 132.8
+   },
+   "paragraphs": 3,
+   "template_paragraphs": 3,
+   "markup": false,
+   "strict_v5": 0,
+   "numbers": 16,
+   "aligned": 10,
+   "set_aside": 6,
+   "untraced": [],
+   "aligned_text": [
+    [
+     "A {profile.name} é classificada como {profile.flow} e não possui vínculo com a rede pública do SUS.",
+     "O fluxo de clientela da unidade é composto por {profile.flow}.",
+     "A posição da unidade no mapa é aproximada, estando no centro da rua no CNEFE, com uma incerteza de {position.precision}, e a posição da unidade no mapa é aproximada ou foi substituída pela do endereço."
+    ],
+    [
+     "No raio em volta da unidade, há uma estimativa de {residents.radius} moradores e {residents.households_radius} domicílios, abrangendo N setores.",
+     "Cerca de N da população desses setores está dentro do raio.",
+     "Em relação aos moradores em setores entre os {k.top_decile} mais adensados ({crowded.threshold} ou mais por domicílio), o raio de N apresenta {crowded.radius} dos moradores, enquanto o município de {crowded.municipality_name} tem {crowded.municipality} e a região metropolitana tem {crowded.region}."
+    ],
+    [
+     "Não há dados de doença para áreas do tamanho do raio: os números a seguir são do distrito.",
+     "No distrito {tb_district.district_name}, a taxa de tuberculose é de {tb_district.district} casos por {k.per100k} hab. por ano, com {tb_district.count_district} casos registrados no período.",
+     "A cidade de São Paulo apresenta {tb_district.city} casos, e o distrito {tb_district.district_name} ocupa a N posição e N posição taxa entre N distritos.",
+     "A taxa do distrito conta só moradores com endereço; pessoas sem residência fixa ficam de fora."
+    ]
+   ],
+   "words": 211,
+   "verified": true,
+   "issues": []
+  },
+  {
+   "cnes": "7377045",
+   "condition": "free",
+   "seed": 1,
+   "stats": {
+    "prompt_tokens": 735,
+    "output_tokens": 343,
+    "prompt_s": 56.7,
+    "output_s": 78.1,
+    "total_s": 134.8
+   },
+   "paragraphs": 3,
+   "template_paragraphs": 3,
+   "markup": false,
+   "strict_v5": 2,
+   "numbers": 15,
+   "aligned": 10,
+   "set_aside": 5,
+   "untraced": [],
+   "aligned_text": [
+    [
+     "Esta unidade, identificada como {profile.flow}, não está integrada à rede pública do SUS, e seu fluxo de clientela é composto por {profile.flow}.",
+     "Sua posição no mapa é aproximada, indicando-se no centro da rua no CNEFE, com uma incerteza de {position.precision}, lembrando que a posição da unidade no mapa é aproximada ou foi substituída pela do endereço."
+    ],
+    [
+     "Cerca de {residents.radius} moradores, distribuídos em uma estimativa de {residents.households_radius} domicílios, estão em setores tocados pelo raio, sendo que cerca de N da população desses setores se encontra dentro do raio.",
+     "Em relação aos moradores em setores entre os {k.top_decile} mais adensados ({crowded.threshold} ou mais por domicílio), a estimativa é de {crowded.radius} no raio de N, {crowded.municipality} no município de {crowded.municipality_name} e {crowded.region} na região metropolitana."
+    ],
+    [
+     "Não há dados de doença para áreas do tamanho do raio: os números a seguir são do distrito.",
+     "No distrito {tb_district.district_name}, a taxa de tuberculose foi de {tb_district.district} casos por {k.per100k} hab. por ano, totalizando {tb_district.count_district} casos no período, sendo que a cidade de São Paulo apresentou {tb_district.city} casos.",
+     "Essa taxa está posicionada entre a N posição e a N posição taxa entre N distritos.",
+     "É importante notar que a taxa do distrito conta só moradores com endereço; pessoas sem residência fixa ficam de fora."
+    ]
+   ],
+   "words": 212,
+   "verified": true,
+   "issues": []
+  },
+  {
+   "cnes": "7377045",
+   "condition": "free",
+   "seed": 2,
+   "stats": {
+    "prompt_tokens": 735,
+    "output_tokens": 336,
+    "prompt_s": 0.4,
+    "output_s": 80.3,
+    "total_s": 80.7
+   },
+   "paragraphs": 3,
+   "template_paragraphs": 3,
+   "markup": false,
+   "strict_v5": 2,
+   "numbers": 17,
+   "aligned": 10,
+   "set_aside": 7,
+   "untraced": [],
+   "aligned_text": [
+    [
+     "A unidade {profile.name} é classificada como {profile.flow}, não possui vínculo com o SUS e recebe clientela por {profile.flow}.",
+     "A posição desta unidade no mapa é aproximada, estando localizada no centro da rua no CNEFE, com uma incerteza de {position.precision}."
+    ],
+    [
+     "Dentro do raio em volta da unidade, a estimativa do Censo N aponta para cerca de {residents.radius} moradores e {residents.households_radius} domicílios, afetando N setores, dos quais N da população está dentro deste raio.",
+     "Em relação aos moradores em setores entre os {k.top_decile} mais adensados (com {crowded.threshold} ou mais por domicílio), o raio de N tem {crowded.radius} desses moradores, comparado a {crowded.municipality} no município de {crowded.municipality_name} e {crowded.region} na região metropolitana."
+    ],
+    [
+     "Não há dados de doença para áreas do tamanho do raio: os números a seguir são do distrito.",
+     "No distrito {tb_district.district_name}, a taxa de tuberculose é de {tb_district.district} casos por {k.per100k} habitantes por ano, com um total de {tb_district.count_district} casos no período, sendo que {tb_district.city} desses casos estão na cidade de São Paulo.",
+     "A taxa do distrito conta só moradores com endereço; pessoas sem residência fixa ficam de fora.",
+     "Em termos de posição entre os distritos, o distrito Alto de Pinheiros possui a N posição e a N posição taxa entre N."
+    ]
+   ],
+   "words": 205,
+   "verified": true,
+   "issues": []
+  },
+  {
+   "cnes": "7377045",
+   "condition": "free",
+   "seed": 3,
+   "stats": {
+    "prompt_tokens": 735,
+    "output_tokens": 367,
+    "prompt_s": 0.3,
+    "output_s": 82.8,
+    "total_s": 83.2
+   },
+   "paragraphs": 3,
+   "template_paragraphs": 3,
+   "markup": false,
+   "strict_v5": 1,
+   "numbers": 18,
+   "aligned": 10,
+   "set_aside": 8,
+   "untraced": [],
+   "aligned_text": [
+    [
+     "A unidade {profile.name} é classificada como {profile.flow} e não faz parte da rede pública ou com vínculo SUS, recebendo clientela por {profile.flow}.",
+     "A posição da unidade no mapa é aproximada, estando no centro da rua no CNEFE (aproximada), e há uma incerteza de posição de {position.precision}, pois a posição da unidade no mapa é aproximada ou foi substituída pela do endereço."
+    ],
+    [
+     "Considerando o raio em volta da unidade, há uma estimativa de cerca de {residents.radius} moradores e {residents.households_radius} domicílios, afetando N setores.",
+     "Desse total, cerca de N da população desses setores está dentro do raio.",
+     "Em relação aos moradores em setores entre os {k.top_decile} mais adensados ({crowded.threshold} ou mais por domicílio), o raio de N apresenta {crowded.radius} dos moradores, enquanto no município de {crowded.municipality_name} são {crowded.municipality} e na região metropolitana são {crowded.region}."
+    ],
+    [
+     "Não há dados de doença para áreas do tamanho do raio: os números a seguir são do distrito.",
+     "No distrito {tb_district.district_name}, há uma taxa de {tb_district.district} casos por {k.per100k} hab. por ano e um total de {tb_district.count_district} casos no período N–N.",
+     "Na cidade de São Paulo, a taxa é de {tb_district.city} casos por {k.per100k} hab. por ano, e este distrito ocupa a N posição e N posição taxa entre N distritos.",
+     "A taxa do distrito conta só moradores com endereço; pessoas sem residência fixa ficam de fora."
+    ]
+   ],
+   "words": 224,
+   "verified": true,
+   "issues": []
+  },
+  {
+   "cnes": "7377045",
+   "condition": "rewrite",
+   "seed": 0,
+   "stats": {
+    "prompt_tokens": 907,
+    "output_tokens": 293,
+    "prompt_s": 76.2,
+    "output_s": 64.9,
+    "total_s": 143.5
+   },
+   "paragraphs": 3,
+   "template_paragraphs": 3,
+   "markup": true,
+   "verified_loose_v5": true,
+   "unchanged_sentences": 0.143,
+   "literal_numbers": 0,
+   "words": 159,
+   "verified": false,
+   "issues": [
+    {
+     "check": "V5",
+     "detail": "crowded.radius has no scale marker in its clause",
+     "paragraph": 1,
+     "sentence": 1
+    },
+    {
+     "check": "V5",
+     "detail": "crowded.region has no scale marker in its clause",
+     "paragraph": 1,
+     "sentence": 1
+    }
+   ]
+  },
+  {
+   "cnes": "7428219",
+   "condition": "free",
+   "seed": 0,
+   "stats": {
+    "prompt_tokens": 1052,
+    "output_tokens": 570,
+    "prompt_s": 82.2,
+    "output_s": 134.0,
+    "total_s": 216.3
+   },
+   "paragraphs": 4,
+   "template_paragraphs": 4,
+   "markup": false,
+   "strict_v5": 6,
+   "numbers": 38,
+   "aligned": 22,
+   "set_aside": 16,
+   "untraced": [],
+   "aligned_text": [
+    [
+     "Comparando com outras unidades do mesmo grupo, a {profile.name} apresenta N de moradores a mais de {k.one_km} de uma unidade básica de saúde pública no raio em volta da unidade, o que é menor que em N das N unidades de atenção especializada e saúde mental."
+    ],
+    [
+     "A unidade {profile.name} é classificada como {profile.flow}, não possui vínculo com a rede pública ou SUS, e seu fluxo de clientela é composto por {profile.flow}."
+    ],
+    [
+     "No raio de {residents.extent_radius} em volta da unidade, há uma estimativa de {residents.radius} moradores e {residents.households_radius} domicílios, abrangendo N setores, dos quais cerca de N da população desses setores está dentro do raio.",
+     "No raio de N, {crowded.radius} dos moradores estão em setores entre os {k.top_decile} mais adensados, enquanto no município de Poá, esse percentual é de {crowded.municipality}, e na região metropolitana, é de {crowded.region}.",
+     "No raio de N, {sewage.precarious_radius} dos domicílios estão fora da rede de esgoto, e no município de Poá, esse valor é de {sewage.municipality}, sendo {sewage.region} na região metropolitana.",
+     "Em linha reta, {access.radius} dos moradores no raio de N estão a mais de {k.one_km} de uma UBS pública, comparado a {access.municipality} no município de Poá e {access.region} na região metropolitana."
+    ],
+    [
+     "Não há dados de doença para áreas do tamanho do raio: os números a seguir são do município inteiro.",
+     "Em {dengue.peak_year}, ano de epidemia, a taxa do município chegou a {dengue.peak_municipality}.",
+     "Para a dengue no município de Poá, os casos prováveis por {k.per100k} hab. foram de {dengue.municipality} em {dengue.year} (com {dengue.count_municipality} casos na região), {dengue.peak_municipality} em {dengue.peak_year} (com N casos na região), {k.age_old} em N (com N casos na região) e N em N (com N casos na região).",
+     "Os casos de tuberculose entre os moradores do município de Poá foram de {tb.municipality} casos por {k.per100k} hab. em N–N, totalizando {tb.count_municipality} casos no período, e a região metropolitana registrou {tb.region} casos por {k.per100k} hab."
+    ]
+   ],
+   "words": 316,
+   "verified": false,
+   "issues": [
+    {
+     "check": "V3",
+     "detail": "planned fact not told: peer",
+     "paragraph": 0,
+     "sentence": -1
+    }
+   ]
+  },
+  {
+   "cnes": "7428219",
+   "condition": "rewrite",
+   "seed": 0,
+   "stats": {
+    "prompt_tokens": 1459,
+    "output_tokens": 497,
+    "prompt_s": 120.6,
+    "output_s": 93.7,
+    "total_s": 214.4
+   },
+   "paragraphs": 4,
+   "template_paragraphs": 4,
+   "markup": true,
+   "verified_loose_v5": false,
+   "unchanged_sentences": 0.444,
+   "literal_numbers": 0,
+   "words": 220,
+   "verified": false,
+   "issues": [
+    {
+     "check": "V5",
+     "detail": "crowded.radius has no scale marker in its clause",
+     "paragraph": 2,
+     "sentence": 1
+    }
+   ]
+  },
+  {
+   "cnes": "772739",
+   "condition": "free",
+   "seed": 0,
+   "stats": {
+    "prompt_tokens": 1120,
+    "output_tokens": 639,
+    "prompt_s": 87.5,
+    "output_s": 154.1,
+    "total_s": 241.8
+   },
+   "paragraphs": 3,
+   "template_paragraphs": 4,
+   "markup": false,
+   "strict_v5": 10,
+   "numbers": 35,
+   "aligned": 21,
+   "set_aside": 14,
+   "untraced": [],
+   "aligned_text": [
+    [
+     "Comparando com outras unidades do mesmo grupo, a renda média do responsável no raio de {k.one_km} em volta do {profile.name} é de N; este valor é maior que em N e menor que em N das {peer.count_group} unidades de internação.",
+     "O {profile.name} é {profile.type}, faz parte {profile.network} ou com vínculo SUS, e seu fluxo de clientela é de {profile.flow}."
+    ],
+    [
+     "No raio de {k.one_km}, há cerca de {residents.radius} moradores e {residents.households_radius} domicílios, abrangendo N setores, dos quais N da população desses setores está dentro do raio.",
+     "No raio de N, {sewage.radius} dos domicílios não possuem rede de esgoto, enquanto no município de {sewage.municipality_name}, esse percentual é de {sewage.municipality}, e na região metropolitana, é de {sewage.region}.",
+     "No raio, {sewage.precarious_radius} dos domicílios têm esgoto precário (fossa rudimentar, vala, rio…).",
+     "No raio de N, {crowded.radius} dos moradores vivem em setores entre os {k.top_decile} mais adensados ({crowded.threshold} ou mais por domicílio), comparado a {crowded.municipality} no município de {crowded.municipality_name} e {crowded.region} na região metropolitana.",
+     "Além disso, {access.radius} dos moradores no raio de N estão a mais de {k.one_km} de UBS pública em linha reta; no município de {access.municipality_name}, esse percentual é de {access.municipality}, e na região metropolitana, é de {access.region}.",
+     "Com tantos serviços privados no raio, estar longe da rede básica pública não indica, sozinho, falta de atendimento: parte dos moradores usa planos de saúde."
+    ],
+    [
+     "Não há dados de doença para áreas do tamanho do raio: os números a seguir são do município inteiro.",
+     "Em {tb.municipality_name}, entre os moradores, há {tb.count_municipality} casos de tuberculose no período N–N, o que representa {tb.municipality} casos por {k.per100k} hab. por ano, e a região metropolitana apresenta {tb.region} casos por {k.per100k} hab. por ano.",
+     "Em {mortality.municipality_name}, entre os moradores, foram registrados {mortality.count_municipality} óbitos de N a N anos no período N–N com causa definida.",
+     "A causa mais frequente entre os óbitos com causa definida em {mortality.municipality_name} foi aparelho circulatório, com {mortality.municipality}, enquanto na região metropolitana, essa causa foi responsável por {mortality.region} dos óbitos com causa definida.",
+     "{mortality.ill_defined_municipality} dos óbitos no município não têm causa definida, o que torna esse perfil pouco confiável."
+    ]
+   ],
+   "words": 354,
+   "verified": false,
+   "issues": [
+    {
+     "check": "V8",
+     "detail": "354 words",
+     "paragraph": -1,
+     "sentence": -1
+    },
+    {
+     "check": "V5",
+     "paragraph": 2,
+     "sentence": 1,
+     "detail": "{tb.count_municipality} (municipality) between region words"
+    },
+    {
+     "check": "V5",
+     "paragraph": 2,
+     "sentence": 1,
+     "detail": "{tb.municipality} (municipality) between region words"
+    },
+    {
+     "check": "V5",
+     "paragraph": 2,
+     "sentence": 2,
+     "detail": "{mortality.count_municipality} has no scale word"
+    },
+    {
+     "check": "V5",
+     "paragraph": 2,
+     "sentence": 3,
+     "detail": "{mortality.municipality} (municipality) between region words"
+    }
+   ]
+  },
+  {
+   "cnes": "772739",
+   "condition": "rewrite",
+   "seed": 0,
+   "stats": {
+    "prompt_tokens": 1514,
+    "output_tokens": 540,
+    "prompt_s": 89.3,
+    "output_s": 109.8,
+    "total_s": 199.2
+   },
+   "paragraphs": 4,
+   "template_paragraphs": 4,
+   "markup": true,
+   "verified_loose_v5": false,
+   "unchanged_sentences": 0.444,
+   "literal_numbers": 0,
+   "words": 266,
+   "verified": false,
+   "issues": [
+    {
+     "check": "V5",
+     "detail": "sewage.radius has no scale marker in its clause",
+     "paragraph": 2,
+     "sentence": 1
+    },
+    {
+     "check": "V5",
+     "detail": "mortality.ill_defined_municipality is attributed to the region scale",
+     "paragraph": 3,
+     "sentence": 2
+    },
+    {
+     "check": "V4",
+     "detail": "caveat C09 is missing",
+     "paragraph": 2,
+     "sentence": -1
+    },
+    {
+     "check": "V4",
+     "detail": "caveat C18 is missing",
+     "paragraph": 3,
+     "sentence": -1
+    }
+   ]
+  },
+  {
+   "cnes": "7823304",
+   "condition": "free",
+   "seed": 0,
+   "stats": {
+    "prompt_tokens": 1099,
+    "output_tokens": 593,
+    "prompt_s": 0.6,
+    "output_s": 138.1,
+    "total_s": 139.5
+   },
+   "paragraphs": 4,
+   "template_paragraphs": 4,
+   "markup": false,
+   "strict_v5": 4,
+   "numbers": 34,
+   "aligned": 22,
+   "set_aside": 12,
+   "untraced": [],
+   "aligned_text": [
+    [
+     "Comparando com outras unidades do mesmo grupo em um raio de {k.one_km}, a renda média do responsável é de N, um valor maior que em N e menor que em N das {peer.count_group} unidades de {peer.group}."
+    ],
+    [
+     "A {profile.name} é classificada como {profile.flow} e não possui vínculo com a rede pública ou SUS.",
+     "O fluxo de clientela é composto por {profile.flow}.",
+     "A unidade possui {staff.physicians_unit} vínculos de médicos e {staff.nurses_unit} vínculos de enfermeiros; os números de médicos e enfermeiros contam vínculos registrados no CNES, não pessoas."
+    ],
+    [
+     "Em um raio de {k.one_km}, a estimativa de moradores é de {residents.radius}, distribuídos em {residents.households_radius} domicílios, tocando N setores, dos quais N da população desses setores está dentro do raio.",
+     "Em um raio de N, {crowded.radius} dos moradores estão em setores entre os {k.top_decile} mais adensados ({crowded.threshold} ou mais por domicílio), comparado a {crowded.municipality} no município de {crowded.municipality_name} e {crowded.region} na região metropolitana.",
+     "Em um raio de N, {sewage.precarious_radius} dos domicílios estão fora da rede de esgoto, enquanto no município de {sewage.municipality_name} são {sewage.municipality} e na região metropolitana são {sewage.region}.",
+     "No raio de N, {sewage.precarious_radius} dos domicílios têm esgoto precário (fossa rudimentar, vala, rio…).",
+     "Há {network.count_radius} outras unidades de saúde no raio, sendo {network.public_radius} públicas ou com vínculo SUS e {network.private_radius} privadas e {profile.network}.",
+     "Há hospital de grande porte no raio, que atende pacientes de toda a região: taxas por morador do entorno não descrevem o alcance dessa capacidade.",
+     "Em um raio de N, {access.radius} dos moradores estão a mais de {k.one_km} de UBS pública em linha reta, sendo {access.municipality} no município de {access.municipality_name} e {access.region} na região metropolitana."
+    ],
+    [
+     "Não há dados de doença para áreas do tamanho do raio: os números a seguir são do distrito.",
+     "No distrito {tb_district.district_name}, a taxa de tuberculose é de {tb_district.district} casos por {k.per100k} hab. por ano, totalizando {tb_district.count_district} casos no período.",
+     "Na cidade de São Paulo, a taxa é de {tb_district.city}, e o distrito {tb_district.district_name} ocupa a N posição e N posição taxa entre N distritos.",
+     "A taxa do distrito conta só moradores com endereço; pessoas sem residência fixa ficam de fora."
+    ]
+   ],
+   "words": 354,
+   "verified": false,
+   "issues": [
+    {
+     "check": "V8",
+     "detail": "354 words",
+     "paragraph": -1,
+     "sentence": -1
+    }
+   ]
+  },
+  {
+   "cnes": "7823304",
+   "condition": "rewrite",
+   "seed": 0,
+   "stats": {
+    "prompt_tokens": 1489,
+    "output_tokens": 537,
+    "prompt_s": 127.6,
+    "output_s": 99.5,
+    "total_s": 227.2
+   },
+   "paragraphs": 5,
+   "template_paragraphs": 4,
+   "markup": true,
+   "verified_loose_v5": false,
+   "unchanged_sentences": 0.8,
+   "literal_numbers": 0,
+   "words": 270,
+   "verified": false,
+   "issues": [
+    {
+     "check": "V4",
+     "detail": "caveat C06 is missing",
+     "paragraph": 3,
+     "sentence": -1
+    }
+   ]
+  },
+  {
+   "cnes": "8047790",
+   "condition": "free",
+   "seed": 0,
+   "stats": {
+    "prompt_tokens": 893,
+    "output_tokens": 446,
+    "prompt_s": 70.5,
+    "output_s": 113.7,
+    "total_s": 186.0
+   },
+   "paragraphs": 3,
+   "template_paragraphs": 3,
+   "markup": false,
+   "strict_v5": 9,
+   "numbers": 24,
+   "aligned": 19,
+   "set_aside": 5,
+   "untraced": [],
+   "aligned_text": [
+    [
+     "A {profile.name} é um {profile.flow} que faz parte {profile.network} do SUS, e seu fluxo de clientela é de {profile.flow}.",
+     "A unidade conta com {staff.physicians_unit} vínculos de médicos e {staff.nurses_unit} vínculos de enfermeiros, sendo que os números de médicos e enfermeiros contam vínculos registrados no CNES, não pessoas."
+    ],
+    [
+     "No raio da unidade, há cerca de {residents.radius} moradores e {residents.households_radius} domicílios, abrangendo N setores, dos quais cerca de N da população desses setores está dentro do raio.",
+     "No raio de N, {crowded.radius} dos moradores estão em setores entre os {k.top_decile} mais adensados ({crowded.threshold} ou mais por domicílio), enquanto no município de {crowded.municipality_name}, esse percentual é de {crowded.municipality}, e na região metropolitana, é de {crowded.region}.",
+     "No raio de N, {sewage.precarious_radius} dos domicílios estão fora da rede de esgoto, e no município de {sewage.municipality_name}, esse valor é de {sewage.municipality}, e na região metropolitana, é de {sewage.region}.",
+     "No raio, {sewage.precarious_radius} dos domicílios possuem esgoto precário (fossa rudimentar, vala, rio…).",
+     "Além disso, no raio, há um total de {network.count_radius} outras unidades de saúde, sendo {network.hubs_radius} pública ou com vínculo SUS, {network.private_radius} privadas e sem vínculo com o SUS, e {network.hubs_radius} hospital com N leitos ou mais.",
+     "Há hospital de grande porte no raio, que atende pacientes de toda a região: taxas por morador do entorno não descrevem o alcance dessa capacidade."
+    ],
+    [
+     "Não há dados de doença para áreas do tamanho do raio: os números a seguir são do município inteiro.",
+     "Em relação à Leptospirose no município de {lepto.municipality_name}, os casos por {k.per100k} hab. por ano são de {lepto.municipality}, totalizando {lepto.count_municipality} casos no período, e na região metropolitana, o valor é de {lepto.region}."
+    ]
+   ],
+   "words": 277,
+   "verified": true,
+   "issues": []
+  },
+  {
+   "cnes": "8047790",
+   "condition": "rewrite",
+   "seed": 0,
+   "stats": {
+    "prompt_tokens": 1233,
+    "output_tokens": 416,
+    "prompt_s": 60.0,
+    "output_s": 77.2,
+    "total_s": 137.3
+   },
+   "paragraphs": 4,
+   "template_paragraphs": 3,
+   "markup": true,
+   "verified_loose_v5": false,
+   "unchanged_sentences": 0.5,
+   "literal_numbers": 1,
+   "words": 211,
+   "verified": false,
+   "issues": [
+    {
+     "check": "V1",
+     "detail": "number written outside a slot",
+     "paragraph": 0,
+     "sentence": 1
+    },
+    {
+     "check": "V3",
+     "detail": "planned fact not told: profile",
+     "paragraph": 1,
+     "sentence": -1
+    },
+    {
+     "check": "V4",
+     "detail": "caveat C06 is missing",
+     "paragraph": 2,
+     "sentence": -1
+    }
+   ]
+  },
+  {
+   "cnes": "876577",
+   "condition": "free",
+   "seed": 0,
+   "stats": {
+    "prompt_tokens": 827,
+    "output_tokens": 426,
+    "prompt_s": 78.6,
+    "output_s": 116.9,
+    "total_s": 225.8
+   },
+   "paragraphs": 4,
+   "template_paragraphs": 4,
+   "markup": false,
+   "strict_v5": 3,
+   "numbers": 21,
+   "aligned": 10,
+   "set_aside": 11,
+   "untraced": [],
+   "aligned_text": [
+    [
+     "Comparando com outras unidades do mesmo grupo em um raio de {k.one_km}, a renda média do responsável na {profile.name} é de N, sendo maior que em N e menor que em N das {peer.count_group} unidades de {peer.group}."
+    ],
+    [
+     "A {profile.name} é classificada como {profile.flow}, não possui vínculo com a rede pública do SUS e seu fluxo de clientela é de {profile.flow}.",
+     "A posição da unidade no mapa tem a coordenada do CNES substituída pelo endereço no CNEFE, e a distância entre a coordenada do CNES e o endereço é de {position.shift}; a posição da unidade no mapa é aproximada ou foi substituída pela do endereço."
+    ],
+    [
+     "No raio de {k.one_km}, há uma estimativa de {residents.radius} moradores e {residents.households_radius} domicílios, abrangendo N setores, dos quais N da população desses setores está dentro do raio.",
+     "Em relação aos moradores a mais de {k.one_km} de UBS pública, em linha reta, o raio de N apresenta {access.radius}, o município de {access.municipality_name} apresenta {access.municipality} e a região metropolitana apresenta {access.region}."
+    ],
+    [
+     "Não há dados de doença para áreas do tamanho do raio: os números a seguir são do distrito.",
+     "No distrito {teen_district.district_name} (SMS-SP, N–N), {teen_district.district} dos nascimentos são de mães com menos de {k.twenty} anos ({teen_district.count_district} nascimentos), enquanto na cidade de São Paulo, esse percentual é de {teen_district.city}.",
+     "Além disso, no distrito Sapopemba, N dos nascimentos são prematuros (menos de N semanas), comparado a N na cidade de São Paulo."
+    ]
+   ],
+   "words": 242,
+   "verified": true,
+   "issues": []
+  },
+  {
+   "cnes": "876577",
+   "condition": "free",
+   "seed": 1,
+   "stats": {
+    "prompt_tokens": 827,
+    "output_tokens": 446,
+    "prompt_s": 63.7,
+    "output_s": 104.0,
+    "total_s": 167.9
+   },
+   "paragraphs": 1,
+   "template_paragraphs": 4,
+   "markup": false,
+   "strict_v5": 6,
+   "numbers": 21,
+   "aligned": 10,
+   "set_aside": 11,
+   "untraced": [],
+   "aligned_text": [
+    [
+     "A renda média dos responsáveis na {profile.name}, ao comparar com outras unidades do mesmo grupo em um raio de {k.one_km}, foi de N, sendo maior que em N e menor que em N das {peer.count_group} unidades de {peer.group}.",
+     "A {profile.name} é classificada como {profile.flow}, não possui rede pública ou vínculo SUS, e seu fluxo de clientela é de {profile.flow}.",
+     "A posição da unidade no mapa tem a coordenada do CNES substituída pelo endereço no CNEFE, havendo uma distância de {position.shift} entre a coordenada do CNES e o endereço; a posição da unidade no mapa é aproximada ou foi substituída pela do endereço.",
+     "No raio de {k.one_km}, estima-se que haja cerca de {residents.radius} moradores e {residents.households_radius} domicílios, abrangendo N setores tocados pelo raio, com cerca de N da população desses setores dentro do raio; quanto aos moradores a mais de {k.one_km} de UBS pública em linha reta, no raio de N, o percentual é de {access.radius}, no município de {access.municipality_name} é de {access.municipality}, e na região metropolitana é de {access.region}.",
+     "Não há dados de doença para áreas do tamanho do raio: os números a seguir são do distrito.",
+     "No distrito {teen_district.district_name} (SMS-SP, N–N), os nascimentos mostraram que {teen_district.district} ({teen_district.count_district} nascimentos) foram de mães com menos de {k.twenty} anos, enquanto na cidade de São Paulo, o percentual de mães com menos de {k.twenty} anos foi de {teen_district.city}; também, N dos nascimentos no distrito {teen_district.district_name} foram prematuros (menos de N semanas), em comparação com N na cidade de São Paulo."
+    ]
+   ],
+   "words": 258,
+   "verified": true,
+   "issues": []
+  },
+  {
+   "cnes": "876577",
+   "condition": "free",
+   "seed": 2,
+   "stats": {
+    "prompt_tokens": 827,
+    "output_tokens": 394,
+    "prompt_s": 0.3,
+    "output_s": 93.0,
+    "total_s": 93.3
+   },
+   "paragraphs": 1,
+   "template_paragraphs": 4,
+   "markup": false,
+   "strict_v5": 1,
+   "numbers": 20,
+   "aligned": 9,
+   "set_aside": 11,
+   "untraced": [],
+   "aligned_text": [
+    [
+     "Comparada a {peer.count_group} unidades de {peer.group}, a renda média do responsável em um raio de {k.one_km} da {profile.name} é de N, sendo maior que em N e menor que em N dessas unidades.",
+     "A unidade possui o tipo de {profile.flow}, não pertence à rede pública ou com vínculo SUS e seu fluxo de clientela é de {profile.flow}.",
+     "Sua posição no mapa foi representada pelo endereço no CNEFE, havendo uma distância de {position.shift} entre a coordenada do CNES e o endereço, e a posição da unidade no mapa é aproximada ou foi substituída pela do endereço.",
+     "No raio de {k.one_km}, a estimativa de moradores é de {residents.radius} em {residents.households_radius} domicílios, abrangendo N setores, com cerca de N da população desses setores dentro do raio.",
+     "Em relação à distância de N em linha reta, {access.radius} dos moradores no raio estão mais longe de uma UBS pública, enquanto no município de {access.municipality_name} {access.municipality} e na região metropolitana {access.region} estão mais longe de uma UBS pública em linha reta.",
+     "Não há dados de doença para áreas do tamanho do raio: os números a seguir são do distrito.",
+     "No distrito {teen_district.district_name}, de N–N, {teen_district.district} dos nascimentos registrados envolvem mães com menos de {k.twenty} anos, comparado a {teen_district.city} na cidade de São Paulo, e N dos nascimentos registrados são prematuros (menos de N semanas), sendo N na cidade de São Paulo."
+    ]
+   ],
+   "words": 230,
+   "verified": true,
+   "issues": []
+  },
+  {
+   "cnes": "876577",
+   "condition": "free",
+   "seed": 3,
+   "stats": {
+    "prompt_tokens": 827,
+    "output_tokens": 418,
+    "prompt_s": 0.3,
+    "output_s": 100.9,
+    "total_s": 101.4
+   },
+   "paragraphs": 3,
+   "template_paragraphs": 4,
+   "markup": false,
+   "strict_v5": 2,
+   "numbers": 19,
+   "aligned": 10,
+   "set_aside": 9,
+   "untraced": [],
+   "aligned_text": [
+    [
+     "Comparando com outras unidades do mesmo grupo em um raio de {k.one_km}, a renda média do responsável na {profile.name} é de N, valor que é maior que em N e menor que em N das {peer.count_group} unidades de {peer.group}.",
+     "Esta unidade é um tipo {profile.flow} e não pertence à rede pública ou ao SUS, operando com {profile.flow}.",
+     "A posição da unidade no mapa tem a coordenada do CNES substituída pelo endereço no CNEFE, resultando em uma distância de {position.shift} entre a coordenada do CNES e o endereço, sendo que a posição da unidade no mapa é aproximada ou foi substituída pela do endereço."
+    ],
+    [
+     "Em um raio de {k.one_km} ao redor da unidade, há uma estimativa de {residents.radius} moradores e {residents.households_radius} domicílios, abrangendo N setores.",
+     "Dentro desses setores tocados pelo raio, N da população está dentro do raio.",
+     "Sobre a população a mais de {k.one_km} de UBS pública, o raio de N mostra {access.radius}, o município de {access.municipality_name} apresenta {access.municipality}, e a região metropolitana demonstra {access.region}, lembrando que as distâncias são em linha reta."
+    ],
+    [
+     "Não há dados de doença para áreas do tamanho do raio: os números a seguir são do distrito Sapopemba.",
+     "No distrito {teen_district.district_name}, foram registrados {teen_district.count_district} nascimentos com mães com menos de {k.twenty} anos, representando {teen_district.district}, enquanto na cidade de São Paulo esse percentual é de {teen_district.city}.",
+     "Também, em Sapopemba, N dos nascimentos foram prematuros (menos de N semanas), comparado a N na cidade de São Paulo."
+    ]
+   ],
+   "words": 248,
+   "verified": true,
+   "issues": []
+  },
+  {
+   "cnes": "876577",
+   "condition": "rewrite",
+   "seed": 0,
+   "stats": {
+    "prompt_tokens": 983,
+    "output_tokens": 295,
+    "prompt_s": 84.0,
+    "output_s": 55.5,
+    "total_s": 161.3
+   },
+   "paragraphs": 4,
+   "template_paragraphs": 4,
+   "markup": false,
+   "verified_loose_v5": true,
+   "unchanged_sentences": 1.0,
+   "literal_numbers": 0,
+   "words": 150,
+   "verified": true,
+   "issues": []
+  },
+  {
+   "cnes": "9152660",
+   "condition": "free",
+   "seed": 0,
+   "stats": {
+    "prompt_tokens": 1073,
+    "output_tokens": 563,
+    "prompt_s": 102.1,
+    "output_s": 134.5,
+    "total_s": 258.2
+   },
+   "paragraphs": 3,
+   "template_paragraphs": 4,
+   "markup": false,
+   "strict_v5": 8,
+   "numbers": 28,
+   "aligned": 19,
+   "set_aside": 9,
+   "untraced": [],
+   "aligned_text": [
+    [
+     "Moradores em setores com alguma privação no raio de {k.one_km} em volta da unidade {profile.name} são de N, o que é maior que em {peer.rank} e menor que em N das {peer.count_group} unidades de {peer.group}.",
+     "A unidade {profile.name} é classificada como {profile.flow}, não possui vínculo com a rede pública ou SUS, e seu fluxo de clientela é de {profile.flow}.",
+     "A posição da unidade no mapa é aproximada, sendo um centro da rua no CNEFE (aproximada), com uma incerteza de {position.precision}."
+    ],
+    [
+     "No raio de {residents.extent_radius} em volta da unidade, há uma estimativa de {residents.radius} moradores e {residents.households_radius} domicílios, abrangendo N setores, dos quais N da população está dentro do raio.",
+     "No raio de N, {crowded.radius} dos moradores estão em setores entre os {k.top_decile} mais adensados ({crowded.threshold} ou mais por domicílio), enquanto no município de {crowded.municipality_name}, esse percentual é de {crowded.municipality}, e na região metropolitana, é de {crowded.region}.",
+     "Em linha reta, {access.radius} dos moradores no raio de N estão a mais de {k.one_km} de UBS pública, comparado a {access.municipality} no município de {access.municipality_name} e {access.region} na região metropolitana.",
+     "Com tantos serviços privados no raio, estar longe da rede básica pública não indica, sozinho, falta de atendimento: parte dos moradores usa planos de saúde."
+    ],
+    [
+     "Não há dados de doença para áreas do tamanho do raio: os números a seguir são do distrito.",
+     "No distrito {tb_district.district_name}, a taxa de tuberculose é de {tb_district.district} casos por {k.per100k} hab. por ano, totalizando {tb_district.count_district} casos no período, sendo que a cidade de São Paulo apresenta {tb_district.city} casos por {k.per100k} hab. por ano.",
+     "A taxa do distrito conta só moradores com endereço; pessoas sem residência fixa ficam de fora.",
+     "Em relação aos nascimentos no distrito {teen_district.district_name}, {teen_district.district} das mães têm menos de {k.twenty} anos ({teen_district.count_district} nascimentos), enquanto na cidade de São Paulo, esse percentual é de {teen_district.city}.",
+     "Os prematuros (menos de N semanas) são N no distrito Butantã, comparado a N na cidade de São Paulo."
+    ]
+   ],
+   "words": 330,
+   "verified": true,
+   "issues": []
+  },
+  {
+   "cnes": "9152660",
+   "condition": "free",
+   "seed": 1,
+   "stats": {
+    "prompt_tokens": 1073,
+    "output_tokens": 588,
+    "prompt_s": 86.4,
+    "output_s": 142.8,
+    "total_s": 229.4
+   },
+   "paragraphs": 3,
+   "template_paragraphs": 4,
+   "markup": false,
+   "strict_v5": 6,
+   "numbers": 28,
+   "aligned": 17,
+   "set_aside": 11,
+   "untraced": [],
+   "aligned_text": [
+    [
+     "Comparado a unidades do mesmo grupo em um raio de {k.one_km}, em setores com alguma privação, a Unidade {profile.name} apresenta N de moradores, o que é maior que em {peer.rank} e menor que em N das {peer.count_group} unidades de {peer.group}.",
+     "A unidade é classificada como {profile.flow}, não pertence à rede pública ou com vínculo SUS, e seu fluxo de clientela é de {profile.flow}.",
+     "Sua posição no mapa é central na rua no CNEFE (aproximada), com uma incerteza da posição de {position.precision}; a posição da unidade no mapa é aproximada ou foi substituída pela do endereço."
+    ],
+    [
+     "No raio de {k.one_km} em volta da unidade, há uma estimativa de cerca de {residents.radius} moradores e {residents.households_radius} domicílios, abrangendo N setores, dos quais N da população desses setores está dentro do raio.",
+     "No raio de N, {crowded.radius} dos moradores estão em setores entre os {k.top_decile} mais adensados ({crowded.threshold} ou mais por domicílio), enquanto no município de {crowded.municipality_name}, esse percentual é de {crowded.municipality}, e na região metropolitana, é de {crowded.region}.",
+     "Em relação aos moradores a mais de {k.one_km} de UBS pública em linha reta, {access.radius} estão neste raio, comparado a {access.municipality} no município de {access.municipality_name} e {access.region} na região metropolitana; com tantos serviços privados no raio, estar longe da rede básica pública não indica, sozinho, falta de atendimento: parte dos moradores usa planos de saúde."
+    ],
+    [
+     "Não há dados de doença para áreas do tamanho do raio: os números a seguir são do distrito.",
+     "No distrito {tb_district.district_name}, a taxa de tuberculose é de {tb_district.district} casos por {k.per100k} hab. por ano, totalizando {tb_district.count_district} casos no período, sendo que a cidade de São Paulo tem {tb_district.city} taxa.",
+     "A taxa do distrito conta só moradores com endereço; pessoas sem residência fixa ficam de fora, e a posição desta taxa está entre a N posição e a N posição taxa entre N distritos.",
+     "Além disso, no distrito {teen_district.district_name}, há {teen_district.district} de mães com menos de {k.twenty} anos em relação aos nascimentos, enquanto na cidade de São Paulo esse valor é de {teen_district.city}; a taxa de prematuros (menos de N semanas) no distrito é de N, sendo N na cidade de São Paulo."
+    ]
+   ],
+   "words": 364,
+   "verified": false,
+   "issues": [
+    {
+     "check": "V8",
+     "detail": "364 words",
+     "paragraph": -1,
+     "sentence": -1
+    }
+   ]
+  },
+  {
+   "cnes": "9152660",
+   "condition": "free",
+   "seed": 2,
+   "stats": {
+    "prompt_tokens": 1073,
+    "output_tokens": 578,
+    "prompt_s": 0.3,
+    "output_s": 140.6,
+    "total_s": 140.9
+   },
+   "paragraphs": 4,
+   "template_paragraphs": 4,
+   "markup": false,
+   "strict_v5": 5,
+   "numbers": 30,
+   "aligned": 19,
+   "set_aside": 11,
+   "untraced": [],
+   "aligned_text": [
+    [
+     "Moradores em setores com alguma privação no raio de {k.one_km} em volta da unidade {profile.name} são de N, o que é maior que o percentual em {peer.rank} e menor que o percentual em N das {peer.count_group} unidades de {peer.group}."
+    ],
+    [
+     "A unidade possui o tipo {profile.flow}, não pertence à rede pública ou com vínculo SUS, e seu fluxo de clientela é de {profile.flow}.",
+     "A posição da unidade no mapa é aproximada, estando no centro da rua no CNEFE (aproximada), com uma incerteza da posição de {position.precision}."
+    ],
+    [
+     "Em um raio de {residents.extent_radius}, estima-se que haja cerca de {residents.radius} moradores e {residents.households_radius} domicílios, cobrindo N setores tocados por esse raio, sendo que N da população desses setores está dentro do raio.",
+     "No raio de N, {crowded.radius} dos moradores estão em setores entre os {k.top_decile} mais adensados ({crowded.threshold} ou mais por domicílio), enquanto no município de {crowded.municipality_name} esse percentual é de {crowded.municipality} e na região metropolitana é de {crowded.region}.",
+     "Além disso, {access.radius} dos moradores no raio de N, {access.municipality} no município de {access.municipality_name} e {access.region} na região metropolitana estão a mais de {k.one_km} de UBS pública em linha reta; Com tantos serviços privados no raio, estar longe da rede básica pública não indica, sozinho, falta de atendimento: parte dos moradores usa planos de saúde."
+    ],
+    [
+     "Não há dados de doença para áreas do tamanho do raio: os números a seguir são do distrito.",
+     "No distrito {tb_district.district_name}, a taxa de Tuberculose é de {tb_district.district} casos por {k.per100k} hab. por ano, com {tb_district.count_district} casos no período, o que coloca a cidade de São Paulo em {tb_district.city} casos, e a posição do distrito é a N posição e a N posição taxa entre N, e a taxa do distrito conta só moradores com endereço; pessoas sem residência fixa ficam de fora.",
+     "Sobre nascimentos no distrito {teen_district.district_name}, {teen_district.district} das mães têm menos de {k.twenty} anos ({teen_district.count_district} nascimentos), enquanto na cidade de São Paulo esse percentual é de {teen_district.city}, e N dos bebês são prematuros no distrito {teen_district.district_name}, comparado a N na cidade de São Paulo."
+    ]
+   ],
+   "words": 348,
+   "verified": false,
+   "issues": [
+    {
+     "check": "V8",
+     "detail": "348 words",
+     "paragraph": -1,
+     "sentence": -1
+    }
+   ]
+  },
+  {
+   "cnes": "9152660",
+   "condition": "free",
+   "seed": 3,
+   "stats": {
+    "prompt_tokens": 1073,
+    "output_tokens": 581,
+    "prompt_s": 0.4,
+    "output_s": 138.0,
+    "total_s": 138.4
+   },
+   "paragraphs": 3,
+   "template_paragraphs": 4,
+   "markup": false,
+   "strict_v5": 5,
+   "numbers": 31,
+   "aligned": 16,
+   "set_aside": 15,
+   "untraced": [],
+   "aligned_text": [
+    [
+     "Moradores em setores com alguma privação no raio de {k.one_km} em volta da Unidade {profile.name} apresentam N, um percentual maior que em {peer.rank} e menor que em N das {peer.count_group} unidades de {peer.group}.",
+     "A Unidade {profile.name} é uma {profile.flow} e não pertence à rede pública ou com vínculo SUS.",
+     "Ela atende por {profile.flow}, e sua posição no mapa é aproximada ou foi substituída pela do endereço, sendo localizada no centro da rua no CNEFE (aproximada) com {position.precision} de incerteza."
+    ],
+    [
+     "Estima-se que no raio de {k.one_km} em volta da unidade, há cerca de {residents.radius} moradores em {residents.households_radius} domicílios, abrangendo N setores, dos quais N da população está dentro do raio.",
+     "No raio de N, o percentual de moradores em setores entre os {k.top_decile} mais adensados ({crowded.threshold} ou mais por domicílio) é de {crowded.radius}, enquanto no município de {crowded.municipality_name} é de {crowded.municipality} e na região metropolitana é de {crowded.region}.",
+     "Além disso, em linha reta, {access.radius} dos moradores no raio de N estão a mais de {k.one_km} de UBS pública, comparado a {access.municipality} no município de {access.municipality_name} e {access.region} na região metropolitana; com tantos serviços privados no raio, estar longe da rede básica pública não indica, sozinho, falta de atendimento: parte dos moradores usa planos de saúde."
+    ],
+    [
+     "Não há dados de doença para áreas do tamanho do raio: os números a seguir são do distrito, onde a taxa de tuberculose no distrito {tb_district.district_name} (SMS-SP, N–N) é de {tb_district.district} casos por {k.per100k} hab. por ano e {tb_district.count_district} casos no período; essa taxa no distrito conta só moradores com endereço, e a posição do distrito {tb_district.district_name} se encontra entre a N posição e N posição taxa entre N.",
+     "Em relação a nascimentos no distrito {teen_district.district_name} (SMS-SP, N–N), {teen_district.district} das mães em idade fértil tinham menos de {k.twenty} anos, enquanto no município de São Paulo esse percentual é de {teen_district.city}, e N dos nascimentos foram prematuros, comparado a N no município de São Paulo."
+    ]
+   ],
+   "words": 324,
+   "verified": false,
+   "issues": [
+    {
+     "check": "V5",
+     "paragraph": 2,
+     "sentence": 1,
+     "detail": "{teen_district.city} (city) between municipality/municipality words"
+    }
+   ]
+  },
+  {
+   "cnes": "9152660",
+   "condition": "rewrite",
+   "seed": 0,
+   "stats": {
+    "prompt_tokens": 1350,
+    "output_tokens": 496,
+    "prompt_s": 130.4,
+    "output_s": 109.7,
+    "total_s": 242.3
+   },
+   "paragraphs": 5,
+   "template_paragraphs": 4,
+   "markup": true,
+   "verified_loose_v5": false,
+   "unchanged_sentences": 0.333,
+   "literal_numbers": 0,
+   "words": 255,
+   "verified": false,
+   "issues": [
+    {
+     "check": "V5",
+     "detail": "crowded.radius has no scale marker in its clause",
+     "paragraph": 2,
+     "sentence": 1
+    },
+    {
+     "check": "V4",
+     "detail": "caveat C09 is missing",
+     "paragraph": 3,
+     "sentence": -1
+    }
+   ]
+  }
+ ]
+}

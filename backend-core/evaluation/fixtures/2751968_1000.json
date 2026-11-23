@@ -4280,7 +4280,11 @@
   "tipo_equipamento": "Policlínica",
   "total_enfermeiros": 4,
   "total_medicos": 56,
-  "total_saude_mental": 0
+  "total_saude_mental": 0,
+  "obitos_sus": null,
+  "obitos_esperados": null,
+  "mortalidade_faixa": null,
+  "mortalidade_perfil": null
  },
  "hospital_stays": [
   0.0,

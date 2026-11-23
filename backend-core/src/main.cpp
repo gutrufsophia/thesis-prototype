@@ -1,3 +1,4 @@
+#include <cmath>
 #include <algorithm>
 #include <chrono>
 #include <cstdio>
@@ -7,7 +8,10 @@
 #include <map>
 #include <mutex>
 #include <optional>
+#include <random>
+#include <set>
 #include <string>
+#include <utility>
 
 #include <curl/curl.h>
 #include <httplib.h>
@@ -47,7 +51,10 @@ int usage() {
                  "  storyteller payloads RADIUS_M DIR CNES...            (writes DIR/CNES_RADIUS.json)\n"
                  "  storyteller narrate FIXTURE [pt|en] [--text]\n"
                  "  storyteller mutate FIXTURE... (fault-injection table, both languages)\n"
-                 "  storyteller triggers FIXTURE... (caveat rules the data trigger, every fact planned)\n";
+                 "  storyteller triggers FIXTURE... (caveat rules the data trigger, every fact planned)\n"
+                 "  storyteller sensitivity FIXTURE... (stability of content selection under parameter changes)\n"
+                 "  storyteller caveats FIXTURE [pt|en]                  (wording each planned caveat requires)\n"
+                 "  storyteller verify FIXTURE pt|en PARAGRAPHS.json     (verifier on another realiser's text)\n";
     return 2;
 }
 
@@ -105,7 +112,7 @@ int serve(const story::Config& config) {
         if (!body.at("verified").get<bool>()) {
             std::cerr << "verification failed for CNES " << cnes << ": " << body.at("issues").dump() << '\n';
         }
-        send(res, 200, body);
+        send(res, 200, story::servable(std::move(body)));
     });
 
     std::cerr << "storyteller " << story::kVersion << " listening on port " << port << '\n';
@@ -225,6 +232,64 @@ int mutation_table(const story::Config& config, int argc, char** argv) {
     return 0;
 }
 
+story::Payload read_payload(const char* path) {
+    std::ifstream in(path);
+    if (!in) throw std::runtime_error(std::string("cannot open ") + path);
+    return story::Payload::from_json(nlohmann::json::parse(in));
+}
+
+// LLM comparison: the wording each planned caveat requires, resolved for its fact. Rules the
+// templates carry inside the fact's own sentence come out empty.
+int caveat_statements(const story::Config& config, int argc, char** argv) {
+    if (argc < 3) return usage();
+    const std::string code = argc > 3 ? argv[3] : "pt";
+    const auto& lang = config.language(code);
+    const auto told = story::tell(read_payload(argv[2]), config, code);
+    nlohmann::json out = nlohmann::json::array();
+    for (const auto& c : told.plan.caveats) {
+        if (c.effect == story::Effect::Suppress) continue;
+        const auto statement = story::caveat_statement(c, told.facts, lang);
+        const auto* text = lang.caveat_for(c.rule, c.variant);
+        std::string rendered;
+        if (!statement.empty()) {
+            rendered = story::plain_text(story::render({{{statement, {}, {c.rule}}}}, told.facts, lang));
+        }
+        out.push_back({{"rule", c.rule},
+                       {"variant", c.variant},
+                       {"fact", c.fact},
+                       {"effect", c.effect == story::Effect::Disclose ? "disclose" : "qualify"},
+                       {"before", c.before},
+                       {"statement", rendered},
+                       {"marker", text ? text->marker_source : ""}});
+    }
+    std::cout << out.dump(1) << '\n';
+    return 0;
+}
+
+// LLM comparison: runs the verifier on paragraphs written by another realiser, given as a JSON
+// array of paragraphs, each an array of sentences carrying {fact.field} tokens.
+int verify_file(const story::Config& config, int argc, char** argv) {
+    if (argc < 5) return usage();
+    const std::string code = argv[3];
+    const auto& lang = config.language(code);
+    const auto told = story::tell(read_payload(argv[2]), config, code);
+    std::ifstream in(argv[4]);
+    if (!in) throw std::runtime_error(std::string("cannot open ") + argv[4]);
+    std::vector<story::Paragraph> paragraphs;
+    for (const auto& p : nlohmann::json::parse(in)) {
+        story::Paragraph paragraph;
+        for (const auto& s : p) paragraph.push_back({s.get<std::string>(), {}, {}});
+        paragraphs.push_back(paragraph);
+    }
+    const auto issues = story::verify(paragraphs, told.plan, told.facts, lang);
+    std::cout << nlohmann::json{{"verified", issues.empty()},
+                                {"issues", story::to_json(issues)},
+                                {"words", story::word_count(paragraphs)}}
+                     .dump(1)
+              << '\n';
+    return 0;
+}
+
 // E1 reference: which caveat rules the data trigger when every extracted fact is told, so the
 // comparison with annotators measures the rules and not the content selection.
 int trigger_table(const story::Config& config, int argc, char** argv) {
@@ -260,6 +325,129 @@ int trigger_table(const story::Config& config, int argc, char** argv) {
     return 0;
 }
 
+// Parameters of content selection chosen by the author. Lexical tiers (wording, not selection),
+// the PNAB range (normative) and structural limits are left out. The bound keeps shares below 1.
+struct Knob {
+    const char* path;
+    double max;
+    bool integer;
+};
+const std::vector<Knob> kKnobs{
+    {"/saturation_ratio", 1e9, false},   {"/saturation_pp", 1e9, false},       {"/region_weight", 1e9, false},
+    {"/theme_weights/living", 1e9, false}, {"/theme_weights/access", 1e9, false}, {"/theme_weights/network", 1e9, false},
+    {"/theme_weights/outcome", 1e9, false}, {"/theme_weights/comparison", 1e9, false},
+    {"/theme_weights/tension", 1e9, false}, {"/pair_boost", 1e9, false},       {"/district_boost", 1e9, false},
+    {"/reliability/low_coverage", 1, false}, {"/reliability/few_tracts", 1, false},
+    {"/reliability/approximate_position", 1, false}, {"/min_importance", 1e9, false},
+    {"/peer_extreme", 0.99, false},      {"/need_high", 0.99, false},           {"/rank_extreme", 0.49, false},
+    {"/casemix_min_shift", 1e9, false},  {"/casemix_second", 1, false},
+};
+
+struct Told {
+    std::set<std::string> facts;
+    std::string lead;
+    std::set<std::string> caveats;
+};
+
+Told told_with(const story::Payload& payload, const story::Config& config) {
+    const auto s = story::tell(payload, config, "pt");
+    Told t;
+    for (const auto& paragraph : s.plan.paragraphs) t.facts.insert(paragraph.begin(), paragraph.end());
+    if (!s.plan.paragraphs[story::kLead].empty()) t.lead = s.plan.paragraphs[story::kLead].front();
+    for (const auto& c : s.plan.caveats) t.caveats.insert(c.rule);
+    return t;
+}
+
+double jaccard(const std::set<std::string>& a, const std::set<std::string>& b) {
+    if (a.empty() && b.empty()) return 1;
+    std::size_t both = 0;
+    for (const auto& x : a) both += b.count(x);
+    return static_cast<double>(both) / static_cast<double>(a.size() + b.size() - both);
+}
+
+story::Config scaled(const story::Config& base, const std::vector<double>& factors) {
+    story::Config c = base;
+    for (std::size_t i = 0; i < kKnobs.size(); ++i) {
+        const nlohmann::json::json_pointer ptr(kKnobs[i].path);
+        double v = std::min(c.params.at(ptr).get<double>() * factors[i], kKnobs[i].max);
+        c.params[ptr] = kKnobs[i].integer ? std::round(v) : v;
+    }
+    return c;
+}
+
+// How much the text's content changes when the selection parameters change: each parameter at
+// 0.5x and 1.5x alone, then all of them drawn uniformly in [0.5, 1.5] at once (fixed seed).
+int sensitivity_table(const story::Config& config, int argc, char** argv) {
+    if (argc < 3) return usage();
+    std::vector<story::Payload> payloads;
+    std::vector<Told> base;
+    for (int i = 2; i < argc; ++i) {
+        std::ifstream in(argv[i]);
+        payloads.push_back(story::Payload::from_json(nlohmann::json::parse(in)));
+        base.push_back(told_with(payloads.back(), config));
+    }
+    auto compare = [&](const story::Config& c) {
+        double facts = 0, caveats = 0, worst = 1;
+        int same = 0, lead = 0;
+        for (std::size_t i = 0; i < payloads.size(); ++i) {
+            const auto t = told_with(payloads[i], c);
+            const double j = jaccard(t.facts, base[i].facts);
+            facts += j;
+            worst = std::min(worst, j);
+            caveats += jaccard(t.caveats, base[i].caveats);
+            same += t.facts == base[i].facts;
+            lead += t.lead == base[i].lead;
+        }
+        const double n = static_cast<double>(payloads.size());
+        return nlohmann::json{{"jaccard_facts", facts / n}, {"min_jaccard_facts", worst},
+                              {"jaccard_caveats", caveats / n}, {"same_facts_share", same / n},
+                              {"same_lead_share", lead / n}};
+    };
+
+    nlohmann::json one_at_a_time = nlohmann::json::object();
+    for (std::size_t k = 0; k < kKnobs.size(); ++k) {
+        nlohmann::json row = nlohmann::json::object();
+        for (double f : {0.5, 1.5}) {
+            std::vector<double> factors(kKnobs.size(), 1.0);
+            factors[k] = f;
+            row[f < 1 ? "x0.5" : "x1.5"] = compare(scaled(config, factors));
+        }
+        one_at_a_time[kKnobs[k].path] = row;
+    }
+
+    const int draws = 500;
+    std::mt19937 rng(20261122);
+    std::uniform_real_distribution<double> unit(0.5, 1.5);
+    std::vector<double> facts, leads, same, caveats;
+    for (int d = 0; d < draws; ++d) {
+        std::vector<double> factors(kKnobs.size());
+        for (auto& f : factors) f = unit(rng);
+        const auto r = compare(scaled(config, factors));
+        facts.push_back(r.at("jaccard_facts"));
+        leads.push_back(r.at("same_lead_share"));
+        same.push_back(r.at("same_facts_share"));
+        caveats.push_back(r.at("jaccard_caveats"));
+    }
+    auto summary = [](std::vector<double> v) {
+        std::sort(v.begin(), v.end());
+        double mean = 0;
+        for (double x : v) mean += x;
+        mean /= static_cast<double>(v.size());
+        auto at = [&](double q) { return v[static_cast<std::size_t>(q * (v.size() - 1))]; };
+        return nlohmann::json{{"mean", mean}, {"p05", at(0.05)}, {"median", at(0.5)}, {"p95", at(0.95)}};
+    };
+    std::cout << nlohmann::json{{"facilities", payloads.size()},
+                                {"one_at_a_time", one_at_a_time},
+                                {"joint", {{"draws", draws},
+                                           {"jaccard_facts", summary(facts)},
+                                           {"same_facts_share", summary(same)},
+                                           {"same_lead_share", summary(leads)},
+                                           {"jaccard_caveats", summary(caveats)}}}}
+                     .dump(1)
+              << '\n';
+    return 0;
+}
+
 }  // namespace
 
 int main(int argc, char** argv) {
@@ -279,6 +467,12 @@ int main(int argc, char** argv) {
             status = narrate_fixture(config, argc, argv);
         } else if (mode == "mutate") {
             status = mutation_table(config, argc, argv);
+        } else if (mode == "sensitivity") {
+            status = sensitivity_table(config, argc, argv);
+        } else if (mode == "caveats") {
+            status = caveat_statements(config, argc, argv);
+        } else if (mode == "verify") {
+            status = verify_file(config, argc, argv);
         } else if (mode == "triggers") {
             status = trigger_table(config, argc, argv);
         } else {

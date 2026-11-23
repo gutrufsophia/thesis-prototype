@@ -1,2171 +1,902 @@
 {
- "ub631b2": {
-  "cnes": "4771311",
-  "stratum": "primary_care_sao_paulo",
-  "rules": {
-   "R01": false,
-   "R03b": false,
-   "R04": false,
-   "R05": false,
-   "R06": false,
-   "R08b": false,
-   "R12": true,
-   "R14": true,
-   "R14b": false,
-   "R15": false,
-   "R17": true,
-   "R18b": false,
-   "R19": false,
-   "R21b": false,
-   "R22": false
-  },
+ "u351110": {
+  "cnes": "9152660",
+  "stratum": "approximate_position",
+  "condition": "llm_free",
+  "model": "gemma4:e4b",
+  "digest": "dc35e8d9c6061baa6f0fa870975ab6932e2542b579b13ea0f199fa4bb7300c9c",
+  "llm_file": "9152660_free_s0.json",
   "planned": [
-   "f0",
-   "f10",
-   "f13",
-   "f14",
-   "f15",
-   "f3",
-   "f5",
-   "f8"
+   "peer",
+   "profile",
+   "position",
+   "residents",
+   "crowded",
+   "access",
+   "tb_district",
+   "teen_district"
   ],
-  "lead": null,
-  "statement_fact": {
-   "f0": "staff",
-   "f1": "tb_district",
-   "f2": "dengue",
-   "f3": "crowded",
-   "f4": "tb",
-   "f5": "territory",
-   "f6": "precarious",
-   "f7": "teen",
-   "f8": "profile",
-   "f9": "crowding",
-   "f10": "sewage",
-   "f11": "lepto",
-   "f12": "preterm",
-   "f13": "network",
-   "f14": "teen_district",
-   "f15": "residents",
-   "f16": "garbage",
-   "f17": "mortality"
+  "omitted_fact": {
+   "o0": "dengue",
+   "o1": "teen+preterm",
+   "o2": "precarious",
+   "o3": "crowding",
+   "o4": "lepto",
+   "o5": "territory"
   },
-  "verified": true
- },
- "u77028f": {
-  "cnes": "3956954",
-  "stratum": "primary_care_sao_paulo",
-  "rules": {
-   "R01": false,
-   "R03b": false,
-   "R04": false,
-   "R05": false,
-   "R06": false,
-   "R08b": false,
-   "R12": true,
-   "R14": true,
-   "R14b": false,
-   "R15": false,
-   "R17": true,
-   "R18b": false,
-   "R19": true,
-   "R21b": false,
-   "R22": false
-  },
-  "planned": [
-   "f1",
-   "f10",
-   "f11",
-   "f13",
-   "f15",
-   "f16",
-   "f17",
-   "f18",
-   "f7"
-  ],
-  "lead": "f1",
-  "statement_fact": {
-   "f0": "precarious",
-   "f1": "surprise_teen",
-   "f2": "teen",
-   "f3": "tb",
-   "f4": "teen_district",
-   "f5": "dengue",
-   "f6": "preterm",
-   "f7": "crowded",
-   "f8": "mortality",
-   "f9": "tb_district",
-   "f10": "sewage",
-   "f11": "staff",
-   "f12": "garbage",
-   "f13": "lepto",
-   "f14": "crowding",
-   "f15": "residents",
-   "f16": "network",
-   "f17": "profile",
-   "f18": "territory"
-  },
-  "verified": true
- },
- "ub3d56a": {
-  "cnes": "2788225",
-  "stratum": "primary_care_sao_paulo",
-  "rules": {
-   "R01": false,
-   "R03b": false,
-   "R04": false,
-   "R05": false,
-   "R06": false,
-   "R08b": false,
-   "R12": true,
-   "R14": true,
-   "R14b": false,
-   "R15": false,
-   "R17": true,
-   "R18b": false,
-   "R19": false,
-   "R21b": false,
-   "R22": false
-  },
-  "planned": [
-   "f1",
-   "f12",
-   "f15",
-   "f16",
-   "f17",
-   "f5",
-   "f6",
-   "f9"
-  ],
-  "lead": null,
-  "statement_fact": {
-   "f0": "dengue",
-   "f1": "tb_district",
-   "f2": "crowding",
-   "f3": "lepto",
-   "f4": "preterm",
-   "f5": "residents",
-   "f6": "profile",
-   "f7": "precarious",
-   "f8": "garbage",
-   "f9": "territory",
-   "f10": "mortality",
-   "f11": "tb",
-   "f12": "crowded",
-   "f13": "teen",
-   "f14": "sewage",
-   "f15": "network",
-   "f16": "staff",
-   "f17": "teen_district"
-  },
-  "verified": true
- },
- "u998c37": {
-  "cnes": "2787881",
-  "stratum": "primary_care_sao_paulo",
-  "rules": {
-   "R01": true,
-   "R03b": false,
-   "R04": false,
-   "R05": false,
-   "R06": false,
-   "R08b": false,
-   "R12": true,
-   "R14": true,
-   "R14b": false,
-   "R15": false,
-   "R17": true,
-   "R18b": false,
-   "R19": false,
-   "R21b": false,
-   "R22": false
-  },
-  "planned": [
-   "f1",
-   "f11",
-   "f13",
-   "f17",
-   "f3",
-   "f5",
-   "f7",
-   "f8"
-  ],
-  "lead": null,
-  "statement_fact": {
-   "f0": "teen",
-   "f1": "territory",
-   "f2": "lepto",
-   "f3": "network",
-   "f4": "crowding",
-   "f5": "residents",
-   "f6": "teen_district",
-   "f7": "crowded",
-   "f8": "tb_district",
-   "f9": "tb",
-   "f10": "dengue",
-   "f11": "staff",
-   "f12": "preterm",
-   "f13": "sewage",
-   "f14": "mortality",
-   "f15": "precarious",
-   "f16": "garbage",
-   "f17": "profile"
-  },
-  "verified": true
- },
- "u31eb21": {
-  "cnes": "8047790",
-  "stratum": "primary_care_sao_paulo",
-  "rules": {
-   "R01": true,
-   "R03b": false,
-   "R04": false,
-   "R05": false,
-   "R06": true,
-   "R08b": false,
-   "R12": true,
-   "R14": true,
-   "R14b": false,
-   "R15": false,
-   "R17": true,
-   "R18b": false,
-   "R19": false,
-   "R21b": false,
-   "R22": false
-  },
-  "planned": [
-   "f1",
-   "f13",
-   "f14",
-   "f15",
-   "f2",
-   "f3",
-   "f7",
-   "f9"
-  ],
-  "lead": null,
-  "statement_fact": {
-   "f0": "garbage",
-   "f1": "sewage",
-   "f2": "profile",
-   "f3": "territory",
-   "f4": "tb_district",
-   "f5": "teen",
-   "f6": "preterm",
-   "f7": "network",
-   "f8": "teen_district",
-   "f9": "crowded",
-   "f10": "tb",
-   "f11": "crowding",
-   "f12": "dengue",
-   "f13": "lepto",
-   "f14": "residents",
-   "f15": "staff",
-   "f16": "mortality",
-   "f17": "precarious"
-  },
-  "verified": true
- },
- "u0f9e8d": {
-  "cnes": "3204405",
-  "stratum": "primary_care_elsewhere",
-  "rules": {
-   "R01": true,
-   "R03b": false,
-   "R04": false,
-   "R05": true,
-   "R06": false,
-   "R08b": false,
-   "R12": true,
-   "R14": true,
-   "R14b": false,
-   "R15": true,
-   "R17": false,
-   "R18b": false,
-   "R19": false,
-   "R21b": false,
-   "R22": false
-  },
-  "planned": [
-   "f0",
-   "f10",
-   "f11",
-   "f14",
-   "f3",
-   "f4",
-   "f5",
-   "f6",
-   "f8",
-   "f9"
-  ],
-  "lead": null,
-  "statement_fact": {
-   "f0": "crowded",
-   "f1": "preterm",
-   "f2": "precarious",
-   "f3": "territory",
-   "f4": "mortality",
-   "f5": "profile",
-   "f6": "network",
-   "f7": "garbage",
-   "f8": "position",
-   "f9": "sewage",
-   "f10": "residents",
-   "f11": "dengue",
-   "f12": "lepto",
-   "f13": "crowding",
-   "f14": "staff",
-   "f15": "tb",
-   "f16": "teen"
-  },
-  "verified": true
- },
- "u725c3f": {
-  "cnes": "2023962",
-  "stratum": "primary_care_elsewhere",
-  "rules": {
-   "R01": false,
-   "R03b": false,
-   "R04": false,
-   "R05": false,
-   "R06": true,
-   "R08b": false,
-   "R12": true,
-   "R14": true,
-   "R14b": false,
-   "R15": true,
-   "R17": false,
-   "R18b": false,
-   "R19": false,
-   "R21b": false,
-   "R22": false
-  },
-  "planned": [
-   "f0",
-   "f1",
-   "f11",
-   "f12",
-   "f14",
-   "f3",
-   "f4",
-   "f6",
-   "f8"
-  ],
-  "lead": null,
-  "statement_fact": {
-   "f0": "network",
-   "f1": "residents",
-   "f2": "lepto",
-   "f3": "sewage",
-   "f4": "staff",
-   "f5": "crowding",
-   "f6": "tb",
-   "f7": "teen",
-   "f8": "dengue",
-   "f9": "mortality",
-   "f10": "garbage",
-   "f11": "profile",
-   "f12": "territory",
-   "f13": "precarious",
-   "f14": "crowded",
-   "f15": "preterm"
-  },
-  "verified": true
- },
- "u0ae7a1": {
-  "cnes": "2816091",
-  "stratum": "primary_care_elsewhere",
-  "rules": {
-   "R01": true,
-   "R03b": false,
-   "R04": false,
-   "R05": false,
-   "R06": false,
-   "R08b": false,
-   "R12": true,
-   "R14": true,
-   "R14b": false,
-   "R15": false,
-   "R17": false,
-   "R18b": false,
-   "R19": false,
-   "R21b": false,
-   "R22": false
-  },
-  "planned": [
-   "f0",
-   "f1",
-   "f11",
-   "f3",
-   "f6",
-   "f7",
-   "f8"
-  ],
-  "lead": null,
-  "statement_fact": {
-   "f0": "sewage",
-   "f1": "crowded",
-   "f2": "precarious",
-   "f3": "network",
-   "f4": "teen",
-   "f5": "crowding",
-   "f6": "profile",
-   "f7": "residents",
-   "f8": "territory",
-   "f9": "tb",
-   "f10": "preterm",
-   "f11": "dengue",
-   "f12": "garbage",
-   "f13": "lepto",
-   "f14": "mortality"
-  },
-  "verified": true
- },
- "ub4d490": {
-  "cnes": "2773724",
-  "stratum": "primary_care_elsewhere",
-  "rules": {
-   "R01": false,
-   "R03b": false,
-   "R04": false,
-   "R05": false,
-   "R06": false,
-   "R08b": false,
-   "R12": true,
-   "R14": true,
-   "R14b": false,
-   "R15": true,
-   "R17": false,
-   "R18b": false,
-   "R19": false,
-   "R21b": false,
-   "R22": false
-  },
-  "planned": [
-   "f0",
-   "f1",
-   "f10",
-   "f11",
-   "f14",
-   "f6",
-   "f7",
-   "f8",
-   "f9"
-  ],
-  "lead": null,
-  "statement_fact": {
-   "f0": "dengue",
-   "f1": "tb",
-   "f2": "precarious",
-   "f3": "garbage",
-   "f4": "teen",
-   "f5": "preterm",
-   "f6": "staff",
-   "f7": "sewage",
-   "f8": "territory",
-   "f9": "crowded",
-   "f10": "network",
-   "f11": "residents",
-   "f12": "lepto",
-   "f13": "mortality",
-   "f14": "profile",
-   "f15": "crowding"
-  },
-  "verified": true
- },
- "u51835f": {
-  "cnes": "2046628",
-  "stratum": "primary_care_elsewhere",
-  "rules": {
-   "R01": true,
-   "R03b": false,
-   "R04": false,
-   "R05": false,
-   "R06": true,
-   "R08b": false,
-   "R12": true,
-   "R14": true,
-   "R14b": false,
-   "R15": false,
-   "R17": false,
-   "R18b": false,
-   "R19": false,
-   "R21b": false,
-   "R22": false
-  },
-  "planned": [
-   "f0",
-   "f10",
-   "f11",
-   "f13",
-   "f14",
-   "f4",
-   "f5",
-   "f6",
-   "f9"
-  ],
-  "lead": null,
-  "statement_fact": {
-   "f0": "mortality",
-   "f1": "tb",
-   "f2": "precarious",
-   "f3": "teen",
-   "f4": "staff",
-   "f5": "residents",
-   "f6": "dengue",
-   "f7": "preterm",
-   "f8": "lepto",
-   "f9": "network",
-   "f10": "profile",
-   "f11": "territory",
-   "f12": "garbage",
-   "f13": "crowded",
-   "f14": "sewage",
-   "f15": "crowding"
-  },
-  "verified": true
- },
- "uc0e100": {
-  "cnes": "2078562",
-  "stratum": "large_hospital",
-  "rules": {
-   "R01": true,
-   "R03b": false,
-   "R04": true,
-   "R05": false,
-   "R06": true,
-   "R08b": false,
-   "R12": true,
-   "R14": false,
-   "R14b": true,
-   "R15": true,
-   "R17": false,
-   "R18b": true,
-   "R19": false,
-   "R21b": false,
-   "R22": false
-  },
-  "planned": [
-   "f0",
-   "f1",
-   "f10",
-   "f11",
-   "f14",
-   "f17",
-   "f18",
-   "f2",
-   "f3",
-   "f9"
-  ],
-  "lead": null,
-  "statement_fact": {
-   "f0": "sewage",
-   "f1": "profile",
-   "f2": "residents",
-   "f3": "territory",
-   "f4": "lepto",
-   "f5": "tb",
-   "f6": "precarious",
-   "f7": "crowding",
-   "f8": "preterm",
-   "f9": "beds",
-   "f10": "admissions",
-   "f11": "peer",
-   "f12": "teen",
-   "f13": "network",
-   "f14": "access",
-   "f15": "garbage",
-   "f16": "mortality",
-   "f17": "crowded",
-   "f18": "dengue"
-  },
-  "verified": true
- },
- "uaaabaf": {
-  "cnes": "2065665",
-  "stratum": "large_hospital",
-  "rules": {
-   "R01": true,
-   "R03b": false,
-   "R04": false,
-   "R05": false,
-   "R06": true,
-   "R08b": false,
-   "R12": true,
-   "R14": false,
-   "R14b": true,
-   "R15": false,
-   "R17": true,
-   "R18b": false,
-   "R19": false,
-   "R21b": false,
-   "R22": false
-  },
-  "planned": [
-   "f0",
-   "f11",
-   "f13",
-   "f17",
-   "f18",
-   "f2",
-   "f4",
-   "f6",
-   "f9"
-  ],
-  "lead": null,
-  "statement_fact": {
-   "f0": "access",
-   "f1": "preterm",
-   "f2": "crowded",
-   "f3": "network",
-   "f4": "admissions",
-   "f5": "crowding",
-   "f6": "territory",
-   "f7": "teen_district",
-   "f8": "garbage",
-   "f9": "lepto",
-   "f10": "precarious",
-   "f11": "profile",
-   "f12": "teen",
-   "f13": "beds",
-   "f14": "mortality",
-   "f15": "dengue",
-   "f16": "tb",
-   "f17": "sewage",
-   "f18": "residents",
-   "f19": "tb_district"
-  },
-  "verified": true
- },
- "ub57f1c": {
-  "cnes": "2792168",
-  "stratum": "large_hospital",
-  "rules": {
-   "R01": true,
-   "R03b": false,
-   "R04": false,
-   "R05": false,
-   "R06": true,
-   "R08b": false,
-   "R12": true,
-   "R14": false,
-   "R14b": false,
-   "R15": false,
-   "R17": false,
-   "R18b": false,
-   "R19": false,
-   "R21b": false,
-   "R22": false
-  },
-  "planned": [
-   "f0",
-   "f1",
-   "f11",
-   "f12",
-   "f14",
-   "f16",
-   "f5",
-   "f6",
-   "f8",
-   "f9"
-  ],
-  "lead": null,
-  "statement_fact": {
-   "f0": "dengue",
-   "f1": "beds",
-   "f2": "lepto",
-   "f3": "garbage",
-   "f4": "network",
-   "f5": "territory",
-   "f6": "profile",
-   "f7": "crowding",
-   "f8": "mortality",
-   "f9": "residents",
-   "f10": "tb",
-   "f11": "crowded",
-   "f12": "sewage",
-   "f13": "preterm",
-   "f14": "admissions",
-   "f15": "precarious",
-   "f16": "access",
-   "f17": "teen"
-  },
-  "verified": true
- },
- "u7f0e8e": {
-  "cnes": "6020917",
-  "stratum": "large_hospital",
-  "rules": {
-   "R01": true,
-   "R03b": false,
-   "R04": false,
-   "R05": false,
-   "R06": true,
-   "R08b": false,
-   "R12": true,
-   "R14": false,
-   "R14b": false,
-   "R15": true,
-   "R17": false,
-   "R18b": false,
-   "R19": false,
-   "R21b": false,
-   "R22": false
-  },
-  "planned": [
-   "f0",
-   "f1",
-   "f10",
-   "f12",
-   "f13",
-   "f15",
-   "f17",
-   "f4",
-   "f6",
-   "f7"
-  ],
-  "lead": null,
-  "statement_fact": {
-   "f0": "territory",
-   "f1": "crowded",
-   "f2": "network",
-   "f3": "precarious",
-   "f4": "beds",
-   "f5": "preterm",
-   "f6": "residents",
-   "f7": "admissions",
-   "f8": "teen",
-   "f9": "mortality",
-   "f10": "dengue",
-   "f11": "lepto",
-   "f12": "profile",
-   "f13": "sewage",
-   "f14": "crowding",
-   "f15": "access",
-   "f16": "garbage",
-   "f17": "tb"
-  },
-  "verified": true
- },
- "uacc532": {
-  "cnes": "3528596",
-  "stratum": "large_hospital",
-  "rules": {
-   "R01": true,
-   "R03b": false,
-   "R04": false,
-   "R05": false,
-   "R06": true,
-   "R08b": false,
-   "R12": true,
-   "R14": false,
-   "R14b": true,
-   "R15": true,
-   "R17": false,
-   "R18b": false,
-   "R19": false,
-   "R21b": false,
-   "R22": false
-  },
-  "planned": [
-   "f0",
-   "f10",
-   "f11",
-   "f13",
-   "f16",
-   "f3",
-   "f4",
-   "f5",
-   "f6",
-   "f9"
-  ],
-  "lead": null,
-  "statement_fact": {
-   "f0": "profile",
-   "f1": "precarious",
-   "f2": "preterm",
-   "f3": "residents",
-   "f4": "access",
-   "f5": "crowded",
-   "f6": "sewage",
-   "f7": "mortality",
-   "f8": "crowding",
-   "f9": "tb",
-   "f10": "dengue",
-   "f11": "beds",
-   "f12": "lepto",
-   "f13": "peer",
-   "f14": "network",
-   "f15": "teen",
-   "f16": "territory",
-   "f17": "garbage"
-  },
-  "verified": true
- },
- "u80fd34": {
-  "cnes": "6438431",
-  "stratum": "private_without_sus",
-  "rules": {
-   "R01": false,
-   "R03b": false,
-   "R04": false,
-   "R05": false,
-   "R06": true,
-   "R08b": false,
-   "R12": true,
-   "R14": false,
-   "R14b": true,
-   "R15": false,
-   "R17": true,
-   "R18b": false,
-   "R19": false,
-   "R21b": false,
-   "R22": false
-  },
-  "planned": [
-   "f13",
-   "f15",
-   "f2",
-   "f7",
-   "f8",
-   "f9"
-  ],
-  "lead": null,
-  "statement_fact": {
-   "f0": "dengue",
-   "f1": "crowding",
-   "f2": "territory",
-   "f3": "teen",
-   "f4": "teen_district",
-   "f5": "network",
-   "f6": "mortality",
-   "f7": "profile",
-   "f8": "tb_district",
-   "f9": "crowded",
-   "f10": "tb",
-   "f11": "precarious",
-   "f12": "sewage",
-   "f13": "residents",
-   "f14": "preterm",
-   "f15": "access",
-   "f16": "lepto",
-   "f17": "garbage"
+  "omitted_available": 11,
+  "sentences": {
+   "p0s0": {
+    "facts": [
+     "profile",
+     "peer"
+    ],
+    "caveats": []
+   },
+   "p0s1": {
+    "facts": [
+     "profile"
+    ],
+    "caveats": []
+   },
+   "p0s2": {
+    "facts": [
+     "position"
+    ],
+    "caveats": []
+   },
+   "p1s0": {
+    "facts": [
+     "residents"
+    ],
+    "caveats": []
+   },
+   "p1s1": {
+    "facts": [
+     "crowded"
+    ],
+    "caveats": []
+   },
+   "p1s2": {
+    "facts": [
+     "access"
+    ],
+    "caveats": []
+   },
+   "p1s3": {
+    "facts": [],
+    "caveats": []
+   },
+   "p2s0": {
+    "facts": [],
+    "caveats": []
+   },
+   "p2s1": {
+    "facts": [
+     "tb_district"
+    ],
+    "caveats": []
+   },
+   "p2s2": {
+    "facts": [],
+    "caveats": []
+   },
+   "p2s3": {
+    "facts": [
+     "teen_district"
+    ],
+    "caveats": []
+   },
+   "p2s4": {
+    "facts": [],
+    "caveats": []
+   }
   },
   "verified": true
  },
  "u2be51e": {
   "cnes": "7823304",
   "stratum": "private_without_sus",
-  "rules": {
-   "R01": true,
-   "R03b": false,
-   "R04": false,
-   "R05": false,
-   "R06": true,
-   "R08b": false,
-   "R12": true,
-   "R14": false,
-   "R14b": false,
-   "R15": true,
-   "R17": true,
-   "R18b": false,
-   "R19": false,
-   "R21b": false,
-   "R22": false
-  },
+  "condition": "llm_free",
+  "model": "gemma4:e4b",
+  "digest": "dc35e8d9c6061baa6f0fa870975ab6932e2542b579b13ea0f199fa4bb7300c9c",
+  "llm_file": "7823304_free_s0.json",
   "planned": [
-   "f0",
-   "f1",
-   "f10",
-   "f11",
-   "f17",
-   "f18",
-   "f19",
-   "f6",
-   "f7",
-   "f9"
+   "peer",
+   "profile",
+   "staff",
+   "residents",
+   "crowded",
+   "sewage",
+   "network",
+   "access",
+   "tb_district"
   ],
-  "lead": "f6",
-  "statement_fact": {
-   "f0": "staff",
-   "f1": "territory",
-   "f2": "precarious",
-   "f3": "mortality",
-   "f4": "garbage",
-   "f5": "teen",
-   "f6": "peer",
-   "f7": "profile",
-   "f8": "crowding",
-   "f9": "sewage",
-   "f10": "residents",
-   "f11": "network",
-   "f12": "teen_district",
-   "f13": "preterm",
-   "f14": "tb",
-   "f15": "dengue",
-   "f16": "lepto",
-   "f17": "access",
-   "f18": "tb_district",
-   "f19": "crowded"
+  "omitted_fact": {
+   "o0": "dengue",
+   "o1": "precarious",
+   "o2": "teen+preterm",
+   "o3": "mortality",
+   "o4": "lepto",
+   "o5": "teen_district"
   },
-  "verified": true
- },
- "u48eac7": {
-  "cnes": "872172",
-  "stratum": "private_without_sus",
-  "rules": {
-   "R01": true,
-   "R03b": false,
-   "R04": false,
-   "R05": false,
-   "R06": true,
-   "R08b": false,
-   "R12": true,
-   "R14": false,
-   "R14b": true,
-   "R15": true,
-   "R17": false,
-   "R18b": false,
-   "R19": false,
-   "R21b": false,
-   "R22": false
-  },
-  "planned": [
-   "f1",
-   "f12",
-   "f13",
-   "f14",
-   "f15",
-   "f3",
-   "f4",
-   "f6",
-   "f7"
-  ],
-  "lead": null,
-  "statement_fact": {
-   "f0": "precarious",
-   "f1": "mortality",
-   "f2": "teen",
-   "f3": "access",
-   "f4": "profile",
-   "f5": "lepto",
-   "f6": "dengue",
-   "f7": "network",
-   "f8": "tb",
-   "f9": "sewage",
-   "f10": "crowding",
-   "f11": "garbage",
-   "f12": "staff",
-   "f13": "crowded",
-   "f14": "territory",
-   "f15": "residents",
-   "f16": "preterm"
-  },
-  "verified": true
- },
- "u275e2b": {
-  "cnes": "9613919",
-  "stratum": "private_without_sus",
-  "rules": {
-   "R01": false,
-   "R03b": false,
-   "R04": false,
-   "R05": false,
-   "R06": true,
-   "R08b": false,
-   "R12": true,
-   "R14": false,
-   "R14b": false,
-   "R15": true,
-   "R17": true,
-   "R18b": false,
-   "R19": true,
-   "R21b": false,
-   "R22": false
-  },
-  "planned": [
-   "f0",
-   "f1",
-   "f11",
-   "f13",
-   "f17",
-   "f18",
-   "f20",
-   "f3",
-   "f4",
-   "f6"
-  ],
-  "lead": "f17",
-  "statement_fact": {
-   "f0": "profile",
-   "f1": "residents",
-   "f2": "tb",
-   "f3": "territory",
-   "f4": "surprise_teen",
-   "f5": "teen",
-   "f6": "crowded",
-   "f7": "lepto",
-   "f8": "mortality",
-   "f9": "network",
-   "f10": "preterm",
-   "f11": "access",
-   "f12": "crowding",
-   "f13": "sewage",
-   "f14": "precarious",
-   "f15": "garbage",
-   "f16": "teen_district",
-   "f17": "peer",
-   "f18": "staff",
-   "f19": "dengue",
-   "f20": "tb_district"
-  },
-  "verified": true
- },
- "u997e86": {
-  "cnes": "3810569",
-  "stratum": "private_without_sus",
-  "rules": {
-   "R01": true,
-   "R03b": false,
-   "R04": false,
-   "R05": true,
-   "R06": true,
-   "R08b": false,
-   "R12": true,
-   "R14": false,
-   "R14b": true,
-   "R15": true,
-   "R17": true,
-   "R18b": false,
-   "R19": false,
-   "R21b": false,
-   "R22": false
-  },
-  "planned": [
-   "f0",
-   "f13",
-   "f16",
-   "f18",
-   "f2",
-   "f4",
-   "f6",
-   "f7",
-   "f9"
-  ],
-  "lead": null,
-  "statement_fact": {
-   "f0": "profile",
-   "f1": "tb",
-   "f2": "tb_district",
-   "f3": "lepto",
-   "f4": "position",
-   "f5": "teen",
-   "f6": "residents",
-   "f7": "access",
-   "f8": "precarious",
-   "f9": "network",
-   "f10": "dengue",
-   "f11": "garbage",
-   "f12": "preterm",
-   "f13": "sewage",
-   "f14": "teen_district",
-   "f15": "mortality",
-   "f16": "crowded",
-   "f17": "crowding",
-   "f18": "territory"
-  },
-  "verified": true
- },
- "ufb6f28": {
-  "cnes": "7509243",
-  "stratum": "approximate_position",
-  "rules": {
-   "R01": true,
-   "R03b": false,
-   "R04": false,
-   "R05": true,
-   "R06": true,
-   "R08b": false,
-   "R12": true,
-   "R14": false,
-   "R14b": false,
-   "R15": false,
-   "R17": true,
-   "R18b": false,
-   "R19": false,
-   "R21b": false,
-   "R22": false
-  },
-  "planned": [
-   "f0",
-   "f1",
-   "f10",
-   "f15",
-   "f16",
-   "f18",
-   "f2",
-   "f3",
-   "f4",
-   "f6",
-   "f8"
-  ],
-  "lead": "f8",
-  "statement_fact": {
-   "f0": "profile",
-   "f1": "precarious",
-   "f2": "position",
-   "f3": "tb_district",
-   "f4": "crowded",
-   "f5": "lepto",
-   "f6": "residents",
-   "f7": "sewage",
-   "f8": "peer",
-   "f9": "dengue",
-   "f10": "territory",
-   "f11": "tb",
-   "f12": "mortality",
-   "f13": "teen",
-   "f14": "garbage",
-   "f15": "teen_district",
-   "f16": "access",
-   "f17": "crowding",
-   "f18": "network",
-   "f19": "preterm"
-  },
-  "verified": true
- },
- "u351110": {
-  "cnes": "9152660",
-  "stratum": "approximate_position",
-  "rules": {
-   "R01": false,
-   "R03b": false,
-   "R04": false,
-   "R05": true,
-   "R06": true,
-   "R08b": false,
-   "R12": true,
-   "R14": false,
-   "R14b": true,
-   "R15": false,
-   "R17": true,
-   "R18b": false,
-   "R19": false,
-   "R21b": false,
-   "R22": false
-  },
-  "planned": [
-   "f0",
-   "f1",
-   "f11",
-   "f12",
-   "f13",
-   "f14",
-   "f19",
-   "f2",
-   "f5",
-   "f8"
-  ],
-  "lead": "f5",
-  "statement_fact": {
-   "f0": "residents",
-   "f1": "territory",
-   "f2": "sewage",
-   "f3": "precarious",
-   "f4": "teen",
-   "f5": "peer",
-   "f6": "dengue",
-   "f7": "garbage",
-   "f8": "profile",
-   "f9": "tb",
-   "f10": "preterm",
-   "f11": "access",
-   "f12": "crowded",
-   "f13": "tb_district",
-   "f14": "position",
-   "f15": "mortality",
-   "f16": "lepto",
-   "f17": "crowding",
-   "f18": "network",
-   "f19": "teen_district"
-  },
-  "verified": true
- },
- "u2cc5ca": {
-  "cnes": "2070340",
-  "stratum": "approximate_position",
-  "rules": {
-   "R01": false,
-   "R03b": false,
-   "R04": false,
-   "R05": true,
-   "R06": false,
-   "R08b": false,
-   "R12": true,
-   "R14": false,
-   "R14b": false,
-   "R15": false,
-   "R17": true,
-   "R18b": false,
-   "R19": false,
-   "R21b": false,
-   "R22": false
-  },
-  "planned": [
-   "f0",
-   "f14",
-   "f16",
-   "f17",
-   "f3",
-   "f6",
-   "f7",
-   "f9"
-  ],
-  "lead": "f14",
-  "statement_fact": {
-   "f0": "profile",
-   "f1": "dengue",
-   "f2": "mortality",
-   "f3": "lepto",
-   "f4": "garbage",
-   "f5": "sewage",
-   "f6": "position",
-   "f7": "territory",
-   "f8": "crowding",
-   "f9": "access",
-   "f10": "teen_district",
-   "f11": "precarious",
-   "f12": "preterm",
-   "f13": "network",
-   "f14": "peer",
-   "f15": "tb_district",
-   "f16": "residents",
-   "f17": "crowded",
-   "f18": "teen",
-   "f19": "tb"
-  },
-  "verified": true
- },
- "ufece7e": {
-  "cnes": "6157025",
-  "stratum": "approximate_position",
-  "rules": {
-   "R01": false,
-   "R03b": false,
-   "R04": false,
-   "R05": true,
-   "R06": false,
-   "R08b": false,
-   "R12": true,
-   "R14": true,
-   "R14b": false,
-   "R15": false,
-   "R17": true,
-   "R18b": false,
-   "R19": false,
-   "R21b": false,
-   "R22": false
-  },
-  "planned": [
-   "f0",
-   "f10",
-   "f12",
-   "f13",
-   "f16",
-   "f3",
-   "f4"
-  ],
-  "lead": null,
-  "statement_fact": {
-   "f0": "lepto",
-   "f1": "mortality",
-   "f2": "tb",
-   "f3": "profile",
-   "f4": "network",
-   "f5": "tb_district",
-   "f6": "crowding",
-   "f7": "crowded",
-   "f8": "dengue",
-   "f9": "teen",
-   "f10": "residents",
-   "f11": "precarious",
-   "f12": "sewage",
-   "f13": "position",
-   "f14": "garbage",
-   "f15": "preterm",
-   "f16": "territory",
-   "f17": "teen_district"
-  },
-  "verified": true
- },
- "ufb367e": {
-  "cnes": "7377045",
-  "stratum": "approximate_position",
-  "rules": {
-   "R01": false,
-   "R03b": false,
-   "R04": false,
-   "R05": true,
-   "R06": true,
-   "R08b": false,
-   "R12": true,
-   "R14": false,
-   "R14b": true,
-   "R15": true,
-   "R17": true,
-   "R18b": false,
-   "R19": false,
-   "R21b": false,
-   "R22": false
-  },
-  "planned": [
-   "f1",
-   "f12",
-   "f14",
-   "f15",
-   "f16",
-   "f17",
-   "f2",
-   "f4"
-  ],
-  "lead": null,
-  "statement_fact": {
-   "f0": "precarious",
-   "f1": "residents",
-   "f2": "sewage",
-   "f3": "teen",
-   "f4": "territory",
-   "f5": "mortality",
-   "f6": "garbage",
-   "f7": "teen_district",
-   "f8": "access",
-   "f9": "tb",
-   "f10": "preterm",
-   "f11": "dengue",
-   "f12": "position",
-   "f13": "crowding",
-   "f14": "tb_district",
-   "f15": "network",
-   "f16": "crowded",
-   "f17": "profile",
-   "f18": "lepto"
-  },
-  "verified": true
- },
- "u54737f": {
-  "cnes": "876577",
-  "stratum": "corrected_position",
-  "rules": {
-   "R01": false,
-   "R03b": false,
-   "R04": false,
-   "R05": true,
-   "R06": false,
-   "R08b": false,
-   "R12": true,
-   "R14": false,
-   "R14b": false,
-   "R15": false,
-   "R17": true,
-   "R18b": false,
-   "R19": false,
-   "R21b": false,
-   "R22": false
-  },
-  "planned": [
-   "f1",
-   "f14",
-   "f15",
-   "f19",
-   "f2",
-   "f5",
-   "f7",
-   "f8",
-   "f9"
-  ],
-  "lead": "f9",
-  "statement_fact": {
-   "f0": "mortality",
-   "f1": "position",
-   "f2": "profile",
-   "f3": "precarious",
-   "f4": "teen_district",
-   "f5": "sewage",
-   "f6": "dengue",
-   "f7": "lepto",
-   "f8": "crowded",
-   "f9": "peer",
-   "f10": "garbage",
-   "f11": "tb",
-   "f12": "teen",
-   "f13": "network",
-   "f14": "residents",
-   "f15": "territory",
-   "f16": "crowding",
-   "f17": "tb_district",
-   "f18": "preterm",
-   "f19": "access"
-  },
-  "verified": true
- },
- "u0e6e4d": {
-  "cnes": "2038994",
-  "stratum": "corrected_position",
-  "rules": {
-   "R01": false,
-   "R03b": false,
-   "R04": false,
-   "R05": true,
-   "R06": true,
-   "R08b": false,
-   "R12": true,
-   "R14": true,
-   "R14b": false,
-   "R15": true,
-   "R17": false,
-   "R18b": false,
-   "R19": false,
-   "R21b": false,
-   "R22": false
-  },
-  "planned": [
-   "f0",
-   "f1",
-   "f11",
-   "f12",
-   "f13",
-   "f16",
-   "f3",
-   "f5",
-   "f6",
-   "f7",
-   "f9"
-  ],
-  "lead": "f9",
-  "statement_fact": {
-   "f0": "dengue",
-   "f1": "tb",
-   "f2": "lepto",
-   "f3": "territory",
-   "f4": "preterm",
-   "f5": "residents",
-   "f6": "position",
-   "f7": "sewage",
-   "f8": "crowding",
-   "f9": "peer",
-   "f10": "garbage",
-   "f11": "network",
-   "f12": "profile",
-   "f13": "staff",
-   "f14": "teen",
-   "f15": "precarious",
-   "f16": "crowded",
-   "f17": "mortality"
-  },
-  "verified": true
- },
- "u6ac502": {
-  "cnes": "2751968",
-  "stratum": "corrected_position",
-  "rules": {
-   "R01": true,
-   "R03b": false,
-   "R04": false,
-   "R05": true,
-   "R06": false,
-   "R08b": false,
-   "R12": true,
-   "R14": false,
-   "R14b": false,
-   "R15": false,
-   "R17": true,
-   "R18b": false,
-   "R19": false,
-   "R21b": false,
-   "R22": false
-  },
-  "planned": [
-   "f0",
-   "f10",
-   "f11",
-   "f12",
-   "f14",
-   "f17",
-   "f2",
-   "f20",
-   "f7",
-   "f9"
-  ],
-  "lead": "f12",
-  "statement_fact": {
-   "f0": "position",
-   "f1": "preterm",
-   "f2": "lepto",
-   "f3": "crowded",
-   "f4": "tb_district",
-   "f5": "precarious",
-   "f6": "teen_district",
-   "f7": "network",
-   "f8": "crowding",
-   "f9": "staff",
-   "f10": "territory",
-   "f11": "profile",
-   "f12": "peer",
-   "f13": "garbage",
-   "f14": "sewage",
-   "f15": "teen",
-   "f16": "dengue",
-   "f17": "residents",
-   "f18": "mortality",
-   "f19": "tb",
-   "f20": "access"
-  },
-  "verified": true
- },
- "u3eed72": {
-  "cnes": "491381",
-  "stratum": "corrected_position",
-  "rules": {
-   "R01": false,
-   "R03b": false,
-   "R04": true,
-   "R05": true,
-   "R06": false,
-   "R08b": false,
-   "R12": true,
-   "R14": false,
-   "R14b": false,
-   "R15": true,
-   "R17": false,
-   "R18b": false,
-   "R19": false,
-   "R21b": false,
-   "R22": false
-  },
-  "planned": [
-   "f1",
-   "f10",
-   "f12",
-   "f14",
-   "f15",
-   "f17",
-   "f2",
-   "f3",
-   "f6",
-   "f9"
-  ],
-  "lead": "f6",
-  "statement_fact": {
-   "f0": "crowding",
-   "f1": "teen",
-   "f2": "access",
-   "f3": "crowded",
-   "f4": "dengue",
-   "f5": "preterm",
-   "f6": "peer",
-   "f7": "network",
-   "f8": "lepto",
-   "f9": "residents",
-   "f10": "sewage",
-   "f11": "precarious",
-   "f12": "territory",
-   "f13": "garbage",
-   "f14": "profile",
-   "f15": "position",
-   "f16": "mortality",
-   "f17": "tb"
+  "omitted_available": 10,
+  "sentences": {
+   "p0s0": {
+    "facts": [
+     "peer"
+    ],
+    "caveats": []
+   },
+   "p1s0": {
+    "facts": [
+     "profile"
+    ],
+    "caveats": []
+   },
+   "p1s1": {
+    "facts": [],
+    "caveats": []
+   },
+   "p1s2": {
+    "facts": [
+     "staff"
+    ],
+    "caveats": []
+   },
+   "p2s0": {
+    "facts": [
+     "residents"
+    ],
+    "caveats": []
+   },
+   "p2s1": {
+    "facts": [
+     "crowded"
+    ],
+    "caveats": []
+   },
+   "p2s2": {
+    "facts": [
+     "sewage"
+    ],
+    "caveats": []
+   },
+   "p2s3": {
+    "facts": [
+     "sewage"
+    ],
+    "caveats": []
+   },
+   "p2s4": {
+    "facts": [
+     "network",
+     "profile"
+    ],
+    "caveats": []
+   },
+   "p2s5": {
+    "facts": [],
+    "caveats": []
+   },
+   "p2s6": {
+    "facts": [
+     "access"
+    ],
+    "caveats": []
+   },
+   "p3s0": {
+    "facts": [],
+    "caveats": []
+   },
+   "p3s1": {
+    "facts": [
+     "tb_district"
+    ],
+    "caveats": []
+   },
+   "p3s2": {
+    "facts": [
+     "tb_district"
+    ],
+    "caveats": []
+   },
+   "p3s3": {
+    "facts": [],
+    "caveats": []
+   }
   },
   "verified": true
  },
  "u8fd89a": {
   "cnes": "4441389",
   "stratum": "corrected_position",
-  "rules": {
-   "R01": false,
-   "R03b": false,
-   "R04": false,
-   "R05": true,
-   "R06": true,
-   "R08b": false,
-   "R12": true,
-   "R14": false,
-   "R14b": false,
-   "R15": false,
-   "R17": true,
-   "R18b": false,
-   "R19": false,
-   "R21b": false,
-   "R22": false
-  },
+  "condition": "template",
   "planned": [
-   "f1",
-   "f11",
-   "f12",
-   "f13",
-   "f15",
-   "f16",
-   "f18",
-   "f6",
-   "f7",
-   "f9"
+   "peer",
+   "profile",
+   "position",
+   "residents",
+   "crowded",
+   "sewage",
+   "tb_district",
+   "teen_district"
   ],
-  "lead": "f13",
-  "statement_fact": {
-   "f0": "preterm",
-   "f1": "teen_district",
-   "f2": "precarious",
-   "f3": "teen",
-   "f4": "dengue",
-   "f5": "mortality",
-   "f6": "territory",
-   "f7": "sewage",
-   "f8": "network",
-   "f9": "position",
-   "f10": "crowding",
-   "f11": "profile",
-   "f12": "residents",
-   "f13": "peer",
-   "f14": "garbage",
-   "f15": "access",
-   "f16": "crowded",
-   "f17": "tb",
-   "f18": "tb_district",
-   "f19": "lepto"
+  "omitted_fact": {
+   "o0": "dengue",
+   "o1": "territory",
+   "o2": "mortality",
+   "o3": "teen+preterm",
+   "o4": "access",
+   "o5": "garbage"
+  },
+  "omitted_available": 11,
+  "sentences": {
+   "p0s0": {
+    "facts": [
+     "peer"
+    ],
+    "caveats": []
+   },
+   "p1s0": {
+    "facts": [
+     "profile"
+    ],
+    "caveats": []
+   },
+   "p1s1": {
+    "facts": [
+     "position"
+    ],
+    "caveats": [
+     "C05"
+    ]
+   },
+   "p2s0": {
+    "facts": [
+     "residents"
+    ],
+    "caveats": [
+     "C03"
+    ]
+   },
+   "p2s1": {
+    "facts": [
+     "crowded"
+    ],
+    "caveats": []
+   },
+   "p2s2": {
+    "facts": [
+     "sewage"
+    ],
+    "caveats": []
+   },
+   "p3s0": {
+    "facts": [],
+    "caveats": [
+     "C10"
+    ]
+   },
+   "p3s1": {
+    "facts": [
+     "tb_district"
+    ],
+    "caveats": [
+     "C16"
+    ]
+   },
+   "p3s2": {
+    "facts": [
+     "teen_district"
+    ],
+    "caveats": []
+   }
   },
   "verified": true
  },
- "u187ac0": {
-  "cnes": "4930002",
-  "stratum": "small_municipality",
-  "rules": {
-   "R01": false,
-   "R03b": false,
-   "R04": false,
-   "R05": false,
-   "R06": false,
-   "R08b": false,
-   "R12": true,
-   "R14": false,
-   "R14b": false,
-   "R15": true,
-   "R17": false,
-   "R18b": true,
-   "R19": false,
-   "R21b": false,
-   "R22": false
-  },
+ "uaaabaf": {
+  "cnes": "2065665",
+  "stratum": "large_hospital",
+  "condition": "template",
   "planned": [
-   "f11",
-   "f13",
-   "f15",
-   "f16",
-   "f2",
-   "f4",
-   "f5",
-   "f6",
-   "f9"
+   "profile",
+   "beds",
+   "admissions",
+   "deaths",
+   "casemix",
+   "residents",
+   "access",
+   "lepto"
   ],
-  "lead": "f15",
-  "statement_fact": {
-   "f0": "garbage",
-   "f1": "preterm",
-   "f2": "sewage",
-   "f3": "dengue",
-   "f4": "tb",
-   "f5": "access",
-   "f6": "profile",
-   "f7": "lepto",
-   "f8": "teen",
-   "f9": "residents",
-   "f10": "network",
-   "f11": "crowded",
-   "f12": "crowding",
-   "f13": "territory",
-   "f14": "precarious",
-   "f15": "peer",
-   "f16": "mortality"
+  "omitted_fact": {
+   "o0": "teen_district",
+   "o1": "tb",
+   "o2": "crowded",
+   "o3": "teen+preterm",
+   "o4": "mortality",
+   "o5": "territory"
   },
-  "verified": true
- },
- "u467751": {
-  "cnes": "6016081",
-  "stratum": "small_municipality",
-  "rules": {
-   "R01": false,
-   "R03b": false,
-   "R04": false,
-   "R05": false,
-   "R06": false,
-   "R08b": false,
-   "R12": true,
-   "R14": true,
-   "R14b": false,
-   "R15": true,
-   "R17": false,
-   "R18b": true,
-   "R19": false,
-   "R21b": false,
-   "R22": false
-  },
-  "planned": [
-   "f1",
-   "f10",
-   "f11",
-   "f12",
-   "f13",
-   "f2",
-   "f4",
-   "f7",
-   "f9"
-  ],
-  "lead": null,
-  "statement_fact": {
-   "f0": "crowding",
-   "f1": "tb",
-   "f2": "territory",
-   "f3": "teen",
-   "f4": "profile",
-   "f5": "preterm",
-   "f6": "precarious",
-   "f7": "dengue",
-   "f8": "mortality",
-   "f9": "sewage",
-   "f10": "network",
-   "f11": "residents",
-   "f12": "staff",
-   "f13": "crowded",
-   "f14": "garbage",
-   "f15": "lepto"
-  },
-  "verified": true
- },
- "u6c4ede": {
-  "cnes": "2748142",
-  "stratum": "small_municipality",
-  "rules": {
-   "R01": false,
-   "R03b": false,
-   "R04": false,
-   "R05": false,
-   "R06": false,
-   "R08b": false,
-   "R12": true,
-   "R14": true,
-   "R14b": false,
-   "R15": true,
-   "R17": false,
-   "R18b": false,
-   "R19": false,
-   "R21b": false,
-   "R22": false
-  },
-  "planned": [
-   "f0",
-   "f1",
-   "f10",
-   "f12",
-   "f13",
-   "f15",
-   "f16",
-   "f4",
-   "f6",
-   "f8"
-  ],
-  "lead": "f1",
-  "statement_fact": {
-   "f0": "dengue",
-   "f1": "peer",
-   "f2": "lepto",
-   "f3": "teen",
-   "f4": "territory",
-   "f5": "garbage",
-   "f6": "network",
-   "f7": "crowding",
-   "f8": "crowded",
-   "f9": "precarious",
-   "f10": "sewage",
-   "f11": "preterm",
-   "f12": "residents",
-   "f13": "staff",
-   "f14": "mortality",
-   "f15": "tb",
-   "f16": "profile"
-  },
-  "verified": true
- },
- "uc1675a": {
-  "cnes": "6302483",
-  "stratum": "small_municipality",
-  "rules": {
-   "R01": false,
-   "R03b": true,
-   "R04": true,
-   "R05": false,
-   "R06": false,
-   "R08b": false,
-   "R12": false,
-   "R14": false,
-   "R14b": false,
-   "R15": true,
-   "R17": false,
-   "R18b": false,
-   "R19": false,
-   "R21b": false,
-   "R22": false
-  },
-  "planned": [
-   "f0",
-   "f1",
-   "f10",
-   "f12",
-   "f14",
-   "f2",
-   "f3",
-   "f4",
-   "f8",
-   "f9"
-  ],
-  "lead": "f14",
-  "statement_fact": {
-   "f0": "territory",
-   "f1": "crowded",
-   "f2": "staff",
-   "f3": "tb",
-   "f4": "mortality",
-   "f5": "precarious",
-   "f6": "teen",
-   "f7": "crowding",
-   "f8": "profile",
-   "f9": "access",
-   "f10": "residents",
-   "f11": "dengue",
-   "f12": "sewage",
-   "f13": "lepto",
-   "f14": "peer",
-   "f15": "preterm",
-   "f16": "network",
-   "f17": "garbage"
-  },
-  "verified": true
- },
- "u4f0d54": {
-  "cnes": "772739",
-  "stratum": "small_municipality",
-  "rules": {
-   "R01": false,
-   "R03b": false,
-   "R04": false,
-   "R05": false,
-   "R06": true,
-   "R08b": false,
-   "R12": true,
-   "R14": false,
-   "R14b": true,
-   "R15": true,
-   "R17": false,
-   "R18b": true,
-   "R19": false,
-   "R21b": false,
-   "R22": false
-  },
-  "planned": [
-   "f1",
-   "f13",
-   "f15",
-   "f16",
-   "f3",
-   "f4",
-   "f7",
-   "f8",
-   "f9"
-  ],
-  "lead": "f4",
-  "statement_fact": {
-   "f0": "network",
-   "f1": "access",
-   "f2": "dengue",
-   "f3": "mortality",
-   "f4": "peer",
-   "f5": "crowding",
-   "f6": "garbage",
-   "f7": "residents",
-   "f8": "territory",
-   "f9": "tb",
-   "f10": "lepto",
-   "f11": "teen",
-   "f12": "precarious",
-   "f13": "sewage",
-   "f14": "preterm",
-   "f15": "profile",
-   "f16": "crowded"
-  },
-  "verified": true
- },
- "udff5da": {
-  "cnes": "462993",
-  "stratum": "many_ill_defined_deaths",
-  "rules": {
-   "R01": false,
-   "R03b": false,
-   "R04": false,
-   "R05": false,
-   "R06": false,
-   "R08b": false,
-   "R12": true,
-   "R14": false,
-   "R14b": false,
-   "R15": true,
-   "R17": false,
-   "R18b": true,
-   "R19": false,
-   "R21b": false,
-   "R22": false
-  },
-  "planned": [
-   "f0",
-   "f1",
-   "f12",
-   "f15",
-   "f2",
-   "f4",
-   "f6",
-   "f7",
-   "f9"
-  ],
-  "lead": "f15",
-  "statement_fact": {
-   "f0": "access",
-   "f1": "territory",
-   "f2": "profile",
-   "f3": "garbage",
-   "f4": "dengue",
-   "f5": "precarious",
-   "f6": "crowded",
-   "f7": "residents",
-   "f8": "mortality",
-   "f9": "tb",
-   "f10": "network",
-   "f11": "lepto",
-   "f12": "sewage",
-   "f13": "teen",
-   "f14": "preterm",
-   "f15": "peer",
-   "f16": "crowding"
-  },
-  "verified": true
- },
- "u27fb10": {
-  "cnes": "4578554",
-  "stratum": "many_ill_defined_deaths",
-  "rules": {
-   "R01": false,
-   "R03b": false,
-   "R04": false,
-   "R05": true,
-   "R06": false,
-   "R08b": false,
-   "R12": true,
-   "R14": false,
-   "R14b": false,
-   "R15": true,
-   "R17": false,
-   "R18b": true,
-   "R19": false,
-   "R21b": false,
-   "R22": false
-  },
-  "planned": [
-   "f1",
-   "f11",
-   "f16",
-   "f2",
-   "f4",
-   "f5",
-   "f6",
-   "f7",
-   "f8",
-   "f9"
-  ],
-  "lead": "f1",
-  "statement_fact": {
-   "f0": "preterm",
-   "f1": "peer",
-   "f2": "dengue",
-   "f3": "garbage",
-   "f4": "tb",
-   "f5": "position",
-   "f6": "access",
-   "f7": "sewage",
-   "f8": "profile",
-   "f9": "residents",
-   "f10": "crowding",
-   "f11": "territory",
-   "f12": "teen",
-   "f13": "mortality",
-   "f14": "lepto",
-   "f15": "precarious",
-   "f16": "crowded",
-   "f17": "network"
-  },
-  "verified": true
- },
- "uc6a258": {
-  "cnes": "2773481",
-  "stratum": "many_ill_defined_deaths",
-  "rules": {
-   "R01": false,
-   "R03b": false,
-   "R04": false,
-   "R05": false,
-   "R06": false,
-   "R08b": false,
-   "R12": true,
-   "R14": true,
-   "R14b": false,
-   "R15": true,
-   "R17": false,
-   "R18b": true,
-   "R19": false,
-   "R21b": false,
-   "R22": false
-  },
-  "planned": [
-   "f1",
-   "f10",
-   "f11",
-   "f14",
-   "f15",
-   "f4",
-   "f5",
-   "f6",
-   "f7",
-   "f8"
-  ],
-  "lead": "f4",
-  "statement_fact": {
-   "f0": "precarious",
-   "f1": "dengue",
-   "f2": "garbage",
-   "f3": "preterm",
-   "f4": "peer",
-   "f5": "network",
-   "f6": "sewage",
-   "f7": "crowded",
-   "f8": "profile",
-   "f9": "lepto",
-   "f10": "territory",
-   "f11": "staff",
-   "f12": "crowding",
-   "f13": "mortality",
-   "f14": "tb",
-   "f15": "residents",
-   "f16": "teen"
+  "omitted_available": 13,
+  "sentences": {
+   "p0s0": {
+    "facts": [
+     "profile"
+    ],
+    "caveats": []
+   },
+   "p0s1": {
+    "facts": [
+     "beds"
+    ],
+    "caveats": []
+   },
+   "p0s2": {
+    "facts": [],
+    "caveats": [
+     "C01"
+    ]
+   },
+   "p0s3": {
+    "facts": [
+     "admissions"
+    ],
+    "caveats": [
+     "C08"
+    ]
+   },
+   "p0s4": {
+    "facts": [
+     "deaths"
+    ],
+    "caveats": []
+   },
+   "p0s5": {
+    "facts": [
+     "casemix"
+    ],
+    "caveats": []
+   },
+   "p0s6": {
+    "facts": [],
+    "caveats": [
+     "C23"
+    ]
+   },
+   "p1s0": {
+    "facts": [
+     "residents"
+    ],
+    "caveats": [
+     "C03"
+    ]
+   },
+   "p1s1": {
+    "facts": [
+     "access"
+    ],
+    "caveats": [
+     "C09"
+    ]
+   },
+   "p1s2": {
+    "facts": [],
+    "caveats": [
+     "C14b"
+    ]
+   },
+   "p2s0": {
+    "facts": [],
+    "caveats": [
+     "C10"
+    ]
+   },
+   "p2s1": {
+    "facts": [
+     "lepto"
+    ],
+    "caveats": []
+   }
   },
   "verified": true
  },
  "u05da0d": {
   "cnes": "5937914",
   "stratum": "many_ill_defined_deaths",
-  "rules": {
-   "R01": false,
-   "R03b": false,
-   "R04": false,
-   "R05": false,
-   "R06": true,
-   "R08b": false,
-   "R12": true,
-   "R14": false,
-   "R14b": false,
-   "R15": true,
-   "R17": false,
-   "R18b": true,
-   "R19": false,
-   "R21b": false,
-   "R22": false
-  },
+  "condition": "template",
   "planned": [
-   "f0",
-   "f1",
-   "f10",
-   "f12",
-   "f14",
-   "f15",
-   "f2",
-   "f3",
-   "f6"
+   "peer",
+   "profile",
+   "residents",
+   "crowded",
+   "sewage",
+   "access",
+   "dengue",
+   "tb"
   ],
-  "lead": "f15",
-  "statement_fact": {
-   "f0": "crowded",
-   "f1": "territory",
-   "f2": "tb",
-   "f3": "dengue",
-   "f4": "preterm",
-   "f5": "lepto",
-   "f6": "access",
-   "f7": "precarious",
-   "f8": "garbage",
-   "f9": "crowding",
-   "f10": "residents",
-   "f11": "teen",
-   "f12": "profile",
-   "f13": "network",
-   "f14": "sewage",
-   "f15": "peer",
-   "f16": "mortality"
+  "omitted_fact": {
+   "o0": "network",
+   "o1": "crowding",
+   "o2": "lepto",
+   "o3": "teen+preterm",
+   "o4": "precarious",
+   "o5": "mortality"
+  },
+  "omitted_available": 8,
+  "sentences": {
+   "p0s0": {
+    "facts": [
+     "peer"
+    ],
+    "caveats": []
+   },
+   "p1s0": {
+    "facts": [
+     "profile"
+    ],
+    "caveats": []
+   },
+   "p2s0": {
+    "facts": [
+     "residents"
+    ],
+    "caveats": [
+     "C03"
+    ]
+   },
+   "p2s1": {
+    "facts": [
+     "crowded"
+    ],
+    "caveats": []
+   },
+   "p2s2": {
+    "facts": [
+     "sewage"
+    ],
+    "caveats": []
+   },
+   "p2s3": {
+    "facts": [
+     "access"
+    ],
+    "caveats": [
+     "C09"
+    ]
+   },
+   "p3s0": {
+    "facts": [],
+    "caveats": [
+     "C10"
+    ]
+   },
+   "p3s1": {
+    "facts": [
+     "dengue"
+    ],
+    "caveats": []
+   },
+   "p3s2": {
+    "facts": [],
+    "caveats": [
+     "C12"
+    ]
+   },
+   "p3s3": {
+    "facts": [
+     "tb"
+    ],
+    "caveats": [
+     "C13"
+    ]
+   }
   },
   "verified": true
  },
- "u276568": {
-  "cnes": "7428219",
-  "stratum": "many_ill_defined_deaths",
-  "rules": {
-   "R01": false,
-   "R03b": false,
-   "R04": false,
-   "R05": false,
-   "R06": true,
-   "R08b": false,
-   "R12": true,
-   "R14": false,
-   "R14b": false,
-   "R15": true,
-   "R17": false,
-   "R18b": true,
-   "R19": false,
-   "R21b": false,
-   "R22": false
-  },
+ "u0ae7a1": {
+  "cnes": "2816091",
+  "stratum": "primary_care_elsewhere",
+  "condition": "template",
   "planned": [
-   "f0",
-   "f1",
-   "f10",
-   "f15",
-   "f16",
-   "f2",
-   "f5",
-   "f7",
-   "f9"
+   "profile",
+   "residents",
+   "crowded",
+   "sewage",
+   "network",
+   "dengue"
   ],
-  "lead": "f10",
-  "statement_fact": {
-   "f0": "profile",
-   "f1": "tb",
-   "f2": "crowded",
-   "f3": "mortality",
-   "f4": "preterm",
-   "f5": "territory",
-   "f6": "lepto",
-   "f7": "sewage",
-   "f8": "teen",
-   "f9": "access",
-   "f10": "peer",
-   "f11": "crowding",
-   "f12": "garbage",
-   "f13": "network",
-   "f14": "precarious",
-   "f15": "residents",
-   "f16": "dengue"
+  "omitted_fact": {
+   "o0": "territory",
+   "o1": "precarious",
+   "o2": "mortality",
+   "o3": "garbage",
+   "o4": "crowding",
+   "o5": "lepto"
+  },
+  "omitted_available": 8,
+  "sentences": {
+   "p0s0": {
+    "facts": [
+     "profile"
+    ],
+    "caveats": []
+   },
+   "p1s0": {
+    "facts": [
+     "residents"
+    ],
+    "caveats": [
+     "C03"
+    ]
+   },
+   "p1s1": {
+    "facts": [
+     "crowded"
+    ],
+    "caveats": []
+   },
+   "p1s2": {
+    "facts": [
+     "sewage"
+    ],
+    "caveats": []
+   },
+   "p1s3": {
+    "facts": [
+     "network"
+    ],
+    "caveats": []
+   },
+   "p1s4": {
+    "facts": [],
+    "caveats": [
+     "C01"
+    ]
+   },
+   "p2s0": {
+    "facts": [],
+    "caveats": [
+     "C10"
+    ]
+   },
+   "p2s1": {
+    "facts": [
+     "dengue"
+    ],
+    "caveats": []
+   },
+   "p2s2": {
+    "facts": [],
+    "caveats": [
+     "C12"
+    ]
+   }
+  },
+  "verified": true
+ },
+ "ub631b2": {
+  "cnes": "4771311",
+  "stratum": "primary_care_sao_paulo",
+  "condition": "template",
+  "planned": [
+   "profile",
+   "staff",
+   "residents",
+   "crowded",
+   "teen_district"
+  ],
+  "omitted_fact": {
+   "o0": "garbage",
+   "o1": "precarious",
+   "o2": "territory",
+   "o3": "teen+preterm",
+   "o4": "sewage",
+   "o5": "network"
+  },
+  "omitted_available": 12,
+  "sentences": {
+   "p0s0": {
+    "facts": [
+     "profile"
+    ],
+    "caveats": []
+   },
+   "p0s1": {
+    "facts": [
+     "staff"
+    ],
+    "caveats": [
+     "C07"
+    ]
+   },
+   "p1s0": {
+    "facts": [
+     "residents"
+    ],
+    "caveats": [
+     "C03"
+    ]
+   },
+   "p1s1": {
+    "facts": [
+     "crowded"
+    ],
+    "caveats": []
+   },
+   "p2s0": {
+    "facts": [],
+    "caveats": [
+     "C10"
+    ]
+   },
+   "p2s1": {
+    "facts": [
+     "teen_district"
+    ],
+    "caveats": []
+   }
+  },
+  "verified": true
+ },
+ "u187ac0": {
+  "cnes": "4930002",
+  "stratum": "small_municipality",
+  "condition": "template",
+  "planned": [
+   "peer",
+   "profile",
+   "residents",
+   "sewage",
+   "crowded",
+   "access",
+   "tb",
+   "mortality"
+  ],
+  "omitted_fact": {
+   "o0": "territory",
+   "o1": "lepto",
+   "o2": "network",
+   "o3": "crowding",
+   "o4": "garbage",
+   "o5": "dengue"
+  },
+  "omitted_available": 8,
+  "sentences": {
+   "p0s0": {
+    "facts": [
+     "peer"
+    ],
+    "caveats": []
+   },
+   "p1s0": {
+    "facts": [
+     "profile"
+    ],
+    "caveats": []
+   },
+   "p2s0": {
+    "facts": [
+     "residents"
+    ],
+    "caveats": [
+     "C03"
+    ]
+   },
+   "p2s1": {
+    "facts": [
+     "sewage"
+    ],
+    "caveats": []
+   },
+   "p2s2": {
+    "facts": [
+     "crowded"
+    ],
+    "caveats": []
+   },
+   "p2s3": {
+    "facts": [
+     "access"
+    ],
+    "caveats": [
+     "C09"
+    ]
+   },
+   "p3s0": {
+    "facts": [],
+    "caveats": [
+     "C10"
+    ]
+   },
+   "p3s1": {
+    "facts": [
+     "tb"
+    ],
+    "caveats": [
+     "C13"
+    ]
+   },
+   "p3s2": {
+    "facts": [
+     "mortality"
+    ],
+    "caveats": [
+     "C18"
+    ]
+   },
+   "p3s3": {
+    "facts": [],
+    "caveats": [
+     "C18b"
+    ]
+   }
+  },
+  "verified": true
+ },
+ "ufb367e": {
+  "cnes": "7377045",
+  "stratum": "approximate_position",
+  "condition": "template",
+  "planned": [
+   "profile",
+   "position",
+   "residents",
+   "crowded",
+   "tb_district"
+  ],
+  "omitted_fact": {
+   "o0": "crowding",
+   "o1": "territory",
+   "o2": "network",
+   "o3": "garbage",
+   "o4": "teen+preterm",
+   "o5": "dengue"
+  },
+  "omitted_available": 13,
+  "sentences": {
+   "p0s0": {
+    "facts": [
+     "profile"
+    ],
+    "caveats": []
+   },
+   "p0s1": {
+    "facts": [
+     "position"
+    ],
+    "caveats": [
+     "C05"
+    ]
+   },
+   "p1s0": {
+    "facts": [
+     "residents"
+    ],
+    "caveats": [
+     "C03"
+    ]
+   },
+   "p1s1": {
+    "facts": [
+     "crowded"
+    ],
+    "caveats": []
+   },
+   "p2s0": {
+    "facts": [],
+    "caveats": [
+     "C10"
+    ]
+   },
+   "p2s1": {
+    "facts": [
+     "tb_district"
+    ],
+    "caveats": [
+     "C16"
+    ]
+   }
+  },
+  "verified": true
+ },
+ "u51835f": {
+  "cnes": "2046628",
+  "stratum": "primary_care_elsewhere",
+  "condition": "template",
+  "planned": [
+   "profile",
+   "staff",
+   "residents",
+   "crowded",
+   "sewage",
+   "network",
+   "dengue",
+   "mortality"
+  ],
+  "omitted_fact": {
+   "o0": "tb",
+   "o1": "territory",
+   "o2": "precarious",
+   "o3": "crowding",
+   "o4": "teen+preterm",
+   "o5": "lepto"
+  },
+  "omitted_available": 7,
+  "sentences": {
+   "p0s0": {
+    "facts": [
+     "profile"
+    ],
+    "caveats": []
+   },
+   "p0s1": {
+    "facts": [
+     "staff"
+    ],
+    "caveats": [
+     "C07"
+    ]
+   },
+   "p1s0": {
+    "facts": [
+     "residents"
+    ],
+    "caveats": [
+     "C03"
+    ]
+   },
+   "p1s1": {
+    "facts": [
+     "crowded"
+    ],
+    "caveats": []
+   },
+   "p1s2": {
+    "facts": [
+     "sewage"
+    ],
+    "caveats": []
+   },
+   "p1s3": {
+    "facts": [
+     "network"
+    ],
+    "caveats": [
+     "C06"
+    ]
+   },
+   "p1s4": {
+    "facts": [],
+    "caveats": [
+     "C01"
+    ]
+   },
+   "p2s0": {
+    "facts": [],
+    "caveats": [
+     "C10"
+    ]
+   },
+   "p2s1": {
+    "facts": [
+     "dengue"
+    ],
+    "caveats": []
+   },
+   "p2s2": {
+    "facts": [],
+    "caveats": [
+     "C12"
+    ]
+   },
+   "p2s3": {
+    "facts": [
+     "mortality"
+    ],
+    "caveats": [
+     "C18"
+    ]
+   }
   },
   "verified": true
  }

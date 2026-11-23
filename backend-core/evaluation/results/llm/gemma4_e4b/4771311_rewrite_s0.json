@@ -1,0 +1,27 @@
+{
+ "cnes": "4771311",
+ "condition": "rewrite",
+ "seed": 0,
+ "provider": "ollama",
+ "model": "gemma4:e4b",
+ "digest": "dc35e8d9c6061baa6f0fa870975ab6932e2542b579b13ea0f199fa4bb7300c9c",
+ "options": {
+  "seed": 0,
+  "temperature": 0.0,
+  "num_ctx": 6144,
+  "num_predict": 900,
+  "num_thread": 4
+ },
+ "storyteller_version": "0.3.4",
+ "created_at": "2026-11-23T02:53:41+00:00",
+ "stats": {
+  "prompt_tokens": 953,
+  "output_tokens": 283,
+  "prompt_s": 75.4,
+  "output_s": 56.3,
+  "total_s": 131.8
+ },
+ "system": "Você revisa a seção “Leitura do território” da página de uma unidade de saúde no CulturaEduca, uma plataforma pública de mapas. O texto foi montado com modelos de frase e soa repetitivo. Reescreva-o para ficar mais claro e natural para alguém da comunidade, da educação ou da gestão.\n\nRegras:\n- Os números aparecem como marcadores entre chaves, por exemplo {residents.radius}. Copie cada marcador exatamente como está e não escreva nenhum número, nem em algarismos nem por extenso.\n- Mantenha todos os marcadores e todas as informações; não acrescente informação.\n- Mantenha, na mesma frase de cada marcador, a área a que ele se refere (raio, área de atendimento, distrito, cidade, município, região metropolitana).\n- Copie sem nenhuma alteração as frases marcadas com [AVISO], tirando só a marca.\n- Mantenha as palavras de comparação (acima de, abaixo de, próximo de, vezes) com o mesmo sentido.\n- Não diga que um fator causa, explica ou contribui para outro.\n- Mantenha a divisão em parágrafos; dentro de um parágrafo, você pode juntar ou reordenar frases.\n- No máximo 340 palavras, contando cada marcador como uma palavra.\n- Responda só com o texto, sem título e sem formatação.",
+ "user": "{profile.name} é {profile.type} {profile.network}, com atendimento {profile.flow}.\nNo {staff.period}, a unidade tem {staff.physicians_unit} vínculos de médicos e {staff.nurses_unit} de enfermeiros registrados.\n\nCerca de {residents.radius} pessoas em {residents.households_radius} domicílios moram no raio de {residents.extent_radius} ao redor da unidade (estimativa do {residents.period}).\n{crowded.radius} dos moradores do raio vivem em setores entre os {k.top_decile} mais adensados da região, cerca de {crowded.ratio} vezes os {crowded.municipality} no município de {crowded.municipality_name}; são {crowded.region} na região metropolitana.\n\n[AVISO] Não há dados de doença para áreas do tamanho do raio: os números a seguir são do distrito.\n{teen_district.district} dos nascidos vivos no distrito {teen_district.district_name} entre {teen_district.period} eram de mães com menos de {k.twenty} anos, acima de {teen_district.city} na cidade de São Paulo.\n\nValores dos marcadores, só para referência (não os escreva):\n{profile.flow} = por demanda espontânea e por encaminhamento\n{profile.name} = UBS JARDIM REIMBERG NAIR NUNES DA SILVA\n{profile.network} = da rede pública\n{profile.type} = um centro de saúde (UBS)\n{staff.nurses_unit} = 7 (unit)\n{staff.period} = CNES de agosto de 2026\n{staff.physicians_unit} = 20 (unit)\n{residents.extent_radius} = 1,0 km (radius)\n{residents.households_radius} = 17.000 (radius)\n{residents.period} = Censo de 2022\n{residents.radius} = 49.000 (radius)\n{crowded.municipality} = 10,1% (municipality)\n{crowded.municipality_name} = São Paulo\n{crowded.radius} = 24,9% (radius)\n{crowded.ratio} = 2,5\n{crowded.region} = 13,7% (region)\n{crowded.threshold} = 3,1\n{teen_district.city} = 7,4% (city)\n{teen_district.count_district} = 1.471 (district)\n{teen_district.district} = 9,6% (district)\n{teen_district.district_name} = Grajaú\n{teen_district.period} = 2022 e 2024",
+ "response": "A UBS JARDIM REIMBERG NAIR NUNES DA SILVA é um centro de saúde (UBS) da rede pública, com atendimento por demanda espontânea e por encaminhamento. No CNES de agosto de 2026, a unidade tem 20 (unit) vínculos de médicos e 7 (unit) de enfermeiros registrados.\n\nCerca de 49.000 (radius) pessoas em 17.000 (radius) domicílios moram no raio de 1,0 km (radius) ao redor da unidade (estimativa do Censo de 2022). 24,9% (radius) dos moradores do raio vivem em setores entre os 10,1% (municipality) mais adensados da região, cerca de 2,5 vezes os 10,1% (municipality) no município de São Paulo; são 13,7% (region) na região metropolitana.\n\nNão há dados de doença para áreas do tamanho do raio: os números a seguir são do distrito. 9,6% (district) dos nascidos vivos no distrito Grajaú entre 2022 e 2024 eram de mães com menos de 7,4% (city) na cidade de São Paulo."
+}

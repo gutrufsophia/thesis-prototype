@@ -1,0 +1,117 @@
+"Lista Morb  CID-10";"Menor 1 ano";"1 a 4 anos";"5 a 9 anos";"10 a 14 anos";"15 a 19 anos";"20 a 29 anos";"30 a 39 anos";"40 a 49 anos";"50 a 59 anos";"60 a 69 anos";"70 a 79 anos";"80 anos e mais";"Total"
+"01 Algumas doenças infecciosas e parasitárias";-;-;-;-;1;1;2;10;8;20;28;44;114
+".. Diarréia e gastroenterite origem infecc presum";-;-;-;-;-;-;1;1;1;1;2;1;7
+".. Tuberculose respiratória";-;-;-;-;-;-;-;1;-;-;-;-;1
+".... Tuberculose pulmonar";-;-;-;-;-;-;-;1;-;-;-;-;1
+".. Septicemia";-;-;-;-;1;1;1;8;6;17;25;40;99
+".. Outras doenças bacterianas";-;-;-;-;-;-;-;-;-;2;-;3;5
+".... Restante de outras doenças bacterianas";-;-;-;-;-;-;-;-;-;2;-;3;5
+".. Outras febre p/arbovírus e febr hemorr p/vírus";-;-;-;-;-;-;-;-;1;-;-;-;1
+".... Dengue [dengue clásssico]";-;-;-;-;-;-;-;-;1;-;-;-;1
+".. Tripanossomíase";-;-;-;-;-;-;-;-;-;-;1;-;1
+"02 Neoplasias (tumores)";-;-;-;-;-;-;1;7;7;19;11;12;57
+".. Neoplasia maligna do lábio cavid oral e faringe";-;-;-;-;-;-;1;-;-;-;-;-;1
+".. Neoplasia maligna do esôfago";-;-;-;-;-;-;-;-;1;1;1;1;4
+".. Neoplasia maligna do estômago";-;-;-;-;-;-;-;-;-;5;-;-;5
+".. Neoplasia maligna do cólon";-;-;-;-;-;-;-;2;-;2;1;1;6
+".. Neopl malig junção retoss reto ânus canal anal";-;-;-;-;-;-;-;1;-;-;-;2;3
+".. Neopl malig fígado e vias biliares intra-hepát";-;-;-;-;-;-;-;-;-;1;-;-;1
+".. Neoplasia maligna do pâncreas";-;-;-;-;-;-;-;-;1;-;-;3;4
+".. Outras neoplasias malignas de órgãos digestivos";-;-;-;-;-;-;-;2;-;-;1;1;4
+".. Neoplasias malignas de laringe";-;-;-;-;-;-;-;-;-;1;-;-;1
+".. Neoplasia maligna de traquéia brônquios e pulm";-;-;-;-;-;-;-;-;1;4;1;2;8
+".. Neoplasia maligna do osso e cartilagem articul";-;-;-;-;-;-;-;1;-;-;1;-;2
+".. Neopl malig do tecido mesotelial e tec moles";-;-;-;-;-;-;-;-;-;1;-;-;1
+".. Neoplasia maligna da mama";-;-;-;-;-;-;-;-;1;-;1;-;2
+".. Neopl malig outr porções e porç não espec útero";-;-;-;-;-;-;-;1;-;-;-;-;1
+".. Outras neopl malignas órgãos genitais femininos";-;-;-;-;-;-;-;-;-;-;1;-;1
+".. Neoplasia maligna da próstata";-;-;-;-;-;-;-;-;1;1;2;-;4
+".. Neoplasia maligna do encéfalo";-;-;-;-;-;-;-;-;1;1;-;-;2
+".. Neopl malig outras partes sistema nerv central";-;-;-;-;-;-;-;-;-;-;-;1;1
+".. Neopl malig outr local mal def secun e não esp";-;-;-;-;-;-;-;-;1;2;2;-;5
+".. Outr neopl in situ benigs e comport incert desc";-;-;-;-;-;-;-;-;-;-;-;1;1
+"03 Doenças sangue órgãos hemat e transt imunitár";-;-;-;-;-;-;-;-;-;3;4;4;11
+".. Anemia por deficiência de ferro";-;-;-;-;-;-;-;-;-;1;-;-;1
+".. Outras anemias";-;-;-;-;-;-;-;-;-;1;4;4;9
+".. Afecç hemorrág e outr doenç sang e órg hematop";-;-;-;-;-;-;-;-;-;1;-;-;1
+"04 Doenças endócrinas nutricionais e metabólicas";-;-;-;-;-;-;-;2;7;6;12;14;41
+".. Diabetes mellitus";-;-;-;-;-;-;-;1;6;3;7;4;21
+".. Desnutrição";-;-;-;-;-;-;-;1;-;-;1;-;2
+".. Depleção de volume";-;-;-;-;-;-;-;-;-;-;1;1;2
+".. Outros transt endócrinos nutricionais metabólic";-;-;-;-;-;-;-;-;1;3;3;9;16
+"06 Doenças do sistema nervoso";-;-;-;1;-;-;-;1;3;2;2;3;12
+".. Doenças inflamatórias do sistema nervoso centr";-;-;-;-;-;-;-;-;-;1;-;-;1
+".... Meningite bacteriana não classif outra parte";-;-;-;-;-;-;-;-;-;1;-;-;1
+".. Doença de Alzheimer";-;-;-;-;-;-;-;-;-;-;-;1;1
+".. Epilepsia";-;-;-;-;-;-;-;-;1;-;2;2;5
+".. Outras doenças do sistema nervoso";-;-;-;1;-;-;-;1;2;1;-;-;5
+"09 Doenças do aparelho circulatório";1;-;-;-;-;3;6;12;28;37;56;62;205
+".. Hipertensão essencial (primária)";-;-;-;-;-;-;-;-;-;-;-;1;1
+".. Outras doenças hipertensivas";-;-;-;-;-;-;-;-;-;-;-;1;1
+".. Infarto agudo do miocárdio";-;-;-;-;-;-;-;-;2;4;3;6;15
+".. Outras doenças isquêmicas do coração";-;-;-;-;-;-;-;-;-;1;-;-;1
+".. Embolia pulmonar";-;-;-;-;-;-;1;1;-;1;2;-;5
+".. Transtornos de condução e arritmias cardíacas";-;-;-;-;-;1;-;-;4;5;5;4;19
+".. Insuficiência cardíaca";-;-;-;-;-;1;4;3;6;6;11;19;50
+".. Outras doenças do coração";1;-;-;-;-;-;-;-;-;1;1;2;5
+".. Hemorragia intracraniana";-;-;-;-;-;-;1;1;4;3;2;3;14
+".. Infarto cerebral";-;-;-;-;-;-;-;-;1;1;1;1;4
+".. Acid vascular cerebr não espec hemorrág ou isq";-;-;-;-;-;1;-;6;11;10;25;16;69
+".. Outras doenças cerebrovasculares";-;-;-;-;-;-;-;1;-;4;1;-;6
+".. Arteroesclerose";-;-;-;-;-;-;-;-;-;-;-;1;1
+".. Outras doenças vasculares periféricas";-;-;-;-;-;-;-;-;-;1;1;1;3
+".. Embolia e trombose arteriais";-;-;-;-;-;-;-;-;-;-;3;5;8
+".. Outras doenças das artérias arteríolas e capil";-;-;-;-;-;-;-;-;-;-;-;2;2
+".. Flebite tromboflebite embolia e trombose venosa";-;-;-;-;-;-;-;-;-;-;1;-;1
+"10 Doenças do aparelho respiratório";5;-;1;-;1;3;2;13;20;51;73;94;263
+".. Pneumonia";-;-;-;-;1;2;1;10;11;22;44;61;152
+".. Bronquite aguda e bronquiolite aguda";4;-;-;-;-;-;-;-;-;-;-;-;4
+".. Bronquite enfisema e outr doenç pulm obstr crôn";-;-;-;-;-;-;-;-;1;9;8;2;20
+".. Asma";-;-;1;-;-;-;-;-;-;-;-;-;1
+".. Outras doenças do aparelho respiratório";1;-;-;-;-;1;1;3;8;20;21;31;86
+"11 Doenças do aparelho digestivo";-;-;-;-;2;-;4;11;21;26;48;31;143
+".. Úlcera gástrica e duodenal";-;-;-;-;-;-;-;-;-;-;2;-;2
+".. Outras doenças do esôfago estômago e duodeno";-;-;-;-;-;-;-;1;1;-;-;-;2
+".. Doenças do apêndice";-;-;-;-;-;-;-;-;-;-;1;-;1
+".. Hérnia inguinal";-;-;-;-;-;-;-;-;-;-;-;1;1
+".. Outras hérnias";-;-;-;-;-;-;1;-;-;-;1;-;2
+".. Ileo paralítico e obstrução intestinal s/hérnia";-;-;-;-;-;-;-;1;6;4;4;5;20
+".. Doença diverticular do intestino";-;-;-;-;-;-;-;-;-;-;3;-;3
+".. Outras doenças dos intestinos e peritônio";-;-;-;-;1;-;-;2;2;3;3;2;13
+".. Doença alcoólica do fígado";-;-;-;-;-;-;-;-;-;1;-;-;1
+".. Outras doenças do fígado";-;-;-;-;-;-;2;2;5;6;5;3;23
+".. Colelitíase e colecistite";-;-;-;-;-;-;-;-;-;1;3;5;9
+".. Pancreatite aguda e outras doenças do pâncreas";-;-;-;-;-;-;-;2;3;2;1;4;12
+".. Outras doenças do aparelho digestivo";-;-;-;-;1;-;1;3;4;9;25;11;54
+"12 Doenças da pele e do tecido subcutâneo";-;-;-;-;-;-;1;2;3;1;5;9;21
+".. Infecções da pele e do tecido subcutâneo";-;-;-;-;-;-;-;1;-;-;-;2;3
+".. Outras doenças da pele e do tecido subcutâneo";-;-;-;-;-;-;1;1;3;1;5;7;18
+"13 Doenças sist osteomuscular e tec conjuntivo";-;-;-;-;-;-;-;-;2;-;1;-;3
+".. Outros transtronos articulares";-;-;-;-;-;-;-;-;1;-;-;-;1
+".. Outras dorsopatias";-;-;-;-;-;-;-;-;1;-;-;-;1
+".. Outras doenças sist osteomuscular e tec conjunt";-;-;-;-;-;-;-;-;-;-;1;-;1
+"14 Doenças do aparelho geniturinário";-;-;-;-;-;-;2;2;4;7;36;51;102
+".. Doenças renais túbulo-intersticiais";-;-;-;-;-;-;-;-;-;-;2;3;5
+".. Insuficiência renal";-;-;-;-;-;-;2;2;3;5;16;17;45
+".. Cistite";-;-;-;-;-;-;-;-;-;1;-;4;5
+".. Outras doenças do aparelho urinário";-;-;-;-;-;-;-;-;1;1;18;27;47
+"17 Malf cong deformid e anomalias cromossômicas";-;-;-;-;-;-;-;-;-;-;1;-;1
+".. Outras malformações congênitas do sistema nerv";-;-;-;-;-;-;-;-;-;-;1;-;1
+"18 Sint sinais e achad anorm ex clín e laborat";-;-;-;-;1;1;-;1;7;3;8;8;29
+".. Dor abdominal e pélvica";-;-;-;-;1;-;-;1;1;1;4;2;10
+".. Outr sist sinais achad anorm ex clín labor NCOP";-;-;-;-;-;1;-;-;6;2;4;6;19
+"19 Lesões enven e alg out conseq causas externas";-;1;-;-;1;1;5;6;12;9;16;23;74
+".. Fratura do crânio e dos ossos da face";-;-;-;-;-;-;-;-;1;-;-;-;1
+".. Fratura do fêmur";-;-;-;-;-;-;1;-;-;2;3;11;17
+".. Fratura de outros ossos dos membros";-;-;-;-;-;-;-;-;-;2;1;-;3
+".. Fraturas envolvendo múltiplas regiões do corpo";-;-;-;-;-;-;-;-;-;1;2;1;4
+".. Luxações entorse distensão reg esp e múlt corpo";-;-;-;-;-;-;-;-;-;-;-;1;1
+".. Traumatismo intracraniano";-;1;-;-;1;1;-;2;7;3;4;8;27
+".. Traumatismo de outros órgãos internos";-;-;-;-;-;-;-;1;2;-;1;-;4
+".. Outr traum reg espec não espec e múltipl corpo";-;-;-;-;-;-;3;2;2;1;1;2;11
+".. Envenenamento por drogas e substâncias biológ";-;-;-;-;-;-;1;-;-;-;-;-;1
+".. Cert compl prec traum compl cirúrg ass méd NCOP";-;-;-;-;-;-;-;1;-;-;4;-;5
+"21 Contatos com serviços de saúde";-;-;-;-;-;-;-;-;1;-;-;-;1
+".. Pessoas contato serv saúde cuidados proc espec";-;-;-;-;-;-;-;-;1;-;-;-;1
+"Total";6;1;1;1;6;9;23;67;123;184;301;355;1077
+&

@@ -1,9 +1,22 @@
+"""Indicadores de saúde por município da RMSP a partir de exportações do TabNet.
+
+Uso:
+    python3 etl/limpeza_datasus.py --dengue dengue.csv --lepto lepto.csv
+
+Tuberculose, nascimentos e óbitos vêm de database/tabnet/raw (fetch_tabnet.py).
+"""
+import argparse
 import re
 from pathlib import Path
 
 import pandas as pd
 
 RAIZ = Path(__file__).resolve().parents[1]
+
+parser = argparse.ArgumentParser(description="Indicadores de saúde por município da RMSP")
+parser.add_argument("--dengue", type=Path, required=True, help="exportação do TabNet: dengue por município e ano")
+parser.add_argument("--lepto", type=Path, required=True, help="exportação do TabNet: leptospirose por município e ano")
+args = parser.parse_args()
 TABNET = RAIZ / 'database' / 'tabnet' / 'raw'
 
 print("Iniciando o ETL dos indicadores municipais (DATASUS/TabNet) - RMSP...")
@@ -21,9 +34,8 @@ rmsp_ibge6 = [
     '355030', '355250', '355280', '355645'
 ]
 
-PASTA = '/home/sophia/Downloads/'
-ARQ_DENGUE = PASTA + 'sinannet_cnv_denguebsp180054191_181_56_142.csv'
-ARQ_LEPTO = PASTA + 'sinannet_cnv_leptosp132731191_181_56_142.csv'
+ARQ_DENGUE = args.dengue.expanduser()
+ARQ_LEPTO = args.lepto.expanduser()
 # Gerados por database/tabnet/fetch_tabnet.py
 ARQ_TUBERCULOSE = TABNET / 'tb_res.csv'
 ARQ_NASC_IDADE_MAE = TABNET / 'nasc_idade_res.csv'

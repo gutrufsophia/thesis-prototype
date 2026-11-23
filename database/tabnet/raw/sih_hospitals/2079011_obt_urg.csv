@@ -1,0 +1,56 @@
+"Lista Morb  CID-10";"10 a 14 anos";"20 a 29 anos";"30 a 39 anos";"40 a 49 anos";"50 a 59 anos";"60 a 69 anos";"70 a 79 anos";"80 anos e mais";"Total"
+"01 Algumas doenças infecciosas e parasitárias";-;1;1;3;1;7;24;29;66
+".. Diarréia e gastroenterite origem infecc presum";-;-;-;-;-;-;1;1;2
+".. Tuberculose respiratória";-;-;-;1;-;-;-;-;1
+".... Tuberculose pulmonar";-;-;-;1;-;-;-;-;1
+".. Septicemia";-;-;1;2;1;5;22;27;58
+".. Outras doenças bacterianas";-;-;-;-;-;2;1;1;4
+".... Restante de outras doenças bacterianas";-;-;-;-;-;2;1;1;4
+".. Outras doenças infecciosas e parasitárias";-;1;-;-;-;-;-;-;1
+"02 Neoplasias (tumores)";-;-;-;1;3;7;6;2;19
+".. Neoplasia maligna do lábio cavid oral e faringe";-;-;-;-;1;1;-;1;3
+".. Neoplasia maligna do cólon";-;-;-;-;1;-;3;-;4
+".. Neopl malig fígado e vias biliares intra-hepát";-;-;-;-;-;1;2;-;3
+".. Neoplasias malignas de laringe";-;-;-;-;-;1;-;-;1
+".. Neoplasia maligna de traquéia brônquios e pulm";-;-;-;-;1;3;-;-;4
+".. Neoplasia maligna da mama";-;-;-;1;-;-;-;-;1
+".. Outras neopl malignas órgãos genitais femininos";-;-;-;-;-;-;1;-;1
+".. Outr neopl in situ benigs e comport incert desc";-;-;-;-;-;1;-;1;2
+"04 Doenças endócrinas nutricionais e metabólicas";1;2;-;-;1;2;2;4;12
+".. Diabetes mellitus";1;2;-;-;1;2;2;1;9
+".. Desnutrição";-;-;-;-;-;-;-;2;2
+".. Depleção de volume";-;-;-;-;-;-;-;1;1
+"05 Transtornos mentais e comportamentais";-;-;1;1;-;-;-;-;2
+".. Transt mentais e comportamentais dev uso álcool";-;-;-;1;-;-;-;-;1
+".. Esquizofrenia transt esquizotípicos e delirant";-;-;1;-;-;-;-;-;1
+"06 Doenças do sistema nervoso";-;-;-;-;-;1;-;-;1
+".. Outras doenças do sistema nervoso";-;-;-;-;-;1;-;-;1
+"09 Doenças do aparelho circulatório";-;-;-;4;4;6;16;18;48
+".. Hipertensão essencial (primária)";-;-;-;-;-;-;1;1;2
+".. Infarto agudo do miocárdio";-;-;-;-;-;-;-;1;1
+".. Insuficiência cardíaca";-;-;-;3;3;5;7;9;27
+".. Infarto cerebral";-;-;-;-;-;1;8;6;15
+".. Outras doenças cerebrovasculares";-;-;-;-;1;-;-;1;2
+".. Flebite tromboflebite embolia e trombose venosa";-;-;-;1;-;-;-;-;1
+"10 Doenças do aparelho respiratório";-;2;3;3;4;14;38;52;116
+".. Pneumonia";-;2;1;2;3;14;31;45;98
+".. Bronquite enfisema e outr doenç pulm obstr crôn";-;-;-;-;-;-;3;3;6
+".. Outras doenças do aparelho respiratório";-;-;2;1;1;-;4;4;12
+"11 Doenças do aparelho digestivo";-;-;1;1;2;1;3;3;11
+".. Ileo paralítico e obstrução intestinal s/hérnia";-;-;-;-;-;-;-;1;1
+".. Doença alcoólica do fígado";-;-;-;1;-;1;1;-;3
+".. Outras doenças do fígado";-;-;1;-;2;-;2;-;5
+".. Outras doenças do aparelho digestivo";-;-;-;-;-;-;-;2;2
+"12 Doenças da pele e do tecido subcutâneo";-;-;-;1;1;-;-;2;4
+".. Outras doenças da pele e do tecido subcutâneo";-;-;-;1;1;-;-;2;4
+"14 Doenças do aparelho geniturinário";-;-;-;-;1;2;7;13;23
+".. Doenças renais túbulo-intersticiais";-;-;-;-;-;-;1;1;2
+".. Insuficiência renal";-;-;-;-;-;-;-;1;1
+".. Outras doenças do aparelho urinário";-;-;-;-;1;2;6;11;20
+"18 Sint sinais e achad anorm ex clín e laborat";-;-;-;-;-;-;-;2;2
+".. Outr sist sinais achad anorm ex clín labor NCOP";-;-;-;-;-;-;-;2;2
+"19 Lesões enven e alg out conseq causas externas";-;-;-;-;1;2;-;-;3
+".. Traumatismo intracraniano";-;-;-;-;1;1;-;-;2
+".. Cert compl prec traum compl cirúrg ass méd NCOP";-;-;-;-;-;1;-;-;1
+"Total";1;5;6;14;18;42;96;125;307
+&

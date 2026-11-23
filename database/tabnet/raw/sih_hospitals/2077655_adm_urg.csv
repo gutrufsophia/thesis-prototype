@@ -1,0 +1,14 @@
+"Lista Morb  CID-10";"10 a 14 anos";"15 a 19 anos";"20 a 29 anos";"50 a 59 anos";"Total"
+"06 Doenças do sistema nervoso";1;-;1;-;2
+".. Paralisia cerebral e outras síndromes paralít";1;-;1;-;2
+"13 Doenças sist osteomuscular e tec conjuntivo";-;1;-;2;3
+".. Deformidades adquiridas das articulações";-;-;-;1;1
+".. Outras doenças sist osteomuscular e tec conjunt";-;1;-;1;2
+"14 Doenças do aparelho geniturinário";1;-;-;-;1
+".. Outras doenças do aparelho urinário";1;-;-;-;1
+"17 Malf cong deformid e anomalias cromossômicas";1;1;-;-;2
+".. Deformidades congênitas dos pés";1;1;-;-;2
+"21 Contatos com serviços de saúde";-;-;1;-;1
+".. Pessoas contato serv saúde cuidados proc espec";-;-;1;-;1
+"Total";3;2;2;2;9
+&

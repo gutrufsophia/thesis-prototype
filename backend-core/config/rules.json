@@ -29,7 +29,9 @@
     "district_top": 10,
     "max_living": 2,
     "max_outcomes": 2,
-    "min_importance": 0.2,
+    "min_importance": 0.3,
+    "casemix_min_shift": 0.5,
+    "casemix_second": 0.5,
     "sinan_years": [
       "2022",
       "2023",
@@ -228,6 +230,41 @@
       "fact": "need_supply",
       "params": {
         "far_m": 2000
+      }
+    },
+    {
+      "id": "C23d",
+      "note": 28,
+      "effect": "disclose",
+      "fact": "casemix",
+      "params": {"min_elective_share": 80, "flow": "Atendimento de Demanda Referenciada"}
+    },
+    {
+      "id": "C23",
+      "note": 27,
+      "effect": "disclose",
+      "fact": "deaths"
+    },
+    {
+      "id": "C23b",
+      "note": 27,
+      "effect": "disclose",
+      "fact": "deaths"
+    },
+    {
+      "id": "C23c",
+      "note": 27,
+      "effect": "disclose",
+      "fact": "deaths"
+    },
+    {
+      "id": "C24",
+      "note": 27,
+      "effect": "suppress",
+      "fact": "deaths",
+      "params": {
+        "min_admissions": 100,
+        "min_expected": 5
       }
     }
   ]

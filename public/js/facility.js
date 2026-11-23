@@ -4,7 +4,8 @@
 
 import { getFacility, getHospitalStays, getNarrative, getSurroundings, hasNarrative } from './api.js';
 import { el, keyValues, section, statTiles } from './charts.js';
-import { renderFacility } from './facility-view.js';
+import { deathFigures, renderFacility } from './facility-view.js';
+import { dataTable, legend, scatter } from './plots.js';
 import { renderNarrative, renderNarrativeState } from './narrative.js';
 import { renderPeers } from './peers.js';
 import { setupTabs } from './tabs.js';
@@ -81,6 +82,7 @@ const INDICATOR_OF_PEER = {
 };
 const CARD_OF_FACT = {
   profile: 'panel-record', beds: 'panel-record', staff: 'panel-record', admissions: 'panel-record', stay: 'panel-record',
+  deaths: 'record-deaths', casemix: 'record-deaths',
   position: 'record-location',
   residents: 's-summary', territory: 's-peers', peer: 's-peers', need_supply: 's-peers',
   sewage: 's-sanitation', precarious: 's-sanitation', garbage: 's-sanitation',
@@ -452,7 +454,8 @@ async function loadNarrative() {
     const body = await getNarrative(cnes, Number(dom.radius.value), { lang, publicOnly: !showPrivate }, controller.signal);
     if (!controller.signal.aborted) {
       narrative = body;
-      renderNarrative(dom.narrative, body, sentenceLink);
+      if (body.withheld) renderNarrativeState(dom.narrative, 'narrative.withheld');
+      else renderNarrative(dom.narrative, body, sentenceLink);
       renderPeers($('s-peers'), body.reference, body.facts, Number(dom.radius.value));
     }
   } catch (error) {
@@ -477,6 +480,62 @@ function fail(text, isError = false) {
   dom.head.replaceChildren(el('p', { class: `notice${isError ? ' is-error' : ''}`, text }));
   dom.record.replaceChildren();
   tabs.select('record');
+}
+
+// Funnel of observed / expected in-hospital deaths among the region's hospitals, on a log scale
+// (database/reference/compute_hospital_mortality.py). Ratios are drawn as log2 and labelled as ratios;
+// hospitals without deaths sit at half a death, as in the limits.
+const FUNNEL_FLOOR = -4;
+const FUNNEL_CEILING = 4.6;
+
+async function renderDeathsFunnel() {
+  const target = dom.record.querySelector('.deaths-plot');
+  const own = deathFigures(row);
+  if (!target || !own) return;
+  let data;
+  try {
+    data = await (await fetch('data/hospital_mortality.json')).json();
+  } catch {
+    return;
+  }
+  const clip = (v) => Math.min(FUNNEL_CEILING, Math.max(FUNNEL_FLOOR, v));
+  const hospitals = data.points.map(([code, name, admissions, deaths, expected]) => ({ code, name, admissions, deaths, expected }));
+  const points = hospitals.map((h) => {
+    const ratio = h.deaths / h.expected;
+    const y = Math.log2((h.deaths || 0.5) / h.expected);
+    return {
+      x: h.expected, y: clip(y), label: t('deaths.thisUnit'), highlight: h.code === Number(row.CO_CNES),
+      tooltip: [h.name, t('deaths.tooltip', {
+        deaths: formatCount(h.deaths), expected: formatNumber(h.expected, 0), ratio: formatNumber(ratio, 2),
+      }), y === clip(y) ? null : t('deaths.offScale')].filter(Boolean),
+    };
+  });
+  const xs = hospitals.map((h) => h.expected).filter((v) => v > 0);
+  const lo = Math.min(...xs);
+  const hi = Math.max(...xs);
+  const grid = Array.from({ length: 60 }, (_, i) => lo * (hi / lo) ** (i / 59));
+  const limit = (z, sign) => grid.map((e) => [e, clip((sign * z * Math.sqrt(1 / e + data.tau2)) / Math.LN2)]);
+  const title = t('deaths.plotTitle');
+  target.replaceChildren(
+    legend([{ label: t('deaths.otherHospitals') }, { label: t('deaths.thisUnit'), highlight: true }]),
+    scatter(points, {
+      xLabel: t('deaths.xLabel'), yLabel: t('deaths.yLabel'), xLog: true, title,
+      formatX: (v) => (v >= 1 ? formatCount(v) : formatNumber(v, v < 0.1 ? 2 : 1)),
+      formatY: (v) => `${formatNumber(2 ** v, v < 0 ? 2 : 0)}×`,
+      bands: [
+        { points: grid.map((e) => [e, 0]), className: 'is-inner' },
+        { points: limit(data.z['95'], 1), className: 'is-inner' }, { points: limit(data.z['95'], -1), className: 'is-inner' },
+        { points: limit(data.z['998'], 1) }, { points: limit(data.z['998'], -1) },
+      ],
+    }),
+    el('p', { class: 'hint', text: t('deaths.plotCaption', { count: formatCount(data.hospitals), rate: formatNumber(data.regional_mortality_pct, 1) }) }),
+    dataTable([
+      { label: t('deaths.table.hospital'), value: (h) => h.name },
+      { label: t('deaths.table.admissions'), numeric: true, value: (h) => formatCount(h.admissions) },
+      { label: t('deaths.table.deaths'), numeric: true, value: (h) => formatCount(h.deaths) },
+      { label: t('deaths.table.expected'), numeric: true, value: (h) => formatNumber(h.expected, 0) },
+      { label: t('deaths.table.ratio'), numeric: true, value: (h) => formatNumber(h.deaths / h.expected, 2) },
+    ], [...hospitals].sort((a, b) => b.expected - a.expected), t('deaths.table.show')));
 }
 
 async function init() {
@@ -504,6 +563,7 @@ async function init() {
   record.querySelector('.facility-sections').prepend(el('section', { class: 'block', id: 'record-location' }));
   dom.record.replaceChildren(record);
   renderLocation();
+  renderDeathsFunnel();
 
   if (!row.coord) {
     dom.record.prepend(el('p', { class: 'notice', text: `${t('page.noSurroundings')} ${coordStatusNote(row.coord_status)}` }));

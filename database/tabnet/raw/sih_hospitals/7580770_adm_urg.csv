@@ -1,0 +1,47 @@
+"Lista Morb  CID-10";"Menor 1 ano";"10 a 14 anos";"15 a 19 anos";"20 a 29 anos";"30 a 39 anos";"40 a 49 anos";"Total"
+"01 Algumas doenças infecciosas e parasitárias";29;-;-;-;-;-;29
+".. Septicemia";2;-;-;-;-;-;2
+".. Sífilis congênita";25;-;-;-;-;-;25
+".. Outras sífilis";2;-;-;-;-;-;2
+"04 Doenças endócrinas nutricionais e metabólicas";1;-;-;-;-;-;1
+".. Outros transt endócrinos nutricionais metabólic";1;-;-;-;-;-;1
+"06 Doenças do sistema nervoso";1;-;-;-;-;-;1
+".. Outras doenças do sistema nervoso";1;-;-;-;-;-;1
+"10 Doenças do aparelho respiratório";1;-;-;-;-;-;1
+".. Outras doenças do aparelho respiratório";1;-;-;-;-;-;1
+"14 Doenças do aparelho geniturinário";-;-;-;1;-;-;1
+".. Doenças renais túbulo-intersticiais";-;-;-;1;-;-;1
+"15 Gravidez parto e puerpério";-;14;494;2215;991;115;3829
+".. Aborto espontâneo";-;-;20;104;57;26;207
+".. Outras gravidezes que terminam em aborto";-;-;3;26;18;3;50
+".. Edema protein transt hipertens grav parto puerp";-;-;10;45;24;6;85
+".. Placent prév descol premat plac hemorr antepart";-;-;4;22;8;1;35
+".. Outr mot ass mãe rel cav fet amn pos prob part";-;1;20;129;56;9;215
+".. Trabalho de parto obstruído";-;1;5;20;4;-;30
+".. Hemorragia pós-parto";-;-;-;-;1;1;2
+".. Outras complicações da gravidez e do parto";-;3;137;669;344;30;1183
+".. Parto único espontâneo";-;9;291;1176;466;39;1981
+".. Compl pred rel puerpério e outr afecç obst NCOP";-;-;4;24;13;-;41
+"16 Algumas afec originadas no período perinatal";585;-;1;5;4;1;596
+".. Feto e rec-nasc afet fat mat e compl grav parto";9;-;-;-;-;-;9
+".. Ret cres fet desn fet tran gest curt baix peso";51;-;-;1;-;-;52
+".. Hipóxia intrauterina e asfixia ao nascer";17;-;-;-;-;-;17
+".. Outros transt respiratórios orig per perinatal";49;-;-;-;-;-;49
+".. Doenças infecciosas e parasitárias congênitas";28;-;-;-;-;-;28
+".. Outras infecções específicas do período perinat";57;-;-;-;1;-;58
+".. Doença hemolítica do feto e do recém-nascido";1;-;-;-;-;-;1
+".. Outras afecções originadas no período perinatal";373;-;1;4;3;1;382
+"17 Malf cong deformid e anomalias cromossômicas";10;-;-;-;-;-;10
+".. Malformações congênitas do aparelho circulat";4;-;-;-;-;-;4
+".. Fenda labial e fenda palatina";2;-;-;-;-;-;2
+".. Outras malformações congênitas aparelho digest";3;-;-;-;-;-;3
+".. Outras malformações do aparelho geniturinário";1;-;-;-;-;-;1
+"18 Sint sinais e achad anorm ex clín e laborat";5;-;-;-;-;-;5
+".. Outr sist sinais achad anorm ex clín labor NCOP";5;-;-;-;-;-;5
+"21 Contatos com serviços de saúde";14;-;-;1;1;-;16
+".. Rastreamento pré-natal e outr superv da gravid";-;-;-;1;-;-;1
+".. Nascidos vivos segundo o local de nascimento";5;-;-;-;-;-;5
+".. Pessoas contato serv saúde cuidados proc espec";-;-;-;-;1;-;1
+".. Pessoas contato serv saúde por outras razões";9;-;-;-;-;-;9
+"Total";646;14;495;2222;996;116;4489
+&

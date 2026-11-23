@@ -1,0 +1,29 @@
+{
+ "cnes": "2038994",
+ "condition": "free",
+ "seed": 3,
+ "provider": "ollama",
+ "model": "gemma4:e4b",
+ "digest": "dc35e8d9c6061baa6f0fa870975ab6932e2542b579b13ea0f199fa4bb7300c9c",
+ "options": {
+  "seed": 3,
+  "temperature": 1.0,
+  "num_ctx": 6144,
+  "num_predict": 900,
+  "num_thread": 4,
+  "top_p": 0.95,
+  "top_k": 64
+ },
+ "storyteller_version": "0.3.4",
+ "created_at": "2026-11-23T03:53:07+00:00",
+ "stats": {
+  "prompt_tokens": 1096,
+  "output_tokens": 633,
+  "prompt_s": 0.3,
+  "output_s": 144.0,
+  "total_s": 144.3
+ },
+ "system": "Você escreve a seção “Leitura do território” da página de uma unidade de saúde no CulturaEduca, uma plataforma pública de mapas. O leitor é alguém da comunidade, da educação ou da gestão, sem formação em estatística.\n\nEscreva em português, usando só os dados fornecidos:\n- Siga a ordem dos parágrafos dados e escreva um parágrafo para cada um.\n- Conte todos os dados listados, e nenhum outro. Não invente números; você pode arredondar.\n- Todo número deve dizer, na mesma frase, a que área se refere: o raio em volta da unidade, a área de atendimento, o distrito, a cidade, o município ou a região metropolitana.\n- Inclua cada aviso obrigatório junto do dado a que ele se refere.\n- Não diga que um fator causa, explica ou contribui para outro: os dados mostram só que as coisas aparecem juntas.\n- No máximo 340 palavras.\n- Responda só com o texto, sem título, sem listas e sem formatação.",
+ "user": "Unidade: UBS GUAPITUBA (Centro de Saúde/UBS)\n\nParágrafo 1\nDado: Comparação com unidades do mesmo grupo (raio de 1 km)\n- Moradores em setores adensados: 0,0%; maior que em 2,5% e menor que em 97,5% das 1.388 unidades de atenção básica\n\nParágrafo 2\nDado: Perfil da unidade\n- Tipo (CNES): Centro de Saúde/UBS\n- Rede pública ou com vínculo SUS: sim\n- Fluxo de clientela: demanda espontânea\nDado: Profissionais da unidade\n- Vínculos de médicos: 7\n- Vínculos de enfermeiros: 3\n- Aviso obrigatório: os números de médicos e enfermeiros contam vínculos registrados no CNES, não pessoas: use a palavra “vínculos”.\nDado: Posição da unidade\n- Posição no mapa: coordenada do CNES substituída pelo endereço no CNEFE\n- Distância entre a coordenada do CNES e o endereço: 1,9 km\n- Aviso obrigatório: a posição da unidade no mapa é aproximada ou foi substituída pela do endereço: diga isso.\n\nParágrafo 3\nDado: Moradores do raio (Censo 2022)\n- Moradores: 32.074\n- Domicílios: 11.987\n- Setores tocados pelo raio: 88\n- Parte da população desses setores dentro do raio: 72%\n- Aviso obrigatório: os números de moradores e domicílios são estimativas a partir do Censo: use “cerca de” ou “estimativa”.\nDado: Domicílios fora da rede de esgoto\n- Raio de 1,0 km: 0,4%\n- município de Mauá: 6,8%\n- região metropolitana: 8,3%\n- Raio: com esgoto precário (fossa rudimentar, vala, rio…): 0,4%\nDado: Moradores em setores entre os 10% mais adensados (3,1 ou mais por domicílio)\n- Raio de 1,0 km: 0,0%\n- município de Mauá: 5,0%\n- região metropolitana: 13,7%\n\nParágrafo 4\nDado: Tuberculose no município de Mauá (2022–2025)\n- Casos por 100 mil hab. por ano: 47,5\n- Casos no período: 795\n- Região metropolitana: 67,1\n- Aviso obrigatório: inclua antes deste dado o aviso a seguir, com estas ou outras palavras, mantendo a expressão “Não há dados de doença”: “Não há dados de doença para áreas do tamanho do raio: os números a seguir são do município inteiro.”\n- Aviso obrigatório: os casos de tuberculose são contados pelo município de residência: diga que são casos entre os moradores.\nDado: Dengue no município de Mauá, casos prováveis por 100 mil hab.\n- 2025: 404 (1.688 casos; região: 566)\n- 2024: 2.758 (11.534 casos; região: 4.533)\n- 2023: 21 (86 casos; região: 107)\n- 2022: 21 (88 casos; região: 88)\n- Aviso obrigatório: inclua junto deste dado o aviso a seguir, com estas ou outras palavras, mantendo a expressão “epidemia”: “Em 2024, ano de epidemia, a taxa do município chegou a 2.758.”",
+ "response": "Em comparação com outras unidades do mesmo grupo, o percentual de moradores em setores adensados no raio de 1 km em volta da UBS GUAPITUBA é de 0,0%, o que é maior que em 2,5% e menor que em 97,5% das 1.388 unidades de atenção básica.\n\nA unidade é classificada como Centro de Saúde/UBS e faz parte da rede pública do SUS, operando com demanda espontânea. A UBS possui 7 vínculos de médicos e 3 vínculos de enfermeiros; os números de médicos e enfermeiros contam vínculos registrados no CNES, não pessoas. A posição da unidade no mapa é aproximada ou foi substituída pela do endereço, apresentando uma distância de 1,9 km entre a coordenada do CNES e o endereço.\n\nConsiderando o Censo 2022, a estimativa de moradores no raio de 1,0 km é de 32.074, distribuídos em 11.987 domicílios, que abrangem 88 setores; 72% da população desses setores está dentro do raio. No raio de 1,0 km, a taxa de domicílios sem rede de esgoto é de 0,4%, enquanto no município de Mauá é de 6,8%, e na região metropolitana é de 8,3%; para o raio, a presença de esgoto precário (fossa rudimentar, vala, rio…) é de 0,4%. O percentual de moradores em setores entre os 10% mais adensados (3,1 ou mais por domicílio) no raio de 1,0 km é de 0,0%, comparado a 5,0% no município de Mauá e 13,7% na região metropolitana.\n\nNão há dados de doença para áreas do tamanho do raio: os números a seguir são do município inteiro. Os casos de tuberculose são contados entre os moradores. No município de Mauá, o número de casos de tuberculose de 2022–2025 é de 795, resultando em 47,5 casos por 100 mil hab. por ano; na região metropolitana, o índice é de 67,1. Em 2024, ano de epidemia, a taxa do município chegou a 2.758. Os casos prováveis de dengue no município de Mauá são: em 2025, 404 (1.688 casos; região: 566); em 2024, 2.758 (11.534 casos; região: 4.533); em 2023, 21 (86 casos; região: 107); e em 2022, 21 (88 casos; região: 88)."
+}

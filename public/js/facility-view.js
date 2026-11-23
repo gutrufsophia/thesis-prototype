@@ -55,8 +55,59 @@ function profile(row) {
   return keyValues(entries);
 }
 
+const HOSPITAL_TYPES = ['Hospital Geral', 'Hospital Especializado', 'Unidade Mista'];
+
+// Thresholds of rule C24 (backend-core/config/rules.json): below them the text does not compare
+const DEATHS_MIN_ADMISSIONS = 100;
+const DEATHS_MIN_EXPECTED = 5;
+// Rule C23d: referred patients recorded as elective
+const ELECTIVE_CODING_MIN = 80;
+const REFERRAL_ONLY = 'Atendimento de Demanda Referenciada';
+
+/** In-hospital death figures, or null when the facility has none (database/reference/compute_hospital_mortality.py). */
+export function deathFigures(row) {
+  const admissions = Number(row.internacoes_total) || 0;
+  const expected = Number(row.obitos_esperados);
+  if (!admissions || row.obitos_sus === null || row.obitos_sus === undefined || !(expected > 0)) return null;
+  const deaths = Number(row.obitos_sus);
+  return {
+    admissions, deaths, expected, band: row.mortalidade_faixa,
+    rate: (100 * deaths) / admissions,
+    expectedRate: (100 * expected) / admissions,
+    ratio: deaths / expected,
+    few: admissions < DEATHS_MIN_ADMISSIONS || expected < DEATHS_MIN_EXPECTED,
+    profile: row.mortalidade_perfil && typeof row.mortalidade_perfil === 'object' ? row.mortalidade_perfil : null,
+  };
+}
+
+/** What sets the expected rate apart from the regional one, factor by factor. */
+function profileRows(profile) {
+  const share = (own, region) => t('deaths.share', { own: formatNumber(own, 1), region: formatNumber(region, 1) });
+  const signed = (value) => `${value > 0 ? '+' : value < 0 ? '\u2212' : ''}${formatNumber(Math.abs(value), 1)}`;
+  const parts = profile.shapley_pp || {};
+  const rate = Number(profile.capitulo_taxa_regiao);
+  return [
+    [t('deaths.regional'), `${formatNumber(profile.taxa_regiao, 1)}%`],
+    [t('deaths.shift'), t('deaths.shiftValue', {
+      diagnosis: signed(parts.diagnostico), age: signed(parts.idade), urgency: signed(parts.carater),
+    })],
+    [t('deaths.chapterShare', { chapter: pick(ADMISSIONS[profile.capitulo]).toLowerCase() }), t('deaths.chapterValue', {
+      own: formatNumber(profile.capitulo_pct, 1), region: formatNumber(profile.capitulo_regiao_pct, 1),
+      rate: formatNumber(rate, rate < 1 ? 2 : 1),
+    })],
+    [t('deaths.old'), share(profile.idosos_pct, profile.idosos_regiao_pct)],
+    [t('deaths.urgent'), share(profile.urgencia_pct, profile.urgencia_regiao_pct)],
+  ];
+}
+
+function electiveCoding(row, profile) {
+  return Boolean(profile) && row.Fluxo_Clientela === REFERRAL_ONLY &&
+    100 - Number(profile.urgencia_pct) >= ELECTIVE_CODING_MIN && Number(profile.shapley_pp?.carater) < 0;
+}
+
 function keyFigures(row, stays) {
   const admissions = Number(row.internacoes_total) || 0;
+  const deaths = deathFigures(row);
   const sus = (column) => t('tile.susNote', { count: formatCount(row[column]) });
   // SIH covers SUS admissions only: a private hospital without SUS would otherwise show 0
   const sih = row.atende_sus || admissions > 0;
@@ -75,7 +126,47 @@ function keyFigures(row, stays) {
       value: admissions ? t('tile.days', { value: formatNumber(row.media_dias_permanencia, 1) }) : '–',
       note: !sih ? t('tile.notSus') : [stayRank(row, stays), t('period.sihShort')].filter(Boolean).join(' · '),
     },
-  ]);
+    deaths ? {
+      label: t('tile.deaths'), value: `${formatNumber(deaths.rate, 1)}%`,
+      note: t('tile.deathsNote', { expected: formatNumber(deaths.expectedRate, 1) }),
+    } : null,
+  ].filter(Boolean));
+}
+
+/**
+ * Deaths in SUS admissions against the deaths the patients' profile predicts. The funnel plot is
+ * added by the facility page, which loads the other hospitals (public/data/hospital_mortality.json).
+ */
+function deathsSection(row, compact) {
+  const admissions = Number(row.internacoes_total) || 0;
+  if (!admissions) return null;
+  const d = deathFigures(row);
+  const block = d
+    ? el('div', { class: compact ? null : 'deaths-body' },
+      keyValues([
+        [t('deaths.observed'), t('deaths.observedValue', {
+          deaths: formatCount(d.deaths), admissions: formatCount(d.admissions), rate: formatNumber(d.rate, 1),
+        })],
+        [t('deaths.expected'), t('deaths.expectedValue', {
+          rate: formatNumber(d.expectedRate, 1), deaths: formatNumber(d.expected, 0),
+        })],
+        [t('deaths.ratio'), formatNumber(d.ratio, 2)],
+        [t('deaths.band'), d.few ? t('deaths.few') : t(`deaths.band.${d.band}`)],
+        ...(d.profile && !d.few && !compact ? profileRows(d.profile) : []),
+      ]),
+      el('div', { class: 'deaths-plot' }))
+    : null;
+  const compared = d && !d.few;
+  const notes = d ? [t('deaths.method'), compared && electiveCoding(row, d.profile) ? t('deaths.coding') : null,
+    compared && d.band === 'below' ? t('deaths.below') : null,
+    compared && d.band === 'above' ? t('deaths.above') : null] : [];
+  const node = section(t('deaths.title'), block, {
+    hint: d ? notes.filter(Boolean).join(' ') : null,
+    emptyText: HOSPITAL_TYPES.includes(row.tipo_equipamento) ? t('deaths.noExpected') : t('deaths.notHospital'),
+  });
+  node.id = 'record-deaths';
+  if (d && !compact) node.classList.add('is-wide');
+  return node;
 }
 
 function icuSection(row) {
@@ -119,5 +210,6 @@ export function renderFacility(row, { compact = false, stays = null } = {}) {
       }),
       rankedSection(t('admissions.title'), rankedItems(row, ADMISSIONS), {
         limit, hint: t('admissions.hint', sources()), emptyText: t('admissions.empty'),
-      })));
+      }),
+      deathsSection(row, compact)));
 }

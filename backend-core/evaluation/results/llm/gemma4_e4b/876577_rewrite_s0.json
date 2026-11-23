@@ -1,0 +1,27 @@
+{
+ "cnes": "876577",
+ "condition": "rewrite",
+ "seed": 0,
+ "provider": "ollama",
+ "model": "gemma4:e4b",
+ "digest": "dc35e8d9c6061baa6f0fa870975ab6932e2542b579b13ea0f199fa4bb7300c9c",
+ "options": {
+  "seed": 0,
+  "temperature": 0.0,
+  "num_ctx": 6144,
+  "num_predict": 900,
+  "num_thread": 4
+ },
+ "storyteller_version": "0.3.4",
+ "created_at": "2026-11-23T01:41:43+00:00",
+ "stats": {
+  "prompt_tokens": 983,
+  "output_tokens": 295,
+  "prompt_s": 84.0,
+  "output_s": 55.5,
+  "total_s": 161.3
+ },
+ "system": "Você revisa a seção “Leitura do território” da página de uma unidade de saúde no CulturaEduca, uma plataforma pública de mapas. O texto foi montado com modelos de frase e soa repetitivo. Reescreva-o para ficar mais claro e natural para alguém da comunidade, da educação ou da gestão.\n\nRegras:\n- Os números aparecem como marcadores entre chaves, por exemplo {residents.radius}. Copie cada marcador exatamente como está e não escreva nenhum número, nem em algarismos nem por extenso.\n- Mantenha todos os marcadores e todas as informações; não acrescente informação.\n- Mantenha, na mesma frase de cada marcador, a área a que ele se refere (raio, área de atendimento, distrito, cidade, município, região metropolitana).\n- Copie sem nenhuma alteração as frases marcadas com [AVISO], tirando só a marca.\n- Mantenha as palavras de comparação (acima de, abaixo de, próximo de, vezes) com o mesmo sentido.\n- Não diga que um fator causa, explica ou contribui para outro.\n- Mantenha a divisão em parágrafos; dentro de um parágrafo, você pode juntar ou reordenar frases.\n- No máximo 340 palavras, contando cada marcador como uma palavra.\n- Responda só com o texto, sem título e sem formatação.",
+ "user": "Entre as {peer.count_group} unidades de {peer.group} mapeadas na região, o raio de {peer.extent_radius} em volta desta unidade está entre os {peer.rank} com {peer.indicator}.\n\n{profile.name} é {profile.type} {profile.network}, com atendimento {profile.flow}.\nA coordenada do CNES estava a {position.shift} do endereço da unidade e foi substituída pela posição do endereço no cadastro do Censo.\n\nCerca de {residents.radius} pessoas em {residents.households_radius} domicílios moram no raio de {residents.extent_radius} ao redor da unidade (estimativa do {residents.period}).\nEm linha reta, {access.radius} dos moradores do raio vivem a mais de {k.one_km} de uma unidade básica pública, bem abaixo de {access.municipality} no município de {access.municipality_name}; são {access.region} na região metropolitana.\n\n[AVISO] Não há dados de doença para áreas do tamanho do raio: os números a seguir são do distrito.\n{teen_district.district} dos nascidos vivos no distrito {teen_district.district_name} entre {teen_district.period} eram de mães com menos de {k.twenty} anos, próximo de {teen_district.city} na cidade de São Paulo.\n\nValores dos marcadores, só para referência (não os escreva):\n{profile.flow} = por demanda espontânea\n{profile.name} = TOXICOLOGICO GRIMALDI\n{profile.network} = sem vínculo com o SUS\n{profile.type} = uma unidade de apoio à diagnose e terapia (SADT)\n{position.shift} = 36,1 km\n{residents.extent_radius} = 1,0 km (radius)\n{residents.households_radius} = 20.000 (radius)\n{residents.period} = Censo de 2022\n{residents.radius} = 56.000 (radius)\n{access.municipality} = 12,9% (municipality)\n{access.municipality_name} = São Paulo\n{access.radius} = 0,4% (radius)\n{access.region} = 13,0% (region)\n{peer.count_group} = 2.488\n{peer.extent_radius} = 1,0 km (radius)\n{peer.group} = diagnose e terapia\n{peer.indicator} = a renda média mais baixa\n{peer.rank} = 9%\n{teen_district.city} = 7,4% (city)\n{teen_district.count_district} = 794 (district)\n{teen_district.district} = 8,8% (district)\n{teen_district.district_name} = Sapopemba\n{teen_district.period} = 2022 e 2024",
+ "response": "Entre as {peer.count_group} unidades de {peer.group} mapeadas na região, o raio de {peer.extent_radius} em volta desta unidade está entre os {peer.rank} com {peer.indicator}.\n\n{profile.name} é {profile.type} {profile.network}, com atendimento {profile.flow}. A coordenada do CNES estava a {position.shift} do endereço da unidade e foi substituída pela posição do endereço no cadastro do Censo.\n\nCerca de {residents.radius} pessoas em {residents.households_radius} domicílios moram no raio de {residents.extent_radius} ao redor da unidade (estimativa do {residents.period}). Em linha reta, {access.radius} dos moradores do raio vivem a mais de {k.one_km} de uma unidade básica pública, bem abaixo de {access.municipality} no município de {access.municipality_name}; são {access.region} na região metropolitana.\n\nNão há dados de doença para áreas do tamanho do raio: os números a seguir são do distrito. {teen_district.district} dos nascidos vivos no distrito {teen_district.district_name} entre {teen_district.period} eram de mães com menos de {k.twenty} anos, próximo de {teen_district.city} na cidade de São Paulo."
+}

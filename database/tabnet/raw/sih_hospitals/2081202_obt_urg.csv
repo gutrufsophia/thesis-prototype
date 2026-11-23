@@ -1,0 +1,42 @@
+"Lista Morb  CID-10";"15 a 19 anos";"20 a 29 anos";"30 a 39 anos";"40 a 49 anos";"50 a 59 anos";"60 a 69 anos";"70 a 79 anos";"80 anos e mais";"Total"
+"01 Algumas doenças infecciosas e parasitárias";-;1;-;3;4;17;40;57;122
+".. Diarréia e gastroenterite origem infecc presum";-;-;-;-;-;-;-;1;1
+".. Tuberculose respiratória";-;-;-;-;-;-;1;-;1
+".... Tuberculose pulmonar";-;-;-;-;-;-;1;-;1
+".. Septicemia";-;1;-;2;4;15;34;48;104
+".. Outras doenças bacterianas";-;-;-;1;-;2;5;8;16
+".... Restante de outras doenças bacterianas";-;-;-;1;-;2;5;8;16
+"02 Neoplasias (tumores)";-;-;-;1;-;3;1;-;5
+".. Neoplasia maligna do cólon";-;-;-;1;-;-;-;-;1
+".. Neoplasias malignas de laringe";-;-;-;-;-;1;-;-;1
+".. Neoplasia maligna de traquéia brônquios e pulm";-;-;-;-;-;1;-;-;1
+".. Outras neopl malignas órgãos genitais femininos";-;-;-;-;-;-;1;-;1
+".. Outras neoplasias malignas do trato urinário";-;-;-;-;-;1;-;-;1
+"03 Doenças sangue órgãos hemat e transt imunitár";-;-;-;-;-;1;-;-;1
+".. Outras anemias";-;-;-;-;-;1;-;-;1
+"04 Doenças endócrinas nutricionais e metabólicas";-;-;-;-;-;1;-;-;1
+".. Diabetes mellitus";-;-;-;-;-;1;-;-;1
+"09 Doenças do aparelho circulatório";-;-;1;3;4;7;15;17;47
+".. Infarto agudo do miocárdio";-;-;-;-;-;-;2;1;3
+".. Transtornos de condução e arritmias cardíacas";-;-;-;1;-;-;-;-;1
+".. Insuficiência cardíaca";-;-;-;2;2;4;10;8;26
+".. Infarto cerebral";-;-;-;-;2;2;2;2;8
+".. Acid vascular cerebr não espec hemorrág ou isq";-;-;1;-;-;1;1;5;8
+".. Veias varicosas das extremidades inferiores";-;-;-;-;-;-;-;1;1
+"10 Doenças do aparelho respiratório";1;-;2;2;5;15;17;32;74
+".. Pneumonia";1;-;2;2;4;13;13;27;62
+".. Bronquite enfisema e outr doenç pulm obstr crôn";-;-;-;-;1;-;2;3;6
+".. Outras doenças do aparelho respiratório";-;-;-;-;-;2;2;2;6
+"11 Doenças do aparelho digestivo";-;-;-;1;2;-;1;-;4
+".. Doença alcoólica do fígado";-;-;-;1;-;-;1;-;2
+".. Outras doenças do fígado";-;-;-;-;2;-;-;-;2
+"12 Doenças da pele e do tecido subcutâneo";-;-;1;-;-;1;1;1;4
+".. Infecções da pele e do tecido subcutâneo";-;-;-;-;-;-;1;-;1
+".. Outras doenças da pele e do tecido subcutâneo";-;-;1;-;-;1;-;1;3
+"14 Doenças do aparelho geniturinário";-;-;-;-;-;2;5;6;13
+".. Insuficiência renal";-;-;-;-;-;2;2;-;4
+".. Outras doenças do aparelho urinário";-;-;-;-;-;-;3;6;9
+"18 Sint sinais e achad anorm ex clín e laborat";-;-;-;-;1;-;1;1;3
+".. Outr sist sinais achad anorm ex clín labor NCOP";-;-;-;-;1;-;1;1;3
+"Total";1;1;4;10;16;47;81;114;274
+&

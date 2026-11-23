@@ -1,0 +1,70 @@
+{
+ "period": "SIH, SUS admissions processed Jan/2025 to Jul/2026, by place of admission",
+ "hospitals": 145,
+ "hospitals_with_expected_deaths": 144,
+ "hospitals_compared": 126,
+ "hospitals_in_heterogeneity_fit": 1,
+ "admissions": 1793333,
+ "deaths": 92447,
+ "regional_mortality_pct": 5.16,
+ "chapter_mortality_pct": {
+  "Cap 01": 27.53,
+  "Cap 02": 8.13,
+  "Cap 03": 3.37,
+  "Cap 04": 5.1,
+  "Cap 05": 0.31,
+  "Cap 06": 3.49,
+  "Cap 07": 0.01,
+  "Cap 08": 0.18,
+  "Cap 09": 8.71,
+  "Cap 10": 9.53,
+  "Cap 11": 3.61,
+  "Cap 12": 1.29,
+  "Cap 13": 0.57,
+  "Cap 14": 2.97,
+  "Cap 15": 0.04,
+  "Cap 16": 2.96,
+  "Cap 17": 1.45,
+  "Cap 18": 9.25,
+  "Cap 19": 2.57,
+  "Cap 21": 0.3
+ },
+ "overdispersion_phi": 44.02,
+ "tau2": 0.05964,
+ "tau": 0.244,
+ "bands_998_compared": {
+  "above": 1,
+  "within": 108,
+  "below": 17
+ },
+ "within_95_compared": 94,
+ "crude_mortality_pct": {
+  "median": 4.83,
+  "p10": 0.0,
+  "p90": 9.47
+ },
+ "ratio": {
+  "median": 0.879,
+  "p10": 0.0,
+  "p90": 1.445
+ },
+ "crude_vs_ratio_spearman": 0.736,
+ "cells": 5603,
+ "cells_with_deaths": 2251,
+ "hospitals_whose_cells_do_not_add_up": [],
+ "chapter_only": {
+  "overdispersion_phi": 180.11,
+  "ratio_median": 0.884,
+  "crude_vs_ratio_spearman": 0.923
+ },
+ "region_composition_pct": {
+  "aged_70_or_more": 16.7,
+  "urgent": 68.7
+ },
+ "profile_factor_compared": {
+  "diagnosis": 68,
+  "age": 27,
+  "urgency": 31
+ },
+ "shapley_efficiency_max_error_pp": 0.015
+}

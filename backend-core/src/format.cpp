@@ -31,8 +31,10 @@ std::string format_estimate(double value, const NumberStyle& style) {
     return format_number(std::round(value / magnitude) * magnitude, 0, style);
 }
 
+// To the nearest half; a tie goes down, so the word never overstates the figures beside it
+// (10,2% against 2,4% is 4.25: "cerca de 4 vezes", not 4,5).
 std::string format_ratio(double value, const NumberStyle& style) {
-    const double half = std::round(value * 2) / 2;
+    const double half = std::ceil(value * 2 - 0.5) / 2;
     return format_number(half, half == std::floor(half) ? 0 : 1, style);
 }
 

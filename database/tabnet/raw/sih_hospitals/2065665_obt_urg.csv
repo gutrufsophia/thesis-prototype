@@ -1,0 +1,15 @@
+"Lista Morb  CID-10";"Menor 1 ano";"20 a 29 anos";"30 a 39 anos";"40 a 49 anos";"Total"
+"01 Algumas doenças infecciosas e parasitárias";-;1;-;-;1
+".. Tuberculose respiratória";-;1;-;-;1
+".... Tuberculose pulmonar";-;1;-;-;1
+"15 Gravidez parto e puerpério";-;-;1;1;2
+".. Outras gravidezes que terminam em aborto";-;-;1;-;1
+".. Outras complicações da gravidez e do parto";-;-;-;1;1
+"16 Algumas afec originadas no período perinatal";27;-;-;-;27
+".. Ret cres fet desn fet tran gest curt baix peso";23;-;-;-;23
+".. Hipóxia intrauterina e asfixia ao nascer";1;-;-;-;1
+".. Outros transt respiratórios orig per perinatal";3;-;-;-;3
+"17 Malf cong deformid e anomalias cromossômicas";2;-;-;-;2
+".. Outras malformações congênitas";2;-;-;-;2
+"Total";29;1;1;1;32
+&

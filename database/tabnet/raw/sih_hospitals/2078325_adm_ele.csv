@@ -1,0 +1,109 @@
+"Lista Morb  CID-10";"Menor 1 ano";"1 a 4 anos";"5 a 9 anos";"10 a 14 anos";"15 a 19 anos";"Total"
+"01 Algumas doenças infecciosas e parasitárias";5;20;24;19;1;69
+".. Diarréia e gastroenterite origem infecc presum";-;2;-;-;-;2
+".. Outras doenças infecciosas intestinais";-;1;-;-;-;1
+".. Outras tuberculoses";-;-;1;-;-;1
+".... Tuberculose do sistema nervoso";-;-;1;-;-;1
+".. Septicemia";4;-;-;1;-;5
+".. Outras infecções com transm predominant sexual";-;2;-;-;-;2
+".. Outras doenças virais";1;15;23;17;1;57
+".... Restante de outras doenças virais";1;15;23;17;1;57
+".. Outras doenças infecciosas e parasitárias";-;-;-;1;-;1
+"02 Neoplasias (tumores)";6;14;16;8;6;50
+".. Neopl malig fígado e vias biliares intra-hepát";-;-;1;-;-;1
+".. Outras neoplasias malignas do trato urinário";-;1;-;-;-;1
+".. Neoplasia benigna da pele";-;1;1;5;-;7
+".. Neoplasia benigna do ovário";-;-;1;-;1;2
+".. Outr neopl in situ benigs e comport incert desc";6;12;13;3;5;39
+"03 Doenças sangue órgãos hemat e transt imunitár";-;3;4;2;1;10
+".. Outras anemias";-;2;1;1;-;4
+".. Afecç hemorrág e outr doenç sang e órg hematop";-;-;3;1;1;5
+".. Alguns transtornos envolvendo mecanismo imunit";-;1;-;-;-;1
+"04 Doenças endócrinas nutricionais e metabólicas";3;3;1;1;1;9
+".. Outros transtornos tireoidianos";-;-;-;-;1;1
+".. Desnutrição";2;-;-;-;-;2
+".. Outros transt endócrinos nutricionais metabólic";1;3;1;1;-;6
+"06 Doenças do sistema nervoso";1;-;1;1;-;3
+".. Doenças inflamatórias do sistema nervoso centr";1;-;-;-;-;1
+".... Meningite bacteriana não classif outra parte";1;-;-;-;-;1
+".. Paralisia cerebral e outras síndromes paralít";-;-;1;-;-;1
+".. Outras doenças do sistema nervoso";-;-;-;1;-;1
+"08 Doenças do ouvido e da apófise mastóide";-;87;53;11;3;154
+".. Otite média e outr transt ouvid médio apóf mast";-;74;39;8;3;124
+".. Perda de audição";-;12;13;3;-;28
+".. Outras doenças do ouvido e da apófise mastóide";-;1;1;-;-;2
+"09 Doenças do aparelho circulatório";-;1;-;6;3;10
+".. Flebite tromboflebite embolia e trombose venosa";-;1;-;-;-;1
+".. Hemorróidas";-;-;-;1;-;1
+".. Outras doenças do aparelho circulatório";-;-;-;5;3;8
+"10 Doenças do aparelho respiratório";37;358;395;146;55;991
+".. Laringite e traqueíte agudas";-;2;-;-;-;2
+".. Outras infecções agudas das vias aéreas super";-;2;1;-;-;3
+".. Pneumonia";-;2;1;-;-;3
+".. Bronquite aguda e bronquiolite aguda";3;1;-;-;-;4
+".. Outras doenças do nariz e dos seios paranasais";-;-;-;8;18;26
+".. Doenças crônicas das amígdalas e das adenóides";3;197;315;98;24;637
+".. Outras doenças do trato respiratório superior";3;22;6;3;1;35
+".. Bronquite enfisema e outr doenç pulm obstr crôn";-;6;-;-;-;6
+".. Asma";-;2;1;-;-;3
+".. Outras doenças do aparelho respiratório";28;124;71;37;12;272
+"11 Doenças do aparelho digestivo";165;469;511;186;44;1375
+".. Cárie dentária";-;6;16;1;-;23
+".. Outros transtornos dentes e estruturas suporte";-;2;62;36;10;110
+".. Outr doenç cavidade oral glând saliv e maxilar";-;-;4;2;-;6
+".. Outras doenças do esôfago estômago e duodeno";3;3;4;3;1;14
+".. Doenças do apêndice";-;1;-;1;-;2
+".. Hérnia inguinal";135;115;70;25;6;351
+".. Outras hérnias";6;297;296;65;8;672
+".. Doença de Crohn e colite ulcerativa";-;-;1;1;-;2
+".. Ileo paralítico e obstrução intestinal s/hérnia";6;1;1;-;-;8
+".. Outras doenças dos intestinos e peritônio";14;34;35;15;2;100
+".. Outras doenças do fígado";-;1;4;6;2;13
+".. Colelitíase e colecistite";-;1;11;30;11;53
+".. Pancreatite aguda e outras doenças do pâncreas";-;-;1;-;4;5
+".. Outras doenças do aparelho digestivo";1;8;6;1;-;16
+"12 Doenças da pele e do tecido subcutâneo";8;61;57;83;36;245
+".. Infecções da pele e do tecido subcutâneo";2;4;3;9;15;33
+".. Outras doenças da pele e do tecido subcutâneo";6;57;54;74;21;212
+"13 Doenças sist osteomuscular e tec conjuntivo";-;2;8;5;1;16
+".. Deformidades adquiridas das articulações";-;-;3;2;-;5
+".. Doenças sistêmicas do tecido conjuntivo";-;-;1;-;-;1
+".. Outras dorsopatias";-;1;-;-;-;1
+".. Transtornos do tecido mole";-;1;3;2;1;7
+".. Osteomielite";-;-;-;1;-;1
+".. Outras doenças sist osteomuscular e tec conjunt";-;-;1;-;-;1
+"14 Doenças do aparelho geniturinário";13;585;866;404;150;2018
+".. Outras doenças glomerulares";-;2;4;2;2;10
+".. Doenças renais túbulo-intersticiais";4;24;12;6;3;49
+".. Insuficiência renal";-;-;-;1;-;1
+".. Urolitíase";-;-;3;1;-;4
+".. Outras doenças do aparelho urinário";2;14;17;16;7;56
+".. Hidrocele e espermatocele";1;67;41;15;1;125
+".. Preprúcio redundante fimose e parafimose";6;474;783;352;129;1744
+".. Outras doenças dos órgãos genitais masculinos";-;3;5;6;2;16
+".. Transtornos da mama";-;-;-;1;-;1
+".. Outras doenças inflamat órgãos pélvicos femin";-;-;1;-;2;3
+".. Transt não-inflam ovário tromp Falópio lig larg";-;1;-;4;3;8
+".. Outros transtornos do aparelho geniturinário";-;-;-;-;1;1
+"16 Algumas afec originadas no período perinatal";1;-;-;-;-;1
+".. Outras afecções originadas no período perinatal";1;-;-;-;-;1
+"17 Malf cong deformid e anomalias cromossômicas";375;784;329;184;43;1715
+".. Fenda labial e fenda palatina";93;138;18;20;11;280
+".. Outras malformações congênitas aparelho digest";73;50;26;5;3;157
+".. Testiculo não-descido";44;243;152;69;10;518
+".. Outras malformações do aparelho geniturinário";8;185;76;52;5;326
+".. Deformidades congênitas do quadril";1;6;2;1;-;10
+".. Deformidades congênitas dos pés";23;48;12;12;-;95
+".. Outr malform e deform congên aparelho osteomusc";117;57;14;6;-;194
+".. Outras malformações congênitas";16;57;29;19;14;135
+"18 Sint sinais e achad anorm ex clín e laborat";4;7;6;9;3;29
+".. Outr sist sinais achad anorm ex clín labor NCOP";4;7;6;9;3;29
+"19 Lesões enven e alg out conseq causas externas";-;6;4;2;-;12
+".. Efeitos corpo estranho através de orifício nat";-;4;2;-;-;6
+".. Queimadura e corrosões";-;-;-;1;-;1
+".. Cert compl prec traum compl cirúrg ass méd NCOP";-;2;2;1;-;5
+"21 Contatos com serviços de saúde";-;1;2;-;-;3
+".. Pessoas contato serv saúde cuidados proc espec";-;1;1;-;-;2
+".. Pessoas contato serv saúde por outras razões";-;-;1;-;-;1
+"Total";618;2401;2277;1067;347;6710
+&

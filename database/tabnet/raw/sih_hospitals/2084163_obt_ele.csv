@@ -1,0 +1,12 @@
+"Lista Morb  CID-10";"30 a 39 anos";"60 a 69 anos";"70 a 79 anos";"80 anos e mais";"Total"
+"02 Neoplasias (tumores)";1;1;-;-;2
+".. Neoplasia maligna de traquéia brônquios e pulm";1;1;-;-;2
+"12 Doenças da pele e do tecido subcutâneo";-;1;-;-;1
+".. Outras doenças da pele e do tecido subcutâneo";-;1;-;-;1
+"13 Doenças sist osteomuscular e tec conjuntivo";-;-;-;1;1
+".. Artrose";-;-;-;1;1
+"19 Lesões enven e alg out conseq causas externas";-;-;2;-;2
+".. Outr traum reg espec não espec e múltipl corpo";-;-;1;-;1
+".. Cert compl prec traum compl cirúrg ass méd NCOP";-;-;1;-;1
+"Total";1;2;2;1;6
+&

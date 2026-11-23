@@ -1,0 +1,27 @@
+{
+ "cnes": "7377045",
+ "condition": "rewrite",
+ "seed": 0,
+ "provider": "ollama",
+ "model": "gemma4:e4b",
+ "digest": "dc35e8d9c6061baa6f0fa870975ab6932e2542b579b13ea0f199fa4bb7300c9c",
+ "options": {
+  "seed": 0,
+  "temperature": 0.0,
+  "num_ctx": 6144,
+  "num_predict": 900,
+  "num_thread": 4
+ },
+ "storyteller_version": "0.3.4",
+ "created_at": "2026-11-23T01:32:27+00:00",
+ "stats": {
+  "prompt_tokens": 907,
+  "output_tokens": 293,
+  "prompt_s": 76.2,
+  "output_s": 64.9,
+  "total_s": 143.5
+ },
+ "system": "Você revisa a seção “Leitura do território” da página de uma unidade de saúde no CulturaEduca, uma plataforma pública de mapas. O texto foi montado com modelos de frase e soa repetitivo. Reescreva-o para ficar mais claro e natural para alguém da comunidade, da educação ou da gestão.\n\nRegras:\n- Os números aparecem como marcadores entre chaves, por exemplo {residents.radius}. Copie cada marcador exatamente como está e não escreva nenhum número, nem em algarismos nem por extenso.\n- Mantenha todos os marcadores e todas as informações; não acrescente informação.\n- Mantenha, na mesma frase de cada marcador, a área a que ele se refere (raio, área de atendimento, distrito, cidade, município, região metropolitana).\n- Copie sem nenhuma alteração as frases marcadas com [AVISO], tirando só a marca.\n- Mantenha as palavras de comparação (acima de, abaixo de, próximo de, vezes) com o mesmo sentido.\n- Não diga que um fator causa, explica ou contribui para outro.\n- Mantenha a divisão em parágrafos; dentro de um parágrafo, você pode juntar ou reordenar frases.\n- No máximo 340 palavras, contando cada marcador como uma palavra.\n- Responda só com o texto, sem título e sem formatação.",
+ "user": "{profile.name} é {profile.type} {profile.network}, com atendimento {profile.flow}.\nA posição da unidade no mapa é aproximada, com margem de cerca de {position.precision}, e os números do entorno são mais confiáveis em raios grandes.\n\nCerca de {residents.radius} pessoas em {residents.households_radius} domicílios moram no raio de {residents.extent_radius} ao redor da unidade (estimativa do {residents.period}).\n{crowded.radius} dos moradores do raio vivem em setores entre os {k.top_decile} mais adensados da região, bem abaixo de {crowded.municipality} no município de {crowded.municipality_name}; são {crowded.region} na região metropolitana.\n\n[AVISO] Não há dados de doença para áreas do tamanho do raio: os números a seguir são do distrito.\nA tuberculose atingiu {tb_district.district} casos por {k.per100k} habitantes por ano no distrito {tb_district.district_name} entre {tb_district.period}, bem abaixo de {tb_district.city} na cidade de São Paulo, contando só moradores com endereço; é um dos dez distritos com as taxas mais baixas da cidade.\n\nValores dos marcadores, só para referência (não os escreva):\n{profile.flow} = por demanda espontânea e por encaminhamento\n{profile.name} = CEAF\n{profile.network} = sem vínculo com o SUS\n{profile.type} = uma clínica ou centro de especialidades\n{position.precision} = 103 m\n{residents.extent_radius} = 1,0 km (radius)\n{residents.households_radius} = 14.000 (radius)\n{residents.period} = Censo de 2022\n{residents.radius} = 32.000 (radius)\n{crowded.municipality} = 10,1% (municipality)\n{crowded.municipality_name} = São Paulo\n{crowded.radius} = 0,7% (radius)\n{crowded.region} = 13,7% (region)\n{crowded.threshold} = 3,1\n{tb_district.city} = 72,6 (city)\n{tb_district.count_district} = 29 (district)\n{tb_district.district} = 19,4 (district)\n{tb_district.district_name} = Alto de Pinheiros\n{tb_district.period} = 2022 e 2025",
+ "response": "{profile.name} é uma clínica ou centro de especialidades {profile.network}, com atendimento {profile.flow}. A posição da unidade no mapa é aproximada, com margem de cerca de {position.precision}, e os números do entorno são mais confiáveis em raios grandes.\n\nCerca de {residents.radius} pessoas, em {residents.households_radius} domicílios, moram no raio de {residents.extent_radius} ao redor da unidade (estimativa do {residents.period}). Dos moradores do raio, {crowded.radius} vivem em setores entre os {k.top_decile} mais adensados da região, o que é bem abaixo de {crowded.municipality} no município de {crowded.municipality_name}; na região metropolitana, são {crowded.region}.\n\n[AVISO] Não há dados de doença para áreas do tamanho do raio: os números a seguir são do distrito.\nNo distrito {tb_district.district_name}, a tuberculose atingiu {tb_district.district} casos por {k.per100k} habitantes por ano entre {tb_district.period}. Este valor é bem abaixo de {tb_district.city} na cidade de São Paulo, considerando apenas moradores com endereço, e é um dos dez distritos com as taxas mais baixas da cidade."
+}

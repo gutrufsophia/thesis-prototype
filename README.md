@@ -1,43 +1,59 @@
 # thesis-prototype
 
-Prototype for my undergraduate thesis: a health data layer with spatial data storytelling for the CulturaEduca platform, covering the São Paulo Metropolitan Region.
+Prototype for my undergraduate thesis: an improved health data layer, with spatial data storytelling, for the [CulturaEduca](https://culturaeduca.cc/) platform. It maps 6,687 health facilities of the São Paulo Metropolitan Region (RMSP) and, for each one, writes a short text that relates the facility to the territory around it, telling every number with its scale and the caveats it needs.
 
-## Running the frontend
+The RMSP is the development example; the integration into CulturaEduca will use national data.
 
-The frontend is static (vanilla JS and Leaflet, no build step) and reads from Supabase.
+**Live prototype:** <https://thesis-prototype-rdiz.onrender.com/>
 
-1. Copy `public/js/config.example.js` to `public/js/config.js` and fill in the project URL and anon key.
-2. Serve the `public/` folder over HTTP (ES modules do not load from `file://`):
+## What is in it
+
+- **Map** (`public/index.html`): every facility, filtered by type and by public or SUS network, sized by beds, hollow when the position is approximate.
+- **Facility page** (`public/facility.html`), in tabs:
+
+  | Tab | Contents | Scale |
+  |---|---|---|
+  | Reading the territory | the generated text and a key to its scale colours | all, each figure marked |
+  | Record | CNES record, beds, staff, admissions, in-hospital deaths with a funnel plot | facility |
+  | Surroundings data | census of the radius against municipality and region; 1 km peer comparison | radius |
+  | Health indicators | tuberculosis, dengue, leptospirosis, births, premature mortality | district (capital) and municipality |
+  | Nearby facilities | other facilities in the radius, by category | radius |
+
+  The radius is adjustable, and the map banner expands to a full map with an indicator choropleth. Clicking a sentence opens the card or map layer with its data. The open tab is kept in the URL hash (`facility.html?cnes=2786826#health`).
+- **Relations page** (`public/relations.html`): how tuberculosis, dengue, leptospirosis and teenage pregnancy relate to income, housing and sanitation, by municipality and by district of São Paulo city (static data in `public/data/relations.json`).
+- **Storytelling service** (`backend-core/`): the C++17 service that writes the text (see [How the text is made](#how-the-text-is-made)).
+
+## Repository layout
+
+| Path | Contents |
+|---|---|
+| `public/` | Frontend: vanilla JS, HTML, CSS and Leaflet, no build step |
+| `backend-core/` | C++ storytelling service: facts, caveat rules, templates, verifier, tests and evaluation |
+| `database/migrations/` | Database schema, read API functions and access policies (001 to 020) |
+| `database/seeders/` | Loaders for the cleaned CSVs and the tract geometry |
+| `database/geocoding/` | Address geocoding of facilities with CNEFE 2022, distance from homes to primary care |
+| `database/tabnet/` | Reproducible DATASUS and SMS-SP TabNet downloads, São Paulo district indicators |
+| `database/reference/` | Batch computations: 1 km surroundings of every facility, catchments, hospital mortality |
+| `etl/` | Cleaning of the raw CNES, SIH, IBGE and TabNet files into the CSVs in `data/` |
+| `analysis/` | Statistical analyses: territorial typology, outcome relations, scale decomposition |
+| `data/` | Cleaned and computed CSVs loaded into the database |
+| `deploy/` | Files used by the frontend's Docker image |
+| `update.sh` | Rebuilds and reloads all the data from new source files, step by step |
+
+## Running locally
+
+### Frontend
+
+1. Copy `public/js/config.example.js` to `public/js/config.js` and fill in the Supabase project URL and anon key.
+2. Serve `public/` over HTTP (ES modules do not load from `file://`) and open <http://localhost:8000>:
 
    ```bash
    python3 -m http.server 8000 --directory public
    ```
 
-3. Open <http://localhost:8000>.
+### Storytelling service
 
-## Deploying (Render)
-
-The root `Dockerfile` serves `public/` with nginx. Create the service as a **Web Service** with runtime **Docker**, branch `main`, and set two environment variables in the Render dashboard:
-
-| Variable | Value |
-|---|---|
-| `SUPABASE_URL` | `https://<project-ref>.supabase.co` |
-| `SUPABASE_ANON_KEY` | the project's anon (public) key |
-
-The container writes `js/config.js` from them at start-up (`deploy/write-config.sh`) and refuses to start if either is missing. Render supplies `PORT`.
-
-To try the image locally:
-
-```bash
-docker build -t thesis-prototype .
-docker run --rm -p 10000:10000 -e SUPABASE_URL=... -e SUPABASE_ANON_KEY=... thesis-prototype
-```
-
-## Storytelling service (`backend-core/`)
-
-A C++17 service that writes the short "Reading the territory" text on the facility page. It reads the same Supabase functions as the frontend, extracts facts at each scale (unit, radius, district, municipality, region), applies the caveat rules in `config/rules.json`, fills the bilingual templates in `config/pt.json` and `config/en.json`, and verifies the result before returning it. Numbers only enter the text through slots, never through the templates.
-
-Build and test (needs CMake ≥ 3.16, a C++17 compiler and `libcurl4-openssl-dev`; other libraries are fetched by CMake):
+Needs CMake ≥ 3.16, a C++17 compiler and `libcurl4-openssl-dev`; the other libraries are fetched by CMake.
 
 ```bash
 cmake -S backend-core -B backend-core/build
@@ -45,103 +61,111 @@ cmake --build backend-core/build -j
 ctest --test-dir backend-core/build --output-on-failure
 ```
 
-Run it locally against the database, then add `export const STORY_API_URL = 'http://localhost:8080';` to `public/js/config.js`:
+Run it against the database, then add `export const STORY_API_URL = 'http://localhost:8080';` to `public/js/config.js`:
 
 ```bash
 export SUPABASE_URL=... SUPABASE_ANON_KEY=... STORY_CONFIG_DIR=backend-core/config
 backend-core/build/storyteller serve                          # GET /narrative?cnes=&radius=&lang=pt|en&public_only=0|1
-backend-core/build/storyteller payload 2786826 1000 > f.json  # freeze a facility's data as a fixture
+backend-core/build/storyteller payload 2786826 1000 > f.json  # freeze a facility's data
 backend-core/build/storyteller narrate f.json pt --text        # tell it offline
-backend-core/build/storyteller mutate backend-core/evaluation/fixtures/*.json   # fault-injection table
 ```
 
-Deploy it on Render as a second **Web Service** (runtime Docker, root directory `backend-core`) with `SUPABASE_URL`, `SUPABASE_ANON_KEY` and `ALLOWED_ORIGIN` (the frontend's URL), and give the frontend service `STORY_API_URL` with the service's URL. Without `STORY_API_URL` the page works as before, without the text.
+Without `STORY_API_URL` the page works without the text.
 
-The narrative also compares each facility's 1 km surroundings with its peers. That reference is built once, after the census and income data are loaded:
+## Deploying (Render)
+
+Two **Web Services**, both with runtime **Docker**:
+
+| Service | Root directory | Environment variables |
+|---|---|---|
+| Frontend | repository root | `SUPABASE_URL`, `SUPABASE_ANON_KEY`, `STORY_API_URL` (the service's URL) |
+| Storytelling | `backend-core` | `SUPABASE_URL`, `SUPABASE_ANON_KEY`, `ALLOWED_ORIGIN` (the frontend's URL) |
+
+The frontend container writes `js/config.js` from its variables at start-up (`deploy/write-config.sh`) and refuses to start if the Supabase ones are missing. Render supplies `PORT`. To try the frontend image locally:
 
 ```bash
-python3 -I etl/limpeza_renda.py ~/Downloads/Agregados_por_setores_renda_responsavel_BR_20260508_csv.zip
-database/reference/build_surroundings.sh 3        # all facilities at 1 km -> data/surroundings_1000.csv (~30 min)
-python3 -I analysis/typology.py                   # territorial types -> data/surroundings_types.csv
-python3 -I analysis/outcome_relations.py          # relations page data and expected counts
-python3 database/reference/compute_catchment.py --cnefe-dir ~/Downloads/cnefe_rmsp \
-        --cnes-dir ~/Downloads/BASE_DE_DADOS_CNES_202608
-                                                  # population each public primary care unit is expected to serve
-                                                  # -> data/catchment_units.csv, catchment_tracts.csv, catchment_summary.json
+docker build -t thesis-prototype .
+docker run --rm -p 10000:10000 -e SUPABASE_URL=... -e SUPABASE_ANON_KEY=... thesis-prototype
 ```
-
-Then apply migrations 012 to 015 and load the CSVs with `\copy` (connection from `.env` via `eval "$(python3 -I database/pgenv.py)"`, so no password appears on the command line; migrations 014 and 015 show how to load the catchment file).
-
-Need and supply around public primary care units are told on each unit's estimated catchment, not on the radius on screen: residents are split among the units nearest their homes by a Huff model with distance decay, within catchments that widen where units are sparse. Supply is counted in Family Health team equivalents and read against the PNAB range of 2,000 to 3,500 people per team; when the catchment's residents live more than 2 km away on average, the text says so (rule C22). Where a unit has no catchment figure, the service falls back to the 1 km radius and rule C21 keeps a sparse circle from being told as spare capacity.
-
-### Evaluation
-
-The evaluation sample (`backend-core/evaluation/sample.py`) draws facilities by stratum with a fixed seed; their frozen payloads are in `backend-core/evaluation/fixtures/` and are never used by the unit tests. `sample_need.py` adds 10 public primary care units that trigger the need-against-supply sentence, which none of the 40 does.
-
-- Fault injection: `storyteller mutate FIXTURE...` (results in `backend-core/evaluation/results/`).
-- Human annotation of caveats, content selection and text accuracy: `backend-core/evaluation/annotation/`. `build_tasks.py` writes the tasks (`STORYTELLER=path/to/storyteller python3 backend-core/evaluation/annotation/build_tasks.py`); annotators open `annotate.html` and follow `GUIA.md` (in Portuguese, like the texts they check); `agreement.py anotacao_A.json anotacao_B.json` computes agreement and the scores.
-
-## Facility page
-
-`public/facility.html` follows the layout of CulturaEduca's facility pages: a band with the location trail and the radius control, the map as a banner (expandable to a full map with the indicator choropleth), and tabs:
-
-| Tab | Contents | Scale |
-|---|---|---|
-| Reading the territory | the generated narrative and a key to its scale colours | all, each figure marked |
-| Record | the CNES record, location and a link to the facility's CNES page | facility |
-| Surroundings data | census of the radius against municipality and region, and the 1 km peer comparison | radius |
-| Health indicators | tuberculosis, dengue, leptospirosis, births and premature mortality | district (capital) and municipality |
-| Nearby facilities | the other facilities in the radius, by category | radius |
-
-The open tab is kept in the URL hash (`facility.html?cnes=2786826#health`). Clicking a sentence of the narrative opens the map on its indicator or the tab and card with its data. The peer comparison card uses the `reference` block of the narrative response, so it shows the figures the text cites, and only at the 1 km reference radius.
-
-## Relations page
-
-`public/relations.html` shows how tuberculosis, dengue, leptospirosis and teenage pregnancy relate to income, housing and sanitation, by municipality and by district of São Paulo city. Its data are a static file, `public/data/relations.json`, written by `analysis/outcome_relations.py`.
-
-## Keeping the Supabase project awake
-
-Supabase pauses free-tier projects after a week without activity. The workflow `.github/workflows/supabase-keepalive.yml` reads one row through the REST API every Monday and Thursday. It needs the repository secrets `SUPABASE_URL` and `SUPABASE_ANON_KEY` (Settings → Secrets and variables → Actions), and it only runs once it is on the default branch. A failed run usually means the project is already paused: restore it from the Supabase dashboard.
 
 ## Setting up the database
 
-Requires a Supabase project with PostGIS and the census tract polygons already loaded into `setores_censitarios_grande_sp`. To reload the tract outlines from the original IBGE mesh with a light, gap-free simplification, run `python3 database/seeders/load_geometry.py ~/Downloads/SP_setores_CD2022.json --tolerance 10`. Put `DATABASE_URL=postgresql://...` in `.env`, then:
+Needs a Supabase project with PostGIS, with the Data API enabled (Project Settings → Data API) and `public` as the exposed schema. Put `DATABASE_URL=postgresql://...` in `.env` (git-ignored); the scripts read it, and `eval "$(python3 -I database/pgenv.py)"` sets the `psql` variables without the password appearing on the command line.
+
+1. Load the census tract outlines from the IBGE mesh, with a light, gap-free simplification:
+
+   ```bash
+   python3 database/seeders/load_geometry.py ~/Downloads/SP_setores_CD2022.json --tolerance 10
+   ```
+
+2. Apply the migrations in numeric order, except 004, which goes after 008. They can be re-run safely. The ones that need data (012 to 015, 019 and 020) give the `\copy` command for it in their header.
+3. Load the cleaned CSVs: `python3 database/seeders/seed.py` (add `--replace` to reload).
+4. Apply 018 again at the end, and whenever the Data API is re-enabled: enabling it restores write privileges to the public roles.
+
+Migration 017 keeps the cost of a page visit independent of the size of the tract table. The parts of the surroundings that read every tract (crowding threshold, census × access join, municipal and regional sums) live in tables that statement-level triggers rebuild after any load. `select refresh_surroundings_tables();` does it by hand.
+
+## Updating the data
+
+The update is run by hand: nothing downloads or recomputes the data on a schedule. When a source publishes a new version, download it and run `update.sh`. It runs every step in order, each reading the outputs of the previous ones, and loads the results into the database.
+
+| Source | Where | Pace |
+|---|---|---|
+| CNES (establishments, beds, teams) | DATASUS, national monthly base | monthly |
+| SIH, SINAN, SINASC, SIM | DATASUS and SMS-SP TabNet (mostly downloaded by the scripts) | during the year |
+| Census 2022 aggregates and income | IBGE, national files | once a decade |
+| CNEFE 2022 addresses | IBGE, one file per municipality (the 39 of the RMSP) | once a decade |
 
 ```bash
-psql "$DATABASE_URL" -f database/migrations/001_frontend_read_api.sql
-psql "$DATABASE_URL" -f database/migrations/002_geocoded_coordinates.sql
-psql "$DATABASE_URL" -f database/migrations/003_corrected_coordinates.sql
-psql "$DATABASE_URL" -f database/migrations/005_sector_and_sus.sql
-psql "$DATABASE_URL" -f database/migrations/006_public_network_filter.sql
-psql "$DATABASE_URL" -f database/migrations/007_territory_indicators.sql
-psql "$DATABASE_URL" -f database/migrations/008_census_denominators.sql
-psql "$DATABASE_URL" -f database/migrations/004_reapply_read_only_grants.sql
-python3 database/seeders/seed.py          # add --replace to reload
+export CNES_DIR=~/Downloads/BASE_DE_DADOS_CNES_202608 LEITOS=~/Downloads/Leitos_csv_2026/Leitos_2026.csv \
+       SIH_MORBIDADE=... SIH_PERMANENCIA=... DENGUE=... LEPTO=... \
+       CENSO_BASICO=~/Downloads/basico.csv CENSO_DOMICILIO=~/Downloads/domicilio2.csv \
+       RENDA_ZIP=... CNEFE_DIR=~/Downloads/cnefe_rmsp
+./update.sh --dry-run          # print every command and the SQL of the loads
+./update.sh                    # tabnet → etl → geocoding → seed → batch → load
+./update.sh --from batch       # resume from a step; --only STEP runs one
 ```
 
-The Data API must be enabled in the Supabase dashboard (Project Settings → Data API) with `public` as the exposed schema. Enabling it restores write privileges to the public roles, so re-run migration 004 afterwards.
+- Each step asks only for the files it uses. A monthly CNES update still goes through the steps after `etl`, because the surroundings, catchments and mortality depend on the facility table.
+- The whole run takes a couple of hours, most of it the per-hospital TabNet queries (about an hour) and the surroundings of every facility (about 30 minutes).
+- Reference periods are constants: SIH months and TabNet years in `database/tabnet/fetch_tabnet.py`, SINAN years in `backend-core/config/rules.json`. For a new SIH period, also empty `database/tabnet/raw/sih_hospitals/`, since `fetch_sih_hospitals.py` skips the files it already has.
+- After a load, restart the storytelling service so it reloads its in-memory reference.
 
-The seeder also applies `database/geocoding/geocoded_facilities.csv`, which gives a position to facilities that have no usable coordinate in CNES. To regenerate it, download the CNEFE 2022 municipal files for the 39 municipalities from IBGE and run:
+## How the text is made
 
-```bash
-python3 database/geocoding/geocode_cnefe.py --cnefe-dir ~/Downloads/cnefe_rmsp
-python3 database/geocoding/arbitrate_sample.py   # optional: three-way check against OpenStreetMap
-python3 database/geocoding/compute_access.py --cnefe-dir ~/Downloads/cnefe_rmsp   # distance from homes to primary care
-python3 database/seeders/seed.py --replace
-```
+The service follows the classic data-to-text pipeline.
 
-## Layout
+1. **Facts.** It reads the same Supabase functions as the frontend and extracts facts at each scale: unit, radius, catchment, district, municipality, region.
+2. **Caveats and plan.** It applies the caveat rules in `backend-core/config/rules.json`, which suppress, qualify or disclose what each number needs, and plans a fixed schema: a lead, then the unit, the surroundings and the outcomes.
+3. **Templates.** It fills the bilingual templates in `config/pt.json` and `config/en.json`. Numbers only enter the text through slots tied to a datum and its scale.
+4. **Verification.** A verifier runs eight checks (numbers, plan, facts, caveats, scale, direction, causal wording, length). A text that fails is not served: the response keeps its facts, drops the text and sets `withheld`, and the page shows only the cards.
 
-| Path | Contents |
-|---|---|
-| `public/` | Frontend: map page (`index.html`), facility page (`facility.html`) and relations page (`relations.html`) |
-| `database/migrations/` | SQL for access policies and the read API functions |
-| `database/seeders/` | Loader for the cleaned CSVs |
-| `etl/` | ETL from the raw CNES, SIH, IBGE and DATASUS TabNet files to the cleaned CSVs |
-| `data/` | The cleaned CSVs loaded into the database |
-| `database/geocoding/` | Address geocoding of facilities with CNEFE 2022, and its validation |
-| `deploy/` | Files used by the Docker image |
-| `backend-core/` | C++ storytelling service: facts, caveat rules, templates, verifier, tests and evaluation |
-| `analysis/` | Statistical analyses: scale decomposition, TB scale transfer, outcome relations, territorial typology |
-| `database/reference/` | Builds the 1 km surroundings of every facility, the reference for peer comparisons |
-| `database/tabnet/` | Reproducible DATASUS and SMS-SP TabNet downloads, and the São Paulo district indicators |
+Two parts carry most of the domain logic:
+
+- **In-hospital deaths.**
+  - Deaths are told against those each hospital's patients would predict, by indirect standardisation over diagnosis group, age group and admission type, read on a funnel plot (`database/reference/compute_hospital_mortality.py`).
+  - When the case mix moves the expected rate far from the regional one, the text says what weighs most, from a Shapley split of the difference.
+  - The text never calls a hospital good or bad and always says what the adjustment leaves out (rules C23 to C24).
+- **Need and supply in primary care.**
+  - These are told on each public unit's estimated catchment. Residents are split among the units nearest their homes by a Huff model with distance decay, within catchments that widen where units are sparse (`compute_catchment.py`).
+  - Supply is counted in Family Health team equivalents and read against the PNAB range of 2,000 to 3,500 people per team.
+
+## Evaluation
+
+The evaluation sample (`backend-core/evaluation/sample.py`) draws 40 facilities by stratum with a fixed seed. `sample_need.py` adds 10 public primary care units that trigger the need-against-supply sentence. Their frozen payloads are in `backend-core/evaluation/fixtures/`; the unit tests never use them. Results go to `backend-core/evaluation/results/`.
+
+- **Fault injection:** `storyteller mutate FIXTURE...` plants seven kinds of error in every text and counts what the verifier and a numbers-only check catch.
+- **Sensitivity:** `storyteller sensitivity FIXTURE...` perturbs the selection weights and thresholds by ±50%.
+- **Free LLM** (offline only; the site always uses the templates): in `backend-core/evaluation/llm/`, `run_llm.py` asks a local model (Gemma 4 E4B through Ollama, or any OpenAI-compatible endpoint) to write the text from the same content plan, freely or by rewriting the templates. `score_llm.py` runs the same verifier on the answers.
+- **Human annotation** (10 facilities, about 45 minutes per annotator): in `backend-core/evaluation/annotation/`, `build_tasks.py` writes the tasks (`STORYTELLER=path/to/storyteller python3 .../build_tasks.py`).
+  - Annotators open `annotate.html`. For every sentence they check the data and say whether it is relevant; then they mark the left-out facts that should have been told.
+  - 2 of the 10 units show the free LLM text, without saying so.
+  - The instructions are in `GUIA.md`, in Portuguese like the texts.
+  - `agreement.py anotacao_*.json` computes the scores and the agreement.
+
+## Keeping the Supabase project awake
+
+Supabase pauses free-tier projects after a week without activity. `.github/workflows/supabase-keepalive.yml` reads one row through the REST API every Monday and Thursday. It needs the repository secrets `SUPABASE_URL` and `SUPABASE_ANON_KEY` (Settings → Secrets and variables → Actions).
+
+GitHub Actions only runs it from the default branch, and not at all while the GitHub account is locked over billing. In that case the runs fail at once with "The job was not started because your account is locked due to a billing issue". Any external scheduler that sends the same request works as a replacement.
+
+If the project is already paused, restore it from the Supabase dashboard.

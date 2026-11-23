@@ -1,0 +1,42 @@
+"Lista Morb  CID-10";"Menor 1 ano";"1 a 4 anos";"5 a 9 anos";"10 a 14 anos";"15 a 19 anos";"20 a 29 anos";"30 a 39 anos";"40 a 49 anos";"50 a 59 anos";"60 a 69 anos";"70 a 79 anos";"80 anos e mais";"Total"
+"01 Algumas doenças infecciosas e parasitárias";-;-;-;-;-;-;-;-;-;1;1;-;2
+".. Septicemia";-;-;-;-;-;-;-;-;-;1;-;-;1
+".. Outras infecções com transm predominant sexual";-;-;-;-;-;-;-;-;-;-;1;-;1
+"02 Neoplasias (tumores)";-;-;-;-;-;-;-;-;1;2;1;-;4
+".. Outr neopl in situ benigs e comport incert desc";-;-;-;-;-;-;-;-;1;2;1;-;4
+"06 Doenças do sistema nervoso";-;1;-;1;1;-;4;9;22;7;3;-;48
+".. Transtornos dos nervos raízes e plexos nervosos";-;-;-;-;-;-;4;9;22;7;3;-;45
+".. Paralisia cerebral e outras síndromes paralít";-;1;-;-;1;-;-;-;-;-;-;-;2
+".. Outras doenças do sistema nervoso";-;-;-;1;-;-;-;-;-;-;-;-;1
+"09 Doenças do aparelho circulatório";-;-;-;-;-;4;18;34;25;10;5;-;96
+".. Outras doenças hipertensivas";-;-;-;-;-;-;-;-;-;1;-;-;1
+".. Acid vascular cerebr não espec hemorrág ou isq";-;-;-;-;-;-;-;-;-;1;-;-;1
+".. Hemorróidas";-;-;-;-;-;4;18;34;25;8;5;-;94
+"11 Doenças do aparelho digestivo";-;-;-;-;5;85;169;224;232;189;80;11;995
+".. Hérnia inguinal";-;-;-;-;1;25;31;49;56;59;39;7;267
+".. Outras hérnias";-;-;-;-;1;15;37;67;63;34;18;2;237
+".. Outras doenças dos intestinos e peritônio";-;-;-;-;-;5;5;13;4;4;1;-;32
+".. Colelitíase e colecistite";-;-;-;-;3;40;93;93;108;91;22;1;451
+".. Outras doenças do aparelho digestivo";-;-;-;-;-;-;3;2;1;1;-;1;8
+"12 Doenças da pele e do tecido subcutâneo";-;-;-;-;-;-;1;2;5;4;1;-;13
+".. Outras doenças da pele e do tecido subcutâneo";-;-;-;-;-;-;1;2;5;4;1;-;13
+"13 Doenças sist osteomuscular e tec conjuntivo";-;2;1;2;7;26;38;60;138;105;25;-;404
+".. Artrose";-;-;-;-;-;-;1;-;-;2;-;-;3
+".. Deformidades adquiridas das articulações";-;1;-;-;-;-;5;13;31;31;7;-;88
+".. Outros transtronos articulares";-;-;-;-;4;17;14;18;22;1;-;-;76
+".. Transtornos do tecido mole";-;1;1;1;3;9;18;27;84;71;16;-;231
+".. Transtornos da densidade e da estrutura ósseas";-;-;-;1;-;-;-;-;-;-;-;-;1
+".. Osteomielite";-;-;-;-;-;-;-;-;1;-;-;-;1
+".. Outras doenças sist osteomuscular e tec conjunt";-;-;-;-;-;-;-;2;-;-;2;-;4
+"17 Malf cong deformid e anomalias cromossômicas";5;7;8;3;1;1;1;-;3;-;-;-;29
+".. Deformidades congênitas dos pés";5;7;7;3;1;1;-;-;3;-;-;-;27
+".. Outr malform e deform congên aparelho osteomusc";-;-;1;-;-;-;1;-;-;-;-;-;2
+"19 Lesões enven e alg out conseq causas externas";-;-;-;-;15;43;50;53;11;4;2;-;178
+".. Fratura de outros ossos dos membros";-;-;-;-;-;-;3;5;-;1;-;-;9
+".. Luxações entorse distensão reg esp e múlt corpo";-;-;-;-;15;42;44;44;10;2;1;-;158
+".. Outr traum reg espec não espec e múltipl corpo";-;-;-;-;-;-;3;2;-;-;-;-;5
+".. Cert compl prec traum compl cirúrg ass méd NCOP";-;-;-;-;-;1;-;2;1;1;1;-;6
+"21 Contatos com serviços de saúde";-;-;-;-;-;-;-;-;1;-;-;-;1
+".. Pessoas contato serv saúde por outras razões";-;-;-;-;-;-;-;-;1;-;-;-;1
+"Total";5;10;9;6;29;159;281;382;438;322;118;11;1770
+&

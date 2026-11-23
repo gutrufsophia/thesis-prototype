@@ -1,6 +1,9 @@
 #include <algorithm>
+#include <array>
 #include <utility>
+#include <vector>
 
+#include <catch2/catch_approx.hpp>
 #include <catch2/catch_test_macros.hpp>
 
 #include "helpers.hpp"
@@ -11,6 +14,7 @@
 
 namespace {
 
+using Catch::Approx;
 using story::Caveat;
 using story::Effect;
 
@@ -63,7 +67,7 @@ TEST_CASE("C04: off-network sewage says what households use instead") {
 }
 
 TEST_CASE("C06: private capacity without SUS is pointed out") {
-    CHECK(has(told("butanta_1000").plan.caveats, "C06"));
+    CHECK(has(post_rules_for("butanta_1000", {{}, {}, {"network"}, {}}), "C06"));
     CHECK_FALSE(has(post_rules_for("padeiros_1000", {{}, {}, {"network"}, {}}), "C06"));  // no other facility
 }
 
@@ -256,6 +260,198 @@ TEST_CASE("caveats only attach to planned facts") {
                 return std::find(p.begin(), p.end(), c.fact) != p.end();
             });
             CHECK(planned);
+        }
+    }
+}
+
+namespace {
+
+// Hospital das Clínicas with in-hospital death figures of the given band.
+story::Payload with_deaths(const std::string& band, double admissions = 20000, double deaths = 1100,
+                           double expected = 1000) {
+    auto payload = test::fixture("hc_1000");
+    payload.facility["internacoes_total"] = admissions;
+    payload.facility["obitos_sus"] = deaths;
+    payload.facility["obitos_esperados"] = expected;
+    payload.facility["mortalidade_faixa"] = band;
+    return payload;
+}
+
+}  // namespace
+
+TEST_CASE("in-hospital deaths are told against the case mix, never alone") {
+    const auto s = story::tell(with_deaths("within"), test::config(), "pt");
+    const auto* deaths = story::find_fact(s.facts, "deaths");
+    REQUIRE(deaths != nullptr);
+    CHECK(deaths->tier == story::Tier::Similar);
+    CHECK(deaths->slots.at("rate_unit").number == Approx(5.5));
+    CHECK(deaths->slots.at("expected_unit").number == Approx(5.0));
+    const auto& unit = s.plan.paragraphs[story::kUnit];
+    const auto at = [&](const char* id) { return std::find(unit.begin(), unit.end(), id) - unit.begin(); };
+    REQUIRE(at("deaths") < static_cast<long>(unit.size()));
+    CHECK(at("admissions") + 1 == at("deaths"));  // the case mix comes first
+    CHECK(story::find_fact(s.facts, "admissions")->mandatory);
+    CHECK(has(s.plan.caveats, "C23"));
+    CHECK_FALSE(has(s.plan.caveats, "C23b"));
+    CHECK_FALSE(has(s.plan.caveats, "C23c"));
+}
+
+TEST_CASE("C23b and C23c: deaths outside the range are put in context in their direction") {
+    const auto below = story::tell(with_deaths("below", 20000, 40, 1000), test::config(), "pt");
+    CHECK(story::find_fact(below.facts, "deaths")->tier == story::Tier::Lower);
+    CHECK(has(below.plan.caveats, "C23b"));
+    CHECK_FALSE(has(below.plan.caveats, "C23c"));
+    const auto above = story::tell(with_deaths("above", 20000, 3000, 1000), test::config(), "pt");
+    CHECK(story::find_fact(above.facts, "deaths")->tier == story::Tier::Higher);
+    CHECK(has(above.plan.caveats, "C23c"));
+    CHECK_FALSE(has(above.plan.caveats, "C23b"));
+}
+
+TEST_CASE("C24: few admissions or few expected deaths suppress the death rate") {
+    const auto few_admissions = story::tell(with_deaths("within", 80, 4, 6), test::config(), "pt");
+    CHECK(story::find_fact(few_admissions.facts, "deaths") == nullptr);
+    CHECK(has(few_admissions.suppressed, "C24", "admissions"));
+    CHECK_FALSE(story::find_fact(few_admissions.facts, "admissions")->mandatory);
+    const auto few_expected = story::tell(with_deaths("within", 3000, 2, 3), test::config(), "pt");
+    CHECK(has(few_expected.suppressed, "C24", "expected"));
+    // at the thresholds the rate is told
+    CHECK(story::find_fact(story::tell(with_deaths("within", 100, 6, 5), test::config(), "pt").facts, "deaths"));
+}
+
+TEST_CASE("no death rate without SUS admissions or without the case-mix figures") {
+    CHECK(story::find_fact(told("hc_1000").facts, "deaths") == nullptr);  // fixture without the figures
+    auto payload = with_deaths("within");
+    payload.facility.erase("mortalidade_faixa");
+    CHECK(story::find_fact(story::tell(payload, test::config(), "pt").facts, "deaths") == nullptr);
+    CHECK(story::find_fact(story::tell(with_deaths("within", 0, 0, 0), test::config(), "pt").facts, "deaths") == nullptr);
+}
+
+TEST_CASE("every in-hospital death variant is told and verified in both languages") {
+    for (auto payload : {with_deaths("within"), with_deaths("below", 20000, 40, 1000), with_deaths("above", 20000, 3000, 1000)}) {
+        for (const char* code : {"pt", "en"}) {
+            const auto body = story::narrate(payload, test::config(), code);
+            INFO(code << " " << body.at("issues").dump());
+            CHECK(body.at("verified").get<bool>());
+            const auto text = body.at("text").get<std::string>();
+            CHECK(text.find(code == std::string("pt") ? "não mede a qualidade" : "does not measure the quality") != std::string::npos);
+        }
+    }
+}
+
+namespace {
+
+// The composition behind the expected rate (database/reference/compute_hospital_mortality.py), with
+// the Shapley parts in percentage points: diagnosis, age, admission type.
+nlohmann::json mix(double diagnosis, double age, double urgency, double urgent_pct = 70) {
+    return {{"taxa_regiao", 5.16},
+            {"shapley_pp", {{"diagnostico", diagnosis}, {"idade", age}, {"carater", urgency}}},
+            {"idosos_pct", 61.7}, {"idosos_regiao_pct", 16.7},
+            {"urgencia_pct", urgent_pct}, {"urgencia_regiao_pct", 68.7},
+            {"capitulo", "internacoes_infecciosas_parasitarias"}, {"capitulo_pct", 13.6},
+            {"capitulo_regiao_pct", 4.6}, {"capitulo_taxa_regiao", 27.53}};
+}
+
+// 22% expected (above the regional 5.16%) or 2.5% (below), with the given composition.
+story::Payload with_mix(const nlohmann::json& profile, bool up = true, const std::string& band = "within",
+                        const std::string& flow = "Atendimento de Demanda Espontânea e Referenciada") {
+    auto payload = with_deaths(band, 20000, up ? 4600 : 600, up ? 4400 : 500);
+    payload.facility["mortalidade_perfil"] = profile;
+    payload.facility["Fluxo_Clientela"] = flow;
+    return payload;
+}
+
+}  // namespace
+
+TEST_CASE("the expected rate is explained by the factors that move it most") {
+    const auto s = story::tell(with_mix(mix(7.9, 7.4, 1.9)), test::config(), "pt");
+    const auto* f = story::find_fact(s.facts, "casemix");
+    REQUIRE(f != nullptr);
+    CHECK(f->variant == "diagnosis_age.up");  // the second weighs more than half the first
+    CHECK(f->tier == story::Tier::Higher);
+    CHECK(f->slots.at("rate_region").number == Approx(5.16));
+    CHECK(f->slots.count("chapter_share_unit"));
+    CHECK(f->slots.count("old_share_unit"));
+    CHECK_FALSE(f->slots.count("urgent_share_unit"));
+    const auto& unit = s.plan.paragraphs[story::kUnit];
+    const auto deaths = std::find(unit.begin(), unit.end(), "deaths");
+    REQUIRE(deaths != unit.end());
+    CHECK(*(deaths + 1) == "casemix");
+    CHECK(has(s.plan.caveats, "C23"));
+    CHECK(std::find_if(s.plan.caveats.begin(), s.plan.caveats.end(), [](const auto& c) {
+              return c.rule == "C23" && c.fact == "casemix";
+          }) != s.plan.caveats.end());  // the caveats follow the explanation
+
+    CHECK(story::find_fact(story::tell(with_mix(mix(1, 8, 0.5)), test::config(), "pt").facts, "casemix")->variant == "age.up");
+    CHECK(story::find_fact(story::tell(with_mix(mix(0.4, 0.5, -3.5), false), test::config(), "pt").facts, "casemix")->variant ==
+          "urgency.down");
+}
+
+TEST_CASE("no explanation when no factor moves the expected rate much") {
+    // one factor must move it by half the regional rate (2.58 points)
+    CHECK(story::find_fact(story::tell(with_mix(mix(2.5, 1, 0.5)), test::config(), "pt").facts, "casemix") == nullptr);
+    CHECK(story::find_fact(story::tell(with_deaths("within"), test::config(), "pt").facts, "casemix") == nullptr);  // no profile
+}
+
+TEST_CASE("C24 suppresses the explanation with the death rate") {
+    auto payload = with_mix(mix(7.9, 7.4, 1.9));
+    payload.facility["internacoes_total"] = 80;
+    const auto s = story::tell(payload, test::config(), "pt");
+    CHECK(story::find_fact(s.facts, "casemix") == nullptr);
+    CHECK(has(s.suppressed, "C24", "admissions"));
+}
+
+TEST_CASE("C23d: referred patients recorded as elective lower the expected rate") {
+    const auto referred = "Atendimento de Demanda Referenciada";
+    CHECK(has(story::tell(with_mix(mix(0.4, 0.5, -3.5, 3), false, "above", referred), test::config(), "pt").plan.caveats, "C23d"));
+    // walk-in patients too, or most admissions urgent: the coding is plausible
+    CHECK_FALSE(has(story::tell(with_mix(mix(0.4, 0.5, -3.5, 3), false, "above"), test::config(), "pt").plan.caveats, "C23d"));
+    CHECK_FALSE(has(story::tell(with_mix(mix(0.4, 0.5, -3.5, 30), false, "above", referred), test::config(), "pt").plan.caveats, "C23d"));
+    // the admission type raising the expected rate is not a coding problem
+    CHECK_FALSE(has(story::tell(with_mix(mix(0.5, 1, 8, 3), true, "within", referred), test::config(), "pt").plan.caveats, "C23d"));
+}
+
+TEST_CASE("every explanation of the expected rate is told and verified in both languages") {
+    const std::vector<std::array<double, 3>> parts{{8, 1, 0.5}, {1, 8, 0.5}, {0.5, 1, 8}, {8, 7, 0.5}, {8, 0.5, 7}, {0.5, 8, 7}};
+    for (const auto& p : parts) {
+        for (bool up : {true, false}) {
+            const double sign = up ? 1 : -1;
+            const auto payload = with_mix(mix(sign * p[0], sign * p[1], sign * p[2], 3), up, up ? "within" : "above",
+                                          "Atendimento de Demanda Referenciada");
+            for (const char* code : {"pt", "en"}) {
+                const auto body = story::narrate(payload, test::config(), code);
+                INFO(code << " " << p[0] << " " << p[1] << " " << p[2] << " " << up << " " << body.at("issues").dump());
+                CHECK(body.at("verified").get<bool>());
+                const auto& plan = body.at("plan").at(story::kUnit);
+                CHECK(std::find(plan.begin(), plan.end(), "casemix") != plan.end());
+            }
+        }
+    }
+}
+
+TEST_CASE("no admission at 70 or more is said in words, not as 0.0%") {
+    for (const auto& [parts, variant] : std::vector<std::pair<std::array<double, 3>, std::string>>{
+             {{-1, -8, -0.5}, "age0.down"}, {{-8, -7, -0.5}, "diagnosis_age0.down"}, {{-0.5, -8, -7}, "age0_urgency.down"}}) {
+        auto profile = mix(parts[0], parts[1], parts[2]);
+        profile["idosos_pct"] = 0;
+        const auto payload = with_mix(profile, false);
+        CHECK(story::find_fact(story::tell(payload, test::config(), "pt").facts, "casemix")->variant == variant);
+        for (const char* code : {"pt", "en"}) {
+            const auto body = story::narrate(payload, test::config(), code);
+            INFO(code << " " << variant << " " << body.at("issues").dump());
+            CHECK(body.at("verified").get<bool>());
+            int told = 0;
+            for (const auto& paragraph : body.at("paragraphs")) {
+                for (const auto& sentence : paragraph) {
+                    const auto& facts = sentence.at("facts");
+                    if (std::find(facts.begin(), facts.end(), "casemix") == facts.end()) continue;
+                    std::string text;
+                    for (const auto& segment : sentence.at("segments")) text += segment.at("text").get<std::string>();
+                    CHECK(text.find(code == std::string("pt") ? " 0,0%" : " 0.0%") == std::string::npos);
+                    CHECK(text.find(code == std::string("pt") ? "nenhum" : " no") != std::string::npos);
+                    ++told;
+                }
+            }
+            CHECK(told == 1);
         }
     }
 }

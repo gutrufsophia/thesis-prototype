@@ -1,0 +1,15 @@
+"Lista Morb  CID-10";"Menor 1 ano";"1 a 4 anos";"5 a 9 anos";"10 a 14 anos";"15 a 19 anos";"Total"
+"01 Algumas doenças infecciosas e parasitárias";3;3;1;1;1;9
+".. Diarréia e gastroenterite origem infecc presum";-;-;1;-;-;1
+".. Septicemia";3;3;-;1;1;8
+"09 Doenças do aparelho circulatório";-;-;-;-;1;1
+".. Hemorragia intracraniana";-;-;-;-;1;1
+"10 Doenças do aparelho respiratório";1;1;1;1;-;4
+".. Pneumonia";1;-;-;-;-;1
+".. Outras doenças do aparelho respiratório";-;1;1;1;-;3
+"11 Doenças do aparelho digestivo";-;1;-;-;-;1
+".. Outras hérnias";-;1;-;-;-;1
+"19 Lesões enven e alg out conseq causas externas";-;1;-;-;-;1
+".. Traumatismo de outros órgãos internos";-;1;-;-;-;1
+"Total";4;6;2;2;2;16
+&

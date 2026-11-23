@@ -1,4 +1,9 @@
+"""First upload of the tract polygons, superseded by load_geometry.py.
+
+Uso: python3 database/seeders/upload_tracts.py SP_setores_CD2022.json
+"""
 import os
+import sys
 from pathlib import Path
 
 import geopandas as gpd
@@ -16,7 +21,7 @@ def read_env(path):
 
 # 1. Carrega o GeoJSON de 44MB
 print("Lendo o arquivo GeoJSON...")
-gdf = gpd.read_file("/home/sophia/Downloads/SP_setores_CD2022 (1).json")
+gdf = gpd.read_file(sys.argv[1])
 
 # 2. A conexão vem do .env (DATABASE_URL), que não é versionado
 uri_conexao = os.environ.get("DATABASE_URL") or read_env(Path(__file__).resolve().parents[2] / ".env")["DATABASE_URL"]

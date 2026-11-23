@@ -4280,7 +4280,26 @@
   "tipo_equipamento": "Hospital Especializado",
   "total_enfermeiros": 102,
   "total_medicos": 226,
-  "total_saude_mental": 5
+  "total_saude_mental": 5,
+  "obitos_sus": 32,
+  "obitos_esperados": 45,
+  "mortalidade_faixa": "within",
+  "mortalidade_perfil": {
+   "capitulo": "internacoes_gravidez_parto_puerperio",
+   "idosos_pct": 0.0,
+   "shapley_pp": {
+    "idade": -2.21,
+    "carater": 0.68,
+    "diagnostico": -3.11
+   },
+   "taxa_regiao": 5.16,
+   "capitulo_pct": 74.6,
+   "urgencia_pct": 99.4,
+   "idosos_regiao_pct": 16.7,
+   "capitulo_regiao_pct": 14.5,
+   "urgencia_regiao_pct": 68.7,
+   "capitulo_taxa_regiao": 0.04
+  }
  },
  "hospital_stays": [
   0.0,
