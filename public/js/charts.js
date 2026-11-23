@@ -72,10 +72,33 @@ export function keyValues(entries, { numeric = false } = {}) {
   ]));
 }
 
-/** Titled block; shows `emptyText` instead of the body when there is nothing to plot. */
-export function section(title, body, { hint, emptyText } = {}) {
+/**
+ * Collapsed note under a figure: sources, definitions and method, kept one click away so the card
+ * shows only the figure and a plain sentence (details on demand). Empty when there is nothing to say.
+ */
+export function about(...children) {
+  const content = children.flat().filter((child) => child !== null && child !== undefined && child !== false && child !== '');
+  if (!content.length) return null;
+  return el('details', { class: 'about' },
+    el('summary', { text: t('details.about') }),
+    content.map((child) => (typeof child === 'string' ? el('p', { text: child }) : child)));
+}
+
+/** Collapsed record rows that a reader seldom needs (codes, legal names, technical position). */
+export function moreRows(entries) {
+  const shown = entries.filter(([, value]) => value);
+  if (!shown.length) return null;
+  return el('details', { class: 'about' }, el('summary', { text: t('details.more') }), keyValues(shown));
+}
+
+/**
+ * Titled block; shows `emptyText` instead of the body when there is nothing to plot. `hint` is a
+ * short plain sentence shown under the title; `note` goes into the collapsed "about" note.
+ */
+export function section(title, body, { hint, note, emptyText } = {}) {
   return el('section', { class: 'block' },
     el('h3', { text: title }),
     hint ? el('p', { class: 'hint', text: hint }) : null,
-    body || el('p', { class: 'empty', text: emptyText || t('noneRecorded') }));
+    body || el('p', { class: 'empty', text: emptyText || t('noneRecorded') }),
+    about(note));
 }
