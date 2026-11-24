@@ -203,7 +203,7 @@
       "marker": "transfers"
     },
     "C23c": {
-      "text": "Within the same diagnosis and age group, hospitals that take the gravest, palliative or long-stay cases record more deaths, which does not in itself mean worse care.",
+      "text": "Hospitals taking the gravest, palliative or long-stay cases record more deaths; being above the range calls for checking the records and patients' profile, not proof of worse care.",
       "marker": "worse care"
     },
     "C23d": {"text": "The remaining admissions are recorded as elective, although the hospital only takes referred patients; if some of them were emergencies, the expected rate is underestimated.", "marker": "recorded as elective"}
